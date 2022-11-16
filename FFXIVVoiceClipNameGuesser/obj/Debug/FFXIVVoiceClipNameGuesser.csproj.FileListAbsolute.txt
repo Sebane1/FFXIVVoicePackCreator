@@ -1,0 +1,12 @@
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Debug\FFXIVVoiceClipNameGuesser.exe.config
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Debug\FFXIVVoiceClipNameGuesser.exe
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Debug\FFXIVVoiceClipNameGuesser.pdb
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.Properties.Resources.resources
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.FilePicker.resources
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.csproj.GenerateResource.cache
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.csproj.CoreCompileInputs.cache
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.exe
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.pdb
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.MainWindow.resources
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.SCDCreator.resources
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\FFXIVVoiceClipNameGuesser.csproj.AssemblyReference.cache
