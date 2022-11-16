@@ -24,21 +24,11 @@ namespace FFXIVVoiceClipNameGuesser {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.wavSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SCDCreator));
             this.generateButton = new System.Windows.Forms.Button();
             this.outputSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
+            this.wavSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
             this.SuspendLayout();
-            // 
-            // wavSelection
-            // 
-            this.wavSelection.Filter = "wav files (*.wav)|*.wav";
-            this.wavSelection.Index = -1;
-            this.wavSelection.IsSaveMode = false;
-            this.wavSelection.Location = new System.Drawing.Point(12, 12);
-            this.wavSelection.Name = "wavSelection";
-            this.wavSelection.Size = new System.Drawing.Size(489, 31);
-            this.wavSelection.TabIndex = 0;
-            this.wavSelection.Load += new System.EventHandler(this.filePicker1_Load);
             // 
             // generateButton
             // 
@@ -59,6 +49,17 @@ namespace FFXIVVoiceClipNameGuesser {
             this.outputSelection.Name = "outputSelection";
             this.outputSelection.Size = new System.Drawing.Size(489, 31);
             this.outputSelection.TabIndex = 3;
+            // 
+            // wavSelection
+            // 
+            this.wavSelection.Filter = resources.GetString("wavSelection.Filter");
+            this.wavSelection.Index = -1;
+            this.wavSelection.IsSaveMode = false;
+            this.wavSelection.Location = new System.Drawing.Point(12, 12);
+            this.wavSelection.Name = "wavSelection";
+            this.wavSelection.Size = new System.Drawing.Size(489, 31);
+            this.wavSelection.TabIndex = 0;
+            this.wavSelection.Load += new System.EventHandler(this.filePicker1_Load);
             // 
             // SCDCreator
             // 
