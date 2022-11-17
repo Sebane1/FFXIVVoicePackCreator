@@ -13,6 +13,7 @@ namespace FFXIVVoiceClipNameGuesser {
                     using (MemoryStream wavStream = new MemoryStream()) {
                         using (BinaryWriter headerWriter = new BinaryWriter(headerStream)) {
                             using (BinaryWriter waveWriter = new BinaryWriter(wavStream)) {
+                                MemoryStream waveSpacing = new MemoryStream(new byte[44]);
                                 // Load header into memory
                                 header.Seek(0, SeekOrigin.Begin);
                                 header.CopyTo(headerStream);
@@ -48,11 +49,40 @@ namespace FFXIVVoiceClipNameGuesser {
                                 // Skip 20 positions into wave file and copy to file
                                 wavStream.Seek(0, SeekOrigin.Begin);
                                 wavStream.Seek(20, SeekOrigin.Current);
+                                CopyStream(wavStream, outputFileStream, 50);
+                                waveSpacing.CopyTo(outputFileStream);
+                                wavStream.Seek(0, SeekOrigin.Begin);
+                                wavStream.Seek(70, SeekOrigin.Current);
+                                int positionsMoved;
+                                char fourth = '.';
+                                char third = '.';
+                                char second = '.';
+                                char first = '.';
+                                while (true) {
+                                    fourth = third;
+                                    third = second;
+                                    second = first;
+                                    first = (char)wavStream.ReadByte();
+                                    string value = fourth + "" + third + "" + second + "" + first;
+                                    if (value == "data") {
+                                        break;
+                                    }
+                                }
+                                wavStream.Seek(6, SeekOrigin.Current);
                                 wavStream.CopyTo(outputFileStream);
                             }
                         }
                     }
                 }
+            }
+        }
+        public static void CopyStream(Stream input, Stream output, int bytes) {
+            byte[] buffer = new byte[32768];
+            int read;
+            while (bytes > 0 &&
+                   (read = input.Read(buffer, 0, Math.Min(buffer.Length, bytes))) > 0) {
+                output.Write(buffer, 0, read);
+                bytes -= read;
             }
         }
     }
