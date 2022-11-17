@@ -47,6 +47,7 @@ namespace FFXIVVoiceClipNameGuesser {
                 }
             }
             File.Delete(outputPath);
+            this.Focus();
         }
     }
 }

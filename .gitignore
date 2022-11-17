@@ -1,3 +1,7 @@
 
 FFXIVVoiceClipNameGuesser/bin/Release/ffmpeg.exe
 FFXIVVoiceClipNameGuesser/bin/Debug/ffmpeg.exe
+*.zip
+*.exe
+*.exe
+*.exe
