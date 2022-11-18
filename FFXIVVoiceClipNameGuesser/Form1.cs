@@ -19,6 +19,7 @@ namespace FFXIVVoiceClipNameGuesser {
         private List<string> secondaryKnownFileList;
         private Point startPos;
         private bool canDoDragDrop;
+        private SCDGenerator scdGenerator;
 
         public MainWindow() {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace FFXIVVoiceClipNameGuesser {
             } else {
                 MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", "FFXIV Voice Clip Name Guesser");
             }
+            scdGenerator = new SCDGenerator();
         }
 
         private void PickVoiceDump() {
@@ -131,12 +133,13 @@ namespace FFXIVVoiceClipNameGuesser {
             if (filepath != null) {
                 bool firstDone = false;
                 for (int counter = 0; counter <= int.Parse(attempts.Text); counter++) {
-                    int startValue = int.Parse(startNumberGuess.Text);
+                    int startValue = int.Parse(startNumberGuess.Text.Replace(",", "").Replace(".", "").Replace("scd", ""));
                     int i = 0;
                     foreach (string file in files) {
                         if (!string.IsNullOrEmpty(file)) {
                             string fileName = (startValue + i) + "";
-                            File.Copy(file, Path.Combine(filepath, fileName + ".scd"), true);
+                            //File.Copy(file, Path.Combine(filepath, fileName + ".scd"), true);
+                            scdGenerator.ConvertAndGenerateSCD(file, Path.Combine(filepath, fileName + ".scd"));
                             if (firstDone) {
                                 paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
                             } else {
@@ -184,12 +187,13 @@ namespace FFXIVVoiceClipNameGuesser {
             if (filepath != null) {
                 bool firstDone = false;
                 for (int counter = 0; counter <= int.Parse(attempts.Text); counter++) {
-                    int startValue = int.Parse(startNumber.Text);
+                    int startValue = int.Parse(startNumber.Text.Replace(",", "").Replace(".", "").Replace("scd", ""));
                     int i = 0;
                     foreach (string file in files) {
                         if (!string.IsNullOrEmpty(file)) {
                             string fileName = (startValue + i) + "";
-                            File.Copy(file, Path.Combine(filepath, fileName + ".scd"), true);
+                            //File.Copy(file, Path.Combine(filepath, fileName + ".scd"), true);
+                            scdGenerator.ConvertAndGenerateSCD(file, Path.Combine(filepath, fileName + ".scd"));
                             if (firstDone) {
                                 paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
                             } else {
