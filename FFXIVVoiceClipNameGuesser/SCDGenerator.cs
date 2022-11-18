@@ -1,12 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FFXIVVoiceClipNameGuesser {
     public class SCDGenerator {
+        public void ConvertAndGenerateSCD(string inputPath, string outputPath) {
+            SCDGenerator generator = new SCDGenerator();
+            string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
+            Process.Start(Path.Combine(Application.StartupPath, "ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
+            while (IsFileLocked(tempPath)) { };
+            using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, "header.bin"), FileMode.Open, FileAccess.Read)) {
+                using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
+                    generator.GenerateSCD(header, inputStream, outputPath);
+                }
+            }
+            File.Delete(tempPath);
+        }
+        protected virtual bool IsFileLocked(string file) {
+            try {
+                using (FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.None)) {
+                    stream.Close();
+                }
+            } catch (IOException) {
+                //the file is unavailable because it is:
+                //still being written to
+                //or being processed by another thread
+                //or does not exist (has already been processed)
+                return true;
+            }
+
+            //file is not locked
+            return false;
+        }
         public void GenerateSCD(FileStream header, FileStream wavFile, string output) {
             using (FileStream outputFileStream = new FileStream(output, FileMode.Create)) {
                 using (MemoryStream headerStream = new MemoryStream()) {
@@ -53,7 +83,6 @@ namespace FFXIVVoiceClipNameGuesser {
                                 waveSpacing.CopyTo(outputFileStream);
                                 wavStream.Seek(0, SeekOrigin.Begin);
                                 wavStream.Seek(70, SeekOrigin.Current);
-                                int positionsMoved;
                                 char fourth = '.';
                                 char third = '.';
                                 char second = '.';

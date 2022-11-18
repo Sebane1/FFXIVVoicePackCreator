@@ -27,7 +27,7 @@ namespace FFXIVVoiceClipNameGuesser {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SCDCreator));
             this.generateButton = new System.Windows.Forms.Button();
             this.outputSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.wavSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
+            this.mediaSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
             this.SuspendLayout();
             // 
             // generateButton
@@ -50,16 +50,16 @@ namespace FFXIVVoiceClipNameGuesser {
             this.outputSelection.Size = new System.Drawing.Size(489, 31);
             this.outputSelection.TabIndex = 3;
             // 
-            // wavSelection
+            // mediaSelection
             // 
-            this.wavSelection.Filter = resources.GetString("wavSelection.Filter");
-            this.wavSelection.Index = -1;
-            this.wavSelection.IsSaveMode = false;
-            this.wavSelection.Location = new System.Drawing.Point(12, 12);
-            this.wavSelection.Name = "wavSelection";
-            this.wavSelection.Size = new System.Drawing.Size(489, 31);
-            this.wavSelection.TabIndex = 0;
-            this.wavSelection.Load += new System.EventHandler(this.filePicker1_Load);
+            this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
+            this.mediaSelection.Index = -1;
+            this.mediaSelection.IsSaveMode = false;
+            this.mediaSelection.Location = new System.Drawing.Point(12, 12);
+            this.mediaSelection.Name = "mediaSelection";
+            this.mediaSelection.Size = new System.Drawing.Size(489, 31);
+            this.mediaSelection.TabIndex = 0;
+            this.mediaSelection.Load += new System.EventHandler(this.filePicker1_Load);
             // 
             // SCDCreator
             // 
@@ -68,7 +68,7 @@ namespace FFXIVVoiceClipNameGuesser {
             this.ClientSize = new System.Drawing.Size(514, 118);
             this.Controls.Add(this.outputSelection);
             this.Controls.Add(this.generateButton);
-            this.Controls.Add(this.wavSelection);
+            this.Controls.Add(this.mediaSelection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SCDCreator";
             this.Text = "MS-ADPCM SCD Genrator (Experimental)";
@@ -78,7 +78,7 @@ namespace FFXIVVoiceClipNameGuesser {
 
         #endregion
 
-        private FilePicker wavSelection;
+        private FilePicker mediaSelection;
         private System.Windows.Forms.Button generateButton;
         private FilePicker outputSelection;
     }

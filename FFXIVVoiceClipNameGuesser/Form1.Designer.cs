@@ -24,6 +24,7 @@ namespace FFXIVVoiceClipNameGuesser {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.incrementButton = new System.Windows.Forms.Button();
             this.jsonText = new System.Windows.Forms.TextBox();
             this.generateButton = new System.Windows.Forms.Button();
@@ -213,7 +214,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // unknown2
             // 
-            this.unknown2.Filter = "scd files (*.scd)|*.scd";
+            this.unknown2.Filter = resources.GetString("unknown2.Filter");
             this.unknown2.Index = 15;
             this.unknown2.IsSaveMode = false;
             this.unknown2.Location = new System.Drawing.Point(12, 576);
@@ -223,7 +224,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // unknown1
             // 
-            this.unknown1.Filter = "scd files (*.scd)|*.scd";
+            this.unknown1.Filter = resources.GetString("unknown1.Filter");
             this.unknown1.Index = 14;
             this.unknown1.IsSaveMode = false;
             this.unknown1.Location = new System.Drawing.Point(12, 539);
@@ -233,7 +234,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // happy
             // 
-            this.happy.Filter = "scd files (*.scd)|*.scd";
+            this.happy.Filter = resources.GetString("happy.Filter");
             this.happy.Index = 13;
             this.happy.IsSaveMode = false;
             this.happy.Location = new System.Drawing.Point(12, 502);
@@ -243,7 +244,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // yes
             // 
-            this.yes.Filter = "scd files (*.scd)|*.scd";
+            this.yes.Filter = resources.GetString("yes.Filter");
             this.yes.Index = 12;
             this.yes.IsSaveMode = false;
             this.yes.Location = new System.Drawing.Point(12, 469);
@@ -253,7 +254,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // upset
             // 
-            this.upset.Filter = "scd files (*.scd)|*.scd";
+            this.upset.Filter = resources.GetString("upset.Filter");
             this.upset.Index = 11;
             this.upset.IsSaveMode = false;
             this.upset.Location = new System.Drawing.Point(12, 432);
@@ -263,7 +264,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // stretch
             // 
-            this.stretch.Filter = "scd files (*.scd)|*.scd";
+            this.stretch.Filter = resources.GetString("stretch.Filter");
             this.stretch.Index = 10;
             this.stretch.IsSaveMode = false;
             this.stretch.Location = new System.Drawing.Point(12, 395);
@@ -273,7 +274,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // no
             // 
-            this.no.Filter = "scd files (*.scd)|*.scd";
+            this.no.Filter = resources.GetString("no.Filter");
             this.no.Index = 9;
             this.no.IsSaveMode = false;
             this.no.Location = new System.Drawing.Point(12, 358);
@@ -283,7 +284,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // laugh
             // 
-            this.laugh.Filter = "scd files (*.scd)|*.scd";
+            this.laugh.Filter = resources.GetString("laugh.Filter");
             this.laugh.Index = 8;
             this.laugh.IsSaveMode = false;
             this.laugh.Location = new System.Drawing.Point(12, 321);
@@ -293,7 +294,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // chuckle
             // 
-            this.chuckle.Filter = "scd files (*.scd)|*.scd";
+            this.chuckle.Filter = resources.GetString("chuckle.Filter");
             this.chuckle.Index = 7;
             this.chuckle.IsSaveMode = false;
             this.chuckle.Location = new System.Drawing.Point(12, 284);
@@ -303,7 +304,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // huh
             // 
-            this.huh.Filter = "scd files (*.scd)|*.scd";
+            this.huh.Filter = resources.GetString("huh.Filter");
             this.huh.Index = 6;
             this.huh.IsSaveMode = false;
             this.huh.Location = new System.Drawing.Point(12, 247);
@@ -313,7 +314,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // fume
             // 
-            this.fume.Filter = "scd files (*.scd)|*.scd";
+            this.fume.Filter = resources.GetString("fume.Filter");
             this.fume.Index = 5;
             this.fume.IsSaveMode = false;
             this.fume.Location = new System.Drawing.Point(12, 210);
@@ -323,7 +324,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // doze
             // 
-            this.doze.Filter = "scd files (*.scd)|*.scd";
+            this.doze.Filter = resources.GetString("doze.Filter");
             this.doze.Index = 4;
             this.doze.IsSaveMode = false;
             this.doze.Location = new System.Drawing.Point(12, 173);
@@ -333,7 +334,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // cheer
             // 
-            this.cheer.Filter = "scd files (*.scd)|*.scd";
+            this.cheer.Filter = resources.GetString("cheer.Filter");
             this.cheer.Index = 3;
             this.cheer.IsSaveMode = false;
             this.cheer.Location = new System.Drawing.Point(12, 136);
@@ -343,7 +344,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // furious
             // 
-            this.furious.Filter = "scd files (*.scd)|*.scd";
+            this.furious.Filter = resources.GetString("furious.Filter");
             this.furious.Index = 2;
             this.furious.IsSaveMode = false;
             this.furious.Location = new System.Drawing.Point(12, 99);
@@ -353,7 +354,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // angry
             // 
-            this.angry.Filter = "scd files (*.scd)|*.scd";
+            this.angry.Filter = resources.GetString("angry.Filter");
             this.angry.Index = 1;
             this.angry.IsSaveMode = false;
             this.angry.Location = new System.Drawing.Point(12, 62);
@@ -363,7 +364,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // surprised
             // 
-            this.surprised.Filter = "scd files (*.scd)|*.scd";
+            this.surprised.Filter = resources.GetString("surprised.Filter");
             this.surprised.Index = 0;
             this.surprised.IsSaveMode = false;
             this.surprised.Location = new System.Drawing.Point(12, 25);
@@ -376,7 +377,6 @@ namespace FFXIVVoiceClipNameGuesser {
             this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
             this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
-            this.changeVoiceDumpToolStripMenuItem.Click += new System.EventHandler(this.changeVoiceDumpToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
