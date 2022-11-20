@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVVoiceClipNameGuesser", "FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser.csproj", "{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVVoicePackCreator", "FFXIVVoiceClipNameGuesser\FFXIVVoicePackCreator.csproj", "{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
