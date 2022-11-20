@@ -1,5 +1,5 @@
 ﻿
-namespace FFXIVVoiceClipNameGuesser {
+namespace FFXIVVoicePackCreator {
     partial class MainWindow {
         /// <summary>
         /// Required designer variable.
@@ -55,29 +55,45 @@ namespace FFXIVVoiceClipNameGuesser {
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.jsonText = new System.Windows.Forms.TextBox();
-            this.unknown2 = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.unknown1 = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.happy = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.yes = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.upset = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.stretch = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.no = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.laugh = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.chuckle = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.huh = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.fume = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.doze = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.cheer = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.furious = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.angry = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.surprised = new FFXIVVoiceClipNameGuesser.FilePicker();
+            this.tabManager = new System.Windows.Forms.TabControl();
+            this.voiceExportTab = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.clearListButton = new System.Windows.Forms.Button();
+            this.removeFromList = new System.Windows.Forms.Button();
+            this.voiceReplacementList = new System.Windows.Forms.ListBox();
+            this.addToVoiceListButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.easyGenerateButton = new System.Windows.Forms.Button();
+            this.voiceListComboBox = new System.Windows.Forms.ComboBox();
+            this.raceListComboBox = new System.Windows.Forms.ComboBox();
+            this.sexListComboBox = new System.Windows.Forms.ComboBox();
+            this.voiceGuessingTab = new System.Windows.Forms.TabPage();
+            this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
+            this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
+            this.happy = new FFXIVVoicePackCreator.FilePicker();
+            this.yes = new FFXIVVoicePackCreator.FilePicker();
+            this.upset = new FFXIVVoicePackCreator.FilePicker();
+            this.stretch = new FFXIVVoicePackCreator.FilePicker();
+            this.no = new FFXIVVoicePackCreator.FilePicker();
+            this.laugh = new FFXIVVoicePackCreator.FilePicker();
+            this.chuckle = new FFXIVVoicePackCreator.FilePicker();
+            this.huh = new FFXIVVoicePackCreator.FilePicker();
+            this.fume = new FFXIVVoicePackCreator.FilePicker();
+            this.doze = new FFXIVVoicePackCreator.FilePicker();
+            this.cheer = new FFXIVVoicePackCreator.FilePicker();
+            this.furious = new FFXIVVoicePackCreator.FilePicker();
+            this.angry = new FFXIVVoicePackCreator.FilePicker();
+            this.surprised = new FFXIVVoicePackCreator.FilePicker();
             this.menuStrip1.SuspendLayout();
+            this.tabManager.SuspendLayout();
+            this.voiceExportTab.SuspendLayout();
+            this.voiceGuessingTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // incrementButton
             // 
             this.incrementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.incrementButton.Location = new System.Drawing.Point(853, 576);
+            this.incrementButton.Location = new System.Drawing.Point(330, 310);
             this.incrementButton.Name = "incrementButton";
             this.incrementButton.Size = new System.Drawing.Size(154, 23);
             this.incrementButton.TabIndex = 16;
@@ -88,7 +104,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // generateButton
             // 
             this.generateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.generateButton.Location = new System.Drawing.Point(853, 544);
+            this.generateButton.Location = new System.Drawing.Point(330, 278);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(154, 23);
             this.generateButton.TabIndex = 21;
@@ -99,7 +115,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(526, 581);
+            this.label2.Location = new System.Drawing.Point(15, 315);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 23;
@@ -108,15 +124,15 @@ namespace FFXIVVoiceClipNameGuesser {
             // missingFIleList
             // 
             this.missingFIleList.FormattingEnabled = true;
-            this.missingFIleList.Location = new System.Drawing.Point(682, 264);
+            this.missingFIleList.Location = new System.Drawing.Point(160, 23);
             this.missingFIleList.Name = "missingFIleList";
-            this.missingFIleList.Size = new System.Drawing.Size(165, 251);
+            this.missingFIleList.Size = new System.Drawing.Size(165, 238);
             this.missingFIleList.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(679, 248);
+            this.label3.Location = new System.Drawing.Point(157, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 25;
@@ -125,9 +141,9 @@ namespace FFXIVVoiceClipNameGuesser {
             // foundNamesList
             // 
             this.foundNamesList.FormattingEnabled = true;
-            this.foundNamesList.Location = new System.Drawing.Point(507, 264);
+            this.foundNamesList.Location = new System.Drawing.Point(6, 23);
             this.foundNamesList.Name = "foundNamesList";
-            this.foundNamesList.Size = new System.Drawing.Size(169, 251);
+            this.foundNamesList.Size = new System.Drawing.Size(148, 238);
             this.foundNamesList.TabIndex = 28;
             this.foundNamesList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.foundNamesList_MouseDoubleClick);
             this.foundNamesList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.foundNamesList_MouseDown);
@@ -136,7 +152,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(504, 248);
+            this.label5.Location = new System.Drawing.Point(3, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 29;
@@ -145,7 +161,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(723, 530);
+            this.label1.Location = new System.Drawing.Point(212, 264);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 22;
@@ -153,7 +169,7 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             // attempts
             // 
-            this.attempts.Location = new System.Drawing.Point(638, 578);
+            this.attempts.Location = new System.Drawing.Point(127, 312);
             this.attempts.Name = "attempts";
             this.attempts.Size = new System.Drawing.Size(82, 20);
             this.attempts.TabIndex = 20;
@@ -162,17 +178,17 @@ namespace FFXIVVoiceClipNameGuesser {
             // startNumber
             // 
             this.startNumber.FormattingEnabled = true;
-            this.startNumber.Location = new System.Drawing.Point(726, 546);
+            this.startNumber.Location = new System.Drawing.Point(215, 280);
             this.startNumber.Name = "startNumber";
-            this.startNumber.Size = new System.Drawing.Size(121, 21);
+            this.startNumber.Size = new System.Drawing.Size(109, 21);
             this.startNumber.TabIndex = 30;
             // 
             // startNumberGuess
             // 
             this.startNumberGuess.FormattingEnabled = true;
-            this.startNumberGuess.Location = new System.Drawing.Point(726, 578);
+            this.startNumberGuess.Location = new System.Drawing.Point(215, 312);
             this.startNumberGuess.Name = "startNumberGuess";
-            this.startNumberGuess.Size = new System.Drawing.Size(121, 21);
+            this.startNumberGuess.Size = new System.Drawing.Size(109, 21);
             this.startNumberGuess.TabIndex = 31;
             // 
             // menuStrip1
@@ -198,28 +214,28 @@ namespace FFXIVVoiceClipNameGuesser {
             // sCDWavMergerToolStripMenuItem
             // 
             this.sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
-            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.sCDWavMergerToolStripMenuItem.Text = "SCD Wav Merger (Experimental)";
+            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.sCDWavMergerToolStripMenuItem.Text = "SCD Audio Merger";
             this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDWavMergerToolStripMenuItem_Click);
             // 
             // changeVoiceDumpToolStripMenuItem
             // 
             this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
-            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
             this.changeVoiceDumpToolStripMenuItem.Click += new System.EventHandler(this.changeVoiceDumpToolStripMenuItem_Click);
             // 
             // pickExportFolderToolStripMenuItem
             // 
             this.pickExportFolderToolStripMenuItem.Name = "pickExportFolderToolStripMenuItem";
-            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.pickExportFolderToolStripMenuItem.Text = "Pick Export Folder";
             this.pickExportFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(850, 247);
+            this.label6.Location = new System.Drawing.Point(328, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 34;
@@ -228,9 +244,9 @@ namespace FFXIVVoiceClipNameGuesser {
             // lostFileList
             // 
             this.lostFileList.FormattingEnabled = true;
-            this.lostFileList.Location = new System.Drawing.Point(853, 264);
+            this.lostFileList.Location = new System.Drawing.Point(331, 23);
             this.lostFileList.Name = "lostFileList";
-            this.lostFileList.Size = new System.Drawing.Size(154, 251);
+            this.lostFileList.Size = new System.Drawing.Size(153, 238);
             this.lostFileList.TabIndex = 33;
             this.lostFileList.SelectedIndexChanged += new System.EventHandler(this.lostFileList_SelectedIndexChanged);
             this.lostFileList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lostFileList_MouseDoubleClick);
@@ -337,6 +353,178 @@ namespace FFXIVVoiceClipNameGuesser {
             this.jsonText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.jsonText.Size = new System.Drawing.Size(500, 105);
             this.jsonText.TabIndex = 19;
+            // 
+            // tabManager
+            // 
+            this.tabManager.Controls.Add(this.voiceExportTab);
+            this.tabManager.Controls.Add(this.voiceGuessingTab);
+            this.tabManager.Location = new System.Drawing.Point(507, 247);
+            this.tabManager.Name = "tabManager";
+            this.tabManager.SelectedIndex = 0;
+            this.tabManager.Size = new System.Drawing.Size(500, 374);
+            this.tabManager.TabIndex = 47;
+            // 
+            // voiceExportTab
+            // 
+            this.voiceExportTab.Controls.Add(this.label13);
+            this.voiceExportTab.Controls.Add(this.clearListButton);
+            this.voiceExportTab.Controls.Add(this.removeFromList);
+            this.voiceExportTab.Controls.Add(this.voiceReplacementList);
+            this.voiceExportTab.Controls.Add(this.addToVoiceListButton);
+            this.voiceExportTab.Controls.Add(this.label12);
+            this.voiceExportTab.Controls.Add(this.easyGenerateButton);
+            this.voiceExportTab.Controls.Add(this.voiceListComboBox);
+            this.voiceExportTab.Controls.Add(this.raceListComboBox);
+            this.voiceExportTab.Controls.Add(this.sexListComboBox);
+            this.voiceExportTab.Location = new System.Drawing.Point(4, 22);
+            this.voiceExportTab.Name = "voiceExportTab";
+            this.voiceExportTab.Padding = new System.Windows.Forms.Padding(3);
+            this.voiceExportTab.Size = new System.Drawing.Size(492, 348);
+            this.voiceExportTab.TabIndex = 0;
+            this.voiceExportTab.Text = "Voice Replacer";
+            this.voiceExportTab.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(119, 13);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Voice Replacement List";
+            // 
+            // clearListButton
+            // 
+            this.clearListButton.Location = new System.Drawing.Point(9, 321);
+            this.clearListButton.Name = "clearListButton";
+            this.clearListButton.Size = new System.Drawing.Size(138, 21);
+            this.clearListButton.TabIndex = 39;
+            this.clearListButton.Text = "Clear List";
+            this.clearListButton.UseVisualStyleBackColor = true;
+            this.clearListButton.Click += new System.EventHandler(this.clearListButton_Click);
+            // 
+            // removeFromList
+            // 
+            this.removeFromList.Location = new System.Drawing.Point(177, 321);
+            this.removeFromList.Name = "removeFromList";
+            this.removeFromList.Size = new System.Drawing.Size(138, 21);
+            this.removeFromList.TabIndex = 38;
+            this.removeFromList.Text = "Remove Selected";
+            this.removeFromList.UseVisualStyleBackColor = true;
+            this.removeFromList.Click += new System.EventHandler(this.removeFromList_Click);
+            // 
+            // voiceReplacementList
+            // 
+            this.voiceReplacementList.FormattingEnabled = true;
+            this.voiceReplacementList.Location = new System.Drawing.Point(9, 65);
+            this.voiceReplacementList.Name = "voiceReplacementList";
+            this.voiceReplacementList.Size = new System.Drawing.Size(477, 251);
+            this.voiceReplacementList.TabIndex = 37;
+            // 
+            // addToVoiceListButton
+            // 
+            this.addToVoiceListButton.Location = new System.Drawing.Point(407, 11);
+            this.addToVoiceListButton.Name = "addToVoiceListButton";
+            this.addToVoiceListButton.Size = new System.Drawing.Size(79, 21);
+            this.addToVoiceListButton.TabIndex = 36;
+            this.addToVoiceListButton.Text = "Add";
+            this.addToVoiceListButton.UseVisualStyleBackColor = true;
+            this.addToVoiceListButton.Click += new System.EventHandler(this.addToVoiceListButton_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Voice";
+            // 
+            // easyGenerateButton
+            // 
+            this.easyGenerateButton.Location = new System.Drawing.Point(348, 321);
+            this.easyGenerateButton.Name = "easyGenerateButton";
+            this.easyGenerateButton.Size = new System.Drawing.Size(138, 21);
+            this.easyGenerateButton.TabIndex = 34;
+            this.easyGenerateButton.Text = "Generate";
+            this.easyGenerateButton.UseVisualStyleBackColor = true;
+            this.easyGenerateButton.Click += new System.EventHandler(this.easyGenerateButton_Click);
+            // 
+            // voiceListComboBox
+            // 
+            this.voiceListComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Voice 1",
+            "Voice 2",
+            "Voice 3",
+            "Voice 4",
+            "Voice 5",
+            "Voice 6",
+            "Voice 7",
+            "Voice 8",
+            "Voice 9",
+            "Voice 10",
+            "Voice 11",
+            "Voice 12"});
+            this.voiceListComboBox.FormattingEnabled = true;
+            this.voiceListComboBox.Items.AddRange(new object[] {
+            "Voice 1",
+            "Voice 2",
+            "Voice 3",
+            "Voice 4",
+            "Voice 5",
+            "Voice 6",
+            "Voice 7",
+            "Voice 8",
+            "Voice 9",
+            "Voice 10",
+            "Voice 11",
+            "Voice 12"});
+            this.voiceListComboBox.Location = new System.Drawing.Point(292, 12);
+            this.voiceListComboBox.Name = "voiceListComboBox";
+            this.voiceListComboBox.Size = new System.Drawing.Size(109, 21);
+            this.voiceListComboBox.TabIndex = 33;
+            // 
+            // raceListComboBox
+            // 
+            this.raceListComboBox.FormattingEnabled = true;
+            this.raceListComboBox.Location = new System.Drawing.Point(177, 12);
+            this.raceListComboBox.Name = "raceListComboBox";
+            this.raceListComboBox.Size = new System.Drawing.Size(109, 21);
+            this.raceListComboBox.TabIndex = 32;
+            // 
+            // sexListComboBox
+            // 
+            this.sexListComboBox.FormattingEnabled = true;
+            this.sexListComboBox.Items.AddRange(new object[] {
+            "Masculine",
+            "Feminine"});
+            this.sexListComboBox.Location = new System.Drawing.Point(62, 12);
+            this.sexListComboBox.Name = "sexListComboBox";
+            this.sexListComboBox.Size = new System.Drawing.Size(109, 21);
+            this.sexListComboBox.TabIndex = 31;
+            // 
+            // voiceGuessingTab
+            // 
+            this.voiceGuessingTab.Controls.Add(this.foundNamesList);
+            this.voiceGuessingTab.Controls.Add(this.label5);
+            this.voiceGuessingTab.Controls.Add(this.missingFIleList);
+            this.voiceGuessingTab.Controls.Add(this.label3);
+            this.voiceGuessingTab.Controls.Add(this.lostFileList);
+            this.voiceGuessingTab.Controls.Add(this.label6);
+            this.voiceGuessingTab.Controls.Add(this.incrementButton);
+            this.voiceGuessingTab.Controls.Add(this.attempts);
+            this.voiceGuessingTab.Controls.Add(this.generateButton);
+            this.voiceGuessingTab.Controls.Add(this.label1);
+            this.voiceGuessingTab.Controls.Add(this.startNumberGuess);
+            this.voiceGuessingTab.Controls.Add(this.label2);
+            this.voiceGuessingTab.Controls.Add(this.startNumber);
+            this.voiceGuessingTab.Location = new System.Drawing.Point(4, 22);
+            this.voiceGuessingTab.Name = "voiceGuessingTab";
+            this.voiceGuessingTab.Padding = new System.Windows.Forms.Padding(3);
+            this.voiceGuessingTab.Size = new System.Drawing.Size(492, 348);
+            this.voiceGuessingTab.TabIndex = 1;
+            this.voiceGuessingTab.Text = "Voice Guesser";
+            this.voiceGuessingTab.UseVisualStyleBackColor = true;
             // 
             // unknown2
             // 
@@ -513,21 +701,8 @@ namespace FFXIVVoiceClipNameGuesser {
             this.Controls.Add(this.label8);
             this.Controls.Add(this.modNameTextbox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lostFileList);
-            this.Controls.Add(this.startNumberGuess);
-            this.Controls.Add(this.startNumber);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.foundNamesList);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.missingFIleList);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.generateButton);
-            this.Controls.Add(this.attempts);
             this.Controls.Add(this.jsonText);
-            this.Controls.Add(this.incrementButton);
             this.Controls.Add(this.unknown2);
             this.Controls.Add(this.unknown1);
             this.Controls.Add(this.happy);
@@ -545,6 +720,7 @@ namespace FFXIVVoiceClipNameGuesser {
             this.Controls.Add(this.angry);
             this.Controls.Add(this.surprised);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.tabManager);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
@@ -552,6 +728,11 @@ namespace FFXIVVoiceClipNameGuesser {
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabManager.ResumeLayout(false);
+            this.voiceExportTab.ResumeLayout(false);
+            this.voiceExportTab.PerformLayout();
+            this.voiceGuessingTab.ResumeLayout(false);
+            this.voiceGuessingTab.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,6 +787,19 @@ namespace FFXIVVoiceClipNameGuesser {
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox jsonText;
+        private System.Windows.Forms.TabControl tabManager;
+        private System.Windows.Forms.TabPage voiceGuessingTab;
+        private System.Windows.Forms.TabPage voiceExportTab;
+        private System.Windows.Forms.Button easyGenerateButton;
+        private System.Windows.Forms.ComboBox voiceListComboBox;
+        private System.Windows.Forms.ComboBox raceListComboBox;
+        private System.Windows.Forms.ComboBox sexListComboBox;
+        private System.Windows.Forms.Button clearListButton;
+        private System.Windows.Forms.Button removeFromList;
+        private System.Windows.Forms.ListBox voiceReplacementList;
+        private System.Windows.Forms.Button addToVoiceListButton;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

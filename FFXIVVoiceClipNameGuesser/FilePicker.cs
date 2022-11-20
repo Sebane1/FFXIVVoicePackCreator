@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FFXIVVoiceClipNameGuesser {
+namespace FFXIVVoicePackCreator {
     public partial class FilePicker : UserControl {
         public FilePicker() {
             InitializeComponent();
