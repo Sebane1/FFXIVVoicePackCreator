@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace FFXIVVoiceClipNameGuesser {
+namespace FFXIVVoicePackCreator {
     partial class FilePicker {
         /// <summary> 
         /// Required designer variable.

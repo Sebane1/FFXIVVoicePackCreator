@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FFXIVVoiceClipNameGuesser</RootNamespace>
-    <AssemblyName>FFXIVVoiceClipNameGuesser</AssemblyName>
+    <RootNamespace>FFXIVVoicePackCreator</RootNamespace>
+    <AssemblyName>FFXIVVoicePackCreator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -67,6 +67,7 @@
     <Compile Include="FilePicker.Designer.cs">
       <DependentUpon>FilePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="RaceVoices.cs" />
     <Compile Include="SCDCreator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FilePicker.resx">
       <DependentUpon>FilePicker.cs</DependentUpon>

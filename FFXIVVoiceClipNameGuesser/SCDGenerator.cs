@@ -7,19 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FFXIVVoiceClipNameGuesser {
+namespace FFXIVVoicePackCreator {
     public class SCDGenerator {
         public void ConvertAndGenerateSCD(string inputPath, string outputPath) {
-            SCDGenerator generator = new SCDGenerator();
-            string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
-            Process.Start(Path.Combine(Application.StartupPath, "ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
-            while (IsFileLocked(tempPath)) { };
-            using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, "header.bin"), FileMode.Open, FileAccess.Read)) {
-                using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
-                    generator.GenerateSCD(header, inputStream, outputPath);
+            if (File.Exists(inputPath)) {
+                SCDGenerator generator = new SCDGenerator();
+                string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
+                Process.Start(Path.Combine(Application.StartupPath, "ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
+                while (IsFileLocked(tempPath)) { };
+                using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, "header.bin"), FileMode.Open, FileAccess.Read)) {
+                    using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
+                        generator.GenerateSCD(header, inputStream, outputPath);
+                    }
                 }
+                File.Delete(tempPath);
             }
-            File.Delete(tempPath);
         }
         protected virtual bool IsFileLocked(string file) {
             try {

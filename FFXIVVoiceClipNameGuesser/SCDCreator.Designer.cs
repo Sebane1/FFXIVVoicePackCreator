@@ -1,5 +1,5 @@
 ﻿
-namespace FFXIVVoiceClipNameGuesser {
+namespace FFXIVVoicePackCreator {
     partial class SCDCreator {
         /// <summary>
         /// Required designer variable.
@@ -26,8 +26,8 @@ namespace FFXIVVoiceClipNameGuesser {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SCDCreator));
             this.generateButton = new System.Windows.Forms.Button();
-            this.outputSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.mediaSelection = new FFXIVVoiceClipNameGuesser.FilePicker();
+            this.outputSelection = new FFXIVVoicePackCreator.FilePicker();
+            this.mediaSelection = new FFXIVVoicePackCreator.FilePicker();
             this.SuspendLayout();
             // 
             // generateButton
