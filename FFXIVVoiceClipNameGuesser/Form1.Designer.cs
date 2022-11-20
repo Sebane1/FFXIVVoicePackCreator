@@ -26,12 +26,10 @@ namespace FFXIVVoiceClipNameGuesser {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.incrementButton = new System.Windows.Forms.Button();
-            this.jsonText = new System.Windows.Forms.TextBox();
             this.generateButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.missingFIleList = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.foundNamesList = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +39,22 @@ namespace FFXIVVoiceClipNameGuesser {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCDWavMergerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pickExportFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lostFileList = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.modNameTextbox = new System.Windows.Forms.TextBox();
+            this.authorTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.modWebsiteTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.modVersionTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.jsonText = new System.Windows.Forms.TextBox();
             this.unknown2 = new FFXIVVoiceClipNameGuesser.FilePicker();
             this.unknown1 = new FFXIVVoiceClipNameGuesser.FilePicker();
             this.happy = new FFXIVVoiceClipNameGuesser.FilePicker();
@@ -57,7 +71,6 @@ namespace FFXIVVoiceClipNameGuesser {
             this.furious = new FFXIVVoiceClipNameGuesser.FilePicker();
             this.angry = new FFXIVVoiceClipNameGuesser.FilePicker();
             this.surprised = new FFXIVVoiceClipNameGuesser.FilePicker();
-            this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,18 +84,6 @@ namespace FFXIVVoiceClipNameGuesser {
             this.incrementButton.Text = "Guess And Generate";
             this.incrementButton.UseVisualStyleBackColor = true;
             this.incrementButton.Click += new System.EventHandler(this.incrementButton_Click);
-            // 
-            // jsonText
-            // 
-            this.jsonText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.jsonText.Location = new System.Drawing.Point(507, 41);
-            this.jsonText.Multiline = true;
-            this.jsonText.Name = "jsonText";
-            this.jsonText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.jsonText.Size = new System.Drawing.Size(500, 200);
-            this.jsonText.TabIndex = 19;
-            this.jsonText.TextChanged += new System.EventHandler(this.jsonText_TextChanged);
             // 
             // generateButton
             // 
@@ -107,36 +108,26 @@ namespace FFXIVVoiceClipNameGuesser {
             // missingFIleList
             // 
             this.missingFIleList.FormattingEnabled = true;
-            this.missingFIleList.Location = new System.Drawing.Point(866, 264);
+            this.missingFIleList.Location = new System.Drawing.Point(682, 264);
             this.missingFIleList.Name = "missingFIleList";
-            this.missingFIleList.Size = new System.Drawing.Size(141, 251);
+            this.missingFIleList.Size = new System.Drawing.Size(165, 251);
             this.missingFIleList.TabIndex = 24;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(863, 248);
+            this.label3.Location = new System.Drawing.Point(679, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 25;
             this.label3.Text = "Missing Names";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(507, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Penumbra Json Config";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // foundNamesList
             // 
             this.foundNamesList.FormattingEnabled = true;
             this.foundNamesList.Location = new System.Drawing.Point(507, 264);
             this.foundNamesList.Name = "foundNamesList";
-            this.foundNamesList.Size = new System.Drawing.Size(350, 251);
+            this.foundNamesList.Size = new System.Drawing.Size(169, 251);
             this.foundNamesList.TabIndex = 28;
             this.foundNamesList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.foundNamesList_MouseDoubleClick);
             this.foundNamesList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.foundNamesList_MouseDown);
@@ -175,7 +166,6 @@ namespace FFXIVVoiceClipNameGuesser {
             this.startNumber.Name = "startNumber";
             this.startNumber.Size = new System.Drawing.Size(121, 21);
             this.startNumber.TabIndex = 30;
-            this.startNumber.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // startNumberGuess
             // 
@@ -184,7 +174,6 @@ namespace FFXIVVoiceClipNameGuesser {
             this.startNumberGuess.Name = "startNumberGuess";
             this.startNumberGuess.Size = new System.Drawing.Size(121, 21);
             this.startNumberGuess.TabIndex = 31;
-            this.startNumberGuess.SelectedIndexChanged += new System.EventHandler(this.startValueGuess_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -200,7 +189,8 @@ namespace FFXIVVoiceClipNameGuesser {
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sCDWavMergerToolStripMenuItem,
-            this.changeVoiceDumpToolStripMenuItem});
+            this.changeVoiceDumpToolStripMenuItem,
+            this.pickExportFolderToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -211,6 +201,142 @@ namespace FFXIVVoiceClipNameGuesser {
             this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.sCDWavMergerToolStripMenuItem.Text = "SCD Wav Merger (Experimental)";
             this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDWavMergerToolStripMenuItem_Click);
+            // 
+            // changeVoiceDumpToolStripMenuItem
+            // 
+            this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
+            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
+            this.changeVoiceDumpToolStripMenuItem.Click += new System.EventHandler(this.changeVoiceDumpToolStripMenuItem_Click);
+            // 
+            // pickExportFolderToolStripMenuItem
+            // 
+            this.pickExportFolderToolStripMenuItem.Name = "pickExportFolderToolStripMenuItem";
+            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.pickExportFolderToolStripMenuItem.Text = "Pick Export Folder";
+            this.pickExportFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(850, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Lost Files";
+            // 
+            // lostFileList
+            // 
+            this.lostFileList.FormattingEnabled = true;
+            this.lostFileList.Location = new System.Drawing.Point(853, 264);
+            this.lostFileList.Name = "lostFileList";
+            this.lostFileList.Size = new System.Drawing.Size(154, 251);
+            this.lostFileList.TabIndex = 33;
+            this.lostFileList.SelectedIndexChanged += new System.EventHandler(this.lostFileList_SelectedIndexChanged);
+            this.lostFileList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lostFileList_MouseDoubleClick);
+            this.lostFileList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lostNamesList_MouseDown);
+            this.lostFileList.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lostNamesList_MouseMove);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(507, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Name";
+            // 
+            // modNameTextbox
+            // 
+            this.modNameTextbox.Location = new System.Drawing.Point(572, 36);
+            this.modNameTextbox.Name = "modNameTextbox";
+            this.modNameTextbox.Size = new System.Drawing.Size(148, 20);
+            this.modNameTextbox.TabIndex = 38;
+            // 
+            // authorTextBox
+            // 
+            this.authorTextBox.Location = new System.Drawing.Point(572, 62);
+            this.authorTextBox.Name = "authorTextBox";
+            this.authorTextBox.Size = new System.Drawing.Size(148, 20);
+            this.authorTextBox.TabIndex = 40;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(507, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "Author";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Location = new System.Drawing.Point(572, 88);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(435, 20);
+            this.descriptionTextBox.TabIndex = 42;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(507, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.TabIndex = 41;
+            this.label9.Text = "Description";
+            // 
+            // modWebsiteTextBox
+            // 
+            this.modWebsiteTextBox.Location = new System.Drawing.Point(823, 36);
+            this.modWebsiteTextBox.Name = "modWebsiteTextBox";
+            this.modWebsiteTextBox.Size = new System.Drawing.Size(184, 20);
+            this.modWebsiteTextBox.TabIndex = 44;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(758, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Website";
+            // 
+            // modVersionTextBox
+            // 
+            this.modVersionTextBox.Location = new System.Drawing.Point(823, 62);
+            this.modVersionTextBox.Name = "modVersionTextBox";
+            this.modVersionTextBox.Size = new System.Drawing.Size(184, 20);
+            this.modVersionTextBox.TabIndex = 46;
+            this.modVersionTextBox.Text = "1.0.0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(758, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 13);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "Version";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(507, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Penumbra Json Config";
+            // 
+            // jsonText
+            // 
+            this.jsonText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.jsonText.Location = new System.Drawing.Point(507, 136);
+            this.jsonText.Multiline = true;
+            this.jsonText.Name = "jsonText";
+            this.jsonText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.jsonText.Size = new System.Drawing.Size(500, 105);
+            this.jsonText.TabIndex = 19;
             // 
             // unknown2
             // 
@@ -372,17 +498,23 @@ namespace FFXIVVoiceClipNameGuesser {
             this.surprised.Size = new System.Drawing.Size(489, 31);
             this.surprised.TabIndex = 0;
             // 
-            // changeVoiceDumpToolStripMenuItem
-            // 
-            this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
-            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 624);
+            this.Controls.Add(this.modVersionTextBox);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.modWebsiteTextBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.descriptionTextBox);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.authorTextBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.modNameTextbox);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lostFileList);
             this.Controls.Add(this.startNumberGuess);
             this.Controls.Add(this.startNumber);
             this.Controls.Add(this.label5);
@@ -445,12 +577,10 @@ namespace FFXIVVoiceClipNameGuesser {
         private FilePicker unknown1;
         private FilePicker unknown2;
         private System.Windows.Forms.Button incrementButton;
-        private System.Windows.Forms.TextBox jsonText;
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox missingFIleList;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox foundNamesList;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
@@ -461,6 +591,21 @@ namespace FFXIVVoiceClipNameGuesser {
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sCDWavMergerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeVoiceDumpToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lostFileList;
+        private System.Windows.Forms.ToolStripMenuItem pickExportFolderToolStripMenuItem;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox modNameTextbox;
+        private System.Windows.Forms.TextBox authorTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox modWebsiteTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox modVersionTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox jsonText;
     }
 }
 
