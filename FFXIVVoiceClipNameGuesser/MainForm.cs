@@ -206,6 +206,7 @@ namespace FFXIVVoicePackCreator {
                 }
                 ExportJson(paths);
                 ExportMeta();
+                MessageBox.Show(@"Export Complete", Text);
             }
         }
 
@@ -260,6 +261,7 @@ namespace FFXIVVoicePackCreator {
                 }
                 ExportJson(paths);
                 ExportMeta();
+                MessageBox.Show(@"Export Complete", Text);
             }
         }
 
@@ -475,6 +477,7 @@ namespace FFXIVVoicePackCreator {
                 }
                 ExportJson(paths);
                 ExportMeta();
+                MessageBox.Show(@"Export Complete", Text);
             }
         }
 
