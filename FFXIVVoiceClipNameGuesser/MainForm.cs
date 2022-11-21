@@ -27,6 +27,8 @@ namespace FFXIVVoicePackCreator {
         private List<RaceVoices> racialList;
         private List<int> voicesToReplace = new List<int>();
         private Dictionary<string, List<string>> racesToVoice = new Dictionary<string, List<string>>();
+        private bool alreadyShown;
+
         public MainWindow() {
             InitializeComponent();
             // foundNamesList.SelectionMode = SelectionMode.MultiExtended;
@@ -39,12 +41,6 @@ namespace FFXIVVoicePackCreator {
         private void Form1_Load(object sender, EventArgs e) {
             Text = Application.ProductName + " " + Application.ProductVersion;
             LoadRacialVoiceInfo();
-            missingFIleList.Items.Clear();
-            if (MessageBox.Show(@"Do you have voices dumped via FFXIVExplorer or an equivalent tool as .wav files?", Text, MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                PickVoiceDump();
-            } else {
-                MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", Text);
-            }
             scdGenerator = new SCDGenerator();
         }
 
@@ -493,6 +489,18 @@ namespace FFXIVVoicePackCreator {
                     voiceReplacementList.Items.RemoveAt(voiceReplacementList.SelectedIndex);
                     voiceReplacementList.SelectedIndex = -1;
                 }
+            }
+        }
+
+        private void tabManager_Selecting(object sender, TabControlCancelEventArgs e) {
+            if (!alreadyShown) {
+                missingFIleList.Items.Clear();
+                if (MessageBox.Show(@"Do you have voices dumped via FFXIVExplorer or an equivalent tool as .wav files?", Text, MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                    PickVoiceDump();
+                } else {
+                    MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", Text);
+                }
+                alreadyShown = true;
             }
         }
     }

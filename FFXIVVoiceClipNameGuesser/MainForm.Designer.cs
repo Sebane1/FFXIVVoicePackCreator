@@ -363,6 +363,7 @@ namespace FFXIVVoicePackCreator {
             this.tabManager.SelectedIndex = 0;
             this.tabManager.Size = new System.Drawing.Size(500, 374);
             this.tabManager.TabIndex = 47;
+            this.tabManager.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabManager_Selecting);
             // 
             // voiceExportTab
             // 
@@ -722,6 +723,7 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabManager);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "Voice Mod Filename Guesser";
