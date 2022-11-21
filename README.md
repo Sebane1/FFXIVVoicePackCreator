@@ -11,4 +11,6 @@ Instructions:
 - Tell the program which character voices you want to affect.
 - Hit generate and select an empty folder (or folder to overwrite) in your penumbra mods folder.
 - In game, hit rediscover in penumbra and enable your new voice pack mod.
-- Hit "Export Mod" in penumbra to generate a .pmp file to share with others. 
+- Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
+
+Need support, or just wanna talk sound? Visit our discord! https://discord.gg/rtGXwMn7pX 
