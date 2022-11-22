@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace FFXIVVoicePackCreator {
     public partial class MainWindow : Form {
-        private string filepath;
+        private string exportFilePath;
         private string jsonFilepath;
-        private string dumpFilepath;
+        private string dumpFilePath;
         private List<string> files;
         private List<string> secondaryKnownFileList;
         private List<string> lostFileListPaths;
@@ -28,27 +28,52 @@ namespace FFXIVVoicePackCreator {
         private List<int> voicesToReplace = new List<int>();
         private Dictionary<string, List<string>> racesToVoice = new Dictionary<string, List<string>>();
         private bool alreadyShown;
-
+        private List<FilePicker> filePickers = new List<FilePicker>();
+        private List<TextBox> authorInformation;
+        private string savePath;
+        private bool hasSaved = true;
         public MainWindow() {
             InitializeComponent();
             // foundNamesList.SelectionMode = SelectionMode.MultiExtended;
-        }
-
-        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e) {
-
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             Text = Application.ProductName + " " + Application.ProductVersion;
             LoadRacialVoiceInfo();
             scdGenerator = new SCDGenerator();
+            filePickers = new List<FilePicker>() {
+                surprised,
+                angry,
+                furious,
+                cheer,
+                doze,
+                fume,
+                huh,
+                chuckle,
+                laugh,
+                no,
+                stretch,
+                upset,
+                yes,
+                happy,
+                unknown1,
+                unknown2};
+
+            authorInformation = new List<TextBox>() {
+                modNameTextbox,
+                modAuthorTextBox,
+                modDescriptionTextBox,
+                modWebsiteTextBox,
+                modVersionTextBox,
+            };
         }
 
         private void LoadRacialVoiceInfo() {
             string racialListPath = Path.Combine(Application.StartupPath, "racialVoiceList.txt");
             racialList = new List<RaceVoices>();
             using (StreamReader streamReader = new StreamReader(racialListPath)) {
-                for (int raceIndex = 0; raceIndex < 8; raceIndex++) {
+                int races = int.Parse(streamReader.ReadLine());
+                for (int raceIndex = 0; raceIndex < races; raceIndex++) {
                     RaceVoices raceVoices = new RaceVoices();
                     raceVoices.RaceName = streamReader.ReadLine();
                     streamReader.ReadLine();
@@ -96,18 +121,19 @@ namespace FFXIVVoicePackCreator {
             MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", Text);
             FolderSelectDialog openFileDialog = new FolderSelectDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                dumpFilepath = openFileDialog.SelectedPath;
+                dumpFilePath = openFileDialog.SelectedPath;
             } else {
                 MessageBox.Show("No dumped voice folder selected", Text);
                 dontLoad = true;
             }
             if (!dontLoad) {
+                hasSaved = false;
                 missingFIleList.Items.Clear();
                 if (files != null) {
                     files.Clear();
                 }
                 files = new List<string>();
-                files.AddRange(Directory.GetFiles(dumpFilepath));
+                files.AddRange(Directory.GetFiles(dumpFilePath));
                 if (secondaryKnownFileList != null) {
                     secondaryKnownFileList.Clear();
                 }
@@ -136,11 +162,11 @@ namespace FFXIVVoicePackCreator {
                     }
                     if (itemsNotFound) {
                         missingFIleList.Items.Add("----------------");
-                        startNumberGuess.Items.Add(startValue);
+                        //startNumberGuess.Items.Add(startValue);
                         unfoundVoices++;
                     } else {
                         foundNamesList.Items.Add("----------------");
-                        startNumber.Items.Add(startValue);
+                        //startNumber.Items.Add(startValue);
                         foundVoices++;
                         secondaryKnownFileList.Add("");
                     }
@@ -162,56 +188,12 @@ namespace FFXIVVoicePackCreator {
 
         }
 
-        private void incrementButton_Click(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(startNumberGuess.Text)) {
-                startNumberGuess.SelectedIndex = -1;
-            }
-            paths = "";
-            files = new List<string>() {
-                surprised.FilePath.Text,
-                angry.FilePath.Text,
-                furious.FilePath.Text,
-                cheer.FilePath.Text,
-                doze.FilePath.Text,
-                fume.FilePath.Text,
-                huh.FilePath.Text,
-                chuckle.FilePath.Text,
-                laugh.FilePath.Text,
-                no.FilePath.Text,
-                stretch.FilePath.Text,
-                upset.FilePath.Text,
-                yes.FilePath.Text,
-                happy.FilePath.Text,
-                unknown1.FilePath.Text,
-                unknown2.FilePath.Text};
-            if (filepath == null) {
-                GetFilePaths();
-            }
-            if (filepath != null) {
-                firstDone = false;
-                for (int counter = 0; counter <= int.Parse(attempts.Text); counter++) {
-                    int startValue = int.Parse(startNumberGuess.Text.Replace(",", "").Replace(".", "").Replace("scd", ""));
-                    ExportFiles(startValue);
-                    if (startNumberGuess.SelectedIndex < startNumberGuess.Items.Count - 1) {
-                        startNumberGuess.SelectedIndex++;
-                    } else {
-                        MessageBox.Show("Reached the end of the guess list, going to the beginning of the list", Text);
-                        startNumberGuess.SelectedIndex = 0;
-                        break;
-                    }
-                }
-                ExportJson(paths);
-                ExportMeta();
-                MessageBox.Show(@"Export Complete", Text);
-            }
-        }
-
         private void ExportFiles(int startValue) {
             int i = 0;
-            foreach (string file in files) {
-                if (!string.IsNullOrEmpty(file)) {
+            foreach (FilePicker file in filePickers) {
+                if (!string.IsNullOrEmpty(file.FilePath.Text)) {
                     string fileName = (startValue + i) + "";
-                    scdGenerator.ConvertAndGenerateSCD(file, Path.Combine(filepath, fileName + ".scd"));
+                    scdGenerator.ConvertAndGenerateSCD(file.FilePath.Text, Path.Combine(exportFilePath, fileName + ".scd"));
                     if (firstDone) {
                         paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
                     } else {
@@ -223,46 +205,8 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private void generateButton_Click(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(startNumber.Text)) {
-                startNumber.SelectedIndex = -1;
-                startNumber.Text = 7301000 + "";
-            }
-            paths = "";
-            files = new List<string>() {
-                surprised.FilePath.Text,
-                angry.FilePath.Text,
-                furious.FilePath.Text,
-                cheer.FilePath.Text,
-                doze.FilePath.Text,
-                fume.FilePath.Text,
-                huh.FilePath.Text,
-                chuckle.FilePath.Text,
-                laugh.FilePath.Text,
-                no.FilePath.Text,
-                stretch.FilePath.Text,
-                upset.FilePath.Text,
-                yes.FilePath.Text,
-                happy.FilePath.Text,
-                unknown1.FilePath.Text,
-                unknown2.FilePath.Text};
-            if (filepath == null) {
-                GetFilePaths();
-            }
-            if (filepath != null) {
-                firstDone = false;
-                for (int counter = 0; counter <= int.Parse(attempts.Text); counter++) {
-                    int startValue = int.Parse(startNumber.Text.Replace(",", "").Replace(".", "").Replace("scd", ""));
-                    ExportFiles(startValue);
-                }
-                ExportJson(paths);
-                ExportMeta();
-                MessageBox.Show(@"Export Complete", Text);
-            }
-        }
-
         private void ExportJson(string paths) {
-            jsonText.Text = @"{
+            string jsonText = @"{
   ""Name"": """",
   ""Priority"": 0,
   ""Files"": {
@@ -273,7 +217,7 @@ namespace FFXIVVoicePackCreator {
 }";
             if (jsonFilepath != null) {
                 using (StreamWriter writer = new StreamWriter(jsonFilepath)) {
-                    writer.WriteLine(jsonText.Text);
+                    writer.WriteLine(jsonText);
                 }
             }
         }
@@ -282,8 +226,8 @@ namespace FFXIVVoicePackCreator {
             string metaText = @"{
   ""FileVersion"": 3,
   ""Name"": """ + modNameTextbox.Text + @""",
-  ""Author"": """ + authorTextBox.Text + @""",
-  ""Description"": """ + descriptionTextBox.Text + @""",
+  ""Author"": """ + modAuthorTextBox.Text + @""",
+  ""Description"": """ + modDescriptionTextBox.Text + @""",
   ""Version"": """ + modVersionTextBox.Text + @""",
   ""Website"": """ + modWebsiteTextBox.Text + @""",
   ""ModTags"": []
@@ -299,8 +243,8 @@ namespace FFXIVVoicePackCreator {
             MessageBox.Show(@"Please select the root folder for your custom penumbra sound mod. Ideally you've created one inside your penumbra mods folder for easy testing. (You can use Penumbra to export this mod to a .pmp package later)", Text);
             FolderSelectDialog folderSelect = new FolderSelectDialog();
             if (folderSelect.ShowDialog() == DialogResult.OK) {
-                filepath = Path.Combine(folderSelect.SelectedPath, @"sound\voice\vo_emote");
-                Directory.CreateDirectory(filepath);
+                exportFilePath = Path.Combine(folderSelect.SelectedPath, @"sound\voice\vo_emote");
+                Directory.CreateDirectory(exportFilePath);
                 jsonFilepath = Path.Combine(folderSelect.SelectedPath, "default_mod.json");
                 metaFilePath = Path.Combine(folderSelect.SelectedPath, "meta.json");
                 if (File.Exists(jsonFilepath)) {
@@ -413,12 +357,7 @@ namespace FFXIVVoicePackCreator {
                 case 0:
                     int value = int.Parse(racialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
                     if (!voicesToReplace.Contains(value)) {
-                        voicesToReplace.Add(value);
-                        string text = "Character Voice: " + racialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex];
-                        foreach (string raceValue in racesToVoice[value + ""]) {
-                            text += " | " + raceValue;
-                        }
-                        voiceReplacementList.Items.Add(text);
+                        AddReplacementValue(value);
                     } else {
                         MessageBox.Show("This voice has already been added for replacement.", Text);
                     }
@@ -428,12 +367,7 @@ namespace FFXIVVoicePackCreator {
                     if (!string.IsNullOrWhiteSpace(stringValue)) {
                         int value2 = int.Parse(stringValue);
                         if (!voicesToReplace.Contains(value2)) {
-                            voicesToReplace.Add(value2);
-                            string text = "Character Voice: " + racialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
-                            foreach (string raceValue in racesToVoice[value2 + ""]) {
-                                text += " | " + raceValue;
-                            }
-                            voiceReplacementList.Items.Add(text);
+                            AddReplacementValue(value2);
                         } else {
                             MessageBox.Show("This voice has already been added for replacement.", Text);
                         }
@@ -442,6 +376,16 @@ namespace FFXIVVoicePackCreator {
                     }
                     break;
             }
+        }
+
+        private void AddReplacementValue(int value) {
+            hasSaved = false;
+            voicesToReplace.Add(value);
+            string text = "Character Voice: " + racialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex];
+            foreach (string raceValue in racesToVoice[value + ""]) {
+                text += " | " + raceValue;
+            }
+            voiceReplacementList.Items.Add(text);
         }
 
         private void easyGenerateButton_Click(object sender, EventArgs e) {
@@ -463,10 +407,10 @@ namespace FFXIVVoicePackCreator {
                 happy.FilePath.Text,
                 unknown1.FilePath.Text,
                 unknown2.FilePath.Text};
-            if (filepath == null) {
+            if (exportFilePath == null) {
                 GetFilePaths();
             }
-            if (filepath != null) {
+            if (exportFilePath != null) {
                 firstDone = false;
                 foreach (int value in voicesToReplace) {
                     ExportFiles(value);
@@ -480,6 +424,7 @@ namespace FFXIVVoicePackCreator {
         private void clearListButton_Click(object sender, EventArgs e) {
             voicesToReplace.Clear();
             voiceReplacementList.Items.Clear();
+            hasSaved = false;
         }
 
         private void removeFromList_Click(object sender, EventArgs e) {
@@ -490,6 +435,7 @@ namespace FFXIVVoicePackCreator {
                     voiceReplacementList.SelectedIndex = -1;
                 }
             }
+            hasSaved = false;
         }
 
         private void tabManager_Selecting(object sender, TabControlCancelEventArgs e) {
@@ -501,6 +447,138 @@ namespace FFXIVVoicePackCreator {
                     MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", Text);
                 }
                 alreadyShown = true;
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e) {
+            hasSaved = true;
+            foreach (TextBox authorInfo in authorInformation) {
+                authorInfo.Text = "";
+            }
+            foreach (FilePicker filePicker in filePickers) {
+                filePicker.FilePath.Text = "";
+            }
+            voicesToReplace.Clear();
+            voiceReplacementList.Items.Clear();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (savePath == null) {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                    savePath = saveFileDialog.FileName;
+                }
+            }
+            if (savePath != null) {
+                SaveProject(savePath);
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                savePath = saveFileDialog.FileName;
+                SaveProject(savePath);
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                savePath = openFileDialog.FileName;
+                OpenProject(savePath);
+            }
+        }
+
+        public void SaveProject(string path) {
+            using (StreamWriter writer = new StreamWriter(path)) {
+                // Write author info
+                writer.WriteLine(authorInformation.Count);
+                foreach (TextBox authorInfo in authorInformation) {
+                    writer.WriteLine(authorInfo.Text);
+                }
+                // Write chosen sound files
+                writer.WriteLine(filePickers.Count);
+                foreach (FilePicker filePicker in filePickers) {
+                    writer.WriteLine(filePicker.FilePath.Text);
+                }
+                // Write voices to replace
+                writer.WriteLine(voicesToReplace.Count);
+                foreach (int voiceToReplace in voicesToReplace) {
+                    writer.WriteLine(voiceToReplace);
+                }
+                writer.WriteLine(dumpFilePath);
+                writer.WriteLine(exportFilePath);
+                writer.WriteLine(jsonFilepath);
+                writer.WriteLine(metaFilePath);
+            }
+            hasSaved = true;
+        }
+
+        public void OpenProject(string path) {
+            using (StreamReader reader = new StreamReader(path)) {
+                int itemCount = int.Parse(reader.ReadLine());
+                for (int i = 0; i < itemCount; i++) {
+                    authorInformation[i].Text = reader.ReadLine();
+                }
+                itemCount = int.Parse(reader.ReadLine());
+                for (int i = 0; i < itemCount; i++) {
+                    filePickers[i].FilePath.Text = reader.ReadLine();
+                }
+                itemCount = int.Parse(reader.ReadLine());
+                for (int i = 0; i < itemCount; i++) {
+                    AddReplacementValue(int.Parse(reader.ReadLine()));
+                }
+                dumpFilePath = reader.ReadLine();
+                exportFilePath = reader.ReadLine();
+                jsonFilepath = reader.ReadLine();
+                metaFilePath = reader.ReadLine();
+            }
+            hasSaved = true;
+        }
+
+        private void quickImportButton_Click(object sender, EventArgs e) {
+            hasSaved = false;
+            MessageBox.Show("To use quick import successfully, name your sound files exactly after the emote they intend to replace together in a seperated folder.", Text);
+            FolderSelectDialog folderSelectDialog = new FolderSelectDialog();
+            if (folderSelectDialog.ShowDialog() == DialogResult.OK) {
+                foreach (string filename in Directory.GetFiles(folderSelectDialog.SelectedPath)) {
+                    foreach (FilePicker filePicker in filePickers) {
+                        if (Path.GetFileName(filename).ToLower().Contains(filePicker.Name)) {
+                            filePicker.FilePath.Text = filename;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void modNameTextbox_TextChanged(object sender, EventArgs e) {
+            hasSaved = false;
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) {
+            if (!hasSaved) {
+                DialogResult dialogResult = MessageBox.Show("Save changes?", Text, MessageBoxButtons.YesNoCancel);
+                switch (dialogResult) {
+                    case DialogResult.Yes:
+                        if (savePath == null) {
+                            SaveFileDialog saveFileDialog = new SaveFileDialog();
+                            saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                                savePath = saveFileDialog.FileName;
+                            }
+                        }
+                        if (savePath != null) {
+                            SaveProject(savePath);
+                        }
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
             }
         }
     }
