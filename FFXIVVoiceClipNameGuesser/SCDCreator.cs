@@ -24,6 +24,7 @@ namespace FFXIVVoicePackCreator {
             SCDGenerator generator = new SCDGenerator();
             generator.ConvertAndGenerateSCD(mediaSelection.FilePath.Text, outputSelection.FilePath.Text);
             this.Focus();
+            int i = 19 - 0x10;
         }
     }
 }
