@@ -451,7 +451,35 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (!hasSaved) {
+                DialogResult dialogResult = MessageBox.Show("Save changes?", Text, MessageBoxButtons.YesNoCancel);
+                switch (dialogResult) {
+                    case DialogResult.Yes:
+                        if (savePath == null) {
+                            SaveFileDialog saveFileDialog = new SaveFileDialog();
+                            saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                                savePath = saveFileDialog.FileName;
+                            }
+                        }
+                        if (savePath != null) {
+                            SaveProject(savePath);
+                            NewProject();
+                        }
+                        break;
+                    case DialogResult.No:
+                        NewProject();
+                        break;
+                }
+            }
+        }
+
+        private void NewProject() {
             hasSaved = true;
+            savePath = null;
+            exportFilePath = null;
+            jsonFilepath = null;
+            metaFilePath = null;
             foreach (TextBox authorInfo in authorInformation) {
                 authorInfo.Text = "";
             }
