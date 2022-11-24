@@ -69,7 +69,6 @@ namespace FFXIVVoicePackCreator {
             this.mediaSelection.Name = "mediaSelection";
             this.mediaSelection.Size = new System.Drawing.Size(352, 31);
             this.mediaSelection.TabIndex = 0;
-            this.mediaSelection.Load += new System.EventHandler(this.filePicker1_Load);
             // 
             // scdTypeComboBox
             // 
@@ -91,7 +90,6 @@ namespace FFXIVVoicePackCreator {
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "File Type";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // loopStartTextBox
             // 
@@ -101,7 +99,7 @@ namespace FFXIVVoicePackCreator {
             this.loopStartTextBox.Size = new System.Drawing.Size(107, 20);
             this.loopStartTextBox.TabIndex = 8;
             this.loopStartTextBox.Text = "0";
-            this.loopStartTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.loopStartTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
             // 
             // loopStartLabel
             // 
@@ -112,7 +110,6 @@ namespace FFXIVVoicePackCreator {
             this.loopStartLabel.Size = new System.Drawing.Size(105, 13);
             this.loopStartLabel.TabIndex = 9;
             this.loopStartLabel.Text = "Loop Start (Samples)";
-            this.loopStartLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // loopEndLabel
             // 
@@ -123,7 +120,6 @@ namespace FFXIVVoicePackCreator {
             this.loopEndLabel.Size = new System.Drawing.Size(102, 13);
             this.loopEndLabel.TabIndex = 11;
             this.loopEndLabel.Text = "Loop End (Samples)";
-            this.loopEndLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // loopEndTextBox
             // 
@@ -133,7 +129,7 @@ namespace FFXIVVoicePackCreator {
             this.loopEndTextBox.Size = new System.Drawing.Size(107, 20);
             this.loopEndTextBox.TabIndex = 10;
             this.loopEndTextBox.Text = "0";
-            this.loopEndTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.loopEndTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
             // 
             // NumberOfSamplesLabel
             // 
@@ -144,7 +140,6 @@ namespace FFXIVVoicePackCreator {
             this.NumberOfSamplesLabel.Size = new System.Drawing.Size(101, 13);
             this.NumberOfSamplesLabel.TabIndex = 13;
             this.NumberOfSamplesLabel.Text = "Number Of Samples";
-            this.NumberOfSamplesLabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // numberOfSamplesTextBox
             // 
@@ -154,7 +149,7 @@ namespace FFXIVVoicePackCreator {
             this.numberOfSamplesTextBox.Size = new System.Drawing.Size(107, 20);
             this.numberOfSamplesTextBox.TabIndex = 12;
             this.numberOfSamplesTextBox.Text = "1";
-            this.numberOfSamplesTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.numberOfSamplesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
             // 
             // SCDCreator
             // 

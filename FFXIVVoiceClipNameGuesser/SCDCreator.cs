@@ -20,9 +20,6 @@ namespace FFXIVVoicePackCreator {
             InitializeComponent();
         }
 
-        private void filePicker1_Load(object sender, EventArgs e) {
-        }
-
         private void generateButton_Click(object sender, EventArgs e) {
             form.TopMost = true;
             TopMost = true;
@@ -45,16 +42,12 @@ namespace FFXIVVoicePackCreator {
             } else {
                 MessageBox.Show($"Input and output cannot be blank!", Text);
             }
-            form.TopMost = false;
-            TopMost = false;
+            form.TopMost = true;
+            TopMost = true;
         }
 
         private void SCDCreator_Load(object sender, EventArgs e) {
             scdTypeComboBox.SelectedIndex = 0;
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
         }
 
         private void scdTypeComboBox_SelectedIndexChanged(object sender, EventArgs e) {
@@ -78,28 +71,10 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private void label2_Click(object sender, EventArgs e) {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e) {
-
+        private void textValidation_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
+                e.Handled = true;
+            }
         }
     }
 }
