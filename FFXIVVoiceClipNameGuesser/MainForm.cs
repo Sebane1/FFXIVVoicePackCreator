@@ -194,11 +194,10 @@ namespace FFXIVVoicePackCreator {
             foreach (FilePicker file in filePickers) {
                 if (!string.IsNullOrEmpty(file.FilePath.Text)) {
                     string fileName = (startValue + i) + "";
-                    scdGenerator.ConvertAndGenerateSCD(file.FilePath.Text, Path.Combine(exportFilePath, fileName + ".scd"));
                     if (firstDone) {
-                        paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
+                        paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
                     } else {
-                        paths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
+                        paths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
                         firstDone = true;
                     }
                 }
@@ -395,21 +394,24 @@ namespace FFXIVVoicePackCreator {
             exportProgressBar.Visible = true;
             exportProgressBar.Value = 0;
             exportProgressBar.Maximum = voicesToReplace.Count * 16;
-            if (!string.IsNullOrEmpty(savePath)) {
-                SaveProject(savePath);
-            }
             if (string.IsNullOrEmpty(exportFilePath)) {
                 GetFilePaths();
             }
+            if (!string.IsNullOrEmpty(savePath)) {
+                SaveProject(savePath);
+            }
             if (!string.IsNullOrEmpty(exportFilePath)) {
                 firstDone = false;
+                TopMost = true;
+                foreach (FilePicker value in filePickers) {
+                    scdGenerator.ConvertAndGenerateSCD(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
+                }
                 foreach (int value in voicesToReplace) {
                     ExportFiles(value);
                 }
                 ExportJson(paths);
                 ExportMeta();
                 MessageBox.Show(@"Export Complete", Text);
-                TopMost = true;
                 BringToFront();
                 TopMost = false;
             }
