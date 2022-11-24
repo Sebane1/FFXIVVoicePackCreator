@@ -41,6 +41,8 @@ namespace FFXIVVoicePackCreator {
             this.filePath.Name = "filePath";
             this.filePath.Size = new System.Drawing.Size(322, 20);
             this.filePath.TabIndex = 0;
+            this.filePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseDown);
+            this.filePath.MouseMove += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseMove);
             // 
             // openButton
             // 
