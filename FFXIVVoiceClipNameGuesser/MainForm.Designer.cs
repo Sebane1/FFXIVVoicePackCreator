@@ -55,6 +55,7 @@ namespace FFXIVVoicePackCreator {
             this.label11 = new System.Windows.Forms.Label();
             this.tabManager = new System.Windows.Forms.TabControl();
             this.voiceExportTab = new System.Windows.Forms.TabPage();
+            this.addRaceButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.clearListButton = new System.Windows.Forms.Button();
             this.removeFromList = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab = new System.Windows.Forms.TabPage();
             this.easyGenerateButton = new System.Windows.Forms.Button();
             this.quickImportButton = new System.Windows.Forms.Button();
-            this.addRaceButton = new System.Windows.Forms.Button();
             this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
             this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
             this.happy = new FFXIVVoicePackCreator.FilePicker();
@@ -207,21 +207,21 @@ namespace FFXIVVoicePackCreator {
             // sCDWavMergerToolStripMenuItem
             // 
             this.sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
-            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.sCDWavMergerToolStripMenuItem.Text = "SCD Audio Merger";
+            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone MS-ADPCM SCD";
             this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDWavMergerToolStripMenuItem_Click);
             // 
             // changeVoiceDumpToolStripMenuItem
             // 
             this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
-            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
             this.changeVoiceDumpToolStripMenuItem.Click += new System.EventHandler(this.changeVoiceDumpToolStripMenuItem_Click);
             // 
             // pickExportFolderToolStripMenuItem
             // 
             this.pickExportFolderToolStripMenuItem.Name = "pickExportFolderToolStripMenuItem";
-            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.pickExportFolderToolStripMenuItem.Text = "Pick Export Folder";
             this.pickExportFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
             // 
@@ -368,6 +368,16 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
+            // 
+            // addRaceButton
+            // 
+            this.addRaceButton.Location = new System.Drawing.Point(392, 12);
+            this.addRaceButton.Name = "addRaceButton";
+            this.addRaceButton.Size = new System.Drawing.Size(94, 22);
+            this.addRaceButton.TabIndex = 41;
+            this.addRaceButton.Text = "Add All Voices";
+            this.addRaceButton.UseVisualStyleBackColor = true;
+            this.addRaceButton.Click += new System.EventHandler(this.addRaceButton_Click);
             // 
             // label13
             // 
@@ -517,16 +527,6 @@ namespace FFXIVVoicePackCreator {
             this.quickImportButton.UseVisualStyleBackColor = true;
             this.quickImportButton.Click += new System.EventHandler(this.quickImportButton_Click);
             this.quickImportButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // addRaceButton
-            // 
-            this.addRaceButton.Location = new System.Drawing.Point(392, 12);
-            this.addRaceButton.Name = "addRaceButton";
-            this.addRaceButton.Size = new System.Drawing.Size(94, 22);
-            this.addRaceButton.TabIndex = 41;
-            this.addRaceButton.Text = "Add All Voices";
-            this.addRaceButton.UseVisualStyleBackColor = true;
-            this.addRaceButton.Click += new System.EventHandler(this.addRaceButton_Click);
             // 
             // unknown2
             // 
