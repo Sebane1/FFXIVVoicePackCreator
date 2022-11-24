@@ -194,15 +194,13 @@ namespace FFXIVVoicePackCreator {
             foreach (FilePicker file in filePickers) {
                 if (!string.IsNullOrEmpty(file.FilePath.Text)) {
                     string fileName = (startValue + i) + "";
-                    scdGenerator.ConvertAndGenerateSCD(file.FilePath.Text, Path.Combine(exportFilePath, fileName + ".scd"));
                     if (firstDone) {
-                        paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
+                        paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
                     } else {
-                        paths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + fileName + @".scd""";
+                        paths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
                         firstDone = true;
                     }
                 }
-                exportProgressBar.Value++;
                 i++;
             }
         }
@@ -241,7 +239,7 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private void GetFilePaths() {
+        private bool GetFilePaths() {
             MessageBox.Show(@"Please select the root folder for your custom penumbra sound mod. Ideally you've created one inside your penumbra mods folder for easy testing. (You can use Penumbra to export this mod to a .pmp package later)", Text);
             FolderSelectDialog folderSelect = new FolderSelectDialog();
             if (folderSelect.ShowDialog() == DialogResult.OK) {
@@ -250,9 +248,18 @@ namespace FFXIVVoicePackCreator {
                 jsonFilepath = Path.Combine(folderSelect.SelectedPath, "default_mod.json");
                 metaFilePath = Path.Combine(folderSelect.SelectedPath, "meta.json");
                 if (File.Exists(jsonFilepath)) {
-                    MessageBox.Show(@"Existing mod configuration detected.", Text);
+                    switch (MessageBox.Show(@"Existing mod configuration detected. Continue?", Text)) {
+                        case DialogResult.Yes:
+                            return true;
+                        case DialogResult.No:
+                            exportFilePath = null;
+                            jsonFilepath = null;
+                            metaFilePath = null;
+                            return false;
+                    }
                 }
             }
+            return false;
         }
 
         private string ListContainsName(List<string> files, string fileName) {
@@ -394,24 +401,34 @@ namespace FFXIVVoicePackCreator {
             paths = "";
             exportProgressBar.Visible = true;
             exportProgressBar.Value = 0;
-            exportProgressBar.Maximum = voicesToReplace.Count * 16;
-            if (!string.IsNullOrEmpty(savePath)) {
-                SaveProject(savePath);
-            }
+            exportProgressBar.Maximum = filePickers.Count;
+            bool canContinue = true;
             if (string.IsNullOrEmpty(exportFilePath)) {
-                GetFilePaths();
+                canContinue = GetFilePaths();
             }
-            if (!string.IsNullOrEmpty(exportFilePath)) {
-                firstDone = false;
-                foreach (int value in voicesToReplace) {
-                    ExportFiles(value);
+            if (canContinue) {
+                if (!string.IsNullOrEmpty(savePath)) {
+                    SaveProject(savePath);
                 }
-                ExportJson(paths);
-                ExportMeta();
-                MessageBox.Show(@"Export Complete", Text);
-                TopMost = true;
-                BringToFront();
-                TopMost = false;
+                if (!string.IsNullOrEmpty(exportFilePath)) {
+                    firstDone = false;
+                    TopMost = true;
+                    foreach (FilePicker value in filePickers) {
+                        scdGenerator.ConvertAndGenerateSCD(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
+                        exportProgressBar.Increment(1);
+                        exportProgressBar.Refresh();
+                    }
+                    foreach (int value in voicesToReplace) {
+                        ExportFiles(value);
+                    }
+                    ExportJson(paths);
+                    ExportMeta();
+                    BringToFront();
+                    MessageBox.Show(@"Export Complete", Text);
+                    TopMost = false;
+                }
+            } else {
+                MessageBox.Show(@"Export Cancelled", Text);
             }
             exportProgressBar.Visible = false;
         }
