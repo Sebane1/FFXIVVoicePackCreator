@@ -415,7 +415,11 @@ namespace FFXIVVoicePackCreator {
                     firstDone = false;
                     TopMost = true;
                     foreach (FilePicker value in filePickers) {
-                        scdGenerator.ConvertAndGenerateMSADCPM(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
+                        if (File.Exists(value.FilePath.Text)) {
+                            scdGenerator.ConvertAndGenerateMSADCPM(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
+                        } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text)) {
+                            MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
+                        }
                         exportProgressBar.Increment(1);
                         exportProgressBar.Refresh();
                     }
