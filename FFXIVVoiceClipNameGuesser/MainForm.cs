@@ -248,7 +248,7 @@ namespace FFXIVVoicePackCreator {
                 jsonFilepath = Path.Combine(folderSelect.SelectedPath, "default_mod.json");
                 metaFilePath = Path.Combine(folderSelect.SelectedPath, "meta.json");
                 if (File.Exists(jsonFilepath)) {
-                    switch (MessageBox.Show(@"Existing mod configuration detected. Continue?", Text)) {
+                    switch (MessageBox.Show(@"Existing mod configuration detected. Continue?", Text, MessageBoxButtons.YesNo)) {
                         case DialogResult.Yes:
                             return true;
                         case DialogResult.No:
