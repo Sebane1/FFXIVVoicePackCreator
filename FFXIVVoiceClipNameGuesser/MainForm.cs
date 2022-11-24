@@ -15,7 +15,7 @@ namespace FFXIVVoicePackCreator {
         private string exportFilePath;
         private string jsonFilepath;
         private string dumpFilePath;
-        private List<string> files;
+        private List<string> dumpFiles;
         private List<string> secondaryKnownFileList;
         private List<string> lostFileListPaths;
         private Point startPos;
@@ -38,6 +38,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            exportProgressBar.Visible = false;
             Text = Application.ProductName + " " + Application.ProductVersion;
             LoadRacialVoiceInfo();
             scdGenerator = new SCDGenerator();
@@ -129,18 +130,18 @@ namespace FFXIVVoicePackCreator {
             if (!dontLoad) {
                 hasSaved = false;
                 missingFIleList.Items.Clear();
-                if (files != null) {
-                    files.Clear();
+                if (dumpFiles != null) {
+                    dumpFiles.Clear();
                 }
-                files = new List<string>();
-                files.AddRange(Directory.GetFiles(dumpFilePath));
+                dumpFiles = new List<string>();
+                dumpFiles.AddRange(Directory.GetFiles(dumpFilePath));
                 if (secondaryKnownFileList != null) {
                     secondaryKnownFileList.Clear();
                 }
                 secondaryKnownFileList = new List<string>();
                 int startValue = 7301000;
                 int index = 0;
-                int attempts = (files.Count / 16);
+                int attempts = (dumpFiles.Count / 16);
                 bool firstUnfound = false;
                 int foundVoices = 0;
                 int unfoundVoices = 0;
@@ -148,7 +149,7 @@ namespace FFXIVVoicePackCreator {
                     bool itemsNotFound = false;
                     for (int emoteCount = 0; emoteCount <= 15; emoteCount++) {
                         string fileName = (startValue + emoteCount) + "";
-                        string name = ListContainsName(files, fileName);
+                        string name = ListContainsName(dumpFiles, fileName);
                         if (string.IsNullOrEmpty(name)) {
                             missingFIleList.Items.Add((firstUnfound ? "" : "  ") + fileName + $" ({(Emotion)emoteCount})");
                             itemsNotFound = true;
@@ -173,9 +174,9 @@ namespace FFXIVVoicePackCreator {
                     startValue += 1000;
                 }
                 lostFileListPaths = new List<string>();
-                while (index < files.Count) {
-                    lostFileList.Items.Add(Path.GetFileName(files[index++]));
-                    lostFileListPaths.Add(files[index++]);
+                while (index < dumpFiles.Count) {
+                    lostFileList.Items.Add(Path.GetFileName(dumpFiles[index++]));
+                    lostFileListPaths.Add(dumpFiles[index++]);
                 }
                 MessageBox.Show("Found " + foundVoices + " voices. Was not able to find " + unfoundVoices + " voices.", Text);
                 if (missingFIleList.Items.Count > 0) {
@@ -201,6 +202,7 @@ namespace FFXIVVoicePackCreator {
                         firstDone = true;
                     }
                 }
+                exportProgressBar.Value++;
                 i++;
             }
         }
@@ -381,7 +383,7 @@ namespace FFXIVVoicePackCreator {
         private void AddReplacementValue(int value) {
             hasSaved = false;
             voicesToReplace.Add(value);
-            string text = "Character Voice: " + racialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex];
+            string text = "Character Voice: " + value;
             foreach (string raceValue in racesToVoice[value + ""]) {
                 text += " | " + raceValue;
             }
@@ -390,27 +392,16 @@ namespace FFXIVVoicePackCreator {
 
         private void easyGenerateButton_Click(object sender, EventArgs e) {
             paths = "";
-            files = new List<string>() {
-                surprised.FilePath.Text,
-                angry.FilePath.Text,
-                furious.FilePath.Text,
-                cheer.FilePath.Text,
-                doze.FilePath.Text,
-                fume.FilePath.Text,
-                huh.FilePath.Text,
-                chuckle.FilePath.Text,
-                laugh.FilePath.Text,
-                no.FilePath.Text,
-                stretch.FilePath.Text,
-                upset.FilePath.Text,
-                yes.FilePath.Text,
-                happy.FilePath.Text,
-                unknown1.FilePath.Text,
-                unknown2.FilePath.Text};
-            if (exportFilePath == null) {
+            exportProgressBar.Visible = true;
+            exportProgressBar.Value = 0;
+            exportProgressBar.Maximum = voicesToReplace.Count * 16;
+            if (!string.IsNullOrEmpty(savePath)) {
+                SaveProject(savePath);
+            }
+            if (string.IsNullOrEmpty(exportFilePath)) {
                 GetFilePaths();
             }
-            if (exportFilePath != null) {
+            if (!string.IsNullOrEmpty(exportFilePath)) {
                 firstDone = false;
                 foreach (int value in voicesToReplace) {
                     ExportFiles(value);
@@ -418,7 +409,11 @@ namespace FFXIVVoicePackCreator {
                 ExportJson(paths);
                 ExportMeta();
                 MessageBox.Show(@"Export Complete", Text);
+                TopMost = true;
+                BringToFront();
+                TopMost = false;
             }
+            exportProgressBar.Visible = false;
         }
 
         private void clearListButton_Click(object sender, EventArgs e) {
@@ -451,6 +446,9 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e) {
+            CleanSlate();
+        }
+        private bool CleanSlate() {
             if (!hasSaved) {
                 DialogResult dialogResult = MessageBox.Show("Save changes?", Text, MessageBoxButtons.YesNoCancel);
                 switch (dialogResult) {
@@ -462,18 +460,22 @@ namespace FFXIVVoicePackCreator {
                                 savePath = saveFileDialog.FileName;
                             }
                         }
-                        if (savePath != null) {
+                        if (!string.IsNullOrEmpty(savePath)) {
                             SaveProject(savePath);
                             NewProject();
+                            return true;
                         }
                         break;
                     case DialogResult.No:
                         NewProject();
-                        break;
+                        return true;
                 }
+            } else {
+                NewProject();
+                return true;
             }
+            return false;
         }
-
         private void NewProject() {
             hasSaved = true;
             savePath = null;
@@ -491,16 +493,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (savePath == null) {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
-                if (saveFileDialog.ShowDialog() == DialogResult.OK) {
-                    savePath = saveFileDialog.FileName;
-                }
-            }
-            if (savePath != null) {
-                SaveProject(savePath);
-            }
+            Save();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -513,11 +506,14 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e) {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
-            if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                savePath = openFileDialog.FileName;
-                OpenProject(savePath);
+            if (CleanSlate()) {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+                if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                    savePath = openFileDialog.FileName;
+                    OpenProject(savePath);
+                }
+                hasSaved = true;
             }
         }
 
@@ -607,6 +603,70 @@ namespace FFXIVVoicePackCreator {
                         e.Cancel = true;
                         break;
                 }
+            }
+        }
+        protected override bool ProcessCmdKey(ref Message message, Keys keys) {
+            switch (keys) {
+                case Keys.S | Keys.Control:
+                    // ... Process Shift+Ctrl+Alt+B ...
+                    Save();
+                    return true; // signal that we've processed this key
+            }
+
+            // run base implementation
+            return base.ProcessCmdKey(ref message, keys);
+        }
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e) {
+            if (e.Control && e.KeyCode == Keys.S) {
+                Save();
+            }
+        }
+
+        private void Save() {
+            if (savePath == null) {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                    savePath = saveFileDialog.FileName;
+                }
+            }
+            if (savePath != null) {
+                SaveProject(savePath);
+            }
+        }
+
+        private void addRaceButton_Click(object sender, EventArgs e) {
+            bool voiceAlreadyInList = false;
+            int voiceCount = 0;
+            for (int i = 0; i < 12; i++) {
+                switch (sexListComboBox.SelectedIndex) {
+                    case 0:
+                        int value = int.Parse(racialList[raceListComboBox.SelectedIndex].Masculine[i]);
+                        if (!voicesToReplace.Contains(value)) {
+                            AddReplacementValue(value);
+                        } else {
+                            voiceAlreadyInList = true;
+                            voiceCount++;
+                        }
+                        break;
+                    case 1:
+                        string stringValue = racialList[raceListComboBox.SelectedIndex].Feminine[i];
+                        if (!string.IsNullOrWhiteSpace(stringValue)) {
+                            int value2 = int.Parse(stringValue);
+                            if (!voicesToReplace.Contains(value2)) {
+                                AddReplacementValue(value2);
+                            } else {
+                                voiceAlreadyInList = true;
+                            }
+                        } else {
+                            MessageBox.Show("Theres is no voice to replace.", Text);
+                            voiceCount++;
+                        }
+                        break;
+                }
+            }
+            if (voiceAlreadyInList) {
+                MessageBox.Show($"{voiceCount} voices were already added to the list. Anything not already added has been added.", Text);
             }
         }
     }

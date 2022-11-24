@@ -24,10 +24,33 @@ namespace FFXIVVoicePackCreator {
         public string Filter { get => filter; set => filter = value; }
 
         string filter;
+        private Point startPos;
+        private bool canDoDragDrop;
+
         private void filePicker_Load(object sender, EventArgs e) {
             labelName.Text = (index == -1 ? Name : ($"({index})  " + Name));
         }
+        private void filePicker_MouseDown(object sender, MouseEventArgs e) {
+            startPos = e.Location;
+            canDoDragDrop = true;
+        }
 
+        private void filePicker_MouseMove(object sender, MouseEventArgs e) {
+            ((Form)Parent).TopMost = true;
+            if ((e.X != startPos.X || startPos.Y != e.Y) && canDoDragDrop) {
+                List<string> fileList = new List<string>();
+                if (!string.IsNullOrEmpty(filePath.Text)) {
+                    fileList.Add(filePath.Text);
+                }
+                if (fileList.Count > 0) {
+                    DataObject fileDragData = new DataObject(DataFormats.FileDrop, fileList.ToArray());
+                    DoDragDrop(fileDragData, DragDropEffects.Copy);
+                }
+                canDoDragDrop = false;
+                Parent.BringToFront();
+            }
+            ((Form)Parent).TopMost = false;
+        }
         private void openButton_Click(object sender, EventArgs e) {
             if (!isSaveMode) {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
