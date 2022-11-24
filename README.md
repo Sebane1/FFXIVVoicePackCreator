@@ -16,5 +16,7 @@ Instructions:
 - In game, hit rediscover in penumbra and enable your new voice pack mod.
 - Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
 
+Video Tutorial:
+https://www.youtube.com/watch?v=_ww-g_fSXoI
 
 Need support, or just wanna talk sound? Visit our discord! https://discord.gg/rtGXwMn7pX 
