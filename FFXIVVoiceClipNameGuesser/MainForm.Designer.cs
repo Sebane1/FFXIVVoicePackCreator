@@ -207,9 +207,9 @@ namespace FFXIVVoicePackCreator {
             // sCDWavMergerToolStripMenuItem
             // 
             this.sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
-            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
-            this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone MS-ADPCM SCD";
-            this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDWavMergerToolStripMenuItem_Click);
+            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone SCD";
+            this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDCreatorToolStripMenuItem_Click);
             // 
             // changeVoiceDumpToolStripMenuItem
             // 
