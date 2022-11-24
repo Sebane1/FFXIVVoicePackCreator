@@ -70,7 +70,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void LoadRacialVoiceInfo() {
-            string racialListPath = Path.Combine(Application.StartupPath, "racialVoiceList.txt");
+            string racialListPath = Path.Combine(Application.StartupPath, @"res\racialVoiceList.txt");
             racialList = new List<RaceVoices>();
             using (StreamReader streamReader = new StreamReader(racialListPath)) {
                 int races = int.Parse(streamReader.ReadLine());
@@ -335,8 +335,9 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private void sCDWavMergerToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void sCDCreatorToolStripMenuItem_Click(object sender, EventArgs e) {
             SCDCreator sCDCreator = new SCDCreator();
+            sCDCreator.Form = this;
             sCDCreator.ShowDialog();
         }
 
@@ -414,7 +415,7 @@ namespace FFXIVVoicePackCreator {
                     firstDone = false;
                     TopMost = true;
                     foreach (FilePicker value in filePickers) {
-                        scdGenerator.ConvertAndGenerateSCD(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
+                        scdGenerator.ConvertAndGenerateMSADCPM(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
                         exportProgressBar.Increment(1);
                         exportProgressBar.Refresh();
                     }

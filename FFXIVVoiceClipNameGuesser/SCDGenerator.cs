@@ -1,23 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FFXIVVoicePackCreator {
     public class SCDGenerator {
-        public void ConvertAndGenerateSCD(string inputPath, string outputPath) {
+        public void ConvertAndGenerateMSADCPM(string inputPath, string outputPath) {
             if (File.Exists(inputPath)) {
                 SCDGenerator generator = new SCDGenerator();
                 string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
-                Process.Start(Path.Combine(Application.StartupPath, "ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
+                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
                 while (IsFileLocked(tempPath)) { };
-                using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, "header.bin"), FileMode.Open, FileAccess.Read)) {
+                using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, @"res\MSADPCM.bin"), FileMode.Open, FileAccess.Read)) {
                     using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
-                        generator.GenerateSCD(header, inputStream, outputPath);
+                        generator.GenerateMSADPCM(header, inputStream, outputPath);
+                    }
+                }
+                File.Delete(tempPath);
+            }
+        }
+        public void ConvertAndGenerateOGG(string inputPath, string outputPath, int positionStart, int positionEnd, int numSamples) {
+            if (File.Exists(inputPath)) {
+                SCDGenerator generator = new SCDGenerator();
+                string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".ogg");
+                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -c:a libvorbis {@"""" + tempPath + @""""}");
+                while (IsFileLocked(tempPath)) { };
+                using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, @"res\OGG.bin"), FileMode.Open, FileAccess.Read)) {
+                    using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
+                        generator.GenerateOGG(header, inputStream, positionStart, positionStart, positionStart, outputPath);
                     }
                 }
                 File.Delete(tempPath);
@@ -39,7 +49,7 @@ namespace FFXIVVoicePackCreator {
             //file is not locked
             return false;
         }
-        public void GenerateSCD(FileStream header, FileStream wavFile, string output) {
+        public void GenerateMSADPCM(FileStream header, FileStream wavFile, string output) {
             using (FileStream outputFileStream = new FileStream(output, FileMode.Create)) {
                 using (MemoryStream headerStream = new MemoryStream()) {
                     using (MemoryStream wavStream = new MemoryStream()) {
@@ -115,6 +125,56 @@ namespace FFXIVVoicePackCreator {
                 output.Write(buffer, 0, read);
                 bytes -= read;
             }
+        }
+        //--------------------------------------------------------------------------------------------------------
+        //Code following this line is altered, or inspired from FFXIV Explorer
+
+        private byte[] CreateSCDHeader(FileStream header, int oggLength, float volume, int numChannels, int sampleRate, int loopStart, int loopEnd) {
+            using (MemoryStream oggHeader = new MemoryStream()) {
+                using (BinaryWriter writer = new BinaryWriter(oggHeader)) {
+                    header.CopyTo(oggHeader);
+                    //Edit the parts needed
+                    writer.BaseStream.Position = 0x10;
+                    writer.Write((int)(oggHeader.Length + oggLength));
+                    writer.BaseStream.Position = 0x1B0;
+                    writer.Write((int)(oggLength - 0x10));
+
+                    writer.BaseStream.Position = 0xA8;
+                    writer.Write((float)volume);
+                    writer.BaseStream.Position = 0x1B4;
+                    writer.Write((int)numChannels);
+                    writer.BaseStream.Position = 0x1B8;
+                    writer.Write((int)sampleRate);
+                    writer.BaseStream.Position = 0x1C0;
+                    writer.Write((int)loopStart);
+                    writer.BaseStream.Position = 0x1C4;
+                    writer.Write((int)loopEnd);
+                    return oggHeader.ToArray();
+                }
+            }
+        }
+        private void GenerateOGG(FileStream header, FileStream oggFile, int positionStart, int positionEnd, int numSamples, string output) {
+            float volume = 1.0f;
+            int numChannels = 2;
+            int sampleRate = 44100;
+            int loopStart = 0;
+            int loopEnd = (int)oggFile.Length;
+
+            loopStart = GetBytePosition(positionStart, numSamples, (int)oggFile.Length - 0x10);
+            loopEnd = GetBytePosition(positionEnd, numSamples, (int)oggFile.Length - 0x10);
+            //Create Header
+            using (MemoryStream genereatedHeader = new MemoryStream(CreateSCDHeader(header, (int)oggFile.Length, volume, numChannels, sampleRate, loopStart, loopEnd))) {
+                using (FileStream outputFileStream = new FileStream(output, FileMode.Create)) {
+                    //Write out scd
+                    genereatedHeader.CopyTo(outputFileStream);
+                    oggFile.CopyTo(outputFileStream);
+                }
+            }
+        }
+
+
+        private int GetBytePosition(float samplePosition, float numSamples, float filesize) {
+            return (int)((filesize / numSamples) * samplePosition);
         }
     }
 }
