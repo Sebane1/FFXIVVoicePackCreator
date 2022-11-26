@@ -30,6 +30,7 @@ namespace FFXIVVoicePackCreator {
             this.filePath = new System.Windows.Forms.TextBox();
             this.openButton = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
+            this.useGameFileCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // filePath
@@ -37,9 +38,9 @@ namespace FFXIVVoicePackCreator {
             this.filePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePath.Location = new System.Drawing.Point(85, 5);
+            this.filePath.Location = new System.Drawing.Point(151, 5);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(322, 20);
+            this.filePath.Size = new System.Drawing.Size(256, 20);
             this.filePath.TabIndex = 0;
             this.filePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseDown);
             this.filePath.MouseMove += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseMove);
@@ -59,16 +60,28 @@ namespace FFXIVVoicePackCreator {
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(3, 8);
+            this.labelName.Location = new System.Drawing.Point(110, 8);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "Name";
             // 
+            // checkBox1
+            // 
+            this.useGameFileCheckBox.AutoSize = true;
+            this.useGameFileCheckBox.Location = new System.Drawing.Point(3, 7);
+            this.useGameFileCheckBox.Name = "checkBox1";
+            this.useGameFileCheckBox.Size = new System.Drawing.Size(95, 17);
+            this.useGameFileCheckBox.TabIndex = 3;
+            this.useGameFileCheckBox.Text = "Use Game File";
+            this.useGameFileCheckBox.UseVisualStyleBackColor = true;
+            this.useGameFileCheckBox.CheckedChanged += new System.EventHandler(this.useGameFileCheckBox_CheckedChanged);
+            // 
             // FilePicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.useGameFileCheckBox);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.filePath);
@@ -85,6 +98,7 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.TextBox filePath;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.Label labelName;
+        private CheckBox useGameFileCheckBox;
 
         public Label LabelName { get => labelName; set => labelName = value; }
         public TextBox FilePath { get => filePath; set => filePath = value; }

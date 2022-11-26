@@ -66,5 +66,15 @@ namespace FFXIVVoicePackCreator {
                 }
             }
         }
+
+        private void useGameFileCheckBox_CheckedChanged(object sender, EventArgs e) {
+            FilePath.Text = "";
+            switch (useGameFileCheckBox.Checked) {
+                case true:
+                    break;
+                case false:
+                    break;
+            }
+        }
     }
 }
