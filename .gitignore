@@ -10,3 +10,6 @@ FFXIVVoiceClipNameGuesser/bin/Debug/ffmpeg.exe
 *.exe
 FFXIVVoiceClipNameGuesser/bin/Debug/FFXIVVoiceClipNameGuesser.exe
 FFXIVVoiceClipNameGuesser/obj/Debug/FFXIVVoiceClipNameGuesser.exe
+FFXIVVoiceClipNameGuesser/bin/Release/FFXIVVoicePackCreator.exe.config
+FFXIVVoiceClipNameGuesser/bin/Release/FFXIVVoicePackCreator.pdb
+FFXIVVoiceClipNameGuesser/obj/Release/FFXIVVoicePackCreator.pdb
