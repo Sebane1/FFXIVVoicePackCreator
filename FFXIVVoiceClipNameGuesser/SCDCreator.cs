@@ -36,14 +36,21 @@ namespace FFXIVVoicePackCreator {
                             int.Parse(loopEndTextBox.Text),
                             int.Parse(numberOfSamplesTextBox.Text));
                         break;
+                    case 2:
+                        generator.ConvertAndGenerateOrchestrion(mediaSelection.FilePath.Text,
+                            outputSelection.FilePath.Text,
+                            int.Parse(loopStartTextBox.Text),
+                            int.Parse(loopEndTextBox.Text),
+                            int.Parse(numberOfSamplesTextBox.Text));
+                        break;
                 }
                 this.Focus();
                 MessageBox.Show($"SCD file created successfully!", Text);
             } else {
                 MessageBox.Show($"Input and output cannot be blank!", Text);
             }
-            form.TopMost = true;
-            TopMost = true;
+            form.TopMost = false;
+            TopMost = false;
         }
 
         private void SCDCreator_Load(object sender, EventArgs e) {
@@ -61,6 +68,7 @@ namespace FFXIVVoicePackCreator {
                     NumberOfSamplesLabel.Enabled = false;
                     break;
                 case 1:
+                case 2:
                     loopStartTextBox.Enabled = true;
                     loopEndTextBox.Enabled = true;
                     numberOfSamplesTextBox.Enabled = true;
@@ -75,6 +83,10 @@ namespace FFXIVVoicePackCreator {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
                 e.Handled = true;
             }
+        }
+
+        private void filePicker1_Load(object sender, EventArgs e) {
+
         }
     }
 }

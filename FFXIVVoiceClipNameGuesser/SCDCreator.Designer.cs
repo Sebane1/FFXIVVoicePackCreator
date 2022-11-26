@@ -74,8 +74,9 @@ namespace FFXIVVoicePackCreator {
             // 
             this.scdTypeComboBox.FormattingEnabled = true;
             this.scdTypeComboBox.Items.AddRange(new object[] {
-            "MS-ADPCM (Used Strictly For Sound Effects)",
-            "OGG (Used Strictly For Background Music)"});
+            "Sound Effect",
+            "Background Music",
+            "Orchestrion (Experimental)"});
             this.scdTypeComboBox.Location = new System.Drawing.Point(99, 93);
             this.scdTypeComboBox.Name = "scdTypeComboBox";
             this.scdTypeComboBox.Size = new System.Drawing.Size(265, 21);
