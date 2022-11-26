@@ -23,7 +23,7 @@ namespace FFXIVVoicePackCreator {
             if (File.Exists(inputPath)) {
                 SCDGenerator generator = new SCDGenerator();
                 string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".ogg");
-                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -c:a libvorbis {@"""" + tempPath + @""""}");
+                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -c:a libvorbis -ar: 44100 {@"""" + tempPath + @""""}");
                 while (IsFileLocked(tempPath)) { };
                 using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, @"res\OGG.bin"), FileMode.Open, FileAccess.Read)) {
                     using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
@@ -33,6 +33,22 @@ namespace FFXIVVoicePackCreator {
                 File.Delete(tempPath);
             }
         }
+
+        public void ConvertAndGenerateOrchestrion(string inputPath, string outputPath, int positionStart, int positionEnd, int numSamples) {
+            if (File.Exists(inputPath)) {
+                SCDGenerator generator = new SCDGenerator();
+                string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".ogg");
+                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -c:a libvorbis -ar: 44100 -ac 1 {@"""" + tempPath + @""""}");
+                while (IsFileLocked(tempPath)) { };
+                using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, @"res\ORCHESTRION.bin"), FileMode.Open, FileAccess.Read)) {
+                    using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
+                        generator.GenerateOrchestrion(header, inputStream, positionStart, positionStart, positionStart, outputPath);
+                    }
+                }
+                File.Delete(tempPath);
+            }
+        }
+
         protected virtual bool IsFileLocked(string file) {
             try {
                 using (FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.None)) {
@@ -126,9 +142,9 @@ namespace FFXIVVoicePackCreator {
                 bytes -= read;
             }
         }
-        //--------------------------------------------------------------------------------------------------------
-        //Code following this line is altered, or inspired from FFXIV Explorer
 
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        //Code following this line is altered, or heavily inspired from FFXIV Explorer
         private byte[] CreateSCDHeader(FileStream header, int oggLength, float volume, int numChannels, int sampleRate, int loopStart, int loopEnd) {
             using (MemoryStream oggHeader = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(oggHeader)) {
@@ -153,6 +169,7 @@ namespace FFXIVVoicePackCreator {
                 }
             }
         }
+
         private void GenerateOGG(FileStream header, FileStream oggFile, int positionStart, int positionEnd, int numSamples, string output) {
             float volume = 1.0f;
             int numChannels = 2;
@@ -175,6 +192,28 @@ namespace FFXIVVoicePackCreator {
 
         private int GetBytePosition(float samplePosition, float numSamples, float filesize) {
             return (int)((filesize / numSamples) * samplePosition);
+        }
+
+        // End of FFXIV Explorer algorithms --------------------------------------------------------------------------------------------------------
+        private void GenerateOrchestrion(FileStream header, FileStream oggFile, int positionStart, int positionEnd, int numSamples, string output) {
+            float volume = 1.0f;
+            int numChannels = 2;
+            int sampleRate = 44100;
+            int loopStart = 0;
+            int loopEnd = (int)oggFile.Length;
+
+            loopStart = GetBytePosition(positionStart, numSamples, (int)oggFile.Length - 0x10);
+            loopEnd = GetBytePosition(positionEnd, numSamples, (int)oggFile.Length - 0x10);
+            //Create Header
+            using (MemoryStream generatedHeader = new MemoryStream(CreateSCDHeader(header, (int)oggFile.Length, volume, numChannels, sampleRate, loopStart, loopEnd))) {
+                using (FileStream outputFileStream = new FileStream(output, FileMode.Create)) {
+                    //Write out scd
+                    generatedHeader.CopyTo(outputFileStream);
+                    oggFile.Seek(0, SeekOrigin.Begin);
+                    oggFile.Seek(0x28, SeekOrigin.Current);
+                    oggFile.CopyTo(outputFileStream);
+                }
+            }
         }
     }
 }
