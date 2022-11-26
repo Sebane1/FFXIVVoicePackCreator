@@ -23,15 +23,16 @@ namespace FFXIVVoicePackCreator {
         private SCDGenerator scdGenerator;
         private string metaFilePath;
         private bool firstDone;
-        private string paths;
-        private List<RaceVoices> racialList;
+        private string fileReplacementPaths;
+        private string fileSwapPaths;
         private List<int> voicesToReplace = new List<int>();
-        private Dictionary<string, List<string>> racesToVoice = new Dictionary<string, List<string>>();
         private bool alreadyShown;
         private List<FilePicker> filePickers = new List<FilePicker>();
         private List<TextBox> authorInformation;
         private string savePath;
         private bool hasSaved = true;
+        private bool firstDone2;
+
         public MainWindow() {
             InitializeComponent();
             // foundNamesList.SelectionMode = SelectionMode.MultiExtended;
@@ -40,7 +41,8 @@ namespace FFXIVVoicePackCreator {
         private void Form1_Load(object sender, EventArgs e) {
             exportProgressBar.Visible = false;
             Text = Application.ProductName + " " + Application.ProductVersion;
-            LoadRacialVoiceInfo();
+            RaceVoices.LoadRacialVoiceInfo();
+            RefreshRacialChoices();
             scdGenerator = new SCDGenerator();
             filePickers = new List<FilePicker>() {
                 surprised,
@@ -69,47 +71,11 @@ namespace FFXIVVoicePackCreator {
             };
         }
 
-        private void LoadRacialVoiceInfo() {
-            string racialListPath = Path.Combine(Application.StartupPath, @"res\racialVoiceList.txt");
-            racialList = new List<RaceVoices>();
-            using (StreamReader streamReader = new StreamReader(racialListPath)) {
-                int races = int.Parse(streamReader.ReadLine());
-                for (int raceIndex = 0; raceIndex < races; raceIndex++) {
-                    RaceVoices raceVoices = new RaceVoices();
-                    raceVoices.RaceName = streamReader.ReadLine();
-                    streamReader.ReadLine();
-                    for (int i = 0; i < 12; i++) {
-                        string value = streamReader.ReadLine();
-                        raceVoices.Masculine.Add(value);
 
-                        if (!racesToVoice.ContainsKey(value)) {
-                            racesToVoice.Add(value, new List<string>() { raceVoices.RaceName + ", Masculine Voice " + (12 - i) });
-                        } else {
-                            racesToVoice[value].Add(raceVoices.RaceName + ", Masculine Voice " + (12 - i));
-                        }
-                    }
-                    raceVoices.Masculine.Reverse();
-                    streamReader.ReadLine();
-                    for (int i = 0; i < 12; i++) {
-                        string value = streamReader.ReadLine();
-                        raceVoices.Feminine.Add(value);
-
-                        if (!racesToVoice.ContainsKey(value)) {
-                            racesToVoice.Add(value, new List<string>() { raceVoices.RaceName + ", Feminine, Voice " + (12 - i) });
-                        } else {
-                            racesToVoice[value].Add(raceVoices.RaceName + ", Feminine Voice " + (12 - i));
-                        }
-                    }
-                    raceVoices.Feminine.Reverse();
-                    racialList.Add(raceVoices);
-                }
-            }
-            RefreshRacialChoices();
-        }
 
         void RefreshRacialChoices() {
             raceListComboBox.Items.Clear();
-            foreach (RaceVoices voices in racialList) {
+            foreach (RaceVoices voices in RaceVoices.RacialList) {
                 raceListComboBox.Items.Add(voices.RaceName);
             }
             sexListComboBox.SelectedIndex = 0;
@@ -185,34 +151,42 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-
-        }
-
         private void ExportFiles(int startValue) {
             int i = 0;
             foreach (FilePicker file in filePickers) {
                 if (!string.IsNullOrEmpty(file.FilePath.Text)) {
-                    string fileName = (startValue + i) + "";
-                    if (firstDone) {
-                        paths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
+                    if (!file.UseGameFileCheckBox.Checked) {
+                        string fileName = (startValue + i) + "";
+                        if (firstDone) {
+                            fileReplacementPaths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
+                        } else {
+                            fileReplacementPaths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
+                            firstDone = true;
+                        }
                     } else {
-                        paths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
-                        firstDone = true;
+                        string fileName = (startValue + i) + "";
+                        if (firstDone2) {
+                            fileSwapPaths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": """ + file.FilePath.Text + @"""";
+                        } else {
+                            fileSwapPaths += @"""sound/voice/vo_emote/" + fileName + @".scd"": """ + file.FilePath.Text + @"""";
+                            firstDone2 = true;
+                        }
                     }
                 }
                 i++;
             }
         }
 
-        private void ExportJson(string paths) {
+        private void ExportJson() {
             string jsonText = @"{
   ""Name"": """",
   ""Priority"": 0,
   ""Files"": {
-       " + paths + @"
+       " + fileReplacementPaths + @"
   },
-  ""FileSwaps"": { },
+  ""FileSwaps"": {
+       " + fileSwapPaths + @"
+  },
   ""Manipulations"": []
 }";
             if (jsonFilepath != null) {
@@ -258,6 +232,7 @@ namespace FFXIVVoicePackCreator {
                             return false;
                     }
                 }
+                return true;
             }
             return false;
         }
@@ -365,7 +340,7 @@ namespace FFXIVVoicePackCreator {
         private void addToVoiceListButton_Click(object sender, EventArgs e) {
             switch (sexListComboBox.SelectedIndex) {
                 case 0:
-                    int value = int.Parse(racialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
+                    int value = int.Parse(RaceVoices.RacialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
                     if (!voicesToReplace.Contains(value)) {
                         AddReplacementValue(value);
                     } else {
@@ -373,7 +348,7 @@ namespace FFXIVVoicePackCreator {
                     }
                     break;
                 case 1:
-                    string stringValue = racialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
+                    string stringValue = RaceVoices.RacialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
                     if (!string.IsNullOrWhiteSpace(stringValue)) {
                         int value2 = int.Parse(stringValue);
                         if (!voicesToReplace.Contains(value2)) {
@@ -392,14 +367,15 @@ namespace FFXIVVoicePackCreator {
             hasSaved = false;
             voicesToReplace.Add(value);
             string text = "Character Voice: " + value;
-            foreach (string raceValue in racesToVoice[value + ""]) {
+            foreach (string raceValue in RaceVoices.RacesToVoice[value + ""]) {
                 text += " | " + raceValue;
             }
             voiceReplacementList.Items.Add(text);
         }
 
         private void easyGenerateButton_Click(object sender, EventArgs e) {
-            paths = "";
+            fileReplacementPaths = "";
+            fileSwapPaths = "";
             exportProgressBar.Visible = true;
             exportProgressBar.Value = 0;
             exportProgressBar.Maximum = filePickers.Count;
@@ -413,11 +389,12 @@ namespace FFXIVVoicePackCreator {
                 }
                 if (!string.IsNullOrEmpty(exportFilePath)) {
                     firstDone = false;
+                    firstDone2 = false;
                     TopMost = true;
                     foreach (FilePicker value in filePickers) {
                         if (File.Exists(value.FilePath.Text)) {
                             scdGenerator.ConvertAndGenerateMSADCPM(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
-                        } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text)) {
+                        } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
                             MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
                         }
                         exportProgressBar.Increment(1);
@@ -426,7 +403,7 @@ namespace FFXIVVoicePackCreator {
                     foreach (int value in voicesToReplace) {
                         ExportFiles(value);
                     }
-                    ExportJson(paths);
+                    ExportJson();
                     ExportMeta();
                     BringToFront();
                     MessageBox.Show(@"Export Complete", Text);
@@ -587,14 +564,14 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void quickImportButton_Click(object sender, EventArgs e) {
-            hasSaved = false;
             MessageBox.Show("To use quick import successfully, name your sound files exactly after the emote they intend to replace together in a seperated folder.", Text);
             FolderSelectDialog folderSelectDialog = new FolderSelectDialog();
             if (folderSelectDialog.ShowDialog() == DialogResult.OK) {
                 foreach (string filename in Directory.GetFiles(folderSelectDialog.SelectedPath)) {
                     foreach (FilePicker filePicker in filePickers) {
                         if (Path.GetFileName(filename).ToLower().Contains(filePicker.Name)) {
-                            filePicker.FilePath.Text = filename;
+                            filePicker.SetFilePath(filename);
+                            hasSaved = false;
                         }
                     }
                 }
@@ -663,7 +640,7 @@ namespace FFXIVVoicePackCreator {
             for (int i = 0; i < 12; i++) {
                 switch (sexListComboBox.SelectedIndex) {
                     case 0:
-                        int value = int.Parse(racialList[raceListComboBox.SelectedIndex].Masculine[i]);
+                        int value = int.Parse(RaceVoices.RacialList[raceListComboBox.SelectedIndex].Masculine[i]);
                         if (!voicesToReplace.Contains(value)) {
                             AddReplacementValue(value);
                         } else {
@@ -672,7 +649,7 @@ namespace FFXIVVoicePackCreator {
                         }
                         break;
                     case 1:
-                        string stringValue = racialList[raceListComboBox.SelectedIndex].Feminine[i];
+                        string stringValue = RaceVoices.RacialList[raceListComboBox.SelectedIndex].Feminine[i];
                         if (!string.IsNullOrWhiteSpace(stringValue)) {
                             int value2 = int.Parse(stringValue);
                             if (!voicesToReplace.Contains(value2)) {
@@ -689,6 +666,16 @@ namespace FFXIVVoicePackCreator {
             }
             if (voiceAlreadyInList) {
                 MessageBox.Show($"{voiceCount} voices were already added to the list. Anything not already added has been added.", Text);
+            }
+        }
+
+        private void quickSwapButton_Click(object sender, EventArgs e) {
+            MessageBox.Show(@"""Quick Swap"" lets you quickly pick an in game voice that you want to swap with another.", Text);
+            VoiceSelection voiceSelection = new VoiceSelection();
+            if (voiceSelection.ShowDialog() == DialogResult.OK) {
+                foreach (FilePicker filePicker in filePickers) {
+                    filePicker.SetToGameFile(voiceSelection.SelectedVoice);
+                }
             }
         }
     }

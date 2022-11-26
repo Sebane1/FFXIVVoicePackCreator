@@ -38,10 +38,11 @@ namespace FFXIVVoicePackCreator {
             this.filePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePath.Location = new System.Drawing.Point(151, 5);
+            this.filePath.Location = new System.Drawing.Point(98, 6);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(256, 20);
+            this.filePath.Size = new System.Drawing.Size(202, 20);
             this.filePath.TabIndex = 0;
+            this.filePath.TextChanged += new System.EventHandler(this.filePath_TextChanged);
             this.filePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseDown);
             this.filePath.MouseMove += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseMove);
             // 
@@ -49,7 +50,7 @@ namespace FFXIVVoicePackCreator {
             // 
             this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.openButton.Location = new System.Drawing.Point(411, 3);
+            this.openButton.Location = new System.Drawing.Point(306, 4);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(75, 23);
             this.openButton.TabIndex = 1;
@@ -60,17 +61,17 @@ namespace FFXIVVoicePackCreator {
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(110, 8);
+            this.labelName.Location = new System.Drawing.Point(3, 9);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "Name";
             // 
-            // checkBox1
+            // useGameFileCheckBox
             // 
             this.useGameFileCheckBox.AutoSize = true;
-            this.useGameFileCheckBox.Location = new System.Drawing.Point(3, 7);
-            this.useGameFileCheckBox.Name = "checkBox1";
+            this.useGameFileCheckBox.Location = new System.Drawing.Point(387, 8);
+            this.useGameFileCheckBox.Name = "useGameFileCheckBox";
             this.useGameFileCheckBox.Size = new System.Drawing.Size(95, 17);
             this.useGameFileCheckBox.TabIndex = 3;
             this.useGameFileCheckBox.Text = "Use Game File";
@@ -107,5 +108,6 @@ namespace FFXIVVoicePackCreator {
    Description("Sort Order")
    ]
         public int Index { get => index; set => index = value; }
+        public CheckBox UseGameFileCheckBox { get => useGameFileCheckBox; set => useGameFileCheckBox = value; }
     }
 }

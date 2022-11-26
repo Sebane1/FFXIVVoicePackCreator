@@ -26,8 +26,6 @@ namespace FFXIVVoicePackCreator {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SCDCreator));
             this.generateButton = new System.Windows.Forms.Button();
-            this.outputSelection = new FFXIVVoicePackCreator.FilePicker();
-            this.mediaSelection = new FFXIVVoicePackCreator.FilePicker();
             this.scdTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.loopStartTextBox = new System.Windows.Forms.TextBox();
@@ -36,6 +34,8 @@ namespace FFXIVVoicePackCreator {
             this.loopEndTextBox = new System.Windows.Forms.TextBox();
             this.NumberOfSamplesLabel = new System.Windows.Forms.Label();
             this.numberOfSamplesTextBox = new System.Windows.Forms.TextBox();
+            this.outputSelection = new FFXIVVoicePackCreator.FilePicker();
+            this.mediaSelection = new FFXIVVoicePackCreator.FilePicker();
             this.SuspendLayout();
             // 
             // generateButton
@@ -49,26 +49,6 @@ namespace FFXIVVoicePackCreator {
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
-            // 
-            // outputSelection
-            // 
-            this.outputSelection.Filter = "scd files (*.scd)|*.scd";
-            this.outputSelection.Index = -1;
-            this.outputSelection.IsSaveMode = true;
-            this.outputSelection.Location = new System.Drawing.Point(13, 49);
-            this.outputSelection.Name = "outputSelection";
-            this.outputSelection.Size = new System.Drawing.Size(351, 31);
-            this.outputSelection.TabIndex = 3;
-            // 
-            // mediaSelection
-            // 
-            this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
-            this.mediaSelection.Index = -1;
-            this.mediaSelection.IsSaveMode = false;
-            this.mediaSelection.Location = new System.Drawing.Point(12, 12);
-            this.mediaSelection.Name = "mediaSelection";
-            this.mediaSelection.Size = new System.Drawing.Size(352, 31);
-            this.mediaSelection.TabIndex = 0;
             // 
             // scdTypeComboBox
             // 
@@ -152,6 +132,26 @@ namespace FFXIVVoicePackCreator {
             this.numberOfSamplesTextBox.Text = "1";
             this.numberOfSamplesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
             // 
+            // outputSelection
+            // 
+            this.outputSelection.Filter = "scd files (*.scd)|*.scd";
+            this.outputSelection.Index = -1;
+            this.outputSelection.IsSaveMode = true;
+            this.outputSelection.Location = new System.Drawing.Point(13, 49);
+            this.outputSelection.Name = "outputSelection";
+            this.outputSelection.Size = new System.Drawing.Size(351, 31);
+            this.outputSelection.TabIndex = 3;
+            // 
+            // mediaSelection
+            // 
+            this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
+            this.mediaSelection.Index = -1;
+            this.mediaSelection.IsSaveMode = false;
+            this.mediaSelection.Location = new System.Drawing.Point(12, 12);
+            this.mediaSelection.Name = "mediaSelection";
+            this.mediaSelection.Size = new System.Drawing.Size(352, 31);
+            this.mediaSelection.TabIndex = 0;
+            // 
             // SCDCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +170,7 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.mediaSelection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SCDCreator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Standalone SCD Converter";
             this.Load += new System.EventHandler(this.SCDCreator_Load);
             this.ResumeLayout(false);
