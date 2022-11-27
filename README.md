@@ -23,3 +23,5 @@ How to swap your voice with another race/gender:
 https://youtu.be/SyXOW5eJqws
 
 Need support, or just wanna talk sound? Visit our discord! https://discord.gg/rtGXwMn7pX 
+
+If for whatever reason you wish to donate feel free to do so here https://ko-fi.com/sebastina
