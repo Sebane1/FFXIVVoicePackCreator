@@ -44,7 +44,7 @@ namespace FFXIVVoicePackCreator {
             this.label6 = new System.Windows.Forms.Label();
             this.lostFileList = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.modNameTextbox = new System.Windows.Forms.TextBox();
+            this.modNameTextBox = new System.Windows.Forms.TextBox();
             this.modAuthorTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.modDescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -69,6 +69,7 @@ namespace FFXIVVoicePackCreator {
             this.easyGenerateButton = new System.Windows.Forms.Button();
             this.quickImportButton = new System.Windows.Forms.Button();
             this.exportProgressBar = new System.Windows.Forms.ProgressBar();
+            this.quickSwapButton = new System.Windows.Forms.Button();
             this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
             this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
             this.happy = new FFXIVVoicePackCreator.FilePicker();
@@ -85,7 +86,6 @@ namespace FFXIVVoicePackCreator {
             this.furious = new FFXIVVoicePackCreator.FilePicker();
             this.angry = new FFXIVVoicePackCreator.FilePicker();
             this.surprised = new FFXIVVoicePackCreator.FilePicker();
-            this.quickSwapButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -208,22 +208,22 @@ namespace FFXIVVoicePackCreator {
             // sCDWavMergerToolStripMenuItem
             // 
             this.sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
-            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone SCD";
             this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDCreatorToolStripMenuItem_Click);
             // 
             // changeVoiceDumpToolStripMenuItem
             // 
             this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
-            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
             this.changeVoiceDumpToolStripMenuItem.Click += new System.EventHandler(this.changeVoiceDumpToolStripMenuItem_Click);
             // 
             // pickExportFolderToolStripMenuItem
             // 
             this.pickExportFolderToolStripMenuItem.Name = "pickExportFolderToolStripMenuItem";
-            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.pickExportFolderToolStripMenuItem.Text = "Pick Export Folder";
+            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.pickExportFolderToolStripMenuItem.Text = "Configure Penumbra Folder";
             this.pickExportFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
             // 
             // label6
@@ -257,14 +257,15 @@ namespace FFXIVVoicePackCreator {
             this.label7.TabIndex = 35;
             this.label7.Text = "Name";
             // 
-            // modNameTextbox
+            // modNameTextBox
             // 
-            this.modNameTextbox.Location = new System.Drawing.Point(572, 36);
-            this.modNameTextbox.Name = "modNameTextbox";
-            this.modNameTextbox.Size = new System.Drawing.Size(148, 20);
-            this.modNameTextbox.TabIndex = 38;
-            this.modNameTextbox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
-            this.modNameTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            this.modNameTextBox.Location = new System.Drawing.Point(572, 36);
+            this.modNameTextBox.Name = "modNameTextBox";
+            this.modNameTextBox.Size = new System.Drawing.Size(148, 20);
+            this.modNameTextBox.TabIndex = 38;
+            this.modNameTextBox.Text = "Custom Voice Pack";
+            this.modNameTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
+            this.modNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // modAuthorTextBox
             // 
@@ -272,6 +273,7 @@ namespace FFXIVVoicePackCreator {
             this.modAuthorTextBox.Name = "modAuthorTextBox";
             this.modAuthorTextBox.Size = new System.Drawing.Size(148, 20);
             this.modAuthorTextBox.TabIndex = 40;
+            this.modAuthorTextBox.Text = "FFXIV Voice Pack Creator";
             this.modAuthorTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
             this.modAuthorTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
@@ -290,6 +292,7 @@ namespace FFXIVVoicePackCreator {
             this.modDescriptionTextBox.Name = "modDescriptionTextBox";
             this.modDescriptionTextBox.Size = new System.Drawing.Size(431, 20);
             this.modDescriptionTextBox.TabIndex = 42;
+            this.modDescriptionTextBox.Text = "Exported by FFXIV Voice Pack Creator";
             this.modDescriptionTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
             this.modDescriptionTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
@@ -308,6 +311,7 @@ namespace FFXIVVoicePackCreator {
             this.modWebsiteTextBox.Name = "modWebsiteTextBox";
             this.modWebsiteTextBox.Size = new System.Drawing.Size(180, 20);
             this.modWebsiteTextBox.TabIndex = 44;
+            this.modWebsiteTextBox.Text = "https://github.com/Sebane1/FFXIVVoicePackCreator";
             this.modWebsiteTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
             this.modWebsiteTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
@@ -536,6 +540,16 @@ namespace FFXIVVoicePackCreator {
             this.exportProgressBar.Size = new System.Drawing.Size(496, 26);
             this.exportProgressBar.TabIndex = 50;
             // 
+            // quickSwapButton
+            // 
+            this.quickSwapButton.Location = new System.Drawing.Point(258, 617);
+            this.quickSwapButton.Name = "quickSwapButton";
+            this.quickSwapButton.Size = new System.Drawing.Size(243, 26);
+            this.quickSwapButton.TabIndex = 51;
+            this.quickSwapButton.Text = "Quick Swap";
+            this.quickSwapButton.UseVisualStyleBackColor = true;
+            this.quickSwapButton.Click += new System.EventHandler(this.quickSwapButton_Click);
+            // 
             // unknown2
             // 
             this.unknown2.Filter = resources.GetString("unknown2.Filter");
@@ -712,16 +726,6 @@ namespace FFXIVVoicePackCreator {
             this.surprised.TabIndex = 0;
             this.surprised.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
-            // quickSwapButton
-            // 
-            this.quickSwapButton.Location = new System.Drawing.Point(258, 617);
-            this.quickSwapButton.Name = "quickSwapButton";
-            this.quickSwapButton.Size = new System.Drawing.Size(243, 26);
-            this.quickSwapButton.TabIndex = 51;
-            this.quickSwapButton.Text = "Quick Swap";
-            this.quickSwapButton.UseVisualStyleBackColor = true;
-            this.quickSwapButton.Click += new System.EventHandler(this.quickSwapButton_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -739,7 +743,7 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.label9);
             this.Controls.Add(this.modAuthorTextBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.modNameTextbox);
+            this.Controls.Add(this.modNameTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.unknown2);
             this.Controls.Add(this.unknown1);
@@ -759,9 +763,10 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.surprised);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabManager);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FFXIV Voice Pack Creator";
@@ -813,7 +818,7 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.ListBox lostFileList;
         private System.Windows.Forms.ToolStripMenuItem pickExportFolderToolStripMenuItem;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox modNameTextbox;
+        private System.Windows.Forms.TextBox modNameTextBox;
         private System.Windows.Forms.TextBox modAuthorTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox modDescriptionTextBox;
