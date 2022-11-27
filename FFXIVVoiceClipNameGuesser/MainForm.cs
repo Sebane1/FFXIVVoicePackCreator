@@ -33,12 +33,19 @@ namespace FFXIVVoicePackCreator {
         private bool hasSaved = true;
         private bool firstDone2;
 
+        public static string _defaultModName = "Custom Voice Pack";
+        public static string _defaultAuthor = "FFXIV Voice Pack Creator";
+        public static string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
+        public static string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
+        private string penumbraModPath;
+
         public MainWindow() {
             InitializeComponent();
             // foundNamesList.SelectionMode = SelectionMode.MultiExtended;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            GetPenumbraPath();
             exportProgressBar.Visible = false;
             Text = Application.ProductName + " " + Application.ProductVersion;
             RaceVoices.LoadRacialVoiceInfo();
@@ -63,7 +70,7 @@ namespace FFXIVVoicePackCreator {
                 unknown2};
 
             authorInformation = new List<TextBox>() {
-                modNameTextbox,
+                modNameTextBox,
                 modAuthorTextBox,
                 modDescriptionTextBox,
                 modWebsiteTextBox,
@@ -199,9 +206,9 @@ namespace FFXIVVoicePackCreator {
         private void ExportMeta() {
             string metaText = @"{
   ""FileVersion"": 3,
-  ""Name"": """ + modNameTextbox.Text + @""",
-  ""Author"": """ + modAuthorTextBox.Text + @""",
-  ""Description"": """ + modDescriptionTextBox.Text + @""",
+  ""Name"": """ + (!string.IsNullOrEmpty(modNameTextBox.Text) ? modNameTextBox.Text : _defaultModName) + @""",
+  ""Author"": """ + (!string.IsNullOrEmpty(modAuthorTextBox.Text) ? modAuthorTextBox.Text : _defaultAuthor) + @""",
+  ""Description"": """ + (!string.IsNullOrEmpty(modDescriptionTextBox.Text) ? modDescriptionTextBox.Text : _defaultDescription) + @""",
   ""Version"": """ + modVersionTextBox.Text + @""",
   ""Website"": """ + modWebsiteTextBox.Text + @""",
   ""ModTags"": []
@@ -213,28 +220,40 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private bool GetFilePaths() {
-            MessageBox.Show(@"Please select the root folder for your custom penumbra sound mod. Ideally you've created one inside your penumbra mods folder for easy testing. (You can use Penumbra to export this mod to a .pmp package later)", Text);
+        private void ConfigurePenumbraModFolder() {
+            MessageBox.Show(@"Please configure where your penumbra mods folder is, We will remember it for all future exports. This should be where you have penumbra set to use mods.", Text);
             FolderSelectDialog folderSelect = new FolderSelectDialog();
             if (folderSelect.ShowDialog() == DialogResult.OK) {
-                exportFilePath = Path.Combine(folderSelect.SelectedPath, @"sound\voice\vo_emote");
-                Directory.CreateDirectory(exportFilePath);
-                jsonFilepath = Path.Combine(folderSelect.SelectedPath, "default_mod.json");
-                metaFilePath = Path.Combine(folderSelect.SelectedPath, "meta.json");
-                if (File.Exists(jsonFilepath)) {
-                    switch (MessageBox.Show(@"Existing mod configuration detected. Continue?", Text, MessageBoxButtons.YesNo)) {
-                        case DialogResult.Yes:
-                            return true;
-                        case DialogResult.No:
-                            exportFilePath = null;
-                            jsonFilepath = null;
-                            metaFilePath = null;
-                            return false;
-                    }
-                }
-                return true;
+                penumbraModPath = folderSelect.SelectedPath;
+                WritePenumbraPath(penumbraModPath);
             }
-            return false;
+        }
+
+        private bool GetFilePaths() {
+            if (string.IsNullOrEmpty(penumbraModPath)) {
+                ConfigurePenumbraModFolder();
+            }
+            if (string.IsNullOrEmpty(modNameTextBox.Text)) {
+                MessageBox.Show(@"Please enter a valid mod name", Text);
+                return false;
+            }
+            string newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
+            exportFilePath = Path.Combine(newModPath, @"sound\voice\vo_emote");
+            Directory.CreateDirectory(exportFilePath);
+            jsonFilepath = Path.Combine(newModPath, "default_mod.json");
+            metaFilePath = Path.Combine(newModPath, "meta.json");
+            if (File.Exists(jsonFilepath)) {
+                switch (MessageBox.Show(@"Existing mod configuration detected. Continue?", Text, MessageBoxButtons.YesNo)) {
+                    case DialogResult.Yes:
+                        return true;
+                    case DialogResult.No:
+                        exportFilePath = null;
+                        jsonFilepath = null;
+                        metaFilePath = null;
+                        return false;
+                }
+            }
+            return true;
         }
 
         private string ListContainsName(List<string> files, string fileName) {
@@ -321,7 +340,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void pickExportFolderToolStripMenuItem_Click(object sender, EventArgs e) {
-            GetFilePaths();
+            ConfigurePenumbraModFolder();
         }
 
         private void lostFileList_MouseDoubleClick(object sender, MouseEventArgs e) {
@@ -380,6 +399,7 @@ namespace FFXIVVoicePackCreator {
             exportProgressBar.Value = 0;
             exportProgressBar.Maximum = filePickers.Count;
             bool canContinue = true;
+
             if (string.IsNullOrEmpty(exportFilePath)) {
                 canContinue = GetFilePaths();
             }
@@ -393,6 +413,9 @@ namespace FFXIVVoicePackCreator {
                     TopMost = true;
                     foreach (FilePicker value in filePickers) {
                         if (File.Exists(value.FilePath.Text)) {
+                            if (!Directory.Exists(exportFilePath)) {
+                                Directory.CreateDirectory(exportFilePath);
+                            }
                             scdGenerator.ConvertAndGenerateMSADCPM(value.FilePath.Text, Path.Combine(exportFilePath, value.Name + ".scd"));
                         } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
                             MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
@@ -484,6 +507,10 @@ namespace FFXIVVoicePackCreator {
             foreach (TextBox authorInfo in authorInformation) {
                 authorInfo.Text = "";
             }
+            modNameTextBox.Text = _defaultModName;
+            modAuthorTextBox.Text = _defaultAuthor;
+            modDescriptionTextBox.Text = _defaultDescription;
+            modWebsiteTextBox.Text = _defaultWebsite;
             foreach (FilePicker filePicker in filePickers) {
                 filePicker.FilePath.Text = "";
             }
@@ -539,6 +566,20 @@ namespace FFXIVVoicePackCreator {
                 writer.WriteLine(metaFilePath);
             }
             hasSaved = true;
+        }
+
+        public void WritePenumbraPath(string path) {
+            using (StreamWriter writer = new StreamWriter(Path.Combine(Application.UserAppDataPath, @"PenumbraPath.config"))) {
+                writer.WriteLine(path);
+            }
+        }
+        public void GetPenumbraPath() {
+            string path = Path.Combine(Application.UserAppDataPath, @"PenumbraPath.config");
+            if (File.Exists(path)) {
+                using (StreamReader reader = new StreamReader(path)) {
+                    penumbraModPath = reader.ReadLine();
+                }
+            }
         }
 
         public void OpenProject(string path) {
