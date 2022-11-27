@@ -16,7 +16,10 @@ Instructions:
 - In game, hit rediscover in penumbra and enable your new voice pack mod.
 - Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
 
-Video Tutorial:
+How to make custom voice packs:
 https://www.youtube.com/watch?v=_ww-g_fSXoI
+
+How o swap your voice with another race/gender:
+https://youtu.be/SyXOW5eJqws
 
 Need support, or just wanna talk sound? Visit our discord! https://discord.gg/rtGXwMn7pX 
