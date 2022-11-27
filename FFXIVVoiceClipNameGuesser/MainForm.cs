@@ -221,7 +221,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void ConfigurePenumbraModFolder() {
-            MessageBox.Show(@"Please configure where your penumbra mods folder is, We will remember it for all future exports. This should be where you have penumbra set to use mods.", Text);
+            MessageBox.Show(@"Please configure where your penumbra mods folder is, we will remember it for all future exports. This should be where you have penumbra set to use mods.", Text);
             FolderSelectDialog folderSelect = new FolderSelectDialog();
             if (folderSelect.ShowDialog() == DialogResult.OK) {
                 penumbraModPath = folderSelect.SelectedPath;
