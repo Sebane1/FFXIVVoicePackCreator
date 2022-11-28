@@ -12,7 +12,7 @@ Instructions:
 - Fill out your author information
 - Tell the program which emotes you want to replace with virtually any valid media files. Or tell it which existing voice you want to swap with.
 - Tell the program which character voices you want to affect.
-- Hit generate and select an empty folder (or folder to overwrite) in your penumbra mods folder.
+- Hit generate.
 - In game, hit rediscover in penumbra and enable your new voice pack mod.
 - Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
 
