@@ -66,10 +66,10 @@ namespace FFXIVVoicePackCreator {
             return false;
         }
 
-        public Stream SCDHeader(FileStream header, int audiolength) {
-            using (MemoryStream memoryStream = new MemoryStream) {
+        public Stream SCDHeader(FileStream header, int audiolength, int fileCount) {
+            using (MemoryStream memoryStream = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(memoryStream)) {
-                    MemoryStream padding = new MemoryStream(new byte[48]);
+                    MemoryStream padding = new MemoryStream(new byte[28]);
                     header.CopyTo(memoryStream);
                     writer.Seek(0, SeekOrigin.Begin);
                     writer.Write("SEDBSSCF");
@@ -78,7 +78,9 @@ namespace FFXIVVoicePackCreator {
                     writer.Write((short)0x30);
                     writer.Write(audiolength);
                     padding.CopyTo(memoryStream);
-                    writer.Write((short));
+                    writer.Write((short)1);
+                    writer.Write((short)fileCount);
+                    writer.Write((short)1);
                     return memoryStream;
                 }
             }
@@ -100,15 +102,13 @@ namespace FFXIVVoicePackCreator {
                                 wavFile.CopyTo(wavStream);
 
                                 // Skip 16 positions into the header
-                                headerWriter.Seek(0, SeekOrigin.Begin);
-                                headerWriter.Seek(16, SeekOrigin.Current);
+                                headerWriter.Seek(16, SeekOrigin.Begin);
 
                                 // Write the audio length
                                 headerWriter.Write((int)wavFile.Length);
 
                                 // Skip 448 positions into the header
-                                headerWriter.Seek(0, SeekOrigin.Begin);
-                                headerWriter.Seek(448, SeekOrigin.Current);
+                                headerWriter.Seek(448, SeekOrigin.Begin);
 
                                 // Write the audio file length
                                 headerWriter.Write((int)wavFile.Length);
@@ -119,17 +119,14 @@ namespace FFXIVVoicePackCreator {
 
                                 // Forcibly rewrite the bits per sample to 256.. 
                                 // This is a hack to get the audio to play in FFXIV at all, and not a fix for audio distortion.
-                                waveWriter.Seek(0, SeekOrigin.Begin);
-                                waveWriter.Seek(32, SeekOrigin.Current);
+                                waveWriter.Seek(32, SeekOrigin.Begin);
                                 waveWriter.Write((short)256);
 
                                 // Skip 20 positions into wave file and copy to file
-                                wavStream.Seek(0, SeekOrigin.Begin);
-                                wavStream.Seek(20, SeekOrigin.Current);
+                                wavStream.Seek(20, SeekOrigin.Begin);
                                 CopyStream(wavStream, outputFileStream, 50);
                                 waveSpacing.CopyTo(outputFileStream);
-                                wavStream.Seek(0, SeekOrigin.Begin);
-                                wavStream.Seek(70, SeekOrigin.Current);
+                                wavStream.Seek(70, SeekOrigin.Begin);
                                 char fourth = '.';
                                 char third = '.';
                                 char second = '.';
@@ -163,7 +160,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
-        //Code following this line is altered, or heavily inspired from FFXIV Explorer
+        // Code following this line is altered, or heavily inspired from FFXIV Explorer
         private byte[] CreateSCDHeader(FileStream header, int oggLength, float volume, int numChannels, int sampleRate, int loopStart, int loopEnd) {
             using (MemoryStream oggHeader = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(oggHeader)) {
