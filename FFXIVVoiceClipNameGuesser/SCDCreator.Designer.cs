@@ -57,9 +57,9 @@ namespace FFXIVVoicePackCreator {
             "Sound Effect",
             "Background Music",
             "Orchestrion (Experimental)"});
-            this.scdTypeComboBox.Location = new System.Drawing.Point(99, 93);
+            this.scdTypeComboBox.Location = new System.Drawing.Point(112, 93);
             this.scdTypeComboBox.Name = "scdTypeComboBox";
-            this.scdTypeComboBox.Size = new System.Drawing.Size(265, 21);
+            this.scdTypeComboBox.Size = new System.Drawing.Size(252, 21);
             this.scdTypeComboBox.TabIndex = 4;
             this.scdTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.scdTypeComboBox_SelectedIndexChanged);
             // 
@@ -139,7 +139,7 @@ namespace FFXIVVoicePackCreator {
             this.outputSelection.IsSaveMode = true;
             this.outputSelection.Location = new System.Drawing.Point(13, 49);
             this.outputSelection.Name = "outputSelection";
-            this.outputSelection.Size = new System.Drawing.Size(351, 31);
+            this.outputSelection.Size = new System.Drawing.Size(459, 31);
             this.outputSelection.TabIndex = 3;
             // 
             // mediaSelection
@@ -149,7 +149,7 @@ namespace FFXIVVoicePackCreator {
             this.mediaSelection.IsSaveMode = false;
             this.mediaSelection.Location = new System.Drawing.Point(12, 12);
             this.mediaSelection.Name = "mediaSelection";
-            this.mediaSelection.Size = new System.Drawing.Size(352, 31);
+            this.mediaSelection.Size = new System.Drawing.Size(460, 31);
             this.mediaSelection.TabIndex = 0;
             // 
             // SCDCreator

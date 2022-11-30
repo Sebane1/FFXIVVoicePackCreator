@@ -65,6 +65,25 @@ namespace FFXIVVoicePackCreator {
             //file is not locked
             return false;
         }
+
+        public Stream SCDHeader(FileStream header, int audiolength) {
+            using (MemoryStream memoryStream = new MemoryStream) {
+                using (BinaryWriter writer = new BinaryWriter(memoryStream)) {
+                    MemoryStream padding = new MemoryStream(new byte[48]);
+                    header.CopyTo(memoryStream);
+                    writer.Seek(0, SeekOrigin.Begin);
+                    writer.Write("SEDBSSCF");
+                    writer.Write((int)3);
+                    writer.Write((short)0x0400);
+                    writer.Write((short)0x30);
+                    writer.Write(audiolength);
+                    padding.CopyTo(memoryStream);
+                    writer.Write((short));
+                    return memoryStream;
+                }
+            }
+        }
+
         public void GenerateMSADPCM(FileStream header, FileStream wavFile, string output) {
             using (FileStream outputFileStream = new FileStream(output, FileMode.Create)) {
                 using (MemoryStream headerStream = new MemoryStream()) {

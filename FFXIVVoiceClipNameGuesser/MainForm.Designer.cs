@@ -263,7 +263,6 @@ namespace FFXIVVoicePackCreator {
             this.modNameTextBox.Name = "modNameTextBox";
             this.modNameTextBox.Size = new System.Drawing.Size(148, 20);
             this.modNameTextBox.TabIndex = 38;
-            this.modNameTextBox.Text = "Custom Voice Pack";
             this.modNameTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
             this.modNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 

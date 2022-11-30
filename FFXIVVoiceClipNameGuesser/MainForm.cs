@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FFXIVVoicePackCreator {
@@ -33,7 +28,7 @@ namespace FFXIVVoicePackCreator {
         private bool hasSaved = true;
         private bool firstDone2;
 
-        public static string _defaultModName = "Custom Voice Pack";
+        public static string _defaultModName = "";
         public static string _defaultAuthor = "FFXIV Voice Pack Creator";
         public static string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
         public static string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
