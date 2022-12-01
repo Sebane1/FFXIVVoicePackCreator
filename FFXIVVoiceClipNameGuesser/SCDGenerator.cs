@@ -67,7 +67,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         public Stream SCDHeader(FileStream header, int audiolength) {
-            using (MemoryStream memoryStream = new MemoryStream) {
+            using (MemoryStream memoryStream = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(memoryStream)) {
                     MemoryStream padding = new MemoryStream(new byte[48]);
                     header.CopyTo(memoryStream);
@@ -78,7 +78,7 @@ namespace FFXIVVoicePackCreator {
                     writer.Write((short)0x30);
                     writer.Write(audiolength);
                     padding.CopyTo(memoryStream);
-                    writer.Write((short));
+                    writer.Write((short)0);
                     return memoryStream;
                 }
             }
