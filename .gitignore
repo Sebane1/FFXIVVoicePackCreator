@@ -13,3 +13,14 @@ FFXIVVoiceClipNameGuesser/obj/Debug/FFXIVVoiceClipNameGuesser.exe
 FFXIVVoiceClipNameGuesser/bin/Release/FFXIVVoicePackCreator.exe.config
 FFXIVVoiceClipNameGuesser/bin/Release/FFXIVVoicePackCreator.pdb
 FFXIVVoiceClipNameGuesser/obj/Release/FFXIVVoicePackCreator.pdb
+FFXIVVoiceClipNameGuesser/bin/Release/runtimes
+FFXIVVoiceClipNameGuesser/bin/Release/AutoUpdater.NET.dll
+*.pdb
+FFXIVVoiceClipNameGuesser/bin/Release/ZipExtractor.log
+FFXIVVoiceClipNameGuesser/bin/Release/AutoUpdater.NET.xml
+FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.Core.dll
+FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.Core.xml
+FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.WinForms.dll
+FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.WinForms.xml
+FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.Wpf.dll
+FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.Wpf.xml

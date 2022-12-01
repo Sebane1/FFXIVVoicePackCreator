@@ -11,3 +11,16 @@ C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.pdb
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.AssemblyReference.cache
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.VoiceSelection.resources
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\Microsoft.Web.WebView2.Core.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.pdb
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.xml
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\Microsoft.Web.WebView2.Core.xml
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.CopyComplete

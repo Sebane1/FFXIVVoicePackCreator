@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoUpdaterDotNET;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -40,6 +41,10 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            AutoUpdater.DownloadPath = Application.StartupPath;
+            AutoUpdater.Synchronous = true;
+            AutoUpdater.Start("https://raw.githubusercontent.com/Sebane1/FFXIVVoicePackCreator/main/update.xml");
+            TopMost = true;
             GetPenumbraPath();
             exportProgressBar.Visible = false;
             Text = Application.ProductName + " " + Application.ProductVersion;
@@ -71,6 +76,7 @@ namespace FFXIVVoicePackCreator {
                 modWebsiteTextBox,
                 modVersionTextBox,
             };
+            TopMost = false;
         }
 
 
