@@ -43,6 +43,8 @@ namespace FFXIVVoicePackCreator {
         private void Form1_Load(object sender, EventArgs e) {
             AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.Synchronous = true;
+            AutoUpdater.Mandatory = true;
+            AutoUpdater.UpdateMode = Mode.ForcedDownload;
             AutoUpdater.Start("https://raw.githubusercontent.com/Sebane1/FFXIVVoicePackCreator/main/update.xml");
             TopMost = true;
             GetPenumbraPath();
