@@ -41,6 +41,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            CleanDirectory();
             AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.Synchronous = true;
             AutoUpdater.Mandatory = true;
@@ -81,7 +82,19 @@ namespace FFXIVVoicePackCreator {
             TopMost = false;
         }
 
+        private void CleanDirectory() {
+            foreach (string file in Directory.GetFiles(Application.StartupPath)) {
+                if (file.Contains("WebView2") || file.Contains(".zip") || file.Contains(".pdb") || file.Contains(".config") || file.Contains(".xml") || file.Contains(".log") || file.Contains(".tmp")) {
+                    try {
+                        File.Delete(file);
+                    } catch {
 
+                    }
+                }
+            }
+            string path = Path.Combine(Application.StartupPath, @"runtimes\");
+            Directory.Delete(path, true);
+        }
 
         void RefreshRacialChoices() {
             raceListComboBox.Items.Clear();
