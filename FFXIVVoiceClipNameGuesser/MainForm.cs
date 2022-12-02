@@ -42,11 +42,6 @@ namespace FFXIVVoicePackCreator {
 
         private void Form1_Load(object sender, EventArgs e) {
             CleanDirectory();
-            AutoUpdater.DownloadPath = Application.StartupPath;
-            AutoUpdater.Synchronous = true;
-            AutoUpdater.Mandatory = true;
-            AutoUpdater.UpdateMode = Mode.ForcedDownload;
-            AutoUpdater.Start("https://raw.githubusercontent.com/Sebane1/FFXIVVoicePackCreator/main/update.xml");
             TopMost = true;
             GetPenumbraPath();
             exportProgressBar.Visible = false;
@@ -92,8 +87,6 @@ namespace FFXIVVoicePackCreator {
                     }
                 }
             }
-            string path = Path.Combine(Application.StartupPath, @"runtimes\");
-            Directory.Delete(path, true);
         }
 
         void RefreshRacialChoices() {
