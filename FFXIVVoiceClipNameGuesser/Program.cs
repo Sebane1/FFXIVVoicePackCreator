@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoUpdaterDotNET;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,9 +12,20 @@ namespace FFXIVVoicePackCreator {
         /// </summary>
         [STAThread]
         static void Main() {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            bool launchForm = true;
+            AutoUpdater.DownloadPath = Application.StartupPath;
+            AutoUpdater.Synchronous = true;
+            AutoUpdater.Mandatory = true;
+            AutoUpdater.UpdateMode = Mode.ForcedDownload;
+            AutoUpdater.Start("https://raw.githubusercontent.com/Sebane1/FFXIVVoicePackCreator/main/update.xml");
+            AutoUpdater.ApplicationExitEvent += delegate () {
+                launchForm = false;
+            };
+            if (launchForm) {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainWindow());
+            }
         }
     }
 }
