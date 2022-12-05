@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -49,7 +50,7 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        protected virtual bool IsFileLocked(string file) {
+        public static bool IsFileLocked(string file) {
             try {
                 using (FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.None)) {
                     stream.Close();
@@ -66,11 +67,17 @@ namespace FFXIVVoicePackCreator {
             return false;
         }
 
+<<<<<<< Updated upstream:FFXIVVoiceClipNameGuesser/SCDGenerator.cs
         public Stream SCDHeader(FileStream header, int audiolength, int fileCount) {
+=======
+        public Stream SCDHeader(FileStream header, int audiolength, short soundCount, short audioCount, short entries, int trackOffset, int audioOffset,int layoutOffset,int routingOffset, int attributreOffset, int eofPaddingSize) {
+>>>>>>> Stashed changes:FFXIVVoiceClipNameGuesser/Sound/SCDGenerator.cs
             using (MemoryStream memoryStream = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(memoryStream)) {
                     MemoryStream padding = new MemoryStream(new byte[28]);
                     header.CopyTo(memoryStream);
+
+                    //SCD Header
                     writer.Seek(0, SeekOrigin.Begin);
                     writer.Write("SEDBSSCF");
                     writer.Write((int)3);
@@ -78,9 +85,25 @@ namespace FFXIVVoicePackCreator {
                     writer.Write((short)0x30);
                     writer.Write(audiolength);
                     padding.CopyTo(memoryStream);
+<<<<<<< Updated upstream:FFXIVVoiceClipNameGuesser/SCDGenerator.cs
                     writer.Write((short)1);
                     writer.Write((short)fileCount);
                     writer.Write((short)1);
+=======
+
+                    // Offset Header
+                    writer.Write((short)soundCount); // Size?
+                    writer.Write((short)entries); // Entry Count?
+                    writer.Write((short)audioCount); // Table 2 Offset?
+                    writer.Write((short)0x0001); // Unknown?
+                    writer.Write((int)trackOffset); // Offset Table 0 Offset?
+                    writer.Write((int)audioOffset); // Sound Entry Offset Table Offset?
+                    writer.Write((int)layoutOffset); //  Offset to Offset Table 2?
+                    writer.Write((int)routingOffset); //   Unknown/Null?
+                    writer.Write((int)attributreOffset); //  Offset To ???
+                    writer.Write((int)eofPaddingSize); //  Offset To ???
+
+>>>>>>> Stashed changes:FFXIVVoiceClipNameGuesser/Sound/SCDGenerator.cs
                     return memoryStream;
                 }
             }
