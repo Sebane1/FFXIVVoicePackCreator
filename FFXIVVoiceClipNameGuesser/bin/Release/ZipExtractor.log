@@ -1,0 +1,101 @@
+December 1, 2022 2:14:03 PM
+
+ZipExtractor started with following command line arguments.
+[0] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\zipextractor.exe
+[1] --input
+[2] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.zip
+[3] --output
+[4] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release
+[5] --executable
+[6] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.exe
+
+BackgroundWorker started successfully.
+Found total of 9 files and folders inside the zip file.
+Extracting FFXIVVoicePackCreator.exe [11%]
+Extracting LICENSE [22%]
+Extracting README.txt [33%]
+Extracting res/ffmpeg.exe [44%]
+Extracting res/MSADPCM.bin [55%]
+Extracting res/OGG.bin [66%]
+Extracting res/ORCHESTRION.bin [77%]
+Extracting res/ORCHESTRION.bin.bak [88%]
+Extracting res/racialVoiceList.txt [100%]
+Successfully launched the updated application.
+
+
+December 1, 2022 2:15:57 PM
+
+ZipExtractor started with following command line arguments.
+[0] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\zipextractor.exe
+[1] --input
+[2] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.zip
+[3] --output
+[4] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release
+[5] --executable
+[6] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.exe
+
+Waiting for application process to exit...
+BackgroundWorker started successfully.
+Found total of 9 files and folders inside the zip file.
+Extracting FFXIVVoicePackCreator.exe [11%]
+Extracting LICENSE [22%]
+Extracting README.txt [33%]
+Extracting res/ffmpeg.exe [44%]
+Extracting res/MSADPCM.bin [55%]
+Extracting res/OGG.bin [66%]
+Extracting res/ORCHESTRION.bin [77%]
+Extracting res/ORCHESTRION.bin.bak [88%]
+Extracting res/racialVoiceList.txt [100%]
+Successfully launched the updated application.
+
+
+December 2, 2022 1:49:02 PM
+
+ZipExtractor started with following command line arguments.
+[0] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\zipextractor.exe
+[1] --input
+[2] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.zip
+[3] --output
+[4] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release
+[5] --executable
+[6] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.exe
+
+BackgroundWorker started successfully.
+Found total of 9 files and folders inside the zip file.
+Extracting FFXIVVoicePackCreator.exe [11%]
+Extracting LICENSE [22%]
+Extracting README.txt [33%]
+Extracting res/ffmpeg.exe [44%]
+Extracting res/MSADPCM.bin [55%]
+Extracting res/OGG.bin [66%]
+Extracting res/ORCHESTRION.bin [77%]
+Extracting res/ORCHESTRION.bin.bak [88%]
+Extracting res/racialVoiceList.txt [100%]
+Successfully launched the updated application.
+
+
+December 2, 2022 4:32:02 PM
+
+ZipExtractor started with following command line arguments.
+[0] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\zipextractor.exe
+[1] --input
+[2] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.zip
+[3] --output
+[4] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release
+[5] --executable
+[6] c:\users\stel9\source\repos\ffxivvoiceclipnameguesser\ffxivvoiceclipnameguesser\bin\release\ffxivvoicepackcreator.exe
+
+BackgroundWorker started successfully.
+Found total of 9 files and folders inside the zip file.
+Extracting FFXIVVoicePackCreator.exe [11%]
+Extracting LICENSE [22%]
+Extracting README.txt [33%]
+Extracting res/ffmpeg.exe [44%]
+Extracting res/MSADPCM.bin [55%]
+Extracting res/OGG.bin [66%]
+Extracting res/ORCHESTRION.bin [77%]
+Extracting res/ORCHESTRION.bin.bak [88%]
+Extracting res/racialVoiceList.txt [100%]
+Successfully launched the updated application.
+
+

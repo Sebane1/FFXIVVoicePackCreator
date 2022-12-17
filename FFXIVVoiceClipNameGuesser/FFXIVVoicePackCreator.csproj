@@ -12,8 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,16 +36,16 @@
     <ApplicationIcon>FFXIVVPC.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoUpdater.NET, Version=1.7.6.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autoupdater.NET.Official.1.7.6\lib\net45\AutoUpdater.NET.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+    <Reference Include="NAudio.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Core.2.1.0\lib\netstandard2.0\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Vorbis, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Vorbis.1.5.0\lib\netstandard2.0\NAudio.Vorbis.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,6 +62,32 @@
     <Compile Include="FolderSelectDialog.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Sound\AudioData.cs" />
+    <Compile Include="Sound\Data\LayoutAmbientData.cs" />
+    <Compile Include="Sound\Data\LayoutBoardObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutBoxObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutDirectionData.cs" />
+    <Compile Include="Sound\Data\LayoutLineData.cs" />
+    <Compile Include="Sound\Data\LayoutLineExtControllerData.cs" />
+    <Compile Include="Sound\Data\LayoutPointData.cs" />
+    <Compile Include="Sound\Data\LayoutPointDirData.cs" />
+    <Compile Include="Sound\Data\LayoutPolygonData.cs" />
+    <Compile Include="Sound\Data\LayoutPolygonObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutPolylineData.cs" />
+    <Compile Include="Sound\Data\LayoutPolylineObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutSurfaceData.cs" />
+    <Compile Include="Sound\float2.cs" />
+    <Compile Include="Sound\float4.cs" />
+    <Compile Include="Sound\MSAdpcm.cs" />
+    <Compile Include="Sound\SCDFile.cs" />
+    <Compile Include="Sound\SCDGenerator.cs" />
+    <Compile Include="Sound\ScdUtils.cs" />
+    <Compile Include="Sound\Sound.cs" />
+    <Compile Include="Sound\SoundData.cs" />
+    <Compile Include="Sound\SoundEntry.cs" />
+    <Compile Include="Sound\SoundLayout.cs" />
+    <Compile Include="Sound\SoundLayoutData.cs" />
+    <Compile Include="Sound\Vorbis.cs" />
     <Compile Include="VoiceSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,14 +108,13 @@
     <Compile Include="FilePicker.Designer.cs">
       <DependentUpon>FilePicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="RaceVoices.cs" />
     <Compile Include="SCDCreator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SCDCreator.Designer.cs">
       <DependentUpon>SCDCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCDGenerator.cs" />
+    <Compile Include="VoiceSorting\RaceVoices.cs" />
     <EmbeddedResource Include="VoiceSelection.resx">
       <DependentUpon>VoiceSelection.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,14 +155,4 @@
     <Content Include="FFXIVVPC.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1418.22\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1418.22\build\Microsoft.Web.WebView2.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.1418.22\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.1418.22\build\Microsoft.Web.WebView2.targets'))" />
-  </Target>
-  <PropertyGroup>
-    <PostBuildEvent>C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\Properties\AssemblyInfoExporter.exe</PostBuildEvent>
-  </PropertyGroup>
 </Project>
