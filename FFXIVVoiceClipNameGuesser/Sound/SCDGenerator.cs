@@ -67,11 +67,8 @@ namespace FFXIVVoicePackCreator {
             return false;
         }
 
-<<<<<<< Updated upstream:FFXIVVoiceClipNameGuesser/SCDGenerator.cs
-        public Stream SCDHeader(FileStream header, int audiolength, int fileCount) {
-=======
+
         public Stream SCDHeader(FileStream header, int audiolength, short soundCount, short audioCount, short entries, int trackOffset, int audioOffset,int layoutOffset,int routingOffset, int attributreOffset, int eofPaddingSize) {
->>>>>>> Stashed changes:FFXIVVoiceClipNameGuesser/Sound/SCDGenerator.cs
             using (MemoryStream memoryStream = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(memoryStream)) {
                     MemoryStream padding = new MemoryStream(new byte[28]);
@@ -85,11 +82,6 @@ namespace FFXIVVoicePackCreator {
                     writer.Write((short)0x30);
                     writer.Write(audiolength);
                     padding.CopyTo(memoryStream);
-<<<<<<< Updated upstream:FFXIVVoiceClipNameGuesser/SCDGenerator.cs
-                    writer.Write((short)1);
-                    writer.Write((short)fileCount);
-                    writer.Write((short)1);
-=======
 
                     // Offset Header
                     writer.Write((short)soundCount); // Size?
@@ -102,8 +94,6 @@ namespace FFXIVVoicePackCreator {
                     writer.Write((int)routingOffset); //   Unknown/Null?
                     writer.Write((int)attributreOffset); //  Offset To ???
                     writer.Write((int)eofPaddingSize); //  Offset To ???
-
->>>>>>> Stashed changes:FFXIVVoiceClipNameGuesser/Sound/SCDGenerator.cs
                     return memoryStream;
                 }
             }

@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace FFXIVVoicePackCreator {
     public class SCDFile {
-        private  List<int> soundOffsets = new List<int>();
-        private  List<int> trackOffsets = new List<int>();
-        private  List<int> audioOffsets = new List<int>();
-        private  List<int> layoutOffsets = new List<int>();
-        private  List<int> attributeOffsets = new List<int>();
+        private List<int> soundOffsets = new List<int>();
+        private List<int> trackOffsets = new List<int>();
+        private List<int> audioOffsets = new List<int>();
+        private List<int> layoutOffsets = new List<int>();
+        private List<int> attributeOffsets = new List<int>();
         private List<Sound> audio = new List<Sound>();
+
         public int Magic { get; private set; }
         public int SectionType { get; private set; }
         public int SedbVersion { get; private set; }
         public byte Endian { get; private set; }
         public byte AlignmentBits { get; private set; }
         public short HeaderSize { get; private set; } // always 0x30
-        public int FileSize { get; private set; }// the ENTIRE file, including the header
+        public int FileSize { get; private set; } // the ENTIRE file, including the header
         public byte[] UnkPadding { get; private set; }
 
         public short SoundCount { get; private set; }
@@ -114,16 +115,19 @@ namespace FFXIVVoicePackCreator {
                 newAudio.Read(reader, offset);
                 Audio.Add(newAudio);
             }
-
         }
 
         public static void ReadOffsets(List<int> offsets, BinaryReader reader, int count) {
-            for (var i = 0; i < count; i++) offsets.Add(reader.ReadInt32());
+            for (var i = 0; i < count; i++) {
+                offsets.Add(reader.ReadInt32());
+            }
             reader.BaseStream.Seek(16, SeekOrigin.Current);
         }
 
         public static void WriteOffsets(List<int> offsets, BinaryWriter writer) {
-            foreach (var offset in offsets) writer.Write(offset);
+            foreach (var offset in offsets) {
+                writer.Write(offset);
+            }
             new MemoryStream(new byte[16]).CopyTo(writer.BaseStream);
         }
     }
