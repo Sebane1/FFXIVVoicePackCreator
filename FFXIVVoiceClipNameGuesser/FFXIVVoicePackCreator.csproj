@@ -36,6 +36,12 @@
     <ApplicationIcon>FFXIVVPC.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NAudio.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Core.2.1.0\lib\netstandard2.0\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Vorbis, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Vorbis.1.5.0\lib\netstandard2.0\NAudio.Vorbis.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -56,6 +62,32 @@
     <Compile Include="FolderSelectDialog.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Sound\AudioData.cs" />
+    <Compile Include="Sound\Data\LayoutAmbientData.cs" />
+    <Compile Include="Sound\Data\LayoutBoardObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutBoxObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutDirectionData.cs" />
+    <Compile Include="Sound\Data\LayoutLineData.cs" />
+    <Compile Include="Sound\Data\LayoutLineExtControllerData.cs" />
+    <Compile Include="Sound\Data\LayoutPointData.cs" />
+    <Compile Include="Sound\Data\LayoutPointDirData.cs" />
+    <Compile Include="Sound\Data\LayoutPolygonData.cs" />
+    <Compile Include="Sound\Data\LayoutPolygonObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutPolylineData.cs" />
+    <Compile Include="Sound\Data\LayoutPolylineObstructionData.cs" />
+    <Compile Include="Sound\Data\LayoutSurfaceData.cs" />
+    <Compile Include="Sound\float2.cs" />
+    <Compile Include="Sound\float4.cs" />
+    <Compile Include="Sound\MSAdpcm.cs" />
+    <Compile Include="Sound\SCDFile.cs" />
+    <Compile Include="Sound\SCDGenerator.cs" />
+    <Compile Include="Sound\ScdUtils.cs" />
+    <Compile Include="Sound\Sound.cs" />
+    <Compile Include="Sound\SoundData.cs" />
+    <Compile Include="Sound\SoundEntry.cs" />
+    <Compile Include="Sound\SoundLayout.cs" />
+    <Compile Include="Sound\SoundLayoutData.cs" />
+    <Compile Include="Sound\Vorbis.cs" />
     <Compile Include="VoiceSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,14 +108,13 @@
     <Compile Include="FilePicker.Designer.cs">
       <DependentUpon>FilePicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="RaceVoices.cs" />
     <Compile Include="SCDCreator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SCDCreator.Designer.cs">
       <DependentUpon>SCDCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCDGenerator.cs" />
+    <Compile Include="VoiceSorting\RaceVoices.cs" />
     <EmbeddedResource Include="VoiceSelection.resx">
       <DependentUpon>VoiceSelection.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +137,7 @@
     <EmbeddedResource Include="SCDCreator.resx">
       <DependentUpon>SCDCreator.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
