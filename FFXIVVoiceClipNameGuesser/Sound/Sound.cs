@@ -77,9 +77,9 @@ namespace FFXIVVoicePackCreator {
         public static byte[] GetDataRange(long start, long end, BinaryReader reader) {
             var savePos = reader.BaseStream.Position;
             reader.BaseStream.Seek(start, SeekOrigin.Begin);
-            var ret = reader.ReadBytes((int)(end - start));
+            var valueToReturn = reader.ReadBytes((int)(end - start));
             reader.BaseStream.Seek(savePos, SeekOrigin.Begin);
-            return ret;
+            return valueToReturn;
         }
     }
 }

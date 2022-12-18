@@ -86,10 +86,15 @@ namespace FFXIVVoicePackCreator {
             this.furious = new FFXIVVoicePackCreator.FilePicker();
             this.angry = new FFXIVVoicePackCreator.FilePicker();
             this.surprised = new FFXIVVoicePackCreator.FilePicker();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
             this.voiceGuessingTab.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // incrementButton
@@ -349,7 +354,7 @@ namespace FFXIVVoicePackCreator {
             this.tabManager.Location = new System.Drawing.Point(507, 136);
             this.tabManager.Name = "tabManager";
             this.tabManager.SelectedIndex = 0;
-            this.tabManager.Size = new System.Drawing.Size(500, 471);
+            this.tabManager.Size = new System.Drawing.Size(500, 511);
             this.tabManager.TabIndex = 47;
             this.tabManager.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabManager_Selecting);
             // 
@@ -368,7 +373,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.Location = new System.Drawing.Point(4, 22);
             this.voiceExportTab.Name = "voiceExportTab";
             this.voiceExportTab.Padding = new System.Windows.Forms.Padding(3);
-            this.voiceExportTab.Size = new System.Drawing.Size(492, 445);
+            this.voiceExportTab.Size = new System.Drawing.Size(492, 485);
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
@@ -394,7 +399,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // clearListButton
             // 
-            this.clearListButton.Location = new System.Drawing.Point(348, 421);
+            this.clearListButton.Location = new System.Drawing.Point(348, 461);
             this.clearListButton.Name = "clearListButton";
             this.clearListButton.Size = new System.Drawing.Size(138, 21);
             this.clearListButton.TabIndex = 39;
@@ -404,7 +409,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // removeFromList
             // 
-            this.removeFromList.Location = new System.Drawing.Point(204, 421);
+            this.removeFromList.Location = new System.Drawing.Point(204, 461);
             this.removeFromList.Name = "removeFromList";
             this.removeFromList.Size = new System.Drawing.Size(138, 21);
             this.removeFromList.TabIndex = 38;
@@ -417,7 +422,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceReplacementList.FormattingEnabled = true;
             this.voiceReplacementList.Location = new System.Drawing.Point(9, 52);
             this.voiceReplacementList.Name = "voiceReplacementList";
-            this.voiceReplacementList.Size = new System.Drawing.Size(477, 368);
+            this.voiceReplacementList.Size = new System.Drawing.Size(477, 407);
             this.voiceReplacementList.TabIndex = 37;
             // 
             // addToVoiceListButton
@@ -512,7 +517,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // easyGenerateButton
             // 
-            this.easyGenerateButton.Location = new System.Drawing.Point(507, 617);
+            this.easyGenerateButton.Location = new System.Drawing.Point(510, 645);
             this.easyGenerateButton.Name = "easyGenerateButton";
             this.easyGenerateButton.Size = new System.Drawing.Size(493, 26);
             this.easyGenerateButton.TabIndex = 34;
@@ -523,7 +528,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // quickImportButton
             // 
-            this.quickImportButton.Location = new System.Drawing.Point(12, 617);
+            this.quickImportButton.Location = new System.Drawing.Point(3, 598);
             this.quickImportButton.Name = "quickImportButton";
             this.quickImportButton.Size = new System.Drawing.Size(240, 26);
             this.quickImportButton.TabIndex = 49;
@@ -534,14 +539,14 @@ namespace FFXIVVoicePackCreator {
             // 
             // exportProgressBar
             // 
-            this.exportProgressBar.Location = new System.Drawing.Point(507, 617);
+            this.exportProgressBar.Location = new System.Drawing.Point(510, 645);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(496, 26);
+            this.exportProgressBar.Size = new System.Drawing.Size(493, 26);
             this.exportProgressBar.TabIndex = 50;
             // 
             // quickSwapButton
             // 
-            this.quickSwapButton.Location = new System.Drawing.Point(258, 617);
+            this.quickSwapButton.Location = new System.Drawing.Point(249, 598);
             this.quickSwapButton.Name = "quickSwapButton";
             this.quickSwapButton.Size = new System.Drawing.Size(243, 26);
             this.quickSwapButton.TabIndex = 51;
@@ -554,7 +559,7 @@ namespace FFXIVVoicePackCreator {
             this.unknown2.Filter = resources.GetString("unknown2.Filter");
             this.unknown2.Index = 15;
             this.unknown2.IsSaveMode = false;
-            this.unknown2.Location = new System.Drawing.Point(12, 580);
+            this.unknown2.Location = new System.Drawing.Point(3, 561);
             this.unknown2.Name = "unknown2";
             this.unknown2.Size = new System.Drawing.Size(489, 31);
             this.unknown2.TabIndex = 15;
@@ -565,7 +570,7 @@ namespace FFXIVVoicePackCreator {
             this.unknown1.Filter = resources.GetString("unknown1.Filter");
             this.unknown1.Index = 14;
             this.unknown1.IsSaveMode = false;
-            this.unknown1.Location = new System.Drawing.Point(12, 543);
+            this.unknown1.Location = new System.Drawing.Point(3, 524);
             this.unknown1.Name = "unknown1";
             this.unknown1.Size = new System.Drawing.Size(489, 31);
             this.unknown1.TabIndex = 14;
@@ -576,7 +581,7 @@ namespace FFXIVVoicePackCreator {
             this.happy.Filter = resources.GetString("happy.Filter");
             this.happy.Index = 13;
             this.happy.IsSaveMode = false;
-            this.happy.Location = new System.Drawing.Point(12, 506);
+            this.happy.Location = new System.Drawing.Point(3, 487);
             this.happy.Name = "happy";
             this.happy.Size = new System.Drawing.Size(489, 31);
             this.happy.TabIndex = 13;
@@ -587,7 +592,7 @@ namespace FFXIVVoicePackCreator {
             this.yes.Filter = resources.GetString("yes.Filter");
             this.yes.Index = 12;
             this.yes.IsSaveMode = false;
-            this.yes.Location = new System.Drawing.Point(12, 469);
+            this.yes.Location = new System.Drawing.Point(3, 450);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(489, 31);
             this.yes.TabIndex = 12;
@@ -598,7 +603,7 @@ namespace FFXIVVoicePackCreator {
             this.upset.Filter = resources.GetString("upset.Filter");
             this.upset.Index = 11;
             this.upset.IsSaveMode = false;
-            this.upset.Location = new System.Drawing.Point(12, 432);
+            this.upset.Location = new System.Drawing.Point(3, 413);
             this.upset.Name = "upset";
             this.upset.Size = new System.Drawing.Size(489, 31);
             this.upset.TabIndex = 11;
@@ -609,7 +614,7 @@ namespace FFXIVVoicePackCreator {
             this.stretch.Filter = resources.GetString("stretch.Filter");
             this.stretch.Index = 10;
             this.stretch.IsSaveMode = false;
-            this.stretch.Location = new System.Drawing.Point(12, 395);
+            this.stretch.Location = new System.Drawing.Point(3, 376);
             this.stretch.Name = "stretch";
             this.stretch.Size = new System.Drawing.Size(489, 31);
             this.stretch.TabIndex = 10;
@@ -620,7 +625,7 @@ namespace FFXIVVoicePackCreator {
             this.no.Filter = resources.GetString("no.Filter");
             this.no.Index = 9;
             this.no.IsSaveMode = false;
-            this.no.Location = new System.Drawing.Point(12, 358);
+            this.no.Location = new System.Drawing.Point(3, 339);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(489, 31);
             this.no.TabIndex = 9;
@@ -631,7 +636,7 @@ namespace FFXIVVoicePackCreator {
             this.laugh.Filter = resources.GetString("laugh.Filter");
             this.laugh.Index = 8;
             this.laugh.IsSaveMode = false;
-            this.laugh.Location = new System.Drawing.Point(12, 321);
+            this.laugh.Location = new System.Drawing.Point(3, 302);
             this.laugh.Name = "laugh";
             this.laugh.Size = new System.Drawing.Size(489, 31);
             this.laugh.TabIndex = 8;
@@ -642,7 +647,7 @@ namespace FFXIVVoicePackCreator {
             this.chuckle.Filter = resources.GetString("chuckle.Filter");
             this.chuckle.Index = 7;
             this.chuckle.IsSaveMode = false;
-            this.chuckle.Location = new System.Drawing.Point(12, 284);
+            this.chuckle.Location = new System.Drawing.Point(3, 265);
             this.chuckle.Name = "chuckle";
             this.chuckle.Size = new System.Drawing.Size(489, 31);
             this.chuckle.TabIndex = 7;
@@ -653,7 +658,7 @@ namespace FFXIVVoicePackCreator {
             this.huh.Filter = resources.GetString("huh.Filter");
             this.huh.Index = 6;
             this.huh.IsSaveMode = false;
-            this.huh.Location = new System.Drawing.Point(12, 247);
+            this.huh.Location = new System.Drawing.Point(3, 228);
             this.huh.Name = "huh";
             this.huh.Size = new System.Drawing.Size(489, 31);
             this.huh.TabIndex = 6;
@@ -664,7 +669,7 @@ namespace FFXIVVoicePackCreator {
             this.fume.Filter = resources.GetString("fume.Filter");
             this.fume.Index = 5;
             this.fume.IsSaveMode = false;
-            this.fume.Location = new System.Drawing.Point(12, 210);
+            this.fume.Location = new System.Drawing.Point(3, 191);
             this.fume.Name = "fume";
             this.fume.Size = new System.Drawing.Size(489, 31);
             this.fume.TabIndex = 5;
@@ -675,7 +680,7 @@ namespace FFXIVVoicePackCreator {
             this.doze.Filter = resources.GetString("doze.Filter");
             this.doze.Index = 4;
             this.doze.IsSaveMode = false;
-            this.doze.Location = new System.Drawing.Point(12, 173);
+            this.doze.Location = new System.Drawing.Point(3, 154);
             this.doze.Name = "doze";
             this.doze.Size = new System.Drawing.Size(489, 31);
             this.doze.TabIndex = 4;
@@ -686,7 +691,7 @@ namespace FFXIVVoicePackCreator {
             this.cheer.Filter = resources.GetString("cheer.Filter");
             this.cheer.Index = 3;
             this.cheer.IsSaveMode = false;
-            this.cheer.Location = new System.Drawing.Point(12, 136);
+            this.cheer.Location = new System.Drawing.Point(3, 117);
             this.cheer.Name = "cheer";
             this.cheer.Size = new System.Drawing.Size(489, 31);
             this.cheer.TabIndex = 3;
@@ -697,7 +702,7 @@ namespace FFXIVVoicePackCreator {
             this.furious.Filter = resources.GetString("furious.Filter");
             this.furious.Index = 2;
             this.furious.IsSaveMode = false;
-            this.furious.Location = new System.Drawing.Point(12, 99);
+            this.furious.Location = new System.Drawing.Point(3, 80);
             this.furious.Name = "furious";
             this.furious.Size = new System.Drawing.Size(489, 31);
             this.furious.TabIndex = 2;
@@ -708,7 +713,7 @@ namespace FFXIVVoicePackCreator {
             this.angry.Filter = resources.GetString("angry.Filter");
             this.angry.Index = 1;
             this.angry.IsSaveMode = false;
-            this.angry.Location = new System.Drawing.Point(12, 62);
+            this.angry.Location = new System.Drawing.Point(3, 43);
             this.angry.Name = "angry";
             this.angry.Size = new System.Drawing.Size(489, 31);
             this.angry.TabIndex = 1;
@@ -719,20 +724,66 @@ namespace FFXIVVoicePackCreator {
             this.surprised.Filter = resources.GetString("surprised.Filter");
             this.surprised.Index = 0;
             this.surprised.IsSaveMode = false;
-            this.surprised.Location = new System.Drawing.Point(12, 25);
+            this.surprised.Location = new System.Drawing.Point(3, 6);
             this.surprised.Name = "surprised";
             this.surprised.Size = new System.Drawing.Size(489, 31);
             this.surprised.TabIndex = 0;
             this.surprised.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(505, 656);
+            this.tabControl1.TabIndex = 52;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.quickSwapButton);
+            this.tabPage1.Controls.Add(this.surprised);
+            this.tabPage1.Controls.Add(this.angry);
+            this.tabPage1.Controls.Add(this.quickImportButton);
+            this.tabPage1.Controls.Add(this.furious);
+            this.tabPage1.Controls.Add(this.cheer);
+            this.tabPage1.Controls.Add(this.doze);
+            this.tabPage1.Controls.Add(this.fume);
+            this.tabPage1.Controls.Add(this.huh);
+            this.tabPage1.Controls.Add(this.chuckle);
+            this.tabPage1.Controls.Add(this.laugh);
+            this.tabPage1.Controls.Add(this.no);
+            this.tabPage1.Controls.Add(this.stretch);
+            this.tabPage1.Controls.Add(this.upset);
+            this.tabPage1.Controls.Add(this.yes);
+            this.tabPage1.Controls.Add(this.happy);
+            this.tabPage1.Controls.Add(this.unknown2);
+            this.tabPage1.Controls.Add(this.unknown1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(497, 630);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 644);
-            this.Controls.Add(this.quickSwapButton);
+            this.ClientSize = new System.Drawing.Size(1007, 690);
             this.Controls.Add(this.exportProgressBar);
-            this.Controls.Add(this.quickImportButton);
             this.Controls.Add(this.modVersionTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.modWebsiteTextBox);
@@ -744,24 +795,9 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.label8);
             this.Controls.Add(this.modNameTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.unknown2);
-            this.Controls.Add(this.unknown1);
-            this.Controls.Add(this.happy);
-            this.Controls.Add(this.yes);
-            this.Controls.Add(this.upset);
-            this.Controls.Add(this.stretch);
-            this.Controls.Add(this.no);
-            this.Controls.Add(this.laugh);
-            this.Controls.Add(this.chuckle);
-            this.Controls.Add(this.huh);
-            this.Controls.Add(this.fume);
-            this.Controls.Add(this.doze);
-            this.Controls.Add(this.cheer);
-            this.Controls.Add(this.furious);
-            this.Controls.Add(this.angry);
-            this.Controls.Add(this.surprised);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabManager);
+            this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -779,6 +815,8 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.PerformLayout();
             this.voiceGuessingTab.ResumeLayout(false);
             this.voiceGuessingTab.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -848,6 +886,9 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.Button addRaceButton;
         private System.Windows.Forms.ProgressBar exportProgressBar;
         private System.Windows.Forms.Button quickSwapButton;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 
