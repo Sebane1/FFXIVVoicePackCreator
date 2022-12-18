@@ -66,32 +66,33 @@
     <Compile Include="FolderSelectDialog.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Sound\AudioData.cs" />
-    <Compile Include="Sound\Data\LayoutAmbientData.cs" />
-    <Compile Include="Sound\Data\LayoutBoardObstructionData.cs" />
-    <Compile Include="Sound\Data\LayoutBoxObstructionData.cs" />
-    <Compile Include="Sound\Data\LayoutDirectionData.cs" />
-    <Compile Include="Sound\Data\LayoutLineData.cs" />
-    <Compile Include="Sound\Data\LayoutLineExtControllerData.cs" />
-    <Compile Include="Sound\Data\LayoutPointData.cs" />
-    <Compile Include="Sound\Data\LayoutPointDirData.cs" />
-    <Compile Include="Sound\Data\LayoutPolygonData.cs" />
-    <Compile Include="Sound\Data\LayoutPolygonObstructionData.cs" />
-    <Compile Include="Sound\Data\LayoutPolylineData.cs" />
-    <Compile Include="Sound\Data\LayoutPolylineObstructionData.cs" />
-    <Compile Include="Sound\Data\LayoutSurfaceData.cs" />
-    <Compile Include="Sound\float2.cs" />
-    <Compile Include="Sound\float4.cs" />
-    <Compile Include="Sound\MSAdpcm.cs" />
-    <Compile Include="Sound\SCDFile.cs" />
-    <Compile Include="Sound\SCDGenerator.cs" />
-    <Compile Include="Sound\ScdUtils.cs" />
-    <Compile Include="Sound\Sound.cs" />
-    <Compile Include="Sound\SoundData.cs" />
-    <Compile Include="Sound\SoundEntry.cs" />
-    <Compile Include="Sound\SoundLayout.cs" />
-    <Compile Include="Sound\SoundLayoutData.cs" />
-    <Compile Include="Sound\Vorbis.cs" />
+    <Compile Include="SoundData\AudioData.cs" />
+    <Compile Include="SoundData\Data\LayoutAmbientData.cs" />
+    <Compile Include="SoundData\Data\LayoutBoardObstructionData.cs" />
+    <Compile Include="SoundData\Data\LayoutBoxObstructionData.cs" />
+    <Compile Include="SoundData\Data\LayoutDirectionData.cs" />
+    <Compile Include="SoundData\Data\LayoutLineData.cs" />
+    <Compile Include="SoundData\Data\LayoutLineExtControllerData.cs" />
+    <Compile Include="SoundData\Data\LayoutPointData.cs" />
+    <Compile Include="SoundData\Data\LayoutPointDirData.cs" />
+    <Compile Include="SoundData\Data\LayoutPolygonData.cs" />
+    <Compile Include="SoundData\Data\LayoutPolygonObstructionData.cs" />
+    <Compile Include="SoundData\Data\LayoutPolylineData.cs" />
+    <Compile Include="SoundData\Data\LayoutPolylineObstructionData.cs" />
+    <Compile Include="SoundData\Data\LayoutSurfaceData.cs" />
+    <Compile Include="SoundData\float2.cs" />
+    <Compile Include="SoundData\float4.cs" />
+    <Compile Include="SoundData\MSAdpcm.cs" />
+    <Compile Include="SoundData\SCDFile.cs" />
+    <Compile Include="SoundData\SCDGenerator.cs" />
+    <Compile Include="SoundData\ScdUtils.cs" />
+    <Compile Include="SoundData\Sound.cs" />
+    <Compile Include="SoundData\SoundData.cs" />
+    <Compile Include="SoundData\SoundEntry.cs" />
+    <Compile Include="SoundData\SoundLayout.cs" />
+    <Compile Include="SoundData\SoundLayoutData.cs" />
+    <Compile Include="SoundData\SoundTrackItem.cs" />
+    <Compile Include="SoundData\Vorbis.cs" />
     <Compile Include="VoiceSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,7 +119,7 @@
     <Compile Include="SCDCreator.Designer.cs">
       <DependentUpon>SCDCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="VoiceSorting\RaceVoices.cs" />
+    <Compile Include="VoiceSorting\RaceVoice.cs" />
     <EmbeddedResource Include="VoiceSelection.resx">
       <DependentUpon>VoiceSelection.cs</DependentUpon>
     </EmbeddedResource>

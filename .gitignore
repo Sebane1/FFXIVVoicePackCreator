@@ -25,3 +25,5 @@ FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.WinForms.xml
 FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.Wpf.dll
 FFXIVVoiceClipNameGuesser/bin/Release/Microsoft.Web.WebView2.Wpf.xml
 *.tmp
+FFXIVVoiceClipNameGuesser/bin/Debug/AutoUpdater.NET.dll
+FFXIVVoiceClipNameGuesser/bin/Debug/System.Numerics.Vectors.dll
