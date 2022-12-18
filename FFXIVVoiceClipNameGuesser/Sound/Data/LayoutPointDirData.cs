@@ -30,10 +30,51 @@ public class LayoutPointDirData : SoundData {
     }
 
     public override void Read(BinaryReader reader) {
-        throw new NotImplementedException();
+        Position = new float4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+        Direction = new float4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+        (RangeX) = reader.ReadSingle();
+        (RangeY) = reader.ReadSingle();
+        (MaxRange) = reader.ReadSingle();
+        (MinRange) = reader.ReadSingle();
+        Height = new float2(reader.ReadInt16(), reader.ReadInt16());
+        (RangeVolume) = reader.ReadSingle();
+        (Volume) = reader.ReadSingle();
+        (Pitch) = reader.ReadSingle();
+        (ReverbFac) = reader.ReadSingle();
+        (DopplerFac) = reader.ReadSingle();
+        (InteriorFac) = reader.ReadSingle();
+        (FixedDirection) = reader.ReadSingle();
+        for (int i = 0; i < 3 * 4; i++) {
+            Reserved1[i] = reader.ReadByte();
+        }
     }
 
     public override void Write(BinaryWriter writer) {
-        throw new NotImplementedException();
+        writer.Write(Position.X);
+        writer.Write(Position.Y);
+        writer.Write(Position.Z);
+        writer.Write(Position.W);
+
+        writer.Write(Direction.X);
+        writer.Write(Direction.Y);
+        writer.Write(Direction.Z);
+        writer.Write(Direction.W);
+
+        writer.Write(RangeX);
+        writer.Write(RangeY);
+        writer.Write(MaxRange);
+        writer.Write(MinRange);
+        writer.Write(Height.X);
+        writer.Write(Height.Y);
+        writer.Write(RangeVolume);
+        writer.Write(Volume);
+        writer.Write(Pitch);
+        writer.Write(ReverbFac);
+        writer.Write(DopplerFac);
+        writer.Write(InteriorFac);
+        writer.Write(FixedDirection);
+        foreach (byte value in Reserved1) {
+            writer.Write(value);
+        }
     }
 }

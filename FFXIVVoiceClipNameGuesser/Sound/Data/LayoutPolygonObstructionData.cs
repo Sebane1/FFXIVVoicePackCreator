@@ -26,11 +26,36 @@ public class LayoutPolygonObstructionData : SoundData {
     }
 
     public override void Read(BinaryReader reader) {
-        throw new NotImplementedException();
+        for (var i = 0; i < 16; i++) {
+            positions[i] = new float4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+        }
+        (ObstacleFac) = reader.ReadSingle();
+        (HiCutFac) = reader.ReadSingle();
+        (Flags) = (ObstructionFlags)reader.ReadByte();
+        (VertexCount) = reader.ReadByte();
+        for (var i = 0; i < 2; i++) {
+            Reserved1[i] = reader.ReadByte();
+        }
+        (OpenTime) = reader.ReadInt16();
+        (CloseTime) = reader.ReadInt16();
     }
 
     public override void Write(BinaryWriter writer) {
         // Write positions first
-        throw new NotImplementedException();
+        foreach (float4 position in positions) {
+            writer.Write(position.X);
+            writer.Write(position.Y);
+            writer.Write(position.Z);
+            writer.Write(position.W);
+        }
+        writer.Write(ObstacleFac);
+        writer.Write(HiCutFac);
+        writer.Write((byte)Flags);
+        writer.Write(VertexCount);
+        foreach (byte value in Reserved1) {
+            writer.Write(value);
+        }
+        writer.Write(OpenTime);
+        writer.Write(CloseTime);
     }
 }
