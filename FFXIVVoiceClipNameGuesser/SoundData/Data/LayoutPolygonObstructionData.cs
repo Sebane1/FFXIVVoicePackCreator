@@ -50,7 +50,7 @@ public class LayoutPolygonObstructionData : SoundData {
         }
         writer.Write(ObstacleFac);
         writer.Write(HiCutFac);
-        writer.Write((byte)Flags);
+        writer.Write((int)Flags);
         writer.Write(VertexCount);
         foreach (byte value in Reserved1) {
             writer.Write(value);

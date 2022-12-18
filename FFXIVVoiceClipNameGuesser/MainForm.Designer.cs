@@ -70,31 +70,34 @@ namespace FFXIVVoicePackCreator {
             this.quickImportButton = new System.Windows.Forms.Button();
             this.exportProgressBar = new System.Windows.Forms.ProgressBar();
             this.quickSwapButton = new System.Windows.Forms.Button();
+            this.voiceTabs = new System.Windows.Forms.TabControl();
+            this.emoteVoicesPage = new System.Windows.Forms.TabPage();
+            this.battleVoicesPage = new System.Windows.Forms.TabPage();
+            this.multiSCDFile = new System.Windows.Forms.Button();
+            this.battleVoiceClips = new System.Windows.Forms.ListBox();
+            this.surprised = new FFXIVVoicePackCreator.FilePicker();
+            this.angry = new FFXIVVoicePackCreator.FilePicker();
+            this.furious = new FFXIVVoicePackCreator.FilePicker();
+            this.cheer = new FFXIVVoicePackCreator.FilePicker();
+            this.doze = new FFXIVVoicePackCreator.FilePicker();
+            this.fume = new FFXIVVoicePackCreator.FilePicker();
+            this.huh = new FFXIVVoicePackCreator.FilePicker();
+            this.chuckle = new FFXIVVoicePackCreator.FilePicker();
+            this.laugh = new FFXIVVoicePackCreator.FilePicker();
+            this.no = new FFXIVVoicePackCreator.FilePicker();
+            this.stretch = new FFXIVVoicePackCreator.FilePicker();
+            this.upset = new FFXIVVoicePackCreator.FilePicker();
+            this.yes = new FFXIVVoicePackCreator.FilePicker();
+            this.happy = new FFXIVVoicePackCreator.FilePicker();
             this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
             this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
-            this.happy = new FFXIVVoicePackCreator.FilePicker();
-            this.yes = new FFXIVVoicePackCreator.FilePicker();
-            this.upset = new FFXIVVoicePackCreator.FilePicker();
-            this.stretch = new FFXIVVoicePackCreator.FilePicker();
-            this.no = new FFXIVVoicePackCreator.FilePicker();
-            this.laugh = new FFXIVVoicePackCreator.FilePicker();
-            this.chuckle = new FFXIVVoicePackCreator.FilePicker();
-            this.huh = new FFXIVVoicePackCreator.FilePicker();
-            this.fume = new FFXIVVoicePackCreator.FilePicker();
-            this.doze = new FFXIVVoicePackCreator.FilePicker();
-            this.cheer = new FFXIVVoicePackCreator.FilePicker();
-            this.furious = new FFXIVVoicePackCreator.FilePicker();
-            this.angry = new FFXIVVoicePackCreator.FilePicker();
-            this.surprised = new FFXIVVoicePackCreator.FilePicker();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
             this.voiceGuessingTab.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.voiceTabs.SuspendLayout();
+            this.emoteVoicesPage.SuspendLayout();
+            this.battleVoicesPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // incrementButton
@@ -510,7 +513,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab.Location = new System.Drawing.Point(4, 22);
             this.voiceGuessingTab.Name = "voiceGuessingTab";
             this.voiceGuessingTab.Padding = new System.Windows.Forms.Padding(3);
-            this.voiceGuessingTab.Size = new System.Drawing.Size(492, 445);
+            this.voiceGuessingTab.Size = new System.Drawing.Size(492, 485);
             this.voiceGuessingTab.TabIndex = 1;
             this.voiceGuessingTab.Text = "Voice Guesser";
             this.voiceGuessingTab.UseVisualStyleBackColor = true;
@@ -554,6 +557,231 @@ namespace FFXIVVoicePackCreator {
             this.quickSwapButton.UseVisualStyleBackColor = true;
             this.quickSwapButton.Click += new System.EventHandler(this.quickSwapButton_Click);
             // 
+            // voiceTabs
+            // 
+            this.voiceTabs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.voiceTabs.Controls.Add(this.emoteVoicesPage);
+            this.voiceTabs.Controls.Add(this.battleVoicesPage);
+            this.voiceTabs.Location = new System.Drawing.Point(0, 25);
+            this.voiceTabs.Name = "voiceTabs";
+            this.voiceTabs.SelectedIndex = 0;
+            this.voiceTabs.Size = new System.Drawing.Size(505, 656);
+            this.voiceTabs.TabIndex = 52;
+            // 
+            // emoteVoicesPage
+            // 
+            this.emoteVoicesPage.Controls.Add(this.quickSwapButton);
+            this.emoteVoicesPage.Controls.Add(this.surprised);
+            this.emoteVoicesPage.Controls.Add(this.angry);
+            this.emoteVoicesPage.Controls.Add(this.quickImportButton);
+            this.emoteVoicesPage.Controls.Add(this.furious);
+            this.emoteVoicesPage.Controls.Add(this.cheer);
+            this.emoteVoicesPage.Controls.Add(this.doze);
+            this.emoteVoicesPage.Controls.Add(this.fume);
+            this.emoteVoicesPage.Controls.Add(this.huh);
+            this.emoteVoicesPage.Controls.Add(this.chuckle);
+            this.emoteVoicesPage.Controls.Add(this.laugh);
+            this.emoteVoicesPage.Controls.Add(this.no);
+            this.emoteVoicesPage.Controls.Add(this.stretch);
+            this.emoteVoicesPage.Controls.Add(this.upset);
+            this.emoteVoicesPage.Controls.Add(this.yes);
+            this.emoteVoicesPage.Controls.Add(this.happy);
+            this.emoteVoicesPage.Controls.Add(this.unknown2);
+            this.emoteVoicesPage.Controls.Add(this.unknown1);
+            this.emoteVoicesPage.Location = new System.Drawing.Point(4, 22);
+            this.emoteVoicesPage.Name = "emoteVoicesPage";
+            this.emoteVoicesPage.Padding = new System.Windows.Forms.Padding(3);
+            this.emoteVoicesPage.Size = new System.Drawing.Size(497, 630);
+            this.emoteVoicesPage.TabIndex = 0;
+            this.emoteVoicesPage.Text = "Emote Voices";
+            this.emoteVoicesPage.UseVisualStyleBackColor = true;
+            // 
+            // battleVoicesPage
+            // 
+            this.battleVoicesPage.Controls.Add(this.multiSCDFile);
+            this.battleVoicesPage.Controls.Add(this.battleVoiceClips);
+            this.battleVoicesPage.Location = new System.Drawing.Point(4, 22);
+            this.battleVoicesPage.Name = "battleVoicesPage";
+            this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(3);
+            this.battleVoicesPage.Size = new System.Drawing.Size(497, 630);
+            this.battleVoicesPage.TabIndex = 1;
+            this.battleVoicesPage.Text = "Battle Voices";
+            this.battleVoicesPage.UseVisualStyleBackColor = true;
+            // 
+            // multiSCDFile
+            // 
+            this.multiSCDFile.Location = new System.Drawing.Point(341, 598);
+            this.multiSCDFile.Name = "multiSCDFile";
+            this.multiSCDFile.Size = new System.Drawing.Size(150, 23);
+            this.multiSCDFile.TabIndex = 1;
+            this.multiSCDFile.Text = "Open";
+            this.multiSCDFile.UseVisualStyleBackColor = true;
+            this.multiSCDFile.Click += new System.EventHandler(this.multiSCDFile_Click);
+            // 
+            // battleVoiceClips
+            // 
+            this.battleVoiceClips.FormattingEnabled = true;
+            this.battleVoiceClips.Location = new System.Drawing.Point(6, 3);
+            this.battleVoiceClips.Name = "battleVoiceClips";
+            this.battleVoiceClips.Size = new System.Drawing.Size(485, 589);
+            this.battleVoiceClips.TabIndex = 0;
+            this.battleVoiceClips.SelectedIndexChanged += new System.EventHandler(this.battleVoiceClips_SelectedIndexChanged);
+            // 
+            // surprised
+            // 
+            this.surprised.Filter = resources.GetString("surprised.Filter");
+            this.surprised.Index = 0;
+            this.surprised.IsSaveMode = false;
+            this.surprised.Location = new System.Drawing.Point(3, 6);
+            this.surprised.Name = "surprised";
+            this.surprised.Size = new System.Drawing.Size(489, 31);
+            this.surprised.TabIndex = 0;
+            this.surprised.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // angry
+            // 
+            this.angry.Filter = resources.GetString("angry.Filter");
+            this.angry.Index = 1;
+            this.angry.IsSaveMode = false;
+            this.angry.Location = new System.Drawing.Point(3, 43);
+            this.angry.Name = "angry";
+            this.angry.Size = new System.Drawing.Size(489, 31);
+            this.angry.TabIndex = 1;
+            this.angry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // furious
+            // 
+            this.furious.Filter = resources.GetString("furious.Filter");
+            this.furious.Index = 2;
+            this.furious.IsSaveMode = false;
+            this.furious.Location = new System.Drawing.Point(3, 80);
+            this.furious.Name = "furious";
+            this.furious.Size = new System.Drawing.Size(489, 31);
+            this.furious.TabIndex = 2;
+            this.furious.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // cheer
+            // 
+            this.cheer.Filter = resources.GetString("cheer.Filter");
+            this.cheer.Index = 3;
+            this.cheer.IsSaveMode = false;
+            this.cheer.Location = new System.Drawing.Point(3, 117);
+            this.cheer.Name = "cheer";
+            this.cheer.Size = new System.Drawing.Size(489, 31);
+            this.cheer.TabIndex = 3;
+            this.cheer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // doze
+            // 
+            this.doze.Filter = resources.GetString("doze.Filter");
+            this.doze.Index = 4;
+            this.doze.IsSaveMode = false;
+            this.doze.Location = new System.Drawing.Point(3, 154);
+            this.doze.Name = "doze";
+            this.doze.Size = new System.Drawing.Size(489, 31);
+            this.doze.TabIndex = 4;
+            this.doze.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // fume
+            // 
+            this.fume.Filter = resources.GetString("fume.Filter");
+            this.fume.Index = 5;
+            this.fume.IsSaveMode = false;
+            this.fume.Location = new System.Drawing.Point(3, 191);
+            this.fume.Name = "fume";
+            this.fume.Size = new System.Drawing.Size(489, 31);
+            this.fume.TabIndex = 5;
+            this.fume.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // huh
+            // 
+            this.huh.Filter = resources.GetString("huh.Filter");
+            this.huh.Index = 6;
+            this.huh.IsSaveMode = false;
+            this.huh.Location = new System.Drawing.Point(3, 228);
+            this.huh.Name = "huh";
+            this.huh.Size = new System.Drawing.Size(489, 31);
+            this.huh.TabIndex = 6;
+            this.huh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // chuckle
+            // 
+            this.chuckle.Filter = resources.GetString("chuckle.Filter");
+            this.chuckle.Index = 7;
+            this.chuckle.IsSaveMode = false;
+            this.chuckle.Location = new System.Drawing.Point(3, 265);
+            this.chuckle.Name = "chuckle";
+            this.chuckle.Size = new System.Drawing.Size(489, 31);
+            this.chuckle.TabIndex = 7;
+            this.chuckle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // laugh
+            // 
+            this.laugh.Filter = resources.GetString("laugh.Filter");
+            this.laugh.Index = 8;
+            this.laugh.IsSaveMode = false;
+            this.laugh.Location = new System.Drawing.Point(3, 302);
+            this.laugh.Name = "laugh";
+            this.laugh.Size = new System.Drawing.Size(489, 31);
+            this.laugh.TabIndex = 8;
+            this.laugh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // no
+            // 
+            this.no.Filter = resources.GetString("no.Filter");
+            this.no.Index = 9;
+            this.no.IsSaveMode = false;
+            this.no.Location = new System.Drawing.Point(3, 339);
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(489, 31);
+            this.no.TabIndex = 9;
+            this.no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // stretch
+            // 
+            this.stretch.Filter = resources.GetString("stretch.Filter");
+            this.stretch.Index = 10;
+            this.stretch.IsSaveMode = false;
+            this.stretch.Location = new System.Drawing.Point(3, 376);
+            this.stretch.Name = "stretch";
+            this.stretch.Size = new System.Drawing.Size(489, 31);
+            this.stretch.TabIndex = 10;
+            this.stretch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // upset
+            // 
+            this.upset.Filter = resources.GetString("upset.Filter");
+            this.upset.Index = 11;
+            this.upset.IsSaveMode = false;
+            this.upset.Location = new System.Drawing.Point(3, 413);
+            this.upset.Name = "upset";
+            this.upset.Size = new System.Drawing.Size(489, 31);
+            this.upset.TabIndex = 11;
+            this.upset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // yes
+            // 
+            this.yes.Filter = resources.GetString("yes.Filter");
+            this.yes.Index = 12;
+            this.yes.IsSaveMode = false;
+            this.yes.Location = new System.Drawing.Point(3, 450);
+            this.yes.Name = "yes";
+            this.yes.Size = new System.Drawing.Size(489, 31);
+            this.yes.TabIndex = 12;
+            this.yes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // happy
+            // 
+            this.happy.Filter = resources.GetString("happy.Filter");
+            this.happy.Index = 13;
+            this.happy.IsSaveMode = false;
+            this.happy.Location = new System.Drawing.Point(3, 487);
+            this.happy.Name = "happy";
+            this.happy.Size = new System.Drawing.Size(489, 31);
+            this.happy.TabIndex = 13;
+            this.happy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
             // unknown2
             // 
             this.unknown2.Filter = resources.GetString("unknown2.Filter");
@@ -576,208 +804,6 @@ namespace FFXIVVoicePackCreator {
             this.unknown1.TabIndex = 14;
             this.unknown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
-            // happy
-            // 
-            this.happy.Filter = resources.GetString("happy.Filter");
-            this.happy.Index = 13;
-            this.happy.IsSaveMode = false;
-            this.happy.Location = new System.Drawing.Point(3, 487);
-            this.happy.Name = "happy";
-            this.happy.Size = new System.Drawing.Size(489, 31);
-            this.happy.TabIndex = 13;
-            this.happy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // yes
-            // 
-            this.yes.Filter = resources.GetString("yes.Filter");
-            this.yes.Index = 12;
-            this.yes.IsSaveMode = false;
-            this.yes.Location = new System.Drawing.Point(3, 450);
-            this.yes.Name = "yes";
-            this.yes.Size = new System.Drawing.Size(489, 31);
-            this.yes.TabIndex = 12;
-            this.yes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // upset
-            // 
-            this.upset.Filter = resources.GetString("upset.Filter");
-            this.upset.Index = 11;
-            this.upset.IsSaveMode = false;
-            this.upset.Location = new System.Drawing.Point(3, 413);
-            this.upset.Name = "upset";
-            this.upset.Size = new System.Drawing.Size(489, 31);
-            this.upset.TabIndex = 11;
-            this.upset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // stretch
-            // 
-            this.stretch.Filter = resources.GetString("stretch.Filter");
-            this.stretch.Index = 10;
-            this.stretch.IsSaveMode = false;
-            this.stretch.Location = new System.Drawing.Point(3, 376);
-            this.stretch.Name = "stretch";
-            this.stretch.Size = new System.Drawing.Size(489, 31);
-            this.stretch.TabIndex = 10;
-            this.stretch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // no
-            // 
-            this.no.Filter = resources.GetString("no.Filter");
-            this.no.Index = 9;
-            this.no.IsSaveMode = false;
-            this.no.Location = new System.Drawing.Point(3, 339);
-            this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(489, 31);
-            this.no.TabIndex = 9;
-            this.no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // laugh
-            // 
-            this.laugh.Filter = resources.GetString("laugh.Filter");
-            this.laugh.Index = 8;
-            this.laugh.IsSaveMode = false;
-            this.laugh.Location = new System.Drawing.Point(3, 302);
-            this.laugh.Name = "laugh";
-            this.laugh.Size = new System.Drawing.Size(489, 31);
-            this.laugh.TabIndex = 8;
-            this.laugh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // chuckle
-            // 
-            this.chuckle.Filter = resources.GetString("chuckle.Filter");
-            this.chuckle.Index = 7;
-            this.chuckle.IsSaveMode = false;
-            this.chuckle.Location = new System.Drawing.Point(3, 265);
-            this.chuckle.Name = "chuckle";
-            this.chuckle.Size = new System.Drawing.Size(489, 31);
-            this.chuckle.TabIndex = 7;
-            this.chuckle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // huh
-            // 
-            this.huh.Filter = resources.GetString("huh.Filter");
-            this.huh.Index = 6;
-            this.huh.IsSaveMode = false;
-            this.huh.Location = new System.Drawing.Point(3, 228);
-            this.huh.Name = "huh";
-            this.huh.Size = new System.Drawing.Size(489, 31);
-            this.huh.TabIndex = 6;
-            this.huh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // fume
-            // 
-            this.fume.Filter = resources.GetString("fume.Filter");
-            this.fume.Index = 5;
-            this.fume.IsSaveMode = false;
-            this.fume.Location = new System.Drawing.Point(3, 191);
-            this.fume.Name = "fume";
-            this.fume.Size = new System.Drawing.Size(489, 31);
-            this.fume.TabIndex = 5;
-            this.fume.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // doze
-            // 
-            this.doze.Filter = resources.GetString("doze.Filter");
-            this.doze.Index = 4;
-            this.doze.IsSaveMode = false;
-            this.doze.Location = new System.Drawing.Point(3, 154);
-            this.doze.Name = "doze";
-            this.doze.Size = new System.Drawing.Size(489, 31);
-            this.doze.TabIndex = 4;
-            this.doze.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // cheer
-            // 
-            this.cheer.Filter = resources.GetString("cheer.Filter");
-            this.cheer.Index = 3;
-            this.cheer.IsSaveMode = false;
-            this.cheer.Location = new System.Drawing.Point(3, 117);
-            this.cheer.Name = "cheer";
-            this.cheer.Size = new System.Drawing.Size(489, 31);
-            this.cheer.TabIndex = 3;
-            this.cheer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // furious
-            // 
-            this.furious.Filter = resources.GetString("furious.Filter");
-            this.furious.Index = 2;
-            this.furious.IsSaveMode = false;
-            this.furious.Location = new System.Drawing.Point(3, 80);
-            this.furious.Name = "furious";
-            this.furious.Size = new System.Drawing.Size(489, 31);
-            this.furious.TabIndex = 2;
-            this.furious.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // angry
-            // 
-            this.angry.Filter = resources.GetString("angry.Filter");
-            this.angry.Index = 1;
-            this.angry.IsSaveMode = false;
-            this.angry.Location = new System.Drawing.Point(3, 43);
-            this.angry.Name = "angry";
-            this.angry.Size = new System.Drawing.Size(489, 31);
-            this.angry.TabIndex = 1;
-            this.angry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // surprised
-            // 
-            this.surprised.Filter = resources.GetString("surprised.Filter");
-            this.surprised.Index = 0;
-            this.surprised.IsSaveMode = false;
-            this.surprised.Location = new System.Drawing.Point(3, 6);
-            this.surprised.Name = "surprised";
-            this.surprised.Size = new System.Drawing.Size(489, 31);
-            this.surprised.TabIndex = 0;
-            this.surprised.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(0, 25);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(505, 656);
-            this.tabControl1.TabIndex = 52;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.quickSwapButton);
-            this.tabPage1.Controls.Add(this.surprised);
-            this.tabPage1.Controls.Add(this.angry);
-            this.tabPage1.Controls.Add(this.quickImportButton);
-            this.tabPage1.Controls.Add(this.furious);
-            this.tabPage1.Controls.Add(this.cheer);
-            this.tabPage1.Controls.Add(this.doze);
-            this.tabPage1.Controls.Add(this.fume);
-            this.tabPage1.Controls.Add(this.huh);
-            this.tabPage1.Controls.Add(this.chuckle);
-            this.tabPage1.Controls.Add(this.laugh);
-            this.tabPage1.Controls.Add(this.no);
-            this.tabPage1.Controls.Add(this.stretch);
-            this.tabPage1.Controls.Add(this.upset);
-            this.tabPage1.Controls.Add(this.yes);
-            this.tabPage1.Controls.Add(this.happy);
-            this.tabPage1.Controls.Add(this.unknown2);
-            this.tabPage1.Controls.Add(this.unknown1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(497, 630);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -797,7 +823,7 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.label7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabManager);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.voiceTabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -815,8 +841,9 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.PerformLayout();
             this.voiceGuessingTab.ResumeLayout(false);
             this.voiceGuessingTab.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.voiceTabs.ResumeLayout(false);
+            this.emoteVoicesPage.ResumeLayout(false);
+            this.battleVoicesPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -886,9 +913,11 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.Button addRaceButton;
         private System.Windows.Forms.ProgressBar exportProgressBar;
         private System.Windows.Forms.Button quickSwapButton;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl voiceTabs;
+        private System.Windows.Forms.TabPage emoteVoicesPage;
+        private System.Windows.Forms.TabPage battleVoicesPage;
+        private System.Windows.Forms.ListBox battleVoiceClips;
+        private System.Windows.Forms.Button multiSCDFile;
     }
 }
 

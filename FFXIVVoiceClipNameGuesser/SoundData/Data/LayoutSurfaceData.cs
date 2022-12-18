@@ -104,7 +104,7 @@ public class LayoutSurfaceData : SoundData {
         writer.Write(InteriorFac);
         writer.Write(Direction);
         writer.Write(SubSoundType);
-        writer.Write((byte)Flags);
+        writer.Write((int)Flags);
         foreach (byte value in Reserved2) {
             writer.Write(value);
         }

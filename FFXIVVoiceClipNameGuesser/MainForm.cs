@@ -46,7 +46,7 @@ namespace FFXIVVoicePackCreator {
             GetPenumbraPath();
             exportProgressBar.Visible = false;
             Text = Application.ProductName + " " + Application.ProductVersion;
-            RaceVoices.LoadRacialVoiceInfo();
+            RaceVoice.LoadRacialVoiceInfo();
             RefreshRacialChoices();
             scdGenerator = new SCDGenerator();
             filePickers = new List<FilePicker>() {
@@ -91,7 +91,7 @@ namespace FFXIVVoicePackCreator {
 
         void RefreshRacialChoices() {
             raceListComboBox.Items.Clear();
-            foreach (RaceVoices voices in RaceVoices.RacialList) {
+            foreach (RaceVoice voices in RaceVoice.RacialList) {
                 raceListComboBox.Items.Add(voices.RaceName);
             }
             sexListComboBox.SelectedIndex = 0;
@@ -368,7 +368,7 @@ namespace FFXIVVoicePackCreator {
         private void addToVoiceListButton_Click(object sender, EventArgs e) {
             switch (sexListComboBox.SelectedIndex) {
                 case 0:
-                    int value = int.Parse(RaceVoices.RacialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
+                    int value = int.Parse(RaceVoice.RacialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
                     if (!voicesToReplace.Contains(value)) {
                         AddReplacementValue(value);
                     } else {
@@ -376,7 +376,7 @@ namespace FFXIVVoicePackCreator {
                     }
                     break;
                 case 1:
-                    string stringValue = RaceVoices.RacialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
+                    string stringValue = RaceVoice.RacialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
                     if (!string.IsNullOrWhiteSpace(stringValue)) {
                         int value2 = int.Parse(stringValue);
                         if (!voicesToReplace.Contains(value2)) {
@@ -395,7 +395,7 @@ namespace FFXIVVoicePackCreator {
             hasSaved = false;
             voicesToReplace.Add(value);
             string text = "Character Voice: " + value;
-            foreach (string raceValue in RaceVoices.RacesToVoice[value + ""]) {
+            foreach (string raceValue in RaceVoice.RacesToVoice[value + ""]) {
                 text += " | " + raceValue;
             }
             voiceReplacementList.Items.Add(text);
@@ -690,7 +690,7 @@ namespace FFXIVVoicePackCreator {
             for (int i = 0; i < 12; i++) {
                 switch (sexListComboBox.SelectedIndex) {
                     case 0:
-                        int value = int.Parse(RaceVoices.RacialList[raceListComboBox.SelectedIndex].Masculine[i]);
+                        int value = int.Parse(RaceVoice.RacialList[raceListComboBox.SelectedIndex].Masculine[i]);
                         if (!voicesToReplace.Contains(value)) {
                             AddReplacementValue(value);
                         } else {
@@ -699,7 +699,7 @@ namespace FFXIVVoicePackCreator {
                         }
                         break;
                     case 1:
-                        string stringValue = RaceVoices.RacialList[raceListComboBox.SelectedIndex].Feminine[i];
+                        string stringValue = RaceVoice.RacialList[raceListComboBox.SelectedIndex].Feminine[i];
                         if (!string.IsNullOrWhiteSpace(stringValue)) {
                             int value2 = int.Parse(stringValue);
                             if (!voicesToReplace.Contains(value2)) {
@@ -725,6 +725,27 @@ namespace FFXIVVoicePackCreator {
             if (voiceSelection.ShowDialog() == DialogResult.OK) {
                 foreach (FilePicker filePicker in filePickers) {
                     filePicker.SetToGameFile(voiceSelection.SelectedVoice);
+                }
+            }
+        }
+
+        private void battleVoiceClips_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void multiSCDFile_Click(object sender, EventArgs e) {
+            battleVoiceClips.Items.Clear();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "SCD File|*.scd;";
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                SCDFile file = new SCDFile();
+                using (FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read)) {
+                    using (BinaryReader reader = new BinaryReader(fileStream)) {
+                        file.ReadFile(reader);
+                    }
+                }
+                foreach (Sound sound in file.Audio) {
+                    battleVoiceClips.Items.Add(sound.Format + " " + sound.DataLength + " " + sound.SampleRate + " " + sound.NumChannels + " ");
                 }
             }
         }

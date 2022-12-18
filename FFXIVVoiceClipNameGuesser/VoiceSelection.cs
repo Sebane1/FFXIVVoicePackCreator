@@ -21,13 +21,13 @@ namespace FFXIVVoicePackCreator {
         private void addToVoiceListButton_Click(object sender, EventArgs e) {
             switch (sexListComboBox.SelectedIndex) {
                 case 0:
-                    int value = int.Parse(RaceVoices.RacialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
+                    int value = int.Parse(RaceVoice.RacialList[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex]);
                     selectedVoice = value;
                     DialogResult = DialogResult.OK;
                     Close();
                     break;
                 case 1:
-                    string stringValue = RaceVoices.RacialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
+                    string stringValue = RaceVoice.RacialList[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
                     if (!string.IsNullOrWhiteSpace(stringValue)) {
                         int value2 = int.Parse(stringValue);
                         selectedVoice = value2;
@@ -41,7 +41,7 @@ namespace FFXIVVoicePackCreator {
         }
         void RefreshRacialChoices() {
             raceListComboBox.Items.Clear();
-            foreach (RaceVoices voices in RaceVoices.RacialList) {
+            foreach (RaceVoice voices in RaceVoice.RacialList) {
                 raceListComboBox.Items.Add(voices.RaceName);
             }
             sexListComboBox.SelectedIndex = 0;

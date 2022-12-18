@@ -13,6 +13,7 @@ namespace FFXIVVoicePackCreator {
         private List<int> layoutOffsets = new List<int>();
         private List<int> attributeOffsets = new List<int>();
         private List<Sound> audio = new List<Sound>();
+        private List<SoundLayout> layouts = new List<SoundLayout>();
 
         public int Magic { get; private set; }
         public int SectionType { get; private set; }
@@ -46,14 +47,14 @@ namespace FFXIVVoicePackCreator {
         public List<int> AttributeOffsets => attributeOffsets;
 
         public List<Sound> Audio { get => audio; set => audio = value; }
+        public List<SoundLayout> Layouts { get => layouts; set => layouts = value; }
 
         public void WriteFile(BinaryWriter writer) {
-            writer.Write(Magic);
-            writer.Write(SectionType);
-            writer.Write(SedbVersion);
-            writer.Write(Endian);
-            writer.Write(AlignmentBits);
-            writer.Write(HeaderSize);
+            writer.Seek(0, SeekOrigin.Begin);
+            writer.Write("SEDBSSCF");
+            writer.Write((int)3);
+            writer.Write((short)0x0400);
+            writer.Write((short)0x30);
             writer.Write(FileSize); // placeholder
             writer.Write(UnkPadding);
 
@@ -85,7 +86,6 @@ namespace FFXIVVoicePackCreator {
             FileSize = reader.ReadInt32();
             UnkPadding = reader.ReadBytes(28);
 
-
             SoundCount = reader.ReadInt16();
             TrackCount = reader.ReadInt16();
             AudioCount = reader.ReadInt16();
@@ -115,6 +115,30 @@ namespace FFXIVVoicePackCreator {
                 newAudio.Read(reader, offset);
                 Audio.Add(newAudio);
             }
+            foreach (var offset in LayoutOffsets.Where(x => x != 0)) {
+                var newLayout = new SoundLayout();
+                newLayout.Read(reader, offset);
+                Layouts.Add(newLayout);
+            }
+
+            foreach (var offset in TrackOffsets.Where(x => x != 0)) {
+                var newTrack = new ScdTrackEntry();
+                newTrack.Read(reader, offset);
+                Tracks.Add(newTrack);
+            }
+
+            foreach (var offset in AttributeOffsets.Where(x => x != 0)) {
+                var newAttribute = new ScdAttributeEntry();
+                newAttribute.Read(reader, offset);
+                Attributes.Add(newAttribute);
+            }
+
+            foreach (var offset in SoundOffsets.Where(x => x != 0)) {
+                var newSound = new ScdSoundEntry();
+                newSound.Read(reader, offset);
+                Sounds.Add(newSound);
+            }
+
         }
 
         public static void ReadOffsets(List<int> offsets, BinaryReader reader, int count) {
@@ -129,6 +153,20 @@ namespace FFXIVVoicePackCreator {
                 writer.Write(offset);
             }
             new MemoryStream(new byte[16]).CopyTo(writer.BaseStream);
+        }
+        private static void UpdateOffsets<T>(BinaryWriter writer, List<T> items, int offsetLocation, Action<BinaryWriter, T> action) where T : SoundEntry {
+            List<int> positions = new List<int>();
+            foreach (var item in items) {
+                positions.Add((int)writer.BaseStream.Position);
+                action.Invoke(writer, item);
+            }
+            var savePos = writer.BaseStream.Position;
+
+            writer.BaseStream.Seek(offsetLocation, SeekOrigin.Begin);
+            foreach (var position in positions) {
+                writer.Write(position);
+            }
+            writer.BaseStream.Seek(savePos, SeekOrigin.Begin);
         }
     }
 }

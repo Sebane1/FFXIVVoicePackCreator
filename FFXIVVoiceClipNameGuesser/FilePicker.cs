@@ -41,7 +41,7 @@ namespace FFXIVVoicePackCreator {
 
         private void filePicker_MouseMove(object sender, MouseEventArgs e) {
             if ((e.X != startPos.X || startPos.Y != e.Y) && canDoDragDrop) {
-                ((Form)Parent).TopMost = true;
+                this.ParentForm.TopMost = true;
                 List<string> fileList = new List<string>();
                 if (!string.IsNullOrEmpty(filePath.Text)) {
                     fileList.Add(filePath.Text);
@@ -51,11 +51,10 @@ namespace FFXIVVoicePackCreator {
                     DoDragDrop(fileDragData, DragDropEffects.Copy);
                 }
                 canDoDragDrop = false;
-                Parent.BringToFront();
+                this.ParentForm.BringToFront();
             }
-            ((Form)Parent).TopMost = false;
+            this.ParentForm.TopMost = false;
         }
-
         private void openButton_Click(object sender, EventArgs e) {
             if (!useGameFileCheckBox.Checked) {
                 if (!isSaveMode) {

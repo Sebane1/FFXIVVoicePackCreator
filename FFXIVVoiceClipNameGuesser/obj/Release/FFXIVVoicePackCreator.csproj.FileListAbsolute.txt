@@ -1,4 +1,3 @@
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.AssemblyReference.cache
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.VoiceSelection.resources
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.MainWindow.resources
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.Properties.Resources.resources
@@ -11,18 +10,13 @@ C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\FFXIVVoicePackCreator.pdb
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\NAudio.Core.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\NAudio.Vorbis.dll
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\NVorbis.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.Memory.dll
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.ValueTuple.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.Numerics.Vectors.dll
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.Buffers.dll
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\NVorbis.xml
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.ValueTuple.xml
-C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.CopyComplete
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.exe
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.pdb
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.pdb
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.xml
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.AssemblyReference.cache
