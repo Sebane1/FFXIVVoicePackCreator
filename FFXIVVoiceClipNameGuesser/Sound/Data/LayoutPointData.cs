@@ -49,10 +49,67 @@ public class LayoutPointData : SoundData {
     }
 
     public override void Read(BinaryReader reader) {
-        throw new NotImplementedException();
+        Position = new float4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+        (MaxRange) = reader.ReadSingle();
+        (MinRange) = reader.ReadSingle();
+        Height = new float2(reader.ReadInt16(), reader.ReadInt16());
+        (RangeVolume) = reader.ReadSingle();
+        (Volume) = reader.ReadSingle();
+        (Pitch) = reader.ReadSingle();
+        (ReverbFac) = reader.ReadSingle();
+        (DopplerFac) = reader.ReadSingle();
+        (CenterFac) = reader.ReadSingle();
+        (InteriorFac) = reader.ReadSingle();
+        (Direction) = reader.ReadSingle();
+        (NearFadeStart) = reader.ReadSingle();
+        (NearFadeEnd) = reader.ReadSingle();
+        (FarDelayFac) = reader.ReadSingle();
+        (Environment) = (PointEnvironmentFlags)reader.ReadByte();
+        (Flag) = (PointFlags)reader.ReadByte();
+        for (int i = 0; i < 2; i++) {
+            Reserved1[i] = reader.ReadByte();
+        }
+        (LowerLimit) = reader.ReadSingle();
+        (FadeInTime) = reader.ReadInt16();
+        (FadeOutTime) = reader.ReadInt16();
+        (ConvergenceFac) = reader.ReadSingle();
+        for (int i = 0; i < 4; i++) {
+            Reserved2[i] = reader.ReadByte();
+        }
     }
 
     public override void Write(BinaryWriter writer) {
-        throw new NotImplementedException();
+        writer.Write(Position.X);
+        writer.Write(Position.Y);
+        writer.Write(Position.Z);
+        writer.Write(Position.W);
+
+        writer.Write(MaxRange);
+        writer.Write(MinRange);
+        writer.Write(Height.X);
+        writer.Write(Height.Y);
+        writer.Write(RangeVolume);
+        writer.Write(Volume);
+        writer.Write(Pitch);
+        writer.Write(ReverbFac);
+        writer.Write(DopplerFac);
+        writer.Write(CenterFac);
+        writer.Write(InteriorFac);
+        writer.Write(Direction);
+        writer.Write(NearFadeStart);
+        writer.Write(NearFadeEnd);
+        writer.Write(FarDelayFac);
+        writer.Write((byte)Environment);
+        writer.Write((byte)Flag);
+        foreach (byte value in Reserved1) {
+            writer.Write(value);
+        }
+        writer.Write(LowerLimit);
+        writer.Write(FadeInTime);
+        writer.Write(FadeOutTime);
+        writer.Write(ConvergenceFac);
+        foreach (byte value in Reserved2) {
+            writer.Write(value);
+        }
     }
 }

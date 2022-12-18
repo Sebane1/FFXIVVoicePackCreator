@@ -55,10 +55,54 @@ public class LayoutPolygonData : SoundData {
     }
 
     public override void Read(BinaryReader reader) {
-        throw new NotImplementedException();
+        (MaxRange) = reader.ReadSingle();
+        (MinRange) = reader.ReadSingle();
+        Height = new float2(reader.ReadInt16(), reader.ReadInt16());
+        (RangeVolume) = reader.ReadSingle();
+        (Volume) = reader.ReadSingle();
+        (Pitch) = reader.ReadSingle();
+        (ReverbFac) = reader.ReadSingle();
+        (DopplerFac) = reader.ReadSingle();
+        (InteriorFac) = reader.ReadSingle();
+        (Direction) = reader.ReadSingle();
+        (SubSoundType) = reader.ReadByte();
+        (Flag) = (PolygonFlags)reader.ReadByte();
+        (VertexCount) = reader.ReadByte();
+        (Reserved1[0]) = reader.ReadByte();
+        (RotSpeed) = reader.ReadSingle();
+        for (var i = 0; i < 3 * 4; i++) {
+            Reserved2[i] = reader.ReadByte();
+        }
+        for (var i = 0; i < 32; i++) {
+            positions[i] = new float4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+        }
     }
 
     public override void Write(BinaryWriter writer) {
-        throw new NotImplementedException();
+        writer.Write(MaxRange);
+        writer.Write(MinRange);
+        writer.Write(Height.X);
+        writer.Write(Height.Y);
+        writer.Write(RangeVolume);
+        writer.Write(Volume);
+        writer.Write(Pitch);
+        writer.Write(ReverbFac);
+        writer.Write(DopplerFac);
+        writer.Write(InteriorFac);
+        writer.Write(Direction);
+        writer.Write(SubSoundType);
+        writer.Write((byte)Flag);
+        writer.Write(VertexCount);
+        writer.Write(Reserved1[0]);
+        writer.Write(RotSpeed);
+        foreach (byte value in Reserved2) {
+            writer.Write(value);
+        }
+        foreach (float4 position in positions) {
+            writer.Write(position.X);
+            writer.Write(position.Y);
+            writer.Write(position.Z);
+            writer.Write(position.W);
+        }
     }
 }

@@ -33,11 +33,49 @@ public class LayoutPolylineData : SoundData {
     public List<float4> Positions { get => positions; set => positions = value; }
 
     public override void Read(BinaryReader reader) {
-        throw new NotImplementedException();
+        for (var i = 0; i < 16; i++) {
+            positions[i] = new float4(reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16(), reader.ReadInt16());
+        }
+
+        MaxRange = reader.ReadSingle();
+        MinRange = reader.ReadSingle();
+        Height = new float2(reader.ReadInt16(), reader.ReadInt16());
+        RangeVolume = reader.ReadSingle();
+        Volume = reader.ReadSingle();
+        Pitch = reader.ReadSingle();
+        ReverbFac = reader.ReadSingle();
+        DopplerFac = reader.ReadSingle();
+        VertexCount = reader.ReadByte();
+        for (int i = 0; i < 3; i++) {
+            Reserved1[i] = reader.ReadByte();
+        }
+        InteriorFac = reader.ReadSingle();
+        Direction = reader.ReadSingle();
     }
 
     public override void Write(BinaryWriter writer) {
         //Write positions first
-        throw new NotImplementedException();
+        foreach (float4 position in positions) {
+            writer.Write(position.X);
+            writer.Write(position.Y);
+            writer.Write(position.Z);
+            writer.Write(position.W);
+        }
+
+        writer.Write(MaxRange);
+        writer.Write(MinRange);
+        writer.Write(Height.X);
+        writer.Write(Height.Y);
+        writer.Write(RangeVolume);
+        writer.Write(Volume);
+        writer.Write(Pitch);
+        writer.Write(ReverbFac);
+        writer.Write(DopplerFac);
+        writer.Write(VertexCount);
+        foreach (byte value in Reserved1) {
+            writer.Write(value);
+        }
+        writer.Write(InteriorFac);
+        writer.Write(Direction);
     }
 }
