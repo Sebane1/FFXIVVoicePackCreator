@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "eKVvMtcOous0vvvxmi97PRnVkhr7qxLKQnBkbqnmeaukjTzzeQ7hnC/1AyUacp+VfGxp3LJJpBahDUsyD2HJzg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stel9\\.nuget\\packages\\autoupdater.net.official\\1.7.6\\autoupdater.net.official.1.7.6.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\microsoft.web.webview2\\1.0.1418.22\\microsoft.web.webview2.1.0.1418.22.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\naudio.core\\2.1.0\\naudio.core.2.1.0.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\naudio.vorbis\\1.5.0\\naudio.vorbis.1.5.0.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\nvorbis\\0.10.4\\nvorbis.0.10.4.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

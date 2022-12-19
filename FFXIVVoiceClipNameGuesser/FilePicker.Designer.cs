@@ -38,9 +38,10 @@ namespace FFXIVVoicePackCreator {
             this.filePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePath.Location = new System.Drawing.Point(98, 6);
+            this.filePath.Location = new System.Drawing.Point(114, 7);
+            this.filePath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(202, 20);
+            this.filePath.Size = new System.Drawing.Size(659, 23);
             this.filePath.TabIndex = 0;
             this.filePath.TextChanged += new System.EventHandler(this.filePath_TextChanged);
             this.filePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseDown);
@@ -50,9 +51,10 @@ namespace FFXIVVoicePackCreator {
             // 
             this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.openButton.Location = new System.Drawing.Point(306, 4);
+            this.openButton.Location = new System.Drawing.Point(781, 5);
+            this.openButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(75, 23);
+            this.openButton.Size = new System.Drawing.Size(88, 27);
             this.openButton.TabIndex = 1;
             this.openButton.Text = "Select";
             this.openButton.UseVisualStyleBackColor = true;
@@ -61,18 +63,22 @@ namespace FFXIVVoicePackCreator {
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(3, 9);
+            this.labelName.Location = new System.Drawing.Point(4, 10);
+            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.Size = new System.Drawing.Size(39, 15);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "Name";
             // 
             // useGameFileCheckBox
             // 
+            this.useGameFileCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.useGameFileCheckBox.AutoSize = true;
-            this.useGameFileCheckBox.Location = new System.Drawing.Point(387, 8);
+            this.useGameFileCheckBox.Location = new System.Drawing.Point(875, 9);
+            this.useGameFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.useGameFileCheckBox.Name = "useGameFileCheckBox";
-            this.useGameFileCheckBox.Size = new System.Drawing.Size(95, 17);
+            this.useGameFileCheckBox.Size = new System.Drawing.Size(100, 19);
             this.useGameFileCheckBox.TabIndex = 3;
             this.useGameFileCheckBox.Text = "Use Game File";
             this.useGameFileCheckBox.UseVisualStyleBackColor = true;
@@ -80,14 +86,15 @@ namespace FFXIVVoicePackCreator {
             // 
             // FilePicker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.useGameFileCheckBox);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.filePath);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FilePicker";
-            this.Size = new System.Drawing.Size(489, 31);
+            this.Size = new System.Drawing.Size(994, 36);
             this.Load += new System.EventHandler(this.filePicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

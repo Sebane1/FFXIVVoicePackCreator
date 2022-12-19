@@ -20,3 +20,4 @@ C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.pdb
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\AutoUpdater.NET.xml
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.AssemblyReference.cache
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\FFXIVVoicePackCreator.csproj.SuggestedBindingRedirects.cache

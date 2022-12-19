@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using VfxEditor.ScdFormat;
 
 namespace FFXIVVoicePackCreator {
     public partial class MainWindow : Form {
@@ -738,14 +739,13 @@ namespace FFXIVVoicePackCreator {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "SCD File|*.scd;";
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                SCDFile file = new SCDFile();
                 using (FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read)) {
                     using (BinaryReader reader = new BinaryReader(fileStream)) {
-                        file.ReadFile(reader);
+                        ScdFile file = new ScdFile(reader, false);
+                        foreach (ScdAudioEntry sound in file.Audio) {
+                            battleVoiceClips.Items.Add(sound.Format + " " + sound.DataLength + " " + sound.SampleRate + " " + sound.NumChannels + " ");
+                        }
                     }
-                }
-                foreach (Sound sound in file.Audio) {
-                    battleVoiceClips.Items.Add(sound.Format + " " + sound.DataLength + " " + sound.SampleRate + " " + sound.NumChannels + " ");
                 }
             }
         }
