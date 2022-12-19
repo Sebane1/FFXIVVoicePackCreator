@@ -1,0 +1,140 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Autoupdater.NET.Official/1.7.6": {
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.1418.22"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/AutoUpdater.NET.dll": {
+            "assemblyVersion": "1.7.6.0",
+            "fileVersion": "1.7.6.0"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.1418.22": {
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll": {
+            "assemblyVersion": "1.0.1418.22",
+            "fileVersion": "1.0.1418.22"
+          },
+          "lib/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.dll": {
+            "assemblyVersion": "1.0.1418.22",
+            "fileVersion": "1.0.1418.22"
+          },
+          "lib/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.dll": {
+            "assemblyVersion": "1.0.1418.22",
+            "fileVersion": "1.0.1418.22"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.0.1418.22"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.1418.22"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.1418.22"
+          }
+        }
+      },
+      "NAudio.Core/2.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "NAudio.Vorbis/1.5.0": {
+        "dependencies": {
+          "NAudio.Core": "2.1.0",
+          "NVorbis": "0.10.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Vorbis.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          }
+        }
+      },
+      "NVorbis/0.10.4": {
+        "dependencies": {
+          "System.Memory": "4.5.3",
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NVorbis.dll": {
+            "assemblyVersion": "0.10.4.0",
+            "fileVersion": "0.10.4.0"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
+      "System.ValueTuple/4.5.0": {}
+    }
+  },
+  "libraries": {
+    "Autoupdater.NET.Official/1.7.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hnMGsoCPx/SVd5eM/vWv5lJ8rPwMaegKPE3DhnAxHed0WNtc/L1JnVs6ZJoCXhKrZf587aD3OuMDGfXwu1QOqQ==",
+      "path": "autoupdater.net.official/1.7.6",
+      "hashPath": "autoupdater.net.official.1.7.6.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2/1.0.1418.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-74/HbvDxO8ebRclPE4r57Vdvs3REMIcn/G9t3PVp2bfFPhzMmzemLzJj5gX5xA3NURhbqIcYYgKK+l0NYFjvMg==",
+      "path": "microsoft.web.webview2/1.0.1418.22",
+      "hashPath": "microsoft.web.webview2.1.0.1418.22.nupkg.sha512"
+    },
+    "NAudio.Core/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0iowfmolibU4KxjaC/s7lox/BeDg76UVvXtCuCzRiNpylVndqsxXxp+bVWFrpv0KzQDIKLxZrnDmYENlAI0u9g==",
+      "path": "naudio.core/2.1.0",
+      "hashPath": "naudio.core.2.1.0.nupkg.sha512"
+    },
+    "NAudio.Vorbis/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-llJMmUnFf0FGf4G1FKNftxt+Vc1CvBCSul0Ugbv/RahGbpKF2p+ujSEJHybPjl9b4FjbK8O2vRFIcRGcVfAooA==",
+      "path": "naudio.vorbis/1.5.0",
+      "hashPath": "naudio.vorbis.1.5.0.nupkg.sha512"
+    },
+    "NVorbis/0.10.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WYnil3DhQHzjCY0dM9I2B3r1vWip90AOuQd25KE4NrjPQBg0tBJFluRLm5YPnO5ZLDmwrfosY8jCQGQRmWI/Pg==",
+      "path": "nvorbis/0.10.4",
+      "hashPath": "nvorbis.0.10.4.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.ValueTuple/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "path": "system.valuetuple/4.5.0",
+      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
+    }
+  }
+}

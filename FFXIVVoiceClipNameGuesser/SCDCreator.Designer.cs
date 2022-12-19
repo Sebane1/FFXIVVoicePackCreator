@@ -149,7 +149,7 @@ namespace FFXIVVoicePackCreator {
             this.outputSelection.Location = new System.Drawing.Point(15, 57);
             this.outputSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.outputSelection.Name = "outputSelection";
-            this.outputSelection.Size = new System.Drawing.Size(626, 36);
+            this.outputSelection.Size = new System.Drawing.Size(554, 36);
             this.outputSelection.TabIndex = 3;
             // 
             // mediaSelection
@@ -160,7 +160,7 @@ namespace FFXIVVoicePackCreator {
             this.mediaSelection.Location = new System.Drawing.Point(14, 14);
             this.mediaSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.mediaSelection.Name = "mediaSelection";
-            this.mediaSelection.Size = new System.Drawing.Size(627, 36);
+            this.mediaSelection.Size = new System.Drawing.Size(555, 36);
             this.mediaSelection.TabIndex = 0;
             // 
             // SCDCreator

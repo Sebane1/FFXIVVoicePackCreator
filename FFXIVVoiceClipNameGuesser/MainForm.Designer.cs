@@ -89,8 +89,23 @@ namespace FFXIVVoicePackCreator {
             this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
             this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
             this.battleVoicesPage = new System.Windows.Forms.TabPage();
+            this.battle15 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle14 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle13 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle12 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle11 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle10 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle9 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle8 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle7 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle6 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle5 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle4 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle3 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle2 = new FFXIVVoicePackCreator.FilePicker();
+            this.battle1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
-            this.battleVoiceClips = new System.Windows.Forms.ListBox();
+            this.battle16 = new FFXIVVoicePackCreator.FilePicker();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -376,11 +391,11 @@ namespace FFXIVVoicePackCreator {
             // 
             this.tabManager.Controls.Add(this.voiceExportTab);
             this.tabManager.Controls.Add(this.voiceGuessingTab);
-            this.tabManager.Location = new System.Drawing.Point(592, 157);
+            this.tabManager.Location = new System.Drawing.Point(592, 131);
             this.tabManager.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabManager.Name = "tabManager";
             this.tabManager.SelectedIndex = 0;
-            this.tabManager.Size = new System.Drawing.Size(583, 590);
+            this.tabManager.Size = new System.Drawing.Size(583, 609);
             this.tabManager.TabIndex = 47;
             this.tabManager.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabManager_Selecting);
             // 
@@ -400,7 +415,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceExportTab.Name = "voiceExportTab";
             this.voiceExportTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceExportTab.Size = new System.Drawing.Size(575, 562);
+            this.voiceExportTab.Size = new System.Drawing.Size(575, 581);
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
@@ -428,7 +443,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // clearListButton
             // 
-            this.clearListButton.Location = new System.Drawing.Point(406, 532);
+            this.clearListButton.Location = new System.Drawing.Point(405, 550);
             this.clearListButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.clearListButton.Name = "clearListButton";
             this.clearListButton.Size = new System.Drawing.Size(161, 24);
@@ -439,7 +454,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // removeFromList
             // 
-            this.removeFromList.Location = new System.Drawing.Point(238, 532);
+            this.removeFromList.Location = new System.Drawing.Point(236, 550);
             this.removeFromList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.removeFromList.Name = "removeFromList";
             this.removeFromList.Size = new System.Drawing.Size(161, 24);
@@ -455,7 +470,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceReplacementList.Location = new System.Drawing.Point(10, 60);
             this.voiceReplacementList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceReplacementList.Name = "voiceReplacementList";
-            this.voiceReplacementList.Size = new System.Drawing.Size(556, 469);
+            this.voiceReplacementList.Size = new System.Drawing.Size(556, 484);
             this.voiceReplacementList.TabIndex = 37;
             // 
             // addToVoiceListButton
@@ -549,14 +564,14 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceGuessingTab.Name = "voiceGuessingTab";
             this.voiceGuessingTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceGuessingTab.Size = new System.Drawing.Size(575, 562);
+            this.voiceGuessingTab.Size = new System.Drawing.Size(575, 581);
             this.voiceGuessingTab.TabIndex = 1;
             this.voiceGuessingTab.Text = "Voice Guesser";
             this.voiceGuessingTab.UseVisualStyleBackColor = true;
             // 
             // easyGenerateButton
             // 
-            this.easyGenerateButton.Location = new System.Drawing.Point(595, 744);
+            this.easyGenerateButton.Location = new System.Drawing.Point(596, 743);
             this.easyGenerateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.easyGenerateButton.Name = "easyGenerateButton";
             this.easyGenerateButton.Size = new System.Drawing.Size(575, 30);
@@ -568,7 +583,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // quickImportButton
             // 
-            this.quickImportButton.Location = new System.Drawing.Point(4, 690);
+            this.quickImportButton.Location = new System.Drawing.Point(4, 743);
             this.quickImportButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.quickImportButton.Name = "quickImportButton";
             this.quickImportButton.Size = new System.Drawing.Size(280, 30);
@@ -580,15 +595,15 @@ namespace FFXIVVoicePackCreator {
             // 
             // exportProgressBar
             // 
-            this.exportProgressBar.Location = new System.Drawing.Point(595, 744);
+            this.exportProgressBar.Location = new System.Drawing.Point(596, 743);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(575, 30);
+            this.exportProgressBar.Size = new System.Drawing.Size(571, 30);
             this.exportProgressBar.TabIndex = 50;
             // 
             // quickSwapButton
             // 
-            this.quickSwapButton.Location = new System.Drawing.Point(290, 690);
+            this.quickSwapButton.Location = new System.Drawing.Point(300, 743);
             this.quickSwapButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.quickSwapButton.Name = "quickSwapButton";
             this.quickSwapButton.Size = new System.Drawing.Size(284, 30);
@@ -607,15 +622,13 @@ namespace FFXIVVoicePackCreator {
             this.voiceTabs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceTabs.Name = "voiceTabs";
             this.voiceTabs.SelectedIndex = 0;
-            this.voiceTabs.Size = new System.Drawing.Size(589, 757);
+            this.voiceTabs.Size = new System.Drawing.Size(589, 711);
             this.voiceTabs.TabIndex = 52;
             // 
             // emoteVoicesPage
             // 
-            this.emoteVoicesPage.Controls.Add(this.quickSwapButton);
             this.emoteVoicesPage.Controls.Add(this.surprised);
             this.emoteVoicesPage.Controls.Add(this.angry);
-            this.emoteVoicesPage.Controls.Add(this.quickImportButton);
             this.emoteVoicesPage.Controls.Add(this.furious);
             this.emoteVoicesPage.Controls.Add(this.cheer);
             this.emoteVoicesPage.Controls.Add(this.doze);
@@ -634,7 +647,7 @@ namespace FFXIVVoicePackCreator {
             this.emoteVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.emoteVoicesPage.Name = "emoteVoicesPage";
             this.emoteVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.emoteVoicesPage.Size = new System.Drawing.Size(581, 729);
+            this.emoteVoicesPage.Size = new System.Drawing.Size(581, 683);
             this.emoteVoicesPage.TabIndex = 0;
             this.emoteVoicesPage.Text = "Emote Voices";
             this.emoteVoicesPage.UseVisualStyleBackColor = true;
@@ -833,16 +846,204 @@ namespace FFXIVVoicePackCreator {
             // 
             // battleVoicesPage
             // 
+            this.battleVoicesPage.Controls.Add(this.battle16);
+            this.battleVoicesPage.Controls.Add(this.battle15);
+            this.battleVoicesPage.Controls.Add(this.battle14);
+            this.battleVoicesPage.Controls.Add(this.battle13);
+            this.battleVoicesPage.Controls.Add(this.battle12);
+            this.battleVoicesPage.Controls.Add(this.battle11);
+            this.battleVoicesPage.Controls.Add(this.battle10);
+            this.battleVoicesPage.Controls.Add(this.battle9);
+            this.battleVoicesPage.Controls.Add(this.battle8);
+            this.battleVoicesPage.Controls.Add(this.battle7);
+            this.battleVoicesPage.Controls.Add(this.battle6);
+            this.battleVoicesPage.Controls.Add(this.battle5);
+            this.battleVoicesPage.Controls.Add(this.battle4);
+            this.battleVoicesPage.Controls.Add(this.battle3);
+            this.battleVoicesPage.Controls.Add(this.battle2);
+            this.battleVoicesPage.Controls.Add(this.battle1);
             this.battleVoicesPage.Controls.Add(this.multiSCDFile);
-            this.battleVoicesPage.Controls.Add(this.battleVoiceClips);
             this.battleVoicesPage.Location = new System.Drawing.Point(4, 24);
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(581, 729);
+            this.battleVoicesPage.Size = new System.Drawing.Size(581, 683);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
+            // 
+            // battle15
+            // 
+            this.battle15.Filter = null;
+            this.battle15.Index = 30;
+            this.battle15.IsSaveMode = false;
+            this.battle15.Location = new System.Drawing.Point(4, 594);
+            this.battle15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle15.Name = "battle15";
+            this.battle15.Size = new System.Drawing.Size(707, 36);
+            this.battle15.TabIndex = 16;
+            // 
+            // battle14
+            // 
+            this.battle14.Filter = null;
+            this.battle14.Index = 29;
+            this.battle14.IsSaveMode = false;
+            this.battle14.Location = new System.Drawing.Point(4, 552);
+            this.battle14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle14.Name = "battle14";
+            this.battle14.Size = new System.Drawing.Size(707, 36);
+            this.battle14.TabIndex = 15;
+            // 
+            // battle13
+            // 
+            this.battle13.Filter = null;
+            this.battle13.Index = 28;
+            this.battle13.IsSaveMode = false;
+            this.battle13.Location = new System.Drawing.Point(4, 510);
+            this.battle13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle13.Name = "battle13";
+            this.battle13.Size = new System.Drawing.Size(707, 36);
+            this.battle13.TabIndex = 14;
+            // 
+            // battle12
+            // 
+            this.battle12.Filter = null;
+            this.battle12.Index = 27;
+            this.battle12.IsSaveMode = false;
+            this.battle12.Location = new System.Drawing.Point(4, 468);
+            this.battle12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle12.Name = "battle12";
+            this.battle12.Size = new System.Drawing.Size(707, 36);
+            this.battle12.TabIndex = 13;
+            // 
+            // battle11
+            // 
+            this.battle11.Filter = null;
+            this.battle11.Index = 26;
+            this.battle11.IsSaveMode = false;
+            this.battle11.Location = new System.Drawing.Point(4, 426);
+            this.battle11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle11.Name = "battle11";
+            this.battle11.Size = new System.Drawing.Size(707, 36);
+            this.battle11.TabIndex = 12;
+            // 
+            // battle10
+            // 
+            this.battle10.Filter = null;
+            this.battle10.Index = 25;
+            this.battle10.IsSaveMode = false;
+            this.battle10.Location = new System.Drawing.Point(4, 384);
+            this.battle10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle10.Name = "battle10";
+            this.battle10.Size = new System.Drawing.Size(707, 36);
+            this.battle10.TabIndex = 11;
+            // 
+            // battle9
+            // 
+            this.battle9.Filter = null;
+            this.battle9.Index = 24;
+            this.battle9.IsSaveMode = false;
+            this.battle9.Location = new System.Drawing.Point(4, 342);
+            this.battle9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle9.Name = "battle9";
+            this.battle9.Size = new System.Drawing.Size(707, 36);
+            this.battle9.TabIndex = 10;
+            // 
+            // battle8
+            // 
+            this.battle8.Filter = null;
+            this.battle8.Index = 23;
+            this.battle8.IsSaveMode = false;
+            this.battle8.Location = new System.Drawing.Point(4, 300);
+            this.battle8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle8.Name = "battle8";
+            this.battle8.Size = new System.Drawing.Size(707, 36);
+            this.battle8.TabIndex = 9;
+            this.battle8.Load += new System.EventHandler(this.battle8_Load);
+            // 
+            // battle7
+            // 
+            this.battle7.Filter = null;
+            this.battle7.Index = 22;
+            this.battle7.IsSaveMode = false;
+            this.battle7.Location = new System.Drawing.Point(4, 258);
+            this.battle7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle7.Name = "battle7";
+            this.battle7.Size = new System.Drawing.Size(707, 36);
+            this.battle7.TabIndex = 8;
+            this.battle7.Load += new System.EventHandler(this.battle7_Load);
+            // 
+            // battle6
+            // 
+            this.battle6.Filter = null;
+            this.battle6.Index = 21;
+            this.battle6.IsSaveMode = false;
+            this.battle6.Location = new System.Drawing.Point(4, 216);
+            this.battle6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle6.Name = "battle6";
+            this.battle6.Size = new System.Drawing.Size(707, 36);
+            this.battle6.TabIndex = 7;
+            this.battle6.Load += new System.EventHandler(this.battle6_Load);
+            // 
+            // battle5
+            // 
+            this.battle5.Filter = null;
+            this.battle5.Index = 20;
+            this.battle5.IsSaveMode = false;
+            this.battle5.Location = new System.Drawing.Point(4, 174);
+            this.battle5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle5.Name = "battle5";
+            this.battle5.Size = new System.Drawing.Size(707, 36);
+            this.battle5.TabIndex = 6;
+            this.battle5.Load += new System.EventHandler(this.battle5_Load);
+            // 
+            // battle4
+            // 
+            this.battle4.Filter = null;
+            this.battle4.Index = 19;
+            this.battle4.IsSaveMode = false;
+            this.battle4.Location = new System.Drawing.Point(4, 132);
+            this.battle4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle4.Name = "battle4";
+            this.battle4.Size = new System.Drawing.Size(707, 36);
+            this.battle4.TabIndex = 5;
+            this.battle4.Load += new System.EventHandler(this.battle4_Load);
+            // 
+            // battle3
+            // 
+            this.battle3.Filter = null;
+            this.battle3.Index = 18;
+            this.battle3.IsSaveMode = false;
+            this.battle3.Location = new System.Drawing.Point(4, 90);
+            this.battle3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle3.Name = "battle3";
+            this.battle3.Size = new System.Drawing.Size(707, 36);
+            this.battle3.TabIndex = 4;
+            this.battle3.Load += new System.EventHandler(this.battle3_Load);
+            // 
+            // battle2
+            // 
+            this.battle2.Filter = null;
+            this.battle2.Index = 17;
+            this.battle2.IsSaveMode = false;
+            this.battle2.Location = new System.Drawing.Point(4, 48);
+            this.battle2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle2.Name = "battle2";
+            this.battle2.Size = new System.Drawing.Size(707, 36);
+            this.battle2.TabIndex = 3;
+            this.battle2.Load += new System.EventHandler(this.battle2_Load);
+            // 
+            // battle1
+            // 
+            this.battle1.Filter = null;
+            this.battle1.Index = 16;
+            this.battle1.IsSaveMode = false;
+            this.battle1.Location = new System.Drawing.Point(4, 6);
+            this.battle1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle1.Name = "battle1";
+            this.battle1.Size = new System.Drawing.Size(707, 36);
+            this.battle1.TabIndex = 2;
+            this.battle1.Load += new System.EventHandler(this.battle1_Load);
             // 
             // multiSCDFile
             // 
@@ -855,26 +1056,28 @@ namespace FFXIVVoicePackCreator {
             this.multiSCDFile.UseVisualStyleBackColor = true;
             this.multiSCDFile.Click += new System.EventHandler(this.multiSCDFile_Click);
             // 
-            // battleVoiceClips
+            // battle16
             // 
-            this.battleVoiceClips.FormattingEnabled = true;
-            this.battleVoiceClips.ItemHeight = 15;
-            this.battleVoiceClips.Location = new System.Drawing.Point(7, 3);
-            this.battleVoiceClips.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoiceClips.Name = "battleVoiceClips";
-            this.battleVoiceClips.Size = new System.Drawing.Size(565, 679);
-            this.battleVoiceClips.TabIndex = 0;
-            this.battleVoiceClips.SelectedIndexChanged += new System.EventHandler(this.battleVoiceClips_SelectedIndexChanged);
+            this.battle16.Filter = null;
+            this.battle16.Index = 30;
+            this.battle16.IsSaveMode = false;
+            this.battle16.Location = new System.Drawing.Point(4, 636);
+            this.battle16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle16.Name = "battle16";
+            this.battle16.Size = new System.Drawing.Size(707, 36);
+            this.battle16.TabIndex = 17;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 796);
+            this.ClientSize = new System.Drawing.Size(1175, 777);
+            this.Controls.Add(this.quickSwapButton);
             this.Controls.Add(this.exportProgressBar);
             this.Controls.Add(this.modVersionTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.modWebsiteTextBox);
+            this.Controls.Add(this.quickImportButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.modDescriptionTextBox);
             this.Controls.Add(this.easyGenerateButton);
@@ -930,7 +1133,6 @@ namespace FFXIVVoicePackCreator {
         private FilePicker yes;
         private FilePicker happy;
         private FilePicker unknown1;
-        private FilePicker unknown2;
         private System.Windows.Forms.Button incrementButton;
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.ListBox missingFIleList;
@@ -979,8 +1181,24 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.TabControl voiceTabs;
         private System.Windows.Forms.TabPage emoteVoicesPage;
         private System.Windows.Forms.TabPage battleVoicesPage;
-        private System.Windows.Forms.ListBox battleVoiceClips;
         private System.Windows.Forms.Button multiSCDFile;
+        private FilePicker battle15;
+        private FilePicker battle14;
+        private FilePicker battle13;
+        private FilePicker battle12;
+        private FilePicker battle11;
+        private FilePicker battle10;
+        private FilePicker battle9;
+        private FilePicker battle8;
+        private FilePicker battle7;
+        private FilePicker battle6;
+        private FilePicker battle5;
+        private FilePicker battle4;
+        private FilePicker battle3;
+        private FilePicker battle2;
+        private FilePicker battle1;
+        private FilePicker unknown2;
+        private FilePicker battle16;
     }
 }
 

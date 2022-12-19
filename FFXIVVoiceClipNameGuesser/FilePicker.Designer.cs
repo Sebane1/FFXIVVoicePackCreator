@@ -41,7 +41,7 @@ namespace FFXIVVoicePackCreator {
             this.filePath.Location = new System.Drawing.Point(114, 7);
             this.filePath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(659, 23);
+            this.filePath.Size = new System.Drawing.Size(643, 23);
             this.filePath.TabIndex = 0;
             this.filePath.TextChanged += new System.EventHandler(this.filePath_TextChanged);
             this.filePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.filePicker_MouseDown);
@@ -51,7 +51,7 @@ namespace FFXIVVoicePackCreator {
             // 
             this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.openButton.Location = new System.Drawing.Point(781, 5);
+            this.openButton.Location = new System.Drawing.Point(765, 4);
             this.openButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(88, 27);
@@ -75,7 +75,7 @@ namespace FFXIVVoicePackCreator {
             this.useGameFileCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.useGameFileCheckBox.AutoSize = true;
-            this.useGameFileCheckBox.Location = new System.Drawing.Point(875, 9);
+            this.useGameFileCheckBox.Location = new System.Drawing.Point(870, 9);
             this.useGameFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.useGameFileCheckBox.Name = "useGameFileCheckBox";
             this.useGameFileCheckBox.Size = new System.Drawing.Size(100, 19);
