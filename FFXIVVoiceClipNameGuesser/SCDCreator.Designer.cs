@@ -42,9 +42,10 @@ namespace FFXIVVoicePackCreator {
             // 
             this.generateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.generateButton.Location = new System.Drawing.Point(19, 241);
+            this.generateButton.Location = new System.Drawing.Point(22, 278);
+            this.generateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(351, 22);
+            this.generateButton.Size = new System.Drawing.Size(410, 25);
             this.generateButton.TabIndex = 2;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
@@ -57,27 +58,30 @@ namespace FFXIVVoicePackCreator {
             "Sound Effect",
             "Background Music",
             "Orchestrion (Experimental)"});
-            this.scdTypeComboBox.Location = new System.Drawing.Point(112, 93);
+            this.scdTypeComboBox.Location = new System.Drawing.Point(127, 107);
+            this.scdTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.scdTypeComboBox.Name = "scdTypeComboBox";
-            this.scdTypeComboBox.Size = new System.Drawing.Size(252, 21);
+            this.scdTypeComboBox.Size = new System.Drawing.Size(297, 23);
             this.scdTypeComboBox.TabIndex = 4;
             this.scdTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.scdTypeComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 96);
+            this.label1.Location = new System.Drawing.Point(19, 111);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "File Type";
             // 
             // loopStartTextBox
             // 
             this.loopStartTextBox.Enabled = false;
-            this.loopStartTextBox.Location = new System.Drawing.Point(257, 130);
+            this.loopStartTextBox.Location = new System.Drawing.Point(300, 150);
+            this.loopStartTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.loopStartTextBox.Name = "loopStartTextBox";
-            this.loopStartTextBox.Size = new System.Drawing.Size(107, 20);
+            this.loopStartTextBox.Size = new System.Drawing.Size(124, 23);
             this.loopStartTextBox.TabIndex = 8;
             this.loopStartTextBox.Text = "0";
             this.loopStartTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
@@ -86,9 +90,10 @@ namespace FFXIVVoicePackCreator {
             // 
             this.loopStartLabel.AutoSize = true;
             this.loopStartLabel.Enabled = false;
-            this.loopStartLabel.Location = new System.Drawing.Point(15, 133);
+            this.loopStartLabel.Location = new System.Drawing.Point(18, 153);
+            this.loopStartLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loopStartLabel.Name = "loopStartLabel";
-            this.loopStartLabel.Size = new System.Drawing.Size(105, 13);
+            this.loopStartLabel.Size = new System.Drawing.Size(116, 15);
             this.loopStartLabel.TabIndex = 9;
             this.loopStartLabel.Text = "Loop Start (Samples)";
             // 
@@ -96,18 +101,20 @@ namespace FFXIVVoicePackCreator {
             // 
             this.loopEndLabel.AutoSize = true;
             this.loopEndLabel.Enabled = false;
-            this.loopEndLabel.Location = new System.Drawing.Point(15, 169);
+            this.loopEndLabel.Location = new System.Drawing.Point(18, 195);
+            this.loopEndLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loopEndLabel.Name = "loopEndLabel";
-            this.loopEndLabel.Size = new System.Drawing.Size(102, 13);
+            this.loopEndLabel.Size = new System.Drawing.Size(112, 15);
             this.loopEndLabel.TabIndex = 11;
             this.loopEndLabel.Text = "Loop End (Samples)";
             // 
             // loopEndTextBox
             // 
             this.loopEndTextBox.Enabled = false;
-            this.loopEndTextBox.Location = new System.Drawing.Point(257, 166);
+            this.loopEndTextBox.Location = new System.Drawing.Point(300, 192);
+            this.loopEndTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.loopEndTextBox.Name = "loopEndTextBox";
-            this.loopEndTextBox.Size = new System.Drawing.Size(107, 20);
+            this.loopEndTextBox.Size = new System.Drawing.Size(124, 23);
             this.loopEndTextBox.TabIndex = 10;
             this.loopEndTextBox.Text = "0";
             this.loopEndTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
@@ -116,18 +123,20 @@ namespace FFXIVVoicePackCreator {
             // 
             this.NumberOfSamplesLabel.AutoSize = true;
             this.NumberOfSamplesLabel.Enabled = false;
-            this.NumberOfSamplesLabel.Location = new System.Drawing.Point(15, 206);
+            this.NumberOfSamplesLabel.Location = new System.Drawing.Point(18, 238);
+            this.NumberOfSamplesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NumberOfSamplesLabel.Name = "NumberOfSamplesLabel";
-            this.NumberOfSamplesLabel.Size = new System.Drawing.Size(101, 13);
+            this.NumberOfSamplesLabel.Size = new System.Drawing.Size(114, 15);
             this.NumberOfSamplesLabel.TabIndex = 13;
             this.NumberOfSamplesLabel.Text = "Number Of Samples";
             // 
             // numberOfSamplesTextBox
             // 
             this.numberOfSamplesTextBox.Enabled = false;
-            this.numberOfSamplesTextBox.Location = new System.Drawing.Point(257, 203);
+            this.numberOfSamplesTextBox.Location = new System.Drawing.Point(300, 234);
+            this.numberOfSamplesTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.numberOfSamplesTextBox.Name = "numberOfSamplesTextBox";
-            this.numberOfSamplesTextBox.Size = new System.Drawing.Size(107, 20);
+            this.numberOfSamplesTextBox.Size = new System.Drawing.Size(124, 23);
             this.numberOfSamplesTextBox.TabIndex = 12;
             this.numberOfSamplesTextBox.Text = "1";
             this.numberOfSamplesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValidation_KeyPress);
@@ -137,9 +146,10 @@ namespace FFXIVVoicePackCreator {
             this.outputSelection.Filter = "scd files (*.scd)|*.scd";
             this.outputSelection.Index = -1;
             this.outputSelection.IsSaveMode = true;
-            this.outputSelection.Location = new System.Drawing.Point(13, 49);
+            this.outputSelection.Location = new System.Drawing.Point(15, 57);
+            this.outputSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.outputSelection.Name = "outputSelection";
-            this.outputSelection.Size = new System.Drawing.Size(459, 31);
+            this.outputSelection.Size = new System.Drawing.Size(626, 36);
             this.outputSelection.TabIndex = 3;
             // 
             // mediaSelection
@@ -147,16 +157,17 @@ namespace FFXIVVoicePackCreator {
             this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
             this.mediaSelection.Index = -1;
             this.mediaSelection.IsSaveMode = false;
-            this.mediaSelection.Location = new System.Drawing.Point(12, 12);
+            this.mediaSelection.Location = new System.Drawing.Point(14, 14);
+            this.mediaSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.mediaSelection.Name = "mediaSelection";
-            this.mediaSelection.Size = new System.Drawing.Size(460, 31);
+            this.mediaSelection.Size = new System.Drawing.Size(627, 36);
             this.mediaSelection.TabIndex = 0;
             // 
             // SCDCreator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 275);
+            this.ClientSize = new System.Drawing.Size(440, 317);
             this.Controls.Add(this.NumberOfSamplesLabel);
             this.Controls.Add(this.numberOfSamplesTextBox);
             this.Controls.Add(this.loopEndLabel);
@@ -169,6 +180,7 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.mediaSelection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SCDCreator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Standalone SCD Converter";
