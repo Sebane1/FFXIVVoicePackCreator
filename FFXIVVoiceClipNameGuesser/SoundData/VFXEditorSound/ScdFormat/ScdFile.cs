@@ -115,12 +115,12 @@ namespace VfxEditor.ScdFormat {
             Audio.Insert(index, newEntry);
         }
 
-        public static async void Import(string path, ScdAudioEntry music) {
-            await Task.Run(() => {
-                if (music.Format == SscfWaveFormat.Vorbis) {
-                    ScdVorbis.ImportOgg(path, music);
-                } else ScdAdpcm.Import(path, music);
-            });
+        public static void Import(string path, ScdAudioEntry music) {
+            if (music.Format == SscfWaveFormat.Vorbis) {
+                ScdVorbis.ImportOgg(path, music);
+            } else {
+                ScdAdpcm.Import(path, music);
+            }
         }
 
         private static void UpdateOffsets<T>(BinaryWriter writer, List<T> items, int offsetLocation, Action<BinaryWriter, T> action) where T : ScdEntry {

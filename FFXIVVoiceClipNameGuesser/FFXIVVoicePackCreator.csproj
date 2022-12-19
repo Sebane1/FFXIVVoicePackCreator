@@ -13,10 +13,17 @@
     <FileVersion>0.0.1.4</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+   <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+   <Product>FFXIV Voice Pack Creator</Product>
+   <Version>0.0.1.4</Version>
+   <Title>FFXIV Voice Pack Creator</Title>
+   <PackageId>FFXIV Voice Pack Creator</PackageId>
+   <RepositoryUrl>https://github.com/Sebane1/FFXIVVoicePackCreator/</RepositoryUrl>
+   <Company>Lawener Industries</Company>
+   <AssemblyName>FFXIV Voice Pack Creator</AssemblyName>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Update="FolderSelectDialog.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="FilePicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -32,4 +39,7 @@
   <ItemGroup>
     <Folder Include="SoundData\VFXEditorSound\AvfxFormat\" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\Properties\AssemblyInfoExporter.exe&#xD;&#xA;rd /s /q &quot;de&quot;, &quot;en&quot;, &quot;es&quot;, &quot;fr&quot;, &quot;it&quot;, &quot;ja&quot;, &quot;ko&quot;, &quot;ru&quot;, &quot;zh-Hans&quot;, &quot;zh-Hant&quot;" />
+  </Target>
 </Project>

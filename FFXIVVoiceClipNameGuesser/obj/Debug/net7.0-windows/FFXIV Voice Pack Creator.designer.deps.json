@@ -6,16 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "FFXIVVoicePackCreator/1.0.0": {
-        "dependencies": {
-          "Autoupdater.NET.Official": "1.7.6",
-          "NAudio.Core": "2.1.0",
-          "NAudio.Vorbis": "1.5.0"
-        },
-        "runtime": {
-          "FFXIVVoicePackCreator.dll": {}
-        }
-      },
       "Autoupdater.NET.Official/1.7.6": {
         "dependencies": {
           "Microsoft.Web.WebView2": "1.0.1418.22"
@@ -24,71 +14,6 @@
           "lib/net6.0-windows7.0/AutoUpdater.NET.dll": {
             "assemblyVersion": "1.7.6.0",
             "fileVersion": "1.7.6.0"
-          }
-        },
-        "resources": {
-          "lib/net6.0-windows7.0/ar/AutoUpdater.NET.resources.dll": {
-            "locale": "ar"
-          },
-          "lib/net6.0-windows7.0/cs/AutoUpdater.NET.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/net6.0-windows7.0/da/AutoUpdater.NET.resources.dll": {
-            "locale": "da"
-          },
-          "lib/net6.0-windows7.0/de/AutoUpdater.NET.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net6.0-windows7.0/es/AutoUpdater.NET.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net6.0-windows7.0/fr/AutoUpdater.NET.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net6.0-windows7.0/it/AutoUpdater.NET.resources.dll": {
-            "locale": "it"
-          },
-          "lib/net6.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll": {
-            "locale": "ja-JP"
-          },
-          "lib/net6.0-windows7.0/ko/AutoUpdater.NET.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net6.0-windows7.0/lv/AutoUpdater.NET.resources.dll": {
-            "locale": "lv"
-          },
-          "lib/net6.0-windows7.0/nl/AutoUpdater.NET.resources.dll": {
-            "locale": "nl"
-          },
-          "lib/net6.0-windows7.0/pl/AutoUpdater.NET.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/net6.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/net6.0-windows7.0/pt/AutoUpdater.NET.resources.dll": {
-            "locale": "pt"
-          },
-          "lib/net6.0-windows7.0/ru/AutoUpdater.NET.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net6.0-windows7.0/sk/AutoUpdater.NET.resources.dll": {
-            "locale": "sk"
-          },
-          "lib/net6.0-windows7.0/sv/AutoUpdater.NET.resources.dll": {
-            "locale": "sv"
-          },
-          "lib/net6.0-windows7.0/th/AutoUpdater.NET.resources.dll": {
-            "locale": "th"
-          },
-          "lib/net6.0-windows7.0/tr/AutoUpdater.NET.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/net6.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll": {
-            "locale": "zh-TW"
-          },
-          "lib/net6.0-windows7.0/zh/AutoUpdater.NET.resources.dll": {
-            "locale": "zh"
           }
         }
       },
@@ -162,11 +87,6 @@
     }
   },
   "libraries": {
-    "FFXIVVoicePackCreator/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Autoupdater.NET.Official/1.7.6": {
       "type": "package",
       "serviceable": true,

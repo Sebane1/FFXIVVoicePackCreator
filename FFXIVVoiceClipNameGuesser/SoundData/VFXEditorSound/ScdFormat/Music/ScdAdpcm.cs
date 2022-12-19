@@ -30,29 +30,44 @@ namespace VfxEditor.ScdFormat {
         public static void Import(string path, ScdAudioEntry entry) {
             var data = (ScdAdpcm)entry.Data;
             using (FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read)) {
-                using var waveFile = new WaveFileReader(path);
+                using (var waveFile = new WaveFileReader(path)) {
 
-                var rawData = File.ReadAllBytes(path);
-                var waveFormat = waveFile.WaveFormat;
+                    var rawData = File.ReadAllBytes(path);
+                    var waveFormat = waveFile.WaveFormat;
 
-                using var ms = new MemoryStream(rawData);
-                using var br = new BinaryReader(ms);
-                br.ReadInt32(); // RIFF
-                br.ReadInt32();
-                br.ReadInt32(); // WAVE
-                br.ReadInt32(); // fmt
-                var headerLength = br.ReadInt32();
-                data.WaveHeader = br.ReadBytes(headerLength);
-                br.ReadInt32(); // data
-                var dataLength = br.ReadInt32();
-                data.Data = br.ReadBytes(dataLength);
+                    using var ms = new MemoryStream(rawData);
+                    using var br = new BinaryReader(ms);
+                    br.ReadInt32(); // RIFF
+                    br.ReadInt32();
+                    br.ReadInt32(); // WAVE
+                    br.ReadInt32(); // fmt
+                    var headerLength = br.ReadInt32();
+                    data.WaveHeader = br.ReadBytes(headerLength);
+                    //br.ReadInt32(); // data
+                    char fourth = '.';
+                    char third = '.';
+                    char second = '.';
+                    char first = '.';
+                    while (true) {
+                        fourth = third;
+                        third = second;
+                        second = first;
+                        first = (char)br.ReadByte();
+                        string value = fourth + "" + third + "" + second + "" + first;
+                        if (value == "data") {
+                            break;
+                        }
+                    }
+                    var dataLength = br.ReadInt32();
+                    data.Data = br.ReadBytes((int)ms.Length - (int)ms.Position);
 
-                data.Format = waveFormat;
-                entry.DataLength = dataLength;
-                entry.FirstFrame = headerLength + entry.AuxChunkData.Length;
-                entry.SampleRate = waveFormat.SampleRate;
-                entry.NumChannels = waveFormat.Channels;
-                entry.BitsPerSample = (short)waveFormat.BitsPerSample;
+                    data.Format = waveFormat;
+                    entry.DataLength = dataLength;
+                    entry.FirstFrame = headerLength + entry.AuxChunkData.Length;
+                    entry.SampleRate = waveFormat.SampleRate;
+                    entry.NumChannels = waveFormat.Channels;
+                    entry.BitsPerSample = (short)waveFormat.BitsPerSample;
+                }
             }
         }
     }
