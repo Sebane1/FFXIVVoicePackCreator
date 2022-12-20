@@ -886,7 +886,7 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
+            this.battleVoicesPage.Size = new System.Drawing.Size(581, 683);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
@@ -1099,9 +1099,9 @@ namespace FFXIVVoicePackCreator {
             this.voiceSwapBattleVoices.AutoSize = true;
             this.voiceSwapBattleVoices.Location = new System.Drawing.Point(175, 32);
             this.voiceSwapBattleVoices.Name = "voiceSwapBattleVoices";
-            this.voiceSwapBattleVoices.Size = new System.Drawing.Size(352, 19);
+            this.voiceSwapBattleVoices.Size = new System.Drawing.Size(229, 19);
             this.voiceSwapBattleVoices.TabIndex = 53;
-            this.voiceSwapBattleVoices.Text = "Voice Swap Battle Voice (Highly Experimental, not fully tested)";
+            this.voiceSwapBattleVoices.Text = "Voice Swap Battle Voice (Experimental)";
             this.voiceSwapBattleVoices.UseVisualStyleBackColor = true;
             this.voiceSwapBattleVoices.CheckedChanged += new System.EventHandler(this.voiceSwapBattleVoices_CheckedChanged);
             // 

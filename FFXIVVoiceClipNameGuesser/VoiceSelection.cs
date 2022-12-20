@@ -34,7 +34,7 @@ namespace FFXIVVoicePackCreator {
                     if (!string.IsNullOrWhiteSpace(stringValue)) {
                         int value2 = int.Parse(stringValue);
                         selectedVoiceEmote = value2;
-                        selectedVoiceBattle = RaceVoice.RacialListBattle[raceListComboBox.SelectedIndex].Masculine[voiceListComboBox.SelectedIndex];
+                        selectedVoiceBattle = RaceVoice.RacialListBattle[raceListComboBox.SelectedIndex].Feminine[voiceListComboBox.SelectedIndex];
                         DialogResult = DialogResult.OK;
                         Close();
                     } else {
