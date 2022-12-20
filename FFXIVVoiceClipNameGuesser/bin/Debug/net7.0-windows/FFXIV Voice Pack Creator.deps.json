@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "FFXIV Voice Pack Creator/0.0.1.4": {
+      "FFXIV Voice Pack Creator/0.0.1.5": {
         "dependencies": {
           "Autoupdater.NET.Official": "1.7.6",
           "NAudio.Core": "2.1.0",
@@ -97,7 +97,7 @@
     }
   },
   "libraries": {
-    "FFXIV Voice Pack Creator/0.0.1.4": {
+    "FFXIV Voice Pack Creator/0.0.1.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

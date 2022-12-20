@@ -106,6 +106,7 @@ namespace FFXIVVoicePackCreator {
             this.battle2 = new FFXIVVoicePackCreator.FilePicker();
             this.battle1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
+            this.voiceSwapBattleVoices = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -187,6 +188,7 @@ namespace FFXIVVoicePackCreator {
             this.menuStrip1.Size = new System.Drawing.Size(1175, 24);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -598,7 +600,7 @@ namespace FFXIVVoicePackCreator {
             this.exportProgressBar.Location = new System.Drawing.Point(596, 743);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(571, 30);
+            this.exportProgressBar.Size = new System.Drawing.Size(575, 30);
             this.exportProgressBar.TabIndex = 50;
             // 
             // quickSwapButton
@@ -624,6 +626,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceTabs.SelectedIndex = 0;
             this.voiceTabs.Size = new System.Drawing.Size(589, 711);
             this.voiceTabs.TabIndex = 52;
+            this.voiceTabs.SelectedIndexChanged += new System.EventHandler(this.voiceTabs_SelectedIndexChanged);
             // 
             // emoteVoicesPage
             // 
@@ -883,7 +886,7 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(581, 683);
+            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
@@ -983,7 +986,6 @@ namespace FFXIVVoicePackCreator {
             this.battle9.Name = "battle9";
             this.battle9.Size = new System.Drawing.Size(707, 36);
             this.battle9.TabIndex = 10;
-            this.battle9.Load += new System.EventHandler(this.battle9_Load);
             // 
             // battle8
             // 
@@ -996,7 +998,6 @@ namespace FFXIVVoicePackCreator {
             this.battle8.Name = "battle8";
             this.battle8.Size = new System.Drawing.Size(707, 36);
             this.battle8.TabIndex = 9;
-            this.battle8.Load += new System.EventHandler(this.battle8_Load);
             // 
             // battle7
             // 
@@ -1009,7 +1010,6 @@ namespace FFXIVVoicePackCreator {
             this.battle7.Name = "battle7";
             this.battle7.Size = new System.Drawing.Size(707, 36);
             this.battle7.TabIndex = 8;
-            this.battle7.Load += new System.EventHandler(this.battle7_Load);
             // 
             // battle6
             // 
@@ -1022,7 +1022,6 @@ namespace FFXIVVoicePackCreator {
             this.battle6.Name = "battle6";
             this.battle6.Size = new System.Drawing.Size(707, 36);
             this.battle6.TabIndex = 7;
-            this.battle6.Load += new System.EventHandler(this.battle6_Load);
             // 
             // battle5
             // 
@@ -1035,7 +1034,6 @@ namespace FFXIVVoicePackCreator {
             this.battle5.Name = "battle5";
             this.battle5.Size = new System.Drawing.Size(707, 36);
             this.battle5.TabIndex = 6;
-            this.battle5.Load += new System.EventHandler(this.battle5_Load);
             // 
             // battle4
             // 
@@ -1048,7 +1046,6 @@ namespace FFXIVVoicePackCreator {
             this.battle4.Name = "battle4";
             this.battle4.Size = new System.Drawing.Size(707, 36);
             this.battle4.TabIndex = 5;
-            this.battle4.Load += new System.EventHandler(this.battle4_Load);
             // 
             // battle3
             // 
@@ -1061,7 +1058,6 @@ namespace FFXIVVoicePackCreator {
             this.battle3.Name = "battle3";
             this.battle3.Size = new System.Drawing.Size(707, 36);
             this.battle3.TabIndex = 4;
-            this.battle3.Load += new System.EventHandler(this.battle3_Load);
             // 
             // battle2
             // 
@@ -1074,7 +1070,6 @@ namespace FFXIVVoicePackCreator {
             this.battle2.Name = "battle2";
             this.battle2.Size = new System.Drawing.Size(707, 36);
             this.battle2.TabIndex = 3;
-            this.battle2.Load += new System.EventHandler(this.battle2_Load);
             // 
             // battle1
             // 
@@ -1087,7 +1082,6 @@ namespace FFXIVVoicePackCreator {
             this.battle1.Name = "battle1";
             this.battle1.Size = new System.Drawing.Size(707, 36);
             this.battle1.TabIndex = 2;
-            this.battle1.Load += new System.EventHandler(this.battle1_Load);
             // 
             // multiSCDFile
             // 
@@ -1100,11 +1094,23 @@ namespace FFXIVVoicePackCreator {
             this.multiSCDFile.UseVisualStyleBackColor = true;
             this.multiSCDFile.Click += new System.EventHandler(this.multiSCDFile_Click);
             // 
+            // voiceSwapBattleVoices
+            // 
+            this.voiceSwapBattleVoices.AutoSize = true;
+            this.voiceSwapBattleVoices.Location = new System.Drawing.Point(175, 32);
+            this.voiceSwapBattleVoices.Name = "voiceSwapBattleVoices";
+            this.voiceSwapBattleVoices.Size = new System.Drawing.Size(352, 19);
+            this.voiceSwapBattleVoices.TabIndex = 53;
+            this.voiceSwapBattleVoices.Text = "Voice Swap Battle Voice (Highly Experimental, not fully tested)";
+            this.voiceSwapBattleVoices.UseVisualStyleBackColor = true;
+            this.voiceSwapBattleVoices.CheckedChanged += new System.EventHandler(this.voiceSwapBattleVoices_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 777);
+            this.Controls.Add(this.voiceSwapBattleVoices);
             this.Controls.Add(this.quickSwapButton);
             this.Controls.Add(this.exportProgressBar);
             this.Controls.Add(this.modVersionTextBox);
@@ -1232,6 +1238,7 @@ namespace FFXIVVoicePackCreator {
         private FilePicker battle1;
         private FilePicker unknown2;
         private FilePicker battle16;
+        private System.Windows.Forms.CheckBox voiceSwapBattleVoices;
     }
 }
 
