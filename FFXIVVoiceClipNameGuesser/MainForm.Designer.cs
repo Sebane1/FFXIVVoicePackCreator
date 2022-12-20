@@ -89,6 +89,7 @@ namespace FFXIVVoicePackCreator {
             this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
             this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
             this.battleVoicesPage = new System.Windows.Forms.TabPage();
+            this.battle16 = new FFXIVVoicePackCreator.FilePicker();
             this.battle15 = new FFXIVVoicePackCreator.FilePicker();
             this.battle14 = new FFXIVVoicePackCreator.FilePicker();
             this.battle13 = new FFXIVVoicePackCreator.FilePicker();
@@ -105,7 +106,6 @@ namespace FFXIVVoicePackCreator {
             this.battle2 = new FFXIVVoicePackCreator.FilePicker();
             this.battle1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
-            this.battle16 = new FFXIVVoicePackCreator.FilePicker();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -657,6 +657,7 @@ namespace FFXIVVoicePackCreator {
             this.surprised.Filter = resources.GetString("surprised.Filter");
             this.surprised.Index = 0;
             this.surprised.IsSaveMode = false;
+            this.surprised.IsSwappable = true;
             this.surprised.Location = new System.Drawing.Point(4, 7);
             this.surprised.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.surprised.Name = "surprised";
@@ -669,6 +670,7 @@ namespace FFXIVVoicePackCreator {
             this.angry.Filter = resources.GetString("angry.Filter");
             this.angry.Index = 1;
             this.angry.IsSaveMode = false;
+            this.angry.IsSwappable = true;
             this.angry.Location = new System.Drawing.Point(4, 50);
             this.angry.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.angry.Name = "angry";
@@ -681,6 +683,7 @@ namespace FFXIVVoicePackCreator {
             this.furious.Filter = resources.GetString("furious.Filter");
             this.furious.Index = 2;
             this.furious.IsSaveMode = false;
+            this.furious.IsSwappable = true;
             this.furious.Location = new System.Drawing.Point(4, 92);
             this.furious.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.furious.Name = "furious";
@@ -693,6 +696,7 @@ namespace FFXIVVoicePackCreator {
             this.cheer.Filter = resources.GetString("cheer.Filter");
             this.cheer.Index = 3;
             this.cheer.IsSaveMode = false;
+            this.cheer.IsSwappable = true;
             this.cheer.Location = new System.Drawing.Point(4, 135);
             this.cheer.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.cheer.Name = "cheer";
@@ -705,6 +709,7 @@ namespace FFXIVVoicePackCreator {
             this.doze.Filter = resources.GetString("doze.Filter");
             this.doze.Index = 4;
             this.doze.IsSaveMode = false;
+            this.doze.IsSwappable = true;
             this.doze.Location = new System.Drawing.Point(4, 178);
             this.doze.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.doze.Name = "doze";
@@ -717,6 +722,7 @@ namespace FFXIVVoicePackCreator {
             this.fume.Filter = resources.GetString("fume.Filter");
             this.fume.Index = 5;
             this.fume.IsSaveMode = false;
+            this.fume.IsSwappable = true;
             this.fume.Location = new System.Drawing.Point(4, 220);
             this.fume.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.fume.Name = "fume";
@@ -729,6 +735,7 @@ namespace FFXIVVoicePackCreator {
             this.huh.Filter = resources.GetString("huh.Filter");
             this.huh.Index = 6;
             this.huh.IsSaveMode = false;
+            this.huh.IsSwappable = true;
             this.huh.Location = new System.Drawing.Point(4, 263);
             this.huh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.huh.Name = "huh";
@@ -741,6 +748,7 @@ namespace FFXIVVoicePackCreator {
             this.chuckle.Filter = resources.GetString("chuckle.Filter");
             this.chuckle.Index = 7;
             this.chuckle.IsSaveMode = false;
+            this.chuckle.IsSwappable = true;
             this.chuckle.Location = new System.Drawing.Point(4, 306);
             this.chuckle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.chuckle.Name = "chuckle";
@@ -753,6 +761,7 @@ namespace FFXIVVoicePackCreator {
             this.laugh.Filter = resources.GetString("laugh.Filter");
             this.laugh.Index = 8;
             this.laugh.IsSaveMode = false;
+            this.laugh.IsSwappable = true;
             this.laugh.Location = new System.Drawing.Point(4, 348);
             this.laugh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.laugh.Name = "laugh";
@@ -765,6 +774,7 @@ namespace FFXIVVoicePackCreator {
             this.no.Filter = resources.GetString("no.Filter");
             this.no.Index = 9;
             this.no.IsSaveMode = false;
+            this.no.IsSwappable = true;
             this.no.Location = new System.Drawing.Point(4, 391);
             this.no.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.no.Name = "no";
@@ -777,6 +787,7 @@ namespace FFXIVVoicePackCreator {
             this.stretch.Filter = resources.GetString("stretch.Filter");
             this.stretch.Index = 10;
             this.stretch.IsSaveMode = false;
+            this.stretch.IsSwappable = true;
             this.stretch.Location = new System.Drawing.Point(4, 434);
             this.stretch.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.stretch.Name = "stretch";
@@ -789,6 +800,7 @@ namespace FFXIVVoicePackCreator {
             this.upset.Filter = resources.GetString("upset.Filter");
             this.upset.Index = 11;
             this.upset.IsSaveMode = false;
+            this.upset.IsSwappable = true;
             this.upset.Location = new System.Drawing.Point(4, 477);
             this.upset.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.upset.Name = "upset";
@@ -801,6 +813,7 @@ namespace FFXIVVoicePackCreator {
             this.yes.Filter = resources.GetString("yes.Filter");
             this.yes.Index = 12;
             this.yes.IsSaveMode = false;
+            this.yes.IsSwappable = true;
             this.yes.Location = new System.Drawing.Point(4, 519);
             this.yes.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.yes.Name = "yes";
@@ -813,6 +826,7 @@ namespace FFXIVVoicePackCreator {
             this.happy.Filter = resources.GetString("happy.Filter");
             this.happy.Index = 13;
             this.happy.IsSaveMode = false;
+            this.happy.IsSwappable = true;
             this.happy.Location = new System.Drawing.Point(4, 562);
             this.happy.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.happy.Name = "happy";
@@ -825,6 +839,7 @@ namespace FFXIVVoicePackCreator {
             this.unknown2.Filter = resources.GetString("unknown2.Filter");
             this.unknown2.Index = 15;
             this.unknown2.IsSaveMode = false;
+            this.unknown2.IsSwappable = true;
             this.unknown2.Location = new System.Drawing.Point(4, 647);
             this.unknown2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.unknown2.Name = "unknown2";
@@ -837,6 +852,7 @@ namespace FFXIVVoicePackCreator {
             this.unknown1.Filter = resources.GetString("unknown1.Filter");
             this.unknown1.Index = 14;
             this.unknown1.IsSaveMode = false;
+            this.unknown1.IsSwappable = true;
             this.unknown1.Location = new System.Drawing.Point(4, 605);
             this.unknown1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.unknown1.Name = "unknown1";
@@ -872,11 +888,24 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
             // 
+            // battle16
+            // 
+            this.battle16.Filter = null;
+            this.battle16.Index = 30;
+            this.battle16.IsSaveMode = false;
+            this.battle16.IsSwappable = false;
+            this.battle16.Location = new System.Drawing.Point(4, 636);
+            this.battle16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.battle16.Name = "battle16";
+            this.battle16.Size = new System.Drawing.Size(707, 36);
+            this.battle16.TabIndex = 17;
+            // 
             // battle15
             // 
             this.battle15.Filter = null;
             this.battle15.Index = 30;
             this.battle15.IsSaveMode = false;
+            this.battle15.IsSwappable = false;
             this.battle15.Location = new System.Drawing.Point(4, 594);
             this.battle15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle15.Name = "battle15";
@@ -888,6 +917,7 @@ namespace FFXIVVoicePackCreator {
             this.battle14.Filter = null;
             this.battle14.Index = 29;
             this.battle14.IsSaveMode = false;
+            this.battle14.IsSwappable = false;
             this.battle14.Location = new System.Drawing.Point(4, 552);
             this.battle14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle14.Name = "battle14";
@@ -899,6 +929,7 @@ namespace FFXIVVoicePackCreator {
             this.battle13.Filter = null;
             this.battle13.Index = 28;
             this.battle13.IsSaveMode = false;
+            this.battle13.IsSwappable = false;
             this.battle13.Location = new System.Drawing.Point(4, 510);
             this.battle13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle13.Name = "battle13";
@@ -910,6 +941,7 @@ namespace FFXIVVoicePackCreator {
             this.battle12.Filter = null;
             this.battle12.Index = 27;
             this.battle12.IsSaveMode = false;
+            this.battle12.IsSwappable = false;
             this.battle12.Location = new System.Drawing.Point(4, 468);
             this.battle12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle12.Name = "battle12";
@@ -921,6 +953,7 @@ namespace FFXIVVoicePackCreator {
             this.battle11.Filter = null;
             this.battle11.Index = 26;
             this.battle11.IsSaveMode = false;
+            this.battle11.IsSwappable = false;
             this.battle11.Location = new System.Drawing.Point(4, 426);
             this.battle11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle11.Name = "battle11";
@@ -932,6 +965,7 @@ namespace FFXIVVoicePackCreator {
             this.battle10.Filter = null;
             this.battle10.Index = 25;
             this.battle10.IsSaveMode = false;
+            this.battle10.IsSwappable = false;
             this.battle10.Location = new System.Drawing.Point(4, 384);
             this.battle10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle10.Name = "battle10";
@@ -943,17 +977,20 @@ namespace FFXIVVoicePackCreator {
             this.battle9.Filter = null;
             this.battle9.Index = 24;
             this.battle9.IsSaveMode = false;
+            this.battle9.IsSwappable = false;
             this.battle9.Location = new System.Drawing.Point(4, 342);
             this.battle9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle9.Name = "battle9";
             this.battle9.Size = new System.Drawing.Size(707, 36);
             this.battle9.TabIndex = 10;
+            this.battle9.Load += new System.EventHandler(this.battle9_Load);
             // 
             // battle8
             // 
             this.battle8.Filter = null;
             this.battle8.Index = 23;
             this.battle8.IsSaveMode = false;
+            this.battle8.IsSwappable = false;
             this.battle8.Location = new System.Drawing.Point(4, 300);
             this.battle8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle8.Name = "battle8";
@@ -966,6 +1003,7 @@ namespace FFXIVVoicePackCreator {
             this.battle7.Filter = null;
             this.battle7.Index = 22;
             this.battle7.IsSaveMode = false;
+            this.battle7.IsSwappable = false;
             this.battle7.Location = new System.Drawing.Point(4, 258);
             this.battle7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle7.Name = "battle7";
@@ -978,6 +1016,7 @@ namespace FFXIVVoicePackCreator {
             this.battle6.Filter = null;
             this.battle6.Index = 21;
             this.battle6.IsSaveMode = false;
+            this.battle6.IsSwappable = false;
             this.battle6.Location = new System.Drawing.Point(4, 216);
             this.battle6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle6.Name = "battle6";
@@ -990,6 +1029,7 @@ namespace FFXIVVoicePackCreator {
             this.battle5.Filter = null;
             this.battle5.Index = 20;
             this.battle5.IsSaveMode = false;
+            this.battle5.IsSwappable = false;
             this.battle5.Location = new System.Drawing.Point(4, 174);
             this.battle5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle5.Name = "battle5";
@@ -1002,6 +1042,7 @@ namespace FFXIVVoicePackCreator {
             this.battle4.Filter = null;
             this.battle4.Index = 19;
             this.battle4.IsSaveMode = false;
+            this.battle4.IsSwappable = false;
             this.battle4.Location = new System.Drawing.Point(4, 132);
             this.battle4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle4.Name = "battle4";
@@ -1014,6 +1055,7 @@ namespace FFXIVVoicePackCreator {
             this.battle3.Filter = null;
             this.battle3.Index = 18;
             this.battle3.IsSaveMode = false;
+            this.battle3.IsSwappable = false;
             this.battle3.Location = new System.Drawing.Point(4, 90);
             this.battle3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle3.Name = "battle3";
@@ -1026,6 +1068,7 @@ namespace FFXIVVoicePackCreator {
             this.battle2.Filter = null;
             this.battle2.Index = 17;
             this.battle2.IsSaveMode = false;
+            this.battle2.IsSwappable = false;
             this.battle2.Location = new System.Drawing.Point(4, 48);
             this.battle2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle2.Name = "battle2";
@@ -1038,6 +1081,7 @@ namespace FFXIVVoicePackCreator {
             this.battle1.Filter = null;
             this.battle1.Index = 16;
             this.battle1.IsSaveMode = false;
+            this.battle1.IsSwappable = false;
             this.battle1.Location = new System.Drawing.Point(4, 6);
             this.battle1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battle1.Name = "battle1";
@@ -1055,17 +1099,6 @@ namespace FFXIVVoicePackCreator {
             this.multiSCDFile.Text = "Open";
             this.multiSCDFile.UseVisualStyleBackColor = true;
             this.multiSCDFile.Click += new System.EventHandler(this.multiSCDFile_Click);
-            // 
-            // battle16
-            // 
-            this.battle16.Filter = null;
-            this.battle16.Index = 30;
-            this.battle16.IsSaveMode = false;
-            this.battle16.Location = new System.Drawing.Point(4, 636);
-            this.battle16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle16.Name = "battle16";
-            this.battle16.Size = new System.Drawing.Size(707, 36);
-            this.battle16.TabIndex = 17;
             // 
             // MainWindow
             // 

@@ -17,12 +17,16 @@ namespace FFXIVVoicePackCreator {
 
         int index = 0;
         bool isSaveMode = false;
+        bool isSwappable = true;
 
         [Category("Select Type"), Description("Changes what type of selection is made")]
         public bool IsSaveMode { get => isSaveMode; set => isSaveMode = value; }
 
         [Category("Filter"), Description("Changes what type of selection is made")]
         public string Filter { get => filter; set => filter = value; }
+
+        [Category("Can Use Voice Swap"), Description("Changes whether this entry support voice swap")]
+        public bool IsSwappable { get => isSwappable; set => isSwappable = value; }
 
         string filter;
         private Point startPos;
@@ -31,6 +35,9 @@ namespace FFXIVVoicePackCreator {
 
         private void filePicker_Load(object sender, EventArgs e) {
             labelName.Text = (index == -1 ? Name : ($"({index})  " + Name));
+            if (!isSwappable) {
+                useGameFileCheckBox.Visible = false;
+            }
         }
         private void filePicker_MouseDown(object sender, MouseEventArgs e) {
             if (!useGameFileCheckBox.Checked) {
