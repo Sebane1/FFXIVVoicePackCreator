@@ -497,6 +497,7 @@ namespace FFXIVVoicePackCreator {
             List<string> alreadyProcessed = new List<string>();
             int countedNull = 0;
             if (!voiceSwapBattleVoices.Checked) {
+                bool detectedEmptyField = false;
                 for (int count = 0; count < 16; count++) {
                     if (!string.IsNullOrEmpty(battleFilePickers[count].FilePath.Text)) {
                         string tempPath = Path.Combine(Path.GetDirectoryName(battleFilePickers[count].FilePath.Text), Guid.NewGuid() + ".wav");
@@ -506,11 +507,13 @@ namespace FFXIVVoicePackCreator {
                     } else {
                         list.Add(null);
                         countedNull++;
+                        detectedEmptyField = true;
                     }
                     exportProgressBar.Increment(1);
                     exportProgressBar.Refresh();
                 }
                 // int battleVoiceCount = 0;
+
                 if (countedNull < battleFilePickers.Count) {
                     battleVoicesInUse = true;
                     foreach (string value in battleVoicesToReplace) {
@@ -531,7 +534,12 @@ namespace FFXIVVoicePackCreator {
                         }
                     }
                     for (int count = 0; count < 16; count++) {
-                        File.Delete(list[count]);
+                        if (File.Exists((list[count]))){
+                            File.Delete(list[count]);
+                        }
+                    }
+                    if (detectedEmptyField) {
+                        MessageBox.Show(@"Warning: You have not assigned a battle sound for every field. Due to the way battle sounds work, any missing sounds will play silence.", Text);
                     }
                 }
             } else {
@@ -559,7 +567,10 @@ namespace FFXIVVoicePackCreator {
                     int i = 0;
                     foreach (ScdAudioEntry entry in file.Audio) {
                         if (entry.Format == SscfWaveFormat.MsAdPcm) {
-                            ScdFile.Import(list[i++], entry);
+                            string path = list[i++];
+                            if (!string.IsNullOrEmpty(path)) {
+                                ScdFile.Import(path, entry);
+                            }
                         }
                     }
                     if (!Directory.Exists(exportFilePathBattle)) {
