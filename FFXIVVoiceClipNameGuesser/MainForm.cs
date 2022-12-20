@@ -782,9 +782,14 @@ namespace FFXIVVoicePackCreator {
                     foreach (FilePicker filePicker in emoteFilePickers) {
                         if (Path.GetFileName(filename).ToLower().Contains(filePicker.Name)) {
                             filePicker.SetFilePath(filename);
-                            hasSaved = false;
                         }
                     }
+                    foreach (FilePicker filePicker in battleFilePickers) {
+                        if (Path.GetFileName(filename).ToLower().Contains(filePicker.Name)) {
+                            filePicker.SetFilePath(filename);
+                        }
+                    }
+                    hasSaved = false;
                 }
             }
         }
@@ -942,6 +947,10 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void battle8_Load(object sender, EventArgs e) {
+
+        }
+
+        private void battle9_Load(object sender, EventArgs e) {
 
         }
     }

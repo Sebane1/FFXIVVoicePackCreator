@@ -9,14 +9,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>FFXIVVPC.ico</ApplicationIcon>
-    <AssemblyVersion>0.0.1.4</AssemblyVersion>
-    <FileVersion>0.0.1.4</FileVersion>
+    <AssemblyVersion>0.0.1.5</AssemblyVersion>
+    <FileVersion>0.0.1.5</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
    <Product>FFXIV Voice Pack Creator</Product>
-   <Version>0.0.1.4</Version>
+   <Version>0.0.1.5</Version>
    <Title>FFXIV Voice Pack Creator</Title>
    <PackageId>FFXIV Voice Pack Creator</PackageId>
    <RepositoryUrl>https://github.com/Sebane1/FFXIVVoicePackCreator/</RepositoryUrl>
