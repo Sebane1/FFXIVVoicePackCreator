@@ -2,6 +2,6 @@
 <item>
   <version>0.0.1.5</version>
   <url>https://github.com/Sebane1/FFXIVVoicePackCreator/releases/download/v0.0.1.5/FFXIVVoicePackCreator.zip</url>
-  <changelog></changelog>
+  <changelog>Fixes an issue where battle voices could incorrectly be assigned values that they were not intended to use.</changelog>
   <mandatory>true</mandatory>
 </item>
