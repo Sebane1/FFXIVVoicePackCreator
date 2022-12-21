@@ -970,6 +970,8 @@ namespace FFXIVVoicePackCreator {
                 battleVoiceToSwapWith = voiceSelection.SelectedVoiceBattle;
                 suppressVoiceSwapBattleVoiceChecked = true;
                 voiceSwapBattleVoices.Checked = true;
+                suppressNextVoiceTabWarning = true;
+                voiceTabs.SelectedIndex = 0;
             }
         }
 
@@ -1003,6 +1005,8 @@ namespace FFXIVVoicePackCreator {
                     VoiceSelection voiceSelection = new VoiceSelection();
                     if (voiceSelection.ShowDialog() == DialogResult.OK) {
                         battleVoiceToSwapWith = voiceSelection.SelectedVoiceBattle;
+                        suppressNextVoiceTabWarning = true;
+                        voiceTabs.SelectedIndex = 0;
                     } else {
                         MessageBox.Show(@"No replacement was selected, unchecking", Text);
                         voiceSwapBattleVoices.Checked = false;
