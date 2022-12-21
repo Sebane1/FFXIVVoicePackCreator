@@ -29,3 +29,4 @@ C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\net7.0-windows\FFXIV Voice Pack Creator.pdb
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\net7.0-windows\FFXIVVoicePackCreator.genruntimeconfig.cache
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Debug\net7.0-windows\ref\FFXIV Voice Pack Creator.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
