@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s4kmG9j0jnLpIJ8dH9/IXdWyDfSyel4/S+ayRCj2aq+FuDAZkwGYCn9tsnaoFajQkWkKdK51I7bj2/ELgDpDZA==",
+  "dgSpecHash": "KhAEjr0C5Z7Xkw5ZsO7TU6a3nkqpvTD28D95skFY4J2RtH0y2kdysChyJ4PP9tPgc9OVKAVdVQNftpNAME0J8g==",
   "success": true,
   "projectFilePath": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\stel9\\.nuget\\packages\\microsoft.web.webview2\\1.0.1418.22\\microsoft.web.webview2.1.0.1418.22.nupkg.sha512",
     "C:\\Users\\stel9\\.nuget\\packages\\naudio.core\\2.1.0\\naudio.core.2.1.0.nupkg.sha512",
     "C:\\Users\\stel9\\.nuget\\packages\\naudio.vorbis\\1.5.0\\naudio.vorbis.1.5.0.nupkg.sha512",
+    "C:\\Users\\stel9\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\stel9\\.nuget\\packages\\nvorbis\\0.10.4\\nvorbis.0.10.4.nupkg.sha512",
     "C:\\Users\\stel9\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\stel9\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
