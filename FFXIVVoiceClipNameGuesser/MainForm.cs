@@ -1,4 +1,6 @@
 ﻿using AutoUpdaterDotNET;
+using FFXIVVoicePackCreator.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Shell;
+using System.Xml.Linq;
 using VfxEditor.ScdFormat;
 
 namespace FFXIVVoicePackCreator {
@@ -22,6 +25,8 @@ namespace FFXIVVoicePackCreator {
         private bool canDoDragDrop;
         private SCDGenerator scdGenerator;
         private string metaFilePath;
+        private string groupFilePathEmotes;
+        private string groupFilePathBattle;
         private bool firstDone;
         private string fileReplacementPaths;
         private string fileSwapPaths;
@@ -38,7 +43,7 @@ namespace FFXIVVoicePackCreator {
         public static string _defaultModName = "";
         public static string _defaultAuthor = "FFXIV Voice Pack Creator";
         public static string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
-        public static string _descriptionBattleVoiceDisclaimer = "\r\n DISCLAIMER: Penumbra does not support battle voices in collections assigned to specific characters. To hear battle voices make sure the collection is assigned to Base Collection";
+        public static string _descriptionBattleVoiceDisclaimer = "\r\nDISCLAIMER: Penumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection";
         public static string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
         private string penumbraModPath;
         private string battleVoiceToSwapWith;
@@ -197,26 +202,15 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        private void ExportEmoteFiles(int startValue) {
+        private void ExportEmoteFiles(int startValue, Option options) {
             int i = 0;
             foreach (FilePicker file in emoteFilePickers) {
                 if (!string.IsNullOrEmpty(file.FilePath.Text)) {
+                    string fileName = (startValue + i) + "";
                     if (!file.UseGameFileCheckBox.Checked) {
-                        string fileName = (startValue + i) + "";
-                        if (firstDone) {
-                            fileReplacementPaths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
-                        } else {
-                            fileReplacementPaths += @"""sound/voice/vo_emote/" + fileName + @".scd"": ""sound\\voice\\vo_emote\\" + file.Name + @".scd""";
-                            firstDone = true;
-                        }
+                        options.Files.Add(@"sound/voice/vo_emote/" + fileName + @".scd", "sound\\voice\\vo_emote\\" + file.Name + @".scd");
                     } else {
-                        string fileName = (startValue + i) + "";
-                        if (firstDone2) {
-                            fileSwapPaths += ",\r\n" + @"       ""sound/voice/vo_emote/" + fileName + @".scd"": """ + file.FilePath.Text + @"""";
-                        } else {
-                            fileSwapPaths += @"""sound/voice/vo_emote/" + fileName + @".scd"": """ + file.FilePath.Text + @"""";
-                            firstDone2 = true;
-                        }
+                        options.FileSwaps.Add("sound/voice/vo_emote/" + fileName + @".scd", file.FilePath.Text);
                     }
                 }
                 i++;
@@ -227,12 +221,8 @@ namespace FFXIVVoicePackCreator {
             string jsonText = @"{
   ""Name"": """",
   ""Priority"": 0,
-  ""Files"": {
-       " + fileReplacementPaths + @"
-  },
-  ""FileSwaps"": {
-       " + fileSwapPaths + @"
-  },
+  ""Files"": { },
+  ""FileSwaps"": { },
   ""Manipulations"": []
 }";
             if (jsonFilepath != null) {
@@ -255,6 +245,16 @@ namespace FFXIVVoicePackCreator {
             if (metaFilePath != null) {
                 using (StreamWriter writer = new StreamWriter(metaFilePath)) {
                     writer.WriteLine(metaText);
+                }
+            }
+        }
+
+        private void ExportGroup(string path, Group group) {
+            if (path != null) {
+                using (StreamWriter file = File.CreateText(path)) {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Formatting = Formatting.Indented;
+                    serializer.Serialize(file, group);
                 }
             }
         }
@@ -293,10 +293,13 @@ namespace FFXIVVoicePackCreator {
                             exportFilePathBattle = null;
                             jsonFilepath = null;
                             metaFilePath = null;
+                            groupFilePathEmotes = null;
                             return false;
                     }
                 }
             }
+            groupFilePathEmotes = Path.Combine(newModPath, "group_001_emote_selection.json");
+            groupFilePathBattle = Path.Combine(newModPath, "group_002_battle_selection.json");
             return true;
         }
 
@@ -475,12 +478,18 @@ namespace FFXIVVoicePackCreator {
                         exportProgressBar.Increment(1);
                         exportProgressBar.Refresh();
                     }
+                    Group group = new Group("Emote Voices", "Character Voices", 0, "Multi", 0);
                     foreach (int value in emoteVoicesToReplace) {
-                        ExportEmoteFiles(value);
+                        Option options = new Option(RaceVoice.RacesToVoiceDscription[value + ""][0], 0);
+                        ExportEmoteFiles(value, options);
+                        group.Options.Add(options);
                     }
-                    ExportBattleFiles();
+                    Group group2 = new Group("Battles Voices", "Character Voices", 0, "Multi", 0);
+                    ExportBattleFiles(group2);
                     ExportJson();
                     ExportMeta();
+                    ExportGroup(groupFilePathEmotes, group);
+                    ExportGroup(groupFilePathBattle, group2);
                     BringToFront();
                     MessageBox.Show(@"Export Complete", Text);
                     TopMost = false;
@@ -491,7 +500,7 @@ namespace FFXIVVoicePackCreator {
             exportProgressBar.Visible = false;
         }
 
-        private void ExportBattleFiles() {
+        private void ExportBattleFiles(Group group) {
             battleVoicesInUse = false;
             List<string> list = new List<string>();
             List<string> alreadyProcessed = new List<string>();
@@ -519,22 +528,25 @@ namespace FFXIVVoicePackCreator {
                     foreach (string value in battleVoicesToReplace) {
                         string path = Path.Combine(Application.StartupPath, @"res\scd\" + value + ".scd");
                         if (!alreadyProcessed.Contains(value)) {
-                            try {
-                                InjectSCDFiles(path, exportFilePathBattle, value, list);
-                                if (firstDone) {
-                                    fileReplacementPaths += ",\r\n" + @"       ""sound/voice/vo_battle/" + value + @".scd"": ""sound\\voice\\vo_battle\\" + value + @".scd""";
+                            InjectSCDFiles(path, exportFilePathBattle, value, list);
+                            string name = "";
+                            bool firstValueAdded = false;
+                            foreach (string nameValue in RaceVoice.RacesToVoiceDscription[value]) {
+                                if (!firstValueAdded) {
+                                    name += nameValue;
+                                    firstValueAdded = true;
                                 } else {
-                                    fileReplacementPaths += @"""sound/voice/vo_battle/" + value + @".scd"": ""sound\\voice\\vo_emote\\" + value + @".scd""";
-                                    firstDone = true;
+                                    name += "| " + nameValue;
                                 }
-                            } catch {
-                                fileReplacementPaths += ",\r\n" + @"       ""sound/voice/vo_battle/" + value + @".scd"": ""sound\\voice\\vo_battle\\" + value + @".scd (Missing Source SCD)""";
                             }
+                            Option option = new Option(name, 0);
+                            option.Files.Add("sound/voice/vo_battle/" + value + @".scd", "sound\\voice\\vo_emote\\" + value + @".scd");
+                            group.Options.Add(option);
                             alreadyProcessed.Add(value);
                         }
                     }
                     for (int count = 0; count < 16; count++) {
-                        if (File.Exists((list[count]))){
+                        if (File.Exists((list[count]))) {
                             File.Delete(list[count]);
                         }
                     }
@@ -546,12 +558,14 @@ namespace FFXIVVoicePackCreator {
                 foreach (string value in battleVoicesToReplace) {
                     battleVoicesInUse = true;
                     if (!alreadyProcessed.Contains(value)) {
-                        if (firstDone2) {
-                            fileSwapPaths += ",\r\n" + @"       ""sound/voice/vo_battle/" + value + @".scd"": """ + "sound/voice/vo_battle/" + battleVoiceToSwapWith + ".scd" + @"""";
-                        } else {
-                            fileSwapPaths += @"""sound/voice/vo_battle/" + value + @".scd"": """ + "sound/voice/vo_battle/" + battleVoiceToSwapWith + ".scd" + @"""";
-                            firstDone2 = true;
+                        string name = "";
+                        foreach (string nameValue in RaceVoice.RacesToVoiceDscription[value]) {
+                            name += nameValue + " ";
                         }
+                        Option option = new Option(name, 0);
+                        option.FileSwaps.Add("sound/voice/vo_battle/" + value + @".scd", "sound/voice/vo_battle/" + battleVoiceToSwapWith + ".scd");
+                        group.Options.Add(option);
+                        alreadyProcessed.Add(value);
                     }
                     exportProgressBar.Increment(1);
                     exportProgressBar.Refresh();
