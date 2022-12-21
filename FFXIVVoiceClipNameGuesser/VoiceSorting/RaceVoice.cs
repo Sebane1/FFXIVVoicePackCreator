@@ -15,12 +15,13 @@ namespace FFXIVVoicePackCreator {
         public string RaceName { get => raceName; set => raceName = value; }
         public List<string> Masculine { get => _masculine; set => _masculine = value; }
         public List<string> Feminine { get => _feminine; set => _feminine = value; }
-        public static Dictionary<string, List<string>> RacesToVoice { get => racesToVoiceEmote; set => racesToVoiceEmote = value; }
+        public static Dictionary<string, List<string>> RacesToVoice { get => racesToVoiceDscription; set => racesToVoiceDscription = value; }
         public static List<RaceVoice> RacialList { get => racialListEmotes; set => racialListEmotes = value; }
         public static List<RaceVoice> RacialListBattle { get => racialListBattle; set => racialListBattle = value; }
+        public static Dictionary<string, List<string>> RacesToVoiceDscription { get => racesToVoiceDscription; set => racesToVoiceDscription = value; }
 
         private static List<RaceVoice> racialListEmotes;
-        private static Dictionary<string, List<string>> racesToVoiceEmote = new Dictionary<string, List<string>>();
+        private static Dictionary<string, List<string>> racesToVoiceDscription = new Dictionary<string, List<string>>();
         private static List<RaceVoice> racialListBattle;
 
         public static void LoadRacialVoiceInfo() {
@@ -41,10 +42,10 @@ namespace FFXIVVoicePackCreator {
                         string value = streamReader.ReadLine();
                         raceVoice.Masculine.Add(value);
 
-                        if (!racesToVoiceEmote.ContainsKey(value)) {
-                            racesToVoiceEmote.Add(value, new List<string>() { raceVoice.RaceName + ", Masculine Battle Voice " + i });
+                        if (!racesToVoiceDscription.ContainsKey(value)) {
+                            racesToVoiceDscription.Add(value, new List<string>() { raceVoice.RaceName + ", Masculine Battle Voice " + (i + 1) });
                         } else {
-                            racesToVoiceEmote[value].Add(raceVoice.RaceName + ", Masculine Battle Voice " + i);
+                            racesToVoiceDscription[value].Add(raceVoice.RaceName + ", Masculine Battle Voice " + (i + 1));
                         }
                     }
                     streamReader.ReadLine();
@@ -52,10 +53,10 @@ namespace FFXIVVoicePackCreator {
                         string value = streamReader.ReadLine();
                         raceVoice.Feminine.Add(value);
 
-                        if (!racesToVoiceEmote.ContainsKey(value)) {
-                            racesToVoiceEmote.Add(value, new List<string>() { raceVoice.RaceName + ", Feminine Battle Voice " + i });
+                        if (!racesToVoiceDscription.ContainsKey(value)) {
+                            racesToVoiceDscription.Add(value, new List<string>() { raceVoice.RaceName + ", Feminine Battle Voice " + (i + 1) });
                         } else {
-                            racesToVoiceEmote[value].Add(raceVoice.RaceName + ", Feminine Battle Voice " + i);
+                            racesToVoiceDscription[value].Add(raceVoice.RaceName + ", Feminine Battle Voice " + (i + 1));
                         }
                     }
                     racialListBattle.Add(raceVoice);
@@ -76,10 +77,10 @@ namespace FFXIVVoicePackCreator {
                         string value = streamReader.ReadLine();
                         raceVoices.Masculine.Add(value);
 
-                        if (!racesToVoiceEmote.ContainsKey(value)) {
-                            racesToVoiceEmote.Add(value, new List<string>() { raceVoices.RaceName + ", Masculine Voice " + (12 - i) });
+                        if (!racesToVoiceDscription.ContainsKey(value)) {
+                            racesToVoiceDscription.Add(value, new List<string>() { raceVoices.RaceName + ", Masculine Voice " + (12 - i) });
                         } else {
-                            racesToVoiceEmote[value].Add(raceVoices.RaceName + ", Masculine Voice " + (12 - i));
+                            racesToVoiceDscription[value].Add(raceVoices.RaceName + ", Masculine Voice " + (12 - i));
                         }
                     }
                     raceVoices.Masculine.Reverse();
@@ -88,10 +89,10 @@ namespace FFXIVVoicePackCreator {
                         string value = streamReader.ReadLine();
                         raceVoices.Feminine.Add(value);
 
-                        if (!racesToVoiceEmote.ContainsKey(value)) {
-                            racesToVoiceEmote.Add(value, new List<string>() { raceVoices.RaceName + ", Feminine, Voice " + (12 - i) });
+                        if (!racesToVoiceDscription.ContainsKey(value)) {
+                            racesToVoiceDscription.Add(value, new List<string>() { raceVoices.RaceName + ", Feminine, Voice " + (12 - i) });
                         } else {
-                            racesToVoiceEmote[value].Add(raceVoices.RaceName + ", Feminine Voice " + (12 - i));
+                            racesToVoiceDscription[value].Add(raceVoices.RaceName + ", Feminine Voice " + (12 - i));
                         }
                     }
                     raceVoices.Feminine.Reverse();
