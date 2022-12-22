@@ -17,7 +17,7 @@ Instructions:
 - Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
 
 How to make custom voice packs:
-https://www.youtube.com/watch?v=_ww-g_fSXoI
+https://www.youtube.com/watch?v=lFlXxbnmcMY
 
 How to swap your voice with another race/gender:
 https://youtu.be/SyXOW5eJqws
