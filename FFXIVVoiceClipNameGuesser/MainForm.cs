@@ -279,11 +279,11 @@ namespace FFXIVVoicePackCreator {
             string newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
             exportFilePathEmote = Path.Combine(newModPath, @"sound\voice\vo_emote");
             exportFilePathBattle = Path.Combine(newModPath, @"sound\voice\vo_battle");
+            jsonFilepath = Path.Combine(newModPath, "default_mod.json");
+            metaFilePath = Path.Combine(newModPath, "meta.json");
             Directory.CreateDirectory(exportFilePathEmote);
             Directory.CreateDirectory(exportFilePathBattle);
             if (string.IsNullOrEmpty(exportFilePathEmote) || !exportFilePathEmote.Contains(newModPath)) {
-                jsonFilepath = Path.Combine(newModPath, "default_mod.json");
-                metaFilePath = Path.Combine(newModPath, "meta.json");
                 if (File.Exists(jsonFilepath)) {
                     switch (MessageBox.Show(@"Existing mod configuration detected. Continue?", Text, MessageBoxButtons.YesNo)) {
                         case DialogResult.Yes:
@@ -852,12 +852,12 @@ namespace FFXIVVoicePackCreator {
             if (folderSelectDialog.ShowDialog() == DialogResult.OK) {
                 foreach (string filename in Directory.GetFiles(folderSelectDialog.SelectedPath)) {
                     foreach (FilePicker filePicker in emoteFilePickers) {
-                        if (Path.GetFileName(filename).ToLower() == filePicker.Name) {
+                        if (Path.GetFileNameWithoutExtension(filename).ToLower() == filePicker.Name) {
                             filePicker.SetFilePath(filename);
                         }
                     }
                     foreach (FilePicker filePicker in battleFilePickers) {
-                        if (Path.GetFileName(filename).ToLower() == filePicker.Name) {
+                        if (Path.GetFileNameWithoutExtension(filename).ToLower() == filePicker.Name) {
                             filePicker.SetFilePath(filename);
                         }
                     }
