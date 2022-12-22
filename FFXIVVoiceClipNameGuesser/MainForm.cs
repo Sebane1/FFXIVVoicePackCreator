@@ -277,11 +277,11 @@ namespace FFXIVVoicePackCreator {
                 return false;
             }
             string newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
+            exportFilePathEmote = Path.Combine(newModPath, @"sound\voice\vo_emote");
+            exportFilePathBattle = Path.Combine(newModPath, @"sound\voice\vo_battle");
+            Directory.CreateDirectory(exportFilePathEmote);
+            Directory.CreateDirectory(exportFilePathBattle);
             if (string.IsNullOrEmpty(exportFilePathEmote) || !exportFilePathEmote.Contains(newModPath)) {
-                exportFilePathEmote = Path.Combine(newModPath, @"sound\voice\vo_emote");
-                exportFilePathBattle = Path.Combine(newModPath, @"sound\voice\vo_battle");
-                Directory.CreateDirectory(exportFilePathEmote);
-                Directory.CreateDirectory(exportFilePathBattle);
                 jsonFilepath = Path.Combine(newModPath, "default_mod.json");
                 metaFilePath = Path.Combine(newModPath, "meta.json");
                 if (File.Exists(jsonFilepath)) {
@@ -540,7 +540,7 @@ namespace FFXIVVoicePackCreator {
                                 }
                             }
                             Option option = new Option(name, 0);
-                            option.Files.Add("sound/voice/vo_battle/" + value + @".scd", "sound\\voice\\vo_emote\\" + value + @".scd");
+                            option.Files.Add("sound/voice/vo_battle/" + value + @".scd", "sound\\voice\\vo_battle\\" + value + @".scd");
                             group.Options.Add(option);
                             alreadyProcessed.Add(value);
                         }
@@ -852,12 +852,12 @@ namespace FFXIVVoicePackCreator {
             if (folderSelectDialog.ShowDialog() == DialogResult.OK) {
                 foreach (string filename in Directory.GetFiles(folderSelectDialog.SelectedPath)) {
                     foreach (FilePicker filePicker in emoteFilePickers) {
-                        if (Path.GetFileName(filename).ToLower().Contains(filePicker.Name)) {
+                        if (Path.GetFileName(filename).ToLower() == filePicker.Name) {
                             filePicker.SetFilePath(filename);
                         }
                     }
                     foreach (FilePicker filePicker in battleFilePickers) {
-                        if (Path.GetFileName(filename).ToLower().Contains(filePicker.Name)) {
+                        if (Path.GetFileName(filename).ToLower() == filePicker.Name) {
                             filePicker.SetFilePath(filename);
                         }
                     }
