@@ -89,14 +89,14 @@ namespace FFXIVVoicePackCreator {
             ignoreClear = true;
             useGameFileCheckBox.Checked = true;
             filePath.Text = "sound/voice/vo_emote/" + (voiceSelection + index) + ".scd";
-            filePath.ReadOnly = false;
+            filePath.ReadOnly = true;
             ignoreClear = false;
         }
         public void SetFilePath(string path) {
             ignoreClear = true;
             useGameFileCheckBox.Checked = false;
             filePath.Text = path;
-            filePath.ReadOnly = true;
+            filePath.ReadOnly = false;
             ignoreClear = false;
         }
         private void useGameFileCheckBox_CheckedChanged(object sender, EventArgs e) {
@@ -105,11 +105,11 @@ namespace FFXIVVoicePackCreator {
                 switch (useGameFileCheckBox.Checked) {
                     case true:
                         MessageBox.Show("This path will now point to internal game files", Text);
-                        filePath.ReadOnly = false;
+                        filePath.ReadOnly = true;
                         break;
                     case false:
                         MessageBox.Show("This path will now point to external sound files", Text);
-                        filePath.ReadOnly = true;
+                        filePath.ReadOnly = false;
                         break;
                 }
             }
