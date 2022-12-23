@@ -57,7 +57,7 @@ namespace FFXIVVoicePackCreator {
             this.scdTypeComboBox.Items.AddRange(new object[] {
             "Sound Effect",
             "Background Music",
-            "Orchestrion (Experimental)"});
+            "Orchestrion"});
             this.scdTypeComboBox.Location = new System.Drawing.Point(127, 107);
             this.scdTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.scdTypeComboBox.Name = "scdTypeComboBox";
@@ -146,6 +146,7 @@ namespace FFXIVVoicePackCreator {
             this.outputSelection.Filter = "scd files (*.scd)|*.scd";
             this.outputSelection.Index = -1;
             this.outputSelection.IsSaveMode = true;
+            this.outputSelection.IsSwappable = true;
             this.outputSelection.Location = new System.Drawing.Point(15, 57);
             this.outputSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.outputSelection.Name = "outputSelection";
@@ -157,6 +158,7 @@ namespace FFXIVVoicePackCreator {
             this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
             this.mediaSelection.Index = -1;
             this.mediaSelection.IsSaveMode = false;
+            this.mediaSelection.IsSwappable = true;
             this.mediaSelection.Location = new System.Drawing.Point(14, 14);
             this.mediaSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.mediaSelection.Name = "mediaSelection";

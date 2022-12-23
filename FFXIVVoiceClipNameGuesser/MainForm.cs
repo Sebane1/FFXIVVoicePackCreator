@@ -1,5 +1,6 @@
 ﻿using AutoUpdaterDotNET;
 using FFXIVVoicePackCreator.Json;
+using NAudio.Wave;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -43,11 +44,10 @@ namespace FFXIVVoicePackCreator {
         public static string _defaultModName = "";
         public static string _defaultAuthor = "FFXIV Voice Pack Creator";
         public static string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
-        public static string _descriptionBattleVoiceDisclaimer = "\r\nDISCLAIMER: Penumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection";
+        public static string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nPenumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection.";
         public static string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
         private string penumbraModPath;
         private string battleVoiceToSwapWith;
-        private bool suppressNextVoiceTabWarning;
         private bool suppressVoiceSwapBattleVoiceChecked;
         private bool battleVoicesInUse;
 
@@ -298,8 +298,8 @@ namespace FFXIVVoicePackCreator {
                     }
                 }
             }
-            groupFilePathEmotes = Path.Combine(newModPath, "group_001_emote_selection.json");
-            groupFilePathBattle = Path.Combine(newModPath, "group_002_battle_selection.json");
+            groupFilePathEmotes = Path.Combine(newModPath, "group_001_emote voices.json");
+            groupFilePathBattle = Path.Combine(newModPath, "group_002_battle voices.json");
             return true;
         }
 
@@ -478,13 +478,13 @@ namespace FFXIVVoicePackCreator {
                         exportProgressBar.Increment(1);
                         exportProgressBar.Refresh();
                     }
-                    Group group = new Group("Emote Voices", "Character Voices", 0, "Multi", 0);
+                    Group group = new Group("Emote Voice To Replace", "Character Voices", 0, "Multi", 0);
                     foreach (int value in emoteVoicesToReplace) {
                         Option options = new Option(RaceVoice.RacesToVoiceDscription[value + ""][0], 0);
                         ExportEmoteFiles(value, options);
                         group.Options.Add(options);
                     }
-                    Group group2 = new Group("Battles Voices", "Character Voices", 0, "Multi", 0);
+                    Group group2 = new Group("Battle Voice To Replace", "Character Voices", 0, "Multi", 0);
                     ExportBattleFiles(group2);
                     ExportJson();
                     ExportMeta();
@@ -1024,6 +1024,60 @@ namespace FFXIVVoicePackCreator {
                     MessageBox.Show(@"Battle voices cannot be edited while in voice swap mode. If you intend to edit battle voices please disable it.", Text);
                 }
             }
+        }
+
+        private void bulkSCDAudioExtractorToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (MessageBox.Show("Select your input folder of .scd files", Text) == DialogResult.OK) {
+                FolderBrowserDialog inputFolderDialog = new FolderBrowserDialog();
+                if (inputFolderDialog.ShowDialog() == DialogResult.OK) {
+                    if (MessageBox.Show("Select your output folder for extracted sounds", Text) == DialogResult.OK) {
+                        FolderBrowserDialog outputFolderDialog = new FolderBrowserDialog();
+                        if (outputFolderDialog.ShowDialog() == DialogResult.OK) {
+                             string[] files = Directory.GetFiles(inputFolderDialog.SelectedPath);
+                            exportProgressBar.Visible = true;
+                            exportProgressBar.Maximum = files.Length;
+                            foreach (string path in files) {
+                                if (path.Contains(".scd")) {
+                                    using (FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read)) {
+                                        using (BinaryReader reader = new BinaryReader(fileStream)) {
+                                            ScdFile file = new ScdFile(reader, false);
+                                            int i = 0;
+                                            foreach (ScdAudioEntry sound in file.Audio) {
+                                                if (sound.Format == SscfWaveFormat.MsAdPcm) {
+                                                    SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".wav"), sound);
+                                                }
+                                                if (sound.Format == SscfWaveFormat.Vorbis) {
+                                                    SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".ogg"), sound);
+                                                }
+                                            }
+                                            exportProgressBar.Increment(1);
+                                            exportProgressBar.Refresh();
+                                        }
+                                    }
+                                } else {
+                                    exportProgressBar.Maximum--;
+                                }
+                            }
+                            MessageBox.Show("Extraction Complete", Text);
+                            Process.Start(new System.Diagnostics.ProcessStartInfo() {
+                                FileName = outputFolderDialog.SelectedPath,
+                                UseShellExecute = true,
+                                Verb = "open"
+                            });
+                            exportProgressBar.Visible = false;
+                        }
+                    }
+                }
+            }
+        }
+        private void SaveWaveDialog(string output, ScdAudioEntry entry) {
+            using var stream = entry.Data.GetStream();
+            WaveFileWriter.CreateWaveFile(output, stream);
+        }
+
+        private void SaveOggDialog(string output, ScdAudioEntry entry) {
+            var data = (ScdVorbis)entry.Data;
+            File.WriteAllBytes(output, data.DecodedData);
         }
     }
 }
