@@ -1033,23 +1033,30 @@ namespace FFXIVVoicePackCreator {
                     if (MessageBox.Show("Select your output folder for extracted sounds", Text) == DialogResult.OK) {
                         FolderBrowserDialog outputFolderDialog = new FolderBrowserDialog();
                         if (outputFolderDialog.ShowDialog() == DialogResult.OK) {
-                             string[] files = Directory.GetFiles(inputFolderDialog.SelectedPath);
+                            string[] files = Directory.GetFiles(inputFolderDialog.SelectedPath);
+                            string error = null;
                             exportProgressBar.Visible = true;
                             exportProgressBar.Maximum = files.Length;
                             foreach (string path in files) {
                                 if (path.Contains(".scd")) {
                                     using (FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read)) {
                                         using (BinaryReader reader = new BinaryReader(fileStream)) {
-                                            ScdFile file = new ScdFile(reader, false);
-                                            int i = 0;
-                                            foreach (ScdAudioEntry sound in file.Audio) {
-                                                if (sound.Format == SscfWaveFormat.MsAdPcm) {
-                                                    SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".wav"), sound);
+                                            //try {
+                                                ScdFile file = new ScdFile(reader, false, true);
+                                                int i = 0;
+                                                foreach (ScdAudioEntry sound in file.Audio) {
+                                                    if (sound.Format == SscfWaveFormat.MsAdPcm) {
+                                                        SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".wav"), sound);
+                                                        i++;
+                                                    }
+                                                    if (sound.Format == SscfWaveFormat.Vorbis) {
+                                                        SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".ogg"), sound);
+                                                        i++;
+                                                    }
                                                 }
-                                                if (sound.Format == SscfWaveFormat.Vorbis) {
-                                                    SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".ogg"), sound);
-                                                }
-                                            }
+                                            //} catch {
+                                            //    error += $@"SCD File at ""{path}"" failed to fully read, or another error occured." + "\r\n\r\n";
+                                            //}
                                             exportProgressBar.Increment(1);
                                             exportProgressBar.Refresh();
                                         }
@@ -1057,6 +1064,9 @@ namespace FFXIVVoicePackCreator {
                                 } else {
                                     exportProgressBar.Maximum--;
                                 }
+                            }
+                            if (!string.IsNullOrWhiteSpace(error)) {
+                                MessageBox.Show(error, Text);
                             }
                             MessageBox.Show("Extraction Complete", Text);
                             Process.Start(new System.Diagnostics.ProcessStartInfo() {

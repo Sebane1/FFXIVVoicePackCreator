@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using VfxEditor.FileManager;
 using VfxEditor.Utils;
 
@@ -28,7 +29,7 @@ namespace VfxEditor.ScdFormat {
         public ScdSimpleSplitView<ScdTrackEntry> TrackView;
         public ScdSimpleSplitView<ScdAttributeEntry> AttributeView;
 
-        public ScdFile(BinaryReader reader, bool checkOriginal = true) {
+        public ScdFile(BinaryReader reader, bool checkOriginal = true, bool skipAttributeData = false) {
             var original = checkOriginal ? FileUtils.GetOriginal(reader) : null;
 
             Header = new(reader);
@@ -40,33 +41,33 @@ namespace VfxEditor.ScdFormat {
                 newAudio.Read(reader, offset);
                 Audio.Add(newAudio);
             }
+            if (!skipAttributeData) {
+                foreach (var offset in OffsetsHeader.LayoutOffsets.Where(x => x != 0)) {
+                    var newLayout = new ScdLayoutEntry();
+                    newLayout.Read(reader, offset);
+                    Layouts.Add(newLayout);
+                }
 
-            foreach (var offset in OffsetsHeader.LayoutOffsets.Where(x => x != 0)) {
-                var newLayout = new ScdLayoutEntry();
-                newLayout.Read(reader, offset);
-                Layouts.Add(newLayout);
+                foreach (var offset in OffsetsHeader.TrackOffsets.Where(x => x != 0)) {
+                    var newTrack = new ScdTrackEntry();
+                    newTrack.Read(reader, offset);
+                    Tracks.Add(newTrack);
+                }
+
+                foreach (var offset in OffsetsHeader.AttributeOffsets.Where(x => x != 0)) {
+                    var newAttribute = new ScdAttributeEntry();
+                    newAttribute.Read(reader, offset);
+                    Attributes.Add(newAttribute);
+                }
+
+                foreach (var offset in OffsetsHeader.SoundOffsets.Where(x => x != 0)) {
+                    var newSound = new ScdSoundEntry();
+                    newSound.Read(reader, offset);
+                    Sounds.Add(newSound);
+                }
+
+                if (checkOriginal) Verified = FileUtils.CompareFiles(original, ToBytes(), out var _);
             }
-
-            foreach (var offset in OffsetsHeader.TrackOffsets.Where(x => x != 0)) {
-                var newTrack = new ScdTrackEntry();
-                newTrack.Read(reader, offset);
-                Tracks.Add(newTrack);
-            }
-
-            foreach (var offset in OffsetsHeader.AttributeOffsets.Where(x => x != 0)) {
-                var newAttribute = new ScdAttributeEntry();
-                newAttribute.Read(reader, offset);
-                Attributes.Add(newAttribute);
-            }
-
-            foreach (var offset in OffsetsHeader.SoundOffsets.Where(x => x != 0)) {
-                var newSound = new ScdSoundEntry();
-                newSound.Read(reader, offset);
-                Sounds.Add(newSound);
-            }
-
-            if (checkOriginal) Verified = FileUtils.CompareFiles(original, ToBytes(), out var _);
-
             LayoutView = new("Layout", Layouts);
             SoundView = new("Sound", Sounds);
             TrackView = new("Track", Tracks);
