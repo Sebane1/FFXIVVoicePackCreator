@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace VfxEditor.ScdFormat {
     public static class ScdUtils {
-        public static string VorbisHeader => Path.Combine(Application.Current.StartupUri.AbsolutePath, @"res\vorbis_header.bin");
+        public static string VorbisHeader => Path.Combine(System.Windows.Forms.Application.StartupPath, @"res\vorbis_header.bin");
         public static void XorDecode( byte[] vorbisHeader, byte encodeByte ) {
             for( var i = 0; i < vorbisHeader.Length; i++ ) {
                 vorbisHeader[i] ^= encodeByte;

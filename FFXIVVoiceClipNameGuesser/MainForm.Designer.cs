@@ -40,7 +40,6 @@ namespace FFXIVVoicePackCreator {
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCDWavMergerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pickExportFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.lostFileList = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -107,6 +106,9 @@ namespace FFXIVVoicePackCreator {
             this.battle1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
             this.voiceSwapBattleVoices = new System.Windows.Forms.CheckBox();
+            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurePenumbraFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bulkSCDAudioExtractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -181,7 +183,8 @@ namespace FFXIVVoicePackCreator {
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.configToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -204,28 +207,28 @@ namespace FFXIVVoicePackCreator {
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -234,7 +237,7 @@ namespace FFXIVVoicePackCreator {
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sCDWavMergerToolStripMenuItem,
             this.changeVoiceDumpToolStripMenuItem,
-            this.pickExportFolderToolStripMenuItem});
+            this.bulkSCDAudioExtractorToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -242,23 +245,16 @@ namespace FFXIVVoicePackCreator {
             // sCDWavMergerToolStripMenuItem
             // 
             this.sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
-            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone SCD";
             this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDCreatorToolStripMenuItem_Click);
             // 
             // changeVoiceDumpToolStripMenuItem
             // 
             this.changeVoiceDumpToolStripMenuItem.Name = "changeVoiceDumpToolStripMenuItem";
-            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.changeVoiceDumpToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.changeVoiceDumpToolStripMenuItem.Text = "Change Voice Dump";
             this.changeVoiceDumpToolStripMenuItem.Click += new System.EventHandler(this.changeVoiceDumpToolStripMenuItem_Click);
-            // 
-            // pickExportFolderToolStripMenuItem
-            // 
-            this.pickExportFolderToolStripMenuItem.Name = "pickExportFolderToolStripMenuItem";
-            this.pickExportFolderToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.pickExportFolderToolStripMenuItem.Text = "Configure Penumbra Folder";
-            this.pickExportFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
             // 
             // label6
             // 
@@ -886,7 +882,7 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(581, 683);
+            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
@@ -1105,6 +1101,28 @@ namespace FFXIVVoicePackCreator {
             this.voiceSwapBattleVoices.UseVisualStyleBackColor = true;
             this.voiceSwapBattleVoices.CheckedChanged += new System.EventHandler(this.voiceSwapBattleVoices_CheckedChanged);
             // 
+            // configToolStripMenuItem
+            // 
+            this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configurePenumbraFolderToolStripMenuItem});
+            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.configToolStripMenuItem.Text = "Config";
+            // 
+            // configurePenumbraFolderToolStripMenuItem
+            // 
+            this.configurePenumbraFolderToolStripMenuItem.Name = "configurePenumbraFolderToolStripMenuItem";
+            this.configurePenumbraFolderToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.configurePenumbraFolderToolStripMenuItem.Text = "Configure Penumbra Folder";
+            this.configurePenumbraFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
+            // 
+            // bulkSCDAudioExtractorToolStripMenuItem
+            // 
+            this.bulkSCDAudioExtractorToolStripMenuItem.Name = "bulkSCDAudioExtractorToolStripMenuItem";
+            this.bulkSCDAudioExtractorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.bulkSCDAudioExtractorToolStripMenuItem.Text = "Bulk SCD Audio Extractor";
+            this.bulkSCDAudioExtractorToolStripMenuItem.Click += new System.EventHandler(this.bulkSCDAudioExtractorToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1184,7 +1202,6 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.ToolStripMenuItem changeVoiceDumpToolStripMenuItem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lostFileList;
-        private System.Windows.Forms.ToolStripMenuItem pickExportFolderToolStripMenuItem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox modNameTextBox;
         private System.Windows.Forms.TextBox modAuthorTextBox;
@@ -1239,6 +1256,9 @@ namespace FFXIVVoicePackCreator {
         private FilePicker unknown2;
         private FilePicker battle16;
         private System.Windows.Forms.CheckBox voiceSwapBattleVoices;
+        private System.Windows.Forms.ToolStripMenuItem bulkSCDAudioExtractorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configurePenumbraFolderToolStripMenuItem;
     }
 }
 

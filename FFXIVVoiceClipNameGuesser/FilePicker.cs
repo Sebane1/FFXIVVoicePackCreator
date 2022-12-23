@@ -38,6 +38,7 @@ namespace FFXIVVoicePackCreator {
             if (!isSwappable) {
                 useGameFileCheckBox.Visible = false;
             }
+            filePath.AllowDrop = true;
         }
         private void filePicker_MouseDown(object sender, MouseEventArgs e) {
             if (!useGameFileCheckBox.Checked) {
@@ -91,6 +92,7 @@ namespace FFXIVVoicePackCreator {
             filePath.Text = "sound/voice/vo_emote/" + (voiceSelection + index) + ".scd";
             filePath.ReadOnly = true;
             ignoreClear = false;
+            filePath.AllowDrop = false;
         }
         public void SetFilePath(string path) {
             ignoreClear = true;
@@ -98,6 +100,7 @@ namespace FFXIVVoicePackCreator {
             filePath.Text = path;
             filePath.ReadOnly = false;
             ignoreClear = false;
+            filePath.AllowDrop = true;
         }
         private void useGameFileCheckBox_CheckedChanged(object sender, EventArgs e) {
             if (!ignoreClear) {
@@ -124,6 +127,31 @@ namespace FFXIVVoicePackCreator {
             } else {
                 filePath.ReadOnly = false;
             }
+        }
+
+        private void filePath_DragEnter(object sender, DragEventArgs e) {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void filePath_DragDrop(object sender, DragEventArgs e) {
+            string file = ((string[])e.Data.GetData(DataFormats.FileDrop, false))[0];
+            if (CheckExtentions(file)) {
+                filePath.Text = file;
+            } else {
+                MessageBox.Show("This is not a media file this tool recognizes.", ParentForm.Text);
+            }
+        }
+        private bool CheckExtentions(string file) {
+            string[] extentions = new string[] { ".wav", ".aac", ".wma", ".wmv", ".avi", ".mpg", ".mpeg", ".m1v", ".mp2", ".mp3", ".mpa", ".mpe", ".m3u", ".mp4", ".mov", ".3g2", ".3gp2", ".3gp", ".3gpp", ".m4a", ".cda", ".aif", ".aifc", ".aiff", ".mid", ".midi", ".rmi", ".mkv", ".WAV", ".AAC", ".WMA", ".WMV", ".AVI", ".MPG", ".MPEG", ".M1V", ".MP2", ".MP3", ".MPA", ".MPE", ".M3U", ".MP4", ".MOV", ".3G2", ".3GP2", ".3GP", ".3GPP", ".M4A", ".CDA", ".AIF", ".AIFC", ".AIFF", ".RMI", ".MKV", ".flac", ".ogg" };
+            foreach (string extention in extentions) {
+                if (file.Contains(extention)) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

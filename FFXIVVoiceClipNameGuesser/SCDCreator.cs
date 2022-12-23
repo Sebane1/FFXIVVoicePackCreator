@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VfxEditor.ScdFormat;
 
 namespace FFXIVVoicePackCreator {
     public partial class SCDCreator : Form {
@@ -37,11 +38,14 @@ namespace FFXIVVoicePackCreator {
                             int.Parse(numberOfSamplesTextBox.Text));
                         break;
                     case 2:
-                        generator.ConvertAndGenerateOrchestrion(mediaSelection.FilePath.Text,
-                            outputSelection.FilePath.Text,
-                            int.Parse(loopStartTextBox.Text),
-                            int.Parse(loopEndTextBox.Text),
-                            int.Parse(numberOfSamplesTextBox.Text));
+                        if (File.Exists(mediaSelection.FilePath.Text)) {
+                            string tempPath = Path.Combine(Path.GetDirectoryName(mediaSelection.FilePath.Text), Guid.NewGuid() + ".ogg");
+                            Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + mediaSelection.FilePath.Text + @""""} -c:a libvorbis -ar: 44100 {@"""" + tempPath + @""""}");
+                            while (SCDGenerator.IsFileLocked(tempPath)) { };
+                            InjectSCDFilesOgg(Path.Combine(Application.StartupPath, @"res\scd\orchestrion.scd"), outputSelection.FilePath.Text,
+                            new List<string>() { tempPath }, int.Parse(loopStartTextBox.Text), int.Parse(loopEndTextBox.Text));
+                            File.Delete(tempPath);
+                        }
                         break;
                 }
                 this.Focus();
@@ -55,6 +59,27 @@ namespace FFXIVVoicePackCreator {
 
         private void SCDCreator_Load(object sender, EventArgs e) {
             scdTypeComboBox.SelectedIndex = 0;
+        }
+        private void InjectSCDFilesOgg(string input, string output, List<string> list, int loopStart, int loopEnd) {
+            using (FileStream fileStream = new FileStream(input, FileMode.Open, FileAccess.Read)) {
+                using (BinaryReader reader = new BinaryReader(fileStream)) {
+                    ScdFile file = new ScdFile(reader);
+                    int i = 0;
+                    foreach (ScdAudioEntry entry in file.Audio) {
+                        if (entry.Format == SscfWaveFormat.Vorbis) {
+                            string path = list[i++];
+                            if (!string.IsNullOrEmpty(path)) {
+                                ScdFile.Import(path, entry, loopStart, loopEnd);
+                            }
+                        }
+                    }
+                    using (FileStream exportStream = new FileStream(output, FileMode.Create, FileAccess.Write)) {
+                        using (BinaryWriter writer = new BinaryWriter(exportStream)) {
+                            file.Write(writer);
+                        }
+                    }
+                }
+            }
         }
 
         private void scdTypeComboBox_SelectedIndexChanged(object sender, EventArgs e) {
