@@ -25,8 +25,6 @@ namespace FFXIVVoicePackCreator {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.incrementButton = new System.Windows.Forms.Button();
-            this.generateButton = new System.Windows.Forms.Button();
             this.missingFIleList = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.foundNamesList = new System.Windows.Forms.ListBox();
@@ -109,6 +107,8 @@ namespace FFXIVVoicePackCreator {
             this.battle1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
             this.voiceSwapBattleVoices = new System.Windows.Forms.CheckBox();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.battleSoundGuidelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -117,22 +117,6 @@ namespace FFXIVVoicePackCreator {
             this.emoteVoicesPage.SuspendLayout();
             this.battleVoicesPage.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // incrementButton
-            // 
-            this.incrementButton.Location = new System.Drawing.Point(0, 0);
-            this.incrementButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.incrementButton.Name = "incrementButton";
-            this.incrementButton.Size = new System.Drawing.Size(88, 27);
-            this.incrementButton.TabIndex = 35;
-            // 
-            // generateButton
-            // 
-            this.generateButton.Location = new System.Drawing.Point(0, 0);
-            this.generateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(88, 27);
-            this.generateButton.TabIndex = 36;
             // 
             // missingFIleList
             // 
@@ -172,7 +156,7 @@ namespace FFXIVVoicePackCreator {
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 8);
+            this.label5.Location = new System.Drawing.Point(8, 8);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 15);
@@ -184,7 +168,8 @@ namespace FFXIVVoicePackCreator {
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.configToolStripMenuItem});
+            this.configToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -583,8 +568,6 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab.Controls.Add(this.label3);
             this.voiceGuessingTab.Controls.Add(this.lostFileList);
             this.voiceGuessingTab.Controls.Add(this.label6);
-            this.voiceGuessingTab.Controls.Add(this.incrementButton);
-            this.voiceGuessingTab.Controls.Add(this.generateButton);
             this.voiceGuessingTab.Location = new System.Drawing.Point(4, 24);
             this.voiceGuessingTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceGuessingTab.Name = "voiceGuessingTab";
@@ -1160,6 +1143,21 @@ namespace FFXIVVoicePackCreator {
             this.voiceSwapBattleVoices.UseVisualStyleBackColor = true;
             this.voiceSwapBattleVoices.CheckedChanged += new System.EventHandler(this.voiceSwapBattleVoices_CheckedChanged);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.battleSoundGuidelinesToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // battleSoundGuidelinesToolStripMenuItem
+            // 
+            this.battleSoundGuidelinesToolStripMenuItem.Name = "battleSoundGuidelinesToolStripMenuItem";
+            this.battleSoundGuidelinesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.battleSoundGuidelinesToolStripMenuItem.Text = "Battle Sound Guidelines";
+            this.battleSoundGuidelinesToolStripMenuItem.Click += new System.EventHandler(this.battleSoundGuidelinesToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1227,8 +1225,6 @@ namespace FFXIVVoicePackCreator {
         private FilePicker yes;
         private FilePicker happy;
         private FilePicker unknown1;
-        private System.Windows.Forms.Button incrementButton;
-        private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.ListBox missingFIleList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox foundNamesList;
@@ -1296,6 +1292,8 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.ToolStripMenuItem bulkSCDAudioExtractorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurePenumbraFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem battleSoundGuidelinesToolStripMenuItem;
     }
 }
 

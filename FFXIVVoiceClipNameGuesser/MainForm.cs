@@ -28,9 +28,6 @@ namespace FFXIVVoicePackCreator {
         private string metaFilePath;
         private string groupFilePathEmotes;
         private string groupFilePathBattle;
-        private bool firstDone;
-        private string fileReplacementPaths;
-        private string fileSwapPaths;
         private List<int> emoteVoicesToReplace = new List<int>();
         private List<string> battleVoicesToReplace = new List<string>();
         private bool alreadyShown;
@@ -39,18 +36,19 @@ namespace FFXIVVoicePackCreator {
         private List<TextBox> authorInformation;
         private string savePath;
         private bool hasSaved = true;
-        private bool firstDone2;
 
-        public static string _defaultModName = "";
-        public static string _defaultAuthor = "FFXIV Voice Pack Creator";
-        public static string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
-        public static string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nPenumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection.";
-        public static string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
+        public readonly string _defaultModName = "";
+        public readonly string _defaultAuthor = "FFXIV Voice Pack Creator";
+        public readonly string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
+        public readonly string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nPenumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection.";
+        public readonly string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
+        private readonly string _battleSoundTutorial = "The following are loose guidelines on how to assign things and are not guaranteed to have 100% accuracy. (FFXIV has absolutely 0 consistency from file to file for battle sounds, so this tool brute forces the semantics)\r\n\r\nRaces can have anywhere from 9, 10, 12, or 16 battle sounds that can be filled.\r\n\r\nFirst rule of thumb\r\n16 - 20 are your standard attack noises.\r\n21 - 25 are your hurt noises\r\n26 - 30 are extra noises and may not exist at all depending on race (I just dump my less good attack sounds here, some races like Viera may have some extra hurt sounds here right after the initial hurt noises)\r\n\r\nSecond rule of thumb (If you are an Au Ra, or another race happens to fall into these guidelines)\r\n16 - 20 are your hurt sounds\r\n21 - 25 are your standard attack sounds\r\n26 - 30 is very likely not used to its full extent if at all if using this secondary ruleset but feel free to fill them anyway. ";
+
         private string penumbraModPath;
         private string battleVoiceToSwapWith;
         private bool suppressVoiceSwapBattleVoiceChecked;
         private bool battleVoicesInUse;
-
+        private bool showedTutorial;
         public MainWindow() {
             InitializeComponent();
             // foundNamesList.SelectionMode = SelectionMode.MultiExtended;
@@ -446,8 +444,6 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void easyGenerateButton_Click(object sender, EventArgs e) {
-            fileReplacementPaths = "";
-            fileSwapPaths = "";
             exportProgressBar.Visible = true;
             exportProgressBar.Value = 0;
             exportProgressBar.Maximum = emoteFilePickers.Count + battleFilePickers.Count;
@@ -458,8 +454,6 @@ namespace FFXIVVoicePackCreator {
                     SaveProject(savePath);
                 }
                 if (!string.IsNullOrEmpty(exportFilePathEmote)) {
-                    firstDone = false;
-                    firstDone2 = false;
                     TopMost = true;
                     foreach (FilePicker value in emoteFilePickers) {
                         if (File.Exists(value.FilePath.Text)) {
@@ -787,6 +781,7 @@ namespace FFXIVVoicePackCreator {
                     }
                     itemCount = int.Parse(reader.ReadLine());
                     for (int i = 0; i < itemCount; i++) {
+                        showedTutorial = true;
                         if (i < battleFilePickers.Count) {
                             battleFilePickers[i].FilePath.Text = reader.ReadLine();
                         } else {
@@ -847,7 +842,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void quickImportButton_Click(object sender, EventArgs e) {
-            MessageBox.Show("To use quick import successfully, name your sound files exactly after the emote they intend to replace together in a seperated folder.", Text);
+            MessageBox.Show("To use quick import successfully, name your sound files exactly after the sound they intend to replace together in a separated folder. You can use the program labels for reference.", Text);
             FolderBrowserDialog folderSelectDialog = new FolderBrowserDialog();
             if (folderSelectDialog.ShowDialog() == DialogResult.OK) {
                 foreach (string filename in Directory.GetFiles(folderSelectDialog.SelectedPath)) {
@@ -961,7 +956,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void quickSwapButton_Click(object sender, EventArgs e) {
-            MessageBox.Show(@"""Quick Swap"" lets you quickly pick an in game voice that you want to swap with another.", Text);
+            MessageBox.Show(@"Quick swap lets you quickly pick an in game voice that you want to swap with another.", Text);
             VoiceSelection voiceSelection = new VoiceSelection();
             if (voiceSelection.ShowDialog() == DialogResult.OK) {
                 foreach (FilePicker filePicker in emoteFilePickers) {
@@ -1022,6 +1017,11 @@ namespace FFXIVVoicePackCreator {
                 if (voiceSwapBattleVoices.Checked) {
                     voiceTabs.SelectedIndex = 0;
                     MessageBox.Show(@"Battle voices cannot be edited while in voice swap mode. If you intend to edit battle voices please disable it.", Text);
+                } else {
+                    if (!showedTutorial) {
+                        showedTutorial = true;
+                        MessageBox.Show(_battleSoundTutorial, Text);
+                    }
                 }
             }
         }
@@ -1088,6 +1088,10 @@ namespace FFXIVVoicePackCreator {
         private void SaveOggDialog(string output, ScdAudioEntry entry) {
             var data = (ScdVorbis)entry.Data;
             File.WriteAllBytes(output, data.DecodedData);
+        }
+
+        private void battleSoundGuidelinesToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show(_battleSoundTutorial, Text);
         }
     }
 }
