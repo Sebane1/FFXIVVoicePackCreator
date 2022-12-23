@@ -26,13 +26,17 @@ namespace VfxEditor.Parsing {
         public override void Read( BinaryReader reader ) => Read( reader, 0 );
 
         public override void Read( BinaryReader reader, int size ) {
-            var intValue = Size switch {
-                4 => reader.ReadInt32(),
-                2 => reader.ReadInt16(),
-                1 => reader.ReadByte(),
-                _ => reader.ReadByte()
-            };
+            try {
+                var intValue = Size switch {
+                    4 => reader.ReadInt32(),
+                    2 => reader.ReadInt16(),
+                    1 => reader.ReadByte(),
+                    _ => reader.ReadByte()
+                };
             Value = ( T )( object )intValue;
+            } catch {
+
+            }
         }
 
         public override void Write( BinaryWriter writer ) {

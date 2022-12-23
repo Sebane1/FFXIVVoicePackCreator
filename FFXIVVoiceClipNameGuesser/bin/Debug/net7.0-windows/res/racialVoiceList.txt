@@ -1,5 +1,5 @@
 9
-Hyur - Midlander
+Midlander
 Masculine
 7453000
 7452000
@@ -26,7 +26,7 @@ Feminine
 7306000
 7305000
 7304000
-Hyur - Highlander
+Highlander
 Masculine
 7471000
 7470000
