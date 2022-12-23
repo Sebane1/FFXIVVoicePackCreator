@@ -1041,7 +1041,7 @@ namespace FFXIVVoicePackCreator {
                                 if (path.Contains(".scd")) {
                                     using (FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read)) {
                                         using (BinaryReader reader = new BinaryReader(fileStream)) {
-                                            //try {
+                                            try {
                                                 ScdFile file = new ScdFile(reader, false, true);
                                                 int i = 0;
                                                 foreach (ScdAudioEntry sound in file.Audio) {
@@ -1054,9 +1054,9 @@ namespace FFXIVVoicePackCreator {
                                                         i++;
                                                     }
                                                 }
-                                            //} catch {
-                                            //    error += $@"SCD File at ""{path}"" failed to fully read, or another error occured." + "\r\n\r\n";
-                                            //}
+                                            } catch {
+                                                error += $@"SCD File at ""{path}"" failed to fully read, or another error occured." + "\r\n\r\n";
+                                            }
                                             exportProgressBar.Increment(1);
                                             exportProgressBar.Refresh();
                                         }
