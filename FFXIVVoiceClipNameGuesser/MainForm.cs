@@ -369,8 +369,11 @@ namespace FFXIVVoicePackCreator {
             }
         }
         private void foundNamesList_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if (!string.IsNullOrEmpty(secondaryKnownFileList[foundNamesList.SelectedIndex])) {
-                Process.Start(secondaryKnownFileList[foundNamesList.SelectedIndex]);
+            string path = secondaryKnownFileList[foundNamesList.SelectedIndex];
+            if (!string.IsNullOrEmpty(path)) {
+                ProcessStartInfo info = new ProcessStartInfo(path);
+                info.UseShellExecute = true;
+                Process.Start(info);
             }
         }
 
