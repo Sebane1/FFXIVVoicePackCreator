@@ -49,9 +49,20 @@ namespace FFXIVVoicePackCreator {
         private bool suppressVoiceSwapBattleVoiceChecked;
         private bool battleVoicesInUse;
         private bool showedTutorial;
+
+        public bool HasSaved {
+            get => hasSaved; set {
+                hasSaved = value;
+                if (!hasSaved) {
+                    Text = Application.ProductName + " " + Application.ProductVersion + (!string.IsNullOrWhiteSpace(savePath) ? $" ({savePath})*" : "*");
+                } else {
+                    Text = Application.ProductName + " " + Application.ProductVersion + (!string.IsNullOrWhiteSpace(savePath) ? $" ({savePath})" : "");
+                }
+            }
+        }
+
         public MainWindow() {
             InitializeComponent();
-            // foundNamesList.SelectionMode = SelectionMode.MultiExtended;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -143,7 +154,7 @@ namespace FFXIVVoicePackCreator {
                 dontLoad = true;
             }
             if (!dontLoad) {
-                hasSaved = false;
+                HasSaved = false;
                 missingFIleList.Items.Clear();
                 if (dumpFiles != null) {
                     dumpFiles.Clear();
@@ -434,7 +445,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void AddReplacementValues(int emote, string battle) {
-            hasSaved = false;
+            HasSaved = false;
             emoteVoicesToReplace.Add(emote);
             if (battle != null) {
                 battleVoicesToReplace.Add(battle);
@@ -600,7 +611,7 @@ namespace FFXIVVoicePackCreator {
             emoteVoicesToReplace.Clear();
             battleVoicesToReplace.Clear();
             voiceReplacementList.Items.Clear();
-            hasSaved = false;
+            HasSaved = false;
         }
 
         private void removeFromList_Click(object sender, EventArgs e) {
@@ -613,7 +624,7 @@ namespace FFXIVVoicePackCreator {
                     voiceReplacementList.SelectedIndex = -1;
                 }
             }
-            hasSaved = false;
+            HasSaved = false;
         }
 
         private void tabManager_Selecting(object sender, TabControlCancelEventArgs e) {
@@ -632,7 +643,7 @@ namespace FFXIVVoicePackCreator {
             CleanSlate();
         }
         private bool CleanSlate() {
-            if (!hasSaved) {
+            if (!HasSaved) {
                 DialogResult dialogResult = MessageBox.Show("Save changes?", Text, MessageBoxButtons.YesNoCancel);
                 switch (dialogResult) {
                     case DialogResult.Yes:
@@ -641,6 +652,7 @@ namespace FFXIVVoicePackCreator {
                             saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
                             if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                                 savePath = saveFileDialog.FileName;
+                                Text = Application.ProductName + " " + Application.ProductVersion + $" ({savePath})";
                             }
                         }
                         if (!string.IsNullOrEmpty(savePath)) {
@@ -660,7 +672,7 @@ namespace FFXIVVoicePackCreator {
             return false;
         }
         private void NewProject() {
-            hasSaved = true;
+            Text = Application.ProductName + " " + Application.ProductVersion;
             savePath = null;
             exportFilePathEmote = null;
             jsonFilepath = null;
@@ -684,6 +696,7 @@ namespace FFXIVVoicePackCreator {
             emoteVoicesToReplace.Clear();
             battleVoicesToReplace.Clear();
             voiceReplacementList.Items.Clear();
+            HasSaved = true;
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -707,7 +720,7 @@ namespace FFXIVVoicePackCreator {
                     savePath = openFileDialog.FileName;
                     OpenProjectV2(savePath);
                 }
-                hasSaved = true;
+                HasSaved = true;
             }
         }
 
@@ -745,7 +758,7 @@ namespace FFXIVVoicePackCreator {
                 writer.WriteLine(metaFilePath);
                 writer.WriteLine(battleVoiceToSwapWith);
             }
-            hasSaved = true;
+            HasSaved = true;
         }
 
         public void WritePenumbraPath(string path) {
@@ -820,7 +833,7 @@ namespace FFXIVVoicePackCreator {
             } catch {
                 OpenProjectLegacy(path);
             }
-            hasSaved = true;
+            HasSaved = true;
         }
         public void OpenProjectLegacy(string path) {
             using (StreamReader reader = new StreamReader(path)) {
@@ -841,7 +854,7 @@ namespace FFXIVVoicePackCreator {
                 jsonFilepath = reader.ReadLine();
                 metaFilePath = reader.ReadLine();
             }
-            hasSaved = true;
+            HasSaved = true;
         }
 
         private void quickImportButton_Click(object sender, EventArgs e) {
@@ -859,17 +872,17 @@ namespace FFXIVVoicePackCreator {
                             filePicker.SetFilePath(filename);
                         }
                     }
-                    hasSaved = false;
+                    HasSaved = false;
                 }
             }
         }
 
         private void modNameTextbox_TextChanged(object sender, EventArgs e) {
-            hasSaved = false;
+            HasSaved = false;
         }
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) {
-            if (!hasSaved) {
+            if (!HasSaved) {
                 DialogResult dialogResult = MessageBox.Show("Save changes?", Text, MessageBoxButtons.YesNoCancel);
                 switch (dialogResult) {
                     case DialogResult.Yes:

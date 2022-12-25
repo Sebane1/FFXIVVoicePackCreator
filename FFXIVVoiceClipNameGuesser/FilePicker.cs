@@ -6,8 +6,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NAudio;
+using NAudio.Wave;
 
 namespace FFXIVVoicePackCreator {
     public partial class FilePicker : UserControl {
@@ -18,6 +21,7 @@ namespace FFXIVVoicePackCreator {
         int index = 0;
         bool isSaveMode = false;
         bool isSwappable = true;
+        bool isPlayable = true;
 
         [Category("Select Type"), Description("Changes what type of selection is made")]
         public bool IsSaveMode { get => isSaveMode; set => isSaveMode = value; }
@@ -27,6 +31,8 @@ namespace FFXIVVoicePackCreator {
 
         [Category("Can Use Voice Swap"), Description("Changes whether this entry support voice swap")]
         public bool IsSwappable { get => isSwappable; set => isSwappable = value; }
+        [Category("Can Play Audio"), Description("Can this play sound?")]
+        public bool IsPlayable { get => isPlayable; set => isPlayable = value; }
 
         string filter;
         private Point startPos;
@@ -39,6 +45,11 @@ namespace FFXIVVoicePackCreator {
                 useGameFileCheckBox.Visible = false;
             }
             filePath.AllowDrop = true;
+            if (isPlayable) {
+                playButton.Visible = true;
+            } else {
+                playButton.Visible = false;
+            }
         }
         private void filePicker_MouseDown(object sender, MouseEventArgs e) {
             if (!useGameFileCheckBox.Checked) {
@@ -93,6 +104,8 @@ namespace FFXIVVoicePackCreator {
             filePath.ReadOnly = true;
             ignoreClear = false;
             filePath.AllowDrop = false;
+            playButton.Visible = false;
+
         }
         public void SetFilePath(string path) {
             ignoreClear = true;
@@ -101,6 +114,11 @@ namespace FFXIVVoicePackCreator {
             filePath.ReadOnly = false;
             ignoreClear = false;
             filePath.AllowDrop = true;
+            if (isPlayable) {
+                playButton.Visible = true;
+            } else {
+                playButton.Visible = false;
+            }
         }
         private void useGameFileCheckBox_CheckedChanged(object sender, EventArgs e) {
             if (!ignoreClear) {
@@ -109,10 +127,16 @@ namespace FFXIVVoicePackCreator {
                     case true:
                         MessageBox.Show("This path will now point to internal game files", Text);
                         filePath.ReadOnly = true;
+                        playButton.Visible = false;
                         break;
                     case false:
                         MessageBox.Show("This path will now point to external sound files", Text);
                         filePath.ReadOnly = false;
+                        if (isPlayable) {
+                            playButton.Visible = true;
+                        } else {
+                            playButton.Visible = false;
+                        }
                         break;
                 }
             }
@@ -124,9 +148,16 @@ namespace FFXIVVoicePackCreator {
                 useGameFileCheckBox.Checked = true;
                 filePath.ReadOnly = true;
                 ignoreClear = false;
+                playButton.Visible = false;
             } else {
                 filePath.ReadOnly = false;
+                if (isPlayable) {
+                    playButton.Visible = true;
+                } else {
+                    playButton.Visible = false;
+                }
             }
+            ((MainWindow)ParentForm).HasSaved = false;
         }
 
         private void filePath_DragEnter(object sender, DragEventArgs e) {
@@ -152,6 +183,23 @@ namespace FFXIVVoicePackCreator {
                 }
             }
             return false;
+        }
+
+        private void playButton_Click(object sender, EventArgs e) {
+            PlaySound(filePath.Text);
+        }
+        public void PlaySound(string fileName) {
+            if (File.Exists(fileName)) {
+                var output = new WaveOutEvent();
+                using (var player = new AudioFileReader(fileName)) {
+                    output.Init(player);
+                    output.Play();
+                    while (output.PlaybackState == PlaybackState.Playing) {
+                        Thread.Sleep(200);
+                        Application.DoEvents();
+                    }
+                }
+            }
         }
     }
 }
