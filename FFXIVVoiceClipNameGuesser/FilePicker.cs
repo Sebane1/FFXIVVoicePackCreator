@@ -157,7 +157,10 @@ namespace FFXIVVoicePackCreator {
                     playButton.Visible = false;
                 }
             }
-            ((MainWindow)ParentForm).HasSaved = false;
+            MainWindow window = (ParentForm as MainWindow);
+            if(window != null) {
+                window.HasSaved = false;
+            }
         }
 
         private void filePath_DragEnter(object sender, DragEventArgs e) {
