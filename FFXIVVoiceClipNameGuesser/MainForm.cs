@@ -61,6 +61,8 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
+        public string VersionText { get; private set; }
+
         public MainWindow() {
             InitializeComponent();
         }
@@ -70,6 +72,7 @@ namespace FFXIVVoicePackCreator {
             TopMost = true;
             GetPenumbraPath();
             exportProgressBar.Visible = false;
+            VersionText = Application.ProductName + " " + Application.ProductVersion;
             Text = Application.ProductName + " " + Application.ProductVersion;
             RaceVoice.LoadRacialVoiceInfo();
             RefreshRacialChoices();
@@ -119,6 +122,19 @@ namespace FFXIVVoicePackCreator {
                 modVersionTextBox,
             };
             TopMost = false;
+            CheckForCommandArguments();
+        }
+
+        private void CheckForCommandArguments() {
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1) {
+                if (!string.IsNullOrWhiteSpace(args[1])) {
+                    if (File.Exists(args[1]) && args[1].Contains(".ffxivsp")) {
+                        savePath = args[1];
+                        OpenProjectV2(savePath);
+                    }
+                }
+            }
         }
 
         private void CleanDirectory() {
@@ -145,12 +161,12 @@ namespace FFXIVVoicePackCreator {
 
         private void PickVoiceDump() {
             bool dontLoad = false;
-            MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", Text);
+            MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", VersionText);
             FolderBrowserDialog openFileDialog = new FolderBrowserDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
                 dumpFilePath = openFileDialog.SelectedPath;
             } else {
-                MessageBox.Show("No dumped voice folder selected", Text);
+                MessageBox.Show("No dumped voice folder selected", VersionText);
                 dontLoad = true;
             }
             if (!dontLoad) {
@@ -204,9 +220,9 @@ namespace FFXIVVoicePackCreator {
                     lostFileList.Items.Add(Path.GetFileName(dumpFiles[index++]));
                     lostFileListPaths.Add(dumpFiles[index++]);
                 }
-                MessageBox.Show("Found " + foundVoices + " voices. Was not able to find " + unfoundVoices + " voices.", Text);
+                MessageBox.Show("Found " + foundVoices + " voices. Was not able to find " + unfoundVoices + " voices.", VersionText);
                 if (missingFIleList.Items.Count > 0) {
-                    MessageBox.Show(missingFIleList.Items.Count + @" items do not have a known filename. Check ""Missing Names"" list to help with you guesswork", Text);
+                    MessageBox.Show(missingFIleList.Items.Count + @" items do not have a known filename. Check ""Missing Names"" list to help with you guesswork", VersionText);
                 }
             }
         }
@@ -269,7 +285,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void ConfigurePenumbraModFolder() {
-            MessageBox.Show(@"Please configure where your penumbra mods folder is, we will remember it for all future exports. This should be where you have penumbra set to use mods.", Text);
+            MessageBox.Show(@"Please configure where your penumbra mods folder is, we will remember it for all future exports. This should be where you have penumbra set to use mods.", VersionText);
             FolderBrowserDialog folderSelect = new FolderBrowserDialog();
             if (folderSelect.ShowDialog() == DialogResult.OK) {
                 penumbraModPath = folderSelect.SelectedPath;
@@ -282,7 +298,7 @@ namespace FFXIVVoicePackCreator {
                 ConfigurePenumbraModFolder();
             }
             if (string.IsNullOrEmpty(modNameTextBox.Text)) {
-                MessageBox.Show(@"Please enter a valid mod name", Text);
+                MessageBox.Show(@"Please enter a valid mod name", VersionText);
                 return false;
             }
             string newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
@@ -424,7 +440,7 @@ namespace FFXIVVoicePackCreator {
                     if (!emoteVoicesToReplace.Contains(emote)) {
                         AddReplacementValues(emote, battleVoiceValue);
                     } else {
-                        MessageBox.Show("This voice has already been added for replacement.", Text);
+                        MessageBox.Show("This voice has already been added for replacement.", VersionText);
                     }
                     break;
                 case 1:
@@ -435,7 +451,7 @@ namespace FFXIVVoicePackCreator {
                         if (!emoteVoicesToReplace.Contains(emote)) {
                             AddReplacementValues(emote, battleVoiceValue);
                         } else {
-                            MessageBox.Show("This voice has already been added for replacement.", Text);
+                            MessageBox.Show("This voice has already been added for replacement.", VersionText);
                         }
                     } else {
 
@@ -499,11 +515,11 @@ namespace FFXIVVoicePackCreator {
                     ExportGroup(groupFilePathEmotes, group);
                     ExportGroup(groupFilePathBattle, group2);
                     BringToFront();
-                    MessageBox.Show(@"Export Complete", Text);
+                    MessageBox.Show(@"Export Complete", VersionText);
                     TopMost = false;
                 }
             } else {
-                MessageBox.Show(@"Export Cancelled", Text);
+                MessageBox.Show(@"Export Cancelled", VersionText);
             }
             exportProgressBar.Visible = false;
         }
@@ -559,7 +575,7 @@ namespace FFXIVVoicePackCreator {
                         }
                     }
                     if (detectedEmptyField) {
-                        MessageBox.Show(@"Warning: You have not assigned a battle sound for every field. Due to the way battle sounds work, any missing sounds will play silence.", Text);
+                        MessageBox.Show(@"Warning: You have not assigned a battle sound for every field. Due to the way battle sounds work, any missing sounds will play silence.", VersionText);
                     }
                 }
             } else {
@@ -633,7 +649,7 @@ namespace FFXIVVoicePackCreator {
                 if (MessageBox.Show(@"Do you have voices dumped via FFXIVExplorer or an equivalent tool as .wav files?", Text, MessageBoxButtons.YesNo) == DialogResult.Yes) {
                     PickVoiceDump();
                 } else {
-                    MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", Text);
+                    MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", VersionText);
                 }
                 alreadyShown = true;
             }
@@ -858,7 +874,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void quickImportButton_Click(object sender, EventArgs e) {
-            MessageBox.Show("To use quick import successfully, name your sound files exactly after the sound they intend to replace together in a separated folder. You can use the program labels for reference.", Text);
+            MessageBox.Show("To use quick import successfully, name your sound files exactly after the sound they intend to replace together in a separated folder. You can use the program labels for reference.", VersionText);
             FolderBrowserDialog folderSelectDialog = new FolderBrowserDialog();
             if (folderSelectDialog.ShowDialog() == DialogResult.OK) {
                 foreach (string filename in Directory.GetFiles(folderSelectDialog.SelectedPath)) {
@@ -960,19 +976,19 @@ namespace FFXIVVoicePackCreator {
                                 voiceAlreadyInList = true;
                             }
                         } else {
-                            MessageBox.Show("Theres is no voice to replace.", Text);
+                            MessageBox.Show("Theres is no voice to replace.", VersionText);
                             voiceCount++;
                         }
                         break;
                 }
             }
             if (voiceAlreadyInList) {
-                MessageBox.Show($"{voiceCount} voices were already added to the list. Anything not already added has been added.", Text);
+                MessageBox.Show($"{voiceCount} voices were already added to the list. Anything not already added has been added.", VersionText);
             }
         }
 
         private void quickSwapButton_Click(object sender, EventArgs e) {
-            MessageBox.Show(@"Quick swap lets you quickly pick an in game voice that you want to swap with another.", Text);
+            MessageBox.Show(@"Quick swap lets you quickly pick an in game voice that you want to swap with another.", VersionText);
             VoiceSelection voiceSelection = new VoiceSelection();
             if (voiceSelection.ShowDialog() == DialogResult.OK) {
                 foreach (FilePicker filePicker in emoteFilePickers) {
@@ -1017,7 +1033,7 @@ namespace FFXIVVoicePackCreator {
                         battleVoiceToSwapWith = voiceSelection.SelectedVoiceBattle;
                         voiceTabs.SelectedIndex = 0;
                     } else {
-                        MessageBox.Show(@"No replacement was selected, unchecking", Text);
+                        MessageBox.Show(@"No replacement was selected, unchecking", VersionText);
                         voiceSwapBattleVoices.Checked = false;
                     }
                 } else {
@@ -1032,21 +1048,21 @@ namespace FFXIVVoicePackCreator {
             if (voiceTabs.SelectedIndex == 1) {
                 if (voiceSwapBattleVoices.Checked) {
                     voiceTabs.SelectedIndex = 0;
-                    MessageBox.Show(@"Battle voices cannot be edited while in voice swap mode. If you intend to edit battle voices please disable it.", Text);
+                    MessageBox.Show(@"Battle voices cannot be edited while in voice swap mode. If you intend to edit battle voices please disable it.", VersionText);
                 } else {
                     if (!showedTutorial) {
                         showedTutorial = true;
-                        MessageBox.Show(_battleSoundTutorial, Text);
+                        MessageBox.Show(_battleSoundTutorial, VersionText);
                     }
                 }
             }
         }
 
         private void bulkSCDAudioExtractorToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("Select your input folder of .scd files", Text) == DialogResult.OK) {
+            if (MessageBox.Show("Select your input folder of .scd files", VersionText) == DialogResult.OK) {
                 FolderBrowserDialog inputFolderDialog = new FolderBrowserDialog();
                 if (inputFolderDialog.ShowDialog() == DialogResult.OK) {
-                    if (MessageBox.Show("Select your output folder for extracted sounds", Text) == DialogResult.OK) {
+                    if (MessageBox.Show("Select your output folder for extracted sounds", VersionText) == DialogResult.OK) {
                         FolderBrowserDialog outputFolderDialog = new FolderBrowserDialog();
                         if (outputFolderDialog.ShowDialog() == DialogResult.OK) {
                             string[] files = Directory.GetFiles(inputFolderDialog.SelectedPath);
@@ -1082,9 +1098,9 @@ namespace FFXIVVoicePackCreator {
                                 }
                             }
                             if (!string.IsNullOrWhiteSpace(error)) {
-                                MessageBox.Show(error, Text);
+                                MessageBox.Show(error, VersionText);
                             }
-                            MessageBox.Show("Extraction Complete", Text);
+                            MessageBox.Show("Extraction Complete", VersionText);
                             Process.Start(new System.Diagnostics.ProcessStartInfo() {
                                 FileName = outputFolderDialog.SelectedPath,
                                 UseShellExecute = true,
@@ -1107,7 +1123,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void battleSoundGuidelinesToolStripMenuItem_Click(object sender, EventArgs e) {
-            MessageBox.Show(_battleSoundTutorial, Text);
+            MessageBox.Show(_battleSoundTutorial, VersionText);
         }
     }
 }
