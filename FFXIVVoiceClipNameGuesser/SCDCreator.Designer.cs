@@ -58,10 +58,10 @@ namespace FFXIVVoicePackCreator {
             "Sound Effect",
             "Background Music",
             "Orchestrion"});
-            this.scdTypeComboBox.Location = new System.Drawing.Point(127, 107);
+            this.scdTypeComboBox.Location = new System.Drawing.Point(143, 107);
             this.scdTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.scdTypeComboBox.Name = "scdTypeComboBox";
-            this.scdTypeComboBox.Size = new System.Drawing.Size(297, 23);
+            this.scdTypeComboBox.Size = new System.Drawing.Size(281, 23);
             this.scdTypeComboBox.TabIndex = 4;
             this.scdTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.scdTypeComboBox_SelectedIndexChanged);
             // 
