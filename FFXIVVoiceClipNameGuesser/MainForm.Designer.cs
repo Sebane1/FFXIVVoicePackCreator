@@ -415,7 +415,7 @@ namespace FFXIVVoicePackCreator {
             this.tabManager.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabManager.Name = "tabManager";
             this.tabManager.SelectedIndex = 0;
-            this.tabManager.Size = new System.Drawing.Size(492, 433);
+            this.tabManager.Size = new System.Drawing.Size(492, 435);
             this.tabManager.TabIndex = 47;
             this.tabManager.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabManager_Selecting);
             // 
@@ -587,17 +587,17 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceGuessingTab.Name = "voiceGuessingTab";
             this.voiceGuessingTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceGuessingTab.Size = new System.Drawing.Size(484, 405);
+            this.voiceGuessingTab.Size = new System.Drawing.Size(484, 407);
             this.voiceGuessingTab.TabIndex = 1;
             this.voiceGuessingTab.Text = "Voice Guesser";
             this.voiceGuessingTab.UseVisualStyleBackColor = true;
             // 
             // easyGenerateButton
             // 
-            this.easyGenerateButton.Location = new System.Drawing.Point(492, 576);
+            this.easyGenerateButton.Location = new System.Drawing.Point(488, 576);
             this.easyGenerateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.easyGenerateButton.Name = "easyGenerateButton";
-            this.easyGenerateButton.Size = new System.Drawing.Size(484, 30);
+            this.easyGenerateButton.Size = new System.Drawing.Size(488, 30);
             this.easyGenerateButton.TabIndex = 34;
             this.easyGenerateButton.Text = "Generate";
             this.easyGenerateButton.UseVisualStyleBackColor = true;
@@ -618,10 +618,10 @@ namespace FFXIVVoicePackCreator {
             // 
             // exportProgressBar
             // 
-            this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
+            this.exportProgressBar.Location = new System.Drawing.Point(4, 596);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(972, 30);
+            this.exportProgressBar.Size = new System.Drawing.Size(972, 10);
             this.exportProgressBar.TabIndex = 50;
             // 
             // quickSwapButton
@@ -629,7 +629,7 @@ namespace FFXIVVoicePackCreator {
             this.quickSwapButton.Location = new System.Drawing.Point(244, 576);
             this.quickSwapButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.quickSwapButton.Name = "quickSwapButton";
-            this.quickSwapButton.Size = new System.Drawing.Size(240, 30);
+            this.quickSwapButton.Size = new System.Drawing.Size(244, 30);
             this.quickSwapButton.TabIndex = 51;
             this.quickSwapButton.Text = "Quick Swap";
             this.quickSwapButton.UseVisualStyleBackColor = true;
@@ -641,7 +641,7 @@ namespace FFXIVVoicePackCreator {
             | System.Windows.Forms.AnchorStyles.Left)));
             this.voiceTabs.Controls.Add(this.emoteVoicesPage);
             this.voiceTabs.Controls.Add(this.battleVoicesPage);
-            this.voiceTabs.Location = new System.Drawing.Point(0, 29);
+            this.voiceTabs.Location = new System.Drawing.Point(4, 29);
             this.voiceTabs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceTabs.Name = "voiceTabs";
             this.voiceTabs.SelectedIndex = 0;
