@@ -34,6 +34,7 @@ namespace FFXIVVoicePackCreator {
         [Category("Can Play Audio"), Description("Can this play sound?")]
         public bool IsPlayable { get => isPlayable; set => isPlayable = value; }
 
+
         string filter;
         private Point startPos;
         private bool canDoDragDrop;
@@ -143,7 +144,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void filePath_TextChanged(object sender, EventArgs e) {
-            if (filePath.Text.Contains(".scd")) {
+            if (filePath.Text.Contains(".scd") && isSwappable) {
                 ignoreClear = true;
                 useGameFileCheckBox.Checked = true;
                 filePath.ReadOnly = true;

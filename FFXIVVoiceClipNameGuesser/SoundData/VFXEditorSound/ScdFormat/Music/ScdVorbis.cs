@@ -99,7 +99,7 @@ namespace VfxEditor.ScdFormat {
         }
 
         // Giga-scuffed
-        public static void ImportOgg( string path, ScdAudioEntry entry, int loopStart, int loopEnd) {
+        public static void ImportOgg( string path, ScdAudioEntry entry, int loopStart, int loopEnd, ScdFile scdFile) {
             using var oggFile = new VorbisWaveReader( path );
 
             var oggData = File.ReadAllBytes( path );
@@ -129,8 +129,7 @@ namespace VfxEditor.ScdFormat {
             var newEntry = new ScdAudioEntry();
             newEntry.Read( reader );
 
-            //Plugin.ScdManager.CurrentFile.Replace( entry, newEntry );
-            //entry.Dispose();
+            scdFile.Replace(entry, newEntry);
         }
 
         //public static void ImportWav( string path, ScdAudioEntry entry ) {

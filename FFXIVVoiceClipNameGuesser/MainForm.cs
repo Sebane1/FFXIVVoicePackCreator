@@ -607,7 +607,7 @@ namespace FFXIVVoicePackCreator {
                         if (entry.Format == SscfWaveFormat.MsAdPcm) {
                             string path = list[i++];
                             if (!string.IsNullOrEmpty(path)) {
-                                ScdFile.Import(path, entry);
+                                file.Import(path, entry);
                             }
                         }
                     }

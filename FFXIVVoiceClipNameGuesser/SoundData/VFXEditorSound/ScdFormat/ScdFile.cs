@@ -116,9 +116,9 @@ namespace VfxEditor.ScdFormat {
             Audio.Insert(index, newEntry);
         }
 
-        public static void Import(string path, ScdAudioEntry music, int loopStart = 0, int loopEnd = 0) {
+        public void Import(string path, ScdAudioEntry music, int loopStart = 0, int loopEnd = 0) {
             if (music.Format == SscfWaveFormat.Vorbis) {
-                ScdVorbis.ImportOgg(path, music, loopStart, loopEnd);
+                ScdVorbis.ImportOgg(path, music, loopStart, loopEnd, this);
             } else {
                 ScdAdpcm.Import(path, music);
             }
