@@ -3,7 +3,7 @@ A voice pack creation tool, voice swapper, MS-ADPCM, and OGG SCD generator.
 Download:
 https://github.com/Sebane1/FFXIVVoicePackCreator/releases
 
-![](https://i.gyazo.com/95a1155ab9c75f387f0a37b6e4b4c6e3.png)
+![](https://i.gyazo.com/d8052440d099cbb4d50d427ec3e58261.png)
 
 Instructions:
 
