@@ -40,7 +40,7 @@ namespace FFXIVVoicePackCreator {
                     case 2:
                         if (File.Exists(mediaSelection.FilePath.Text)) {
                             string tempPath = Path.Combine(Path.GetDirectoryName(mediaSelection.FilePath.Text), Guid.NewGuid() + ".ogg");
-                            Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + mediaSelection.FilePath.Text + @""""} -c:a libvorbis -ar: 44100 {@"""" + tempPath + @""""}");
+                            Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + mediaSelection.FilePath.Text + @""""} -c:a libvorbis -ar: 44100 -ac 1 {@"""" + tempPath + @""""}");
                             while (SCDGenerator.IsFileLocked(tempPath)) { };
                             InjectSCDFilesOgg(Path.Combine(Application.StartupPath, @"res\scd\orchestrion.scd"), outputSelection.FilePath.Text,
                             new List<string>() { tempPath }, int.Parse(loopStartTextBox.Text), int.Parse(loopEndTextBox.Text));

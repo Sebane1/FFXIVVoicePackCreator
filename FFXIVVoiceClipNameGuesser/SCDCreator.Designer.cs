@@ -143,6 +143,8 @@ namespace FFXIVVoicePackCreator {
             // 
             // outputSelection
             // 
+            this.outputSelection.AutoSize = true;
+            this.outputSelection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.outputSelection.Filter = "scd files (*.scd)|*.scd";
             this.outputSelection.Index = -1;
             this.outputSelection.IsPlayable = false;
@@ -156,6 +158,8 @@ namespace FFXIVVoicePackCreator {
             // 
             // mediaSelection
             // 
+            this.mediaSelection.AutoSize = true;
+            this.mediaSelection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
             this.mediaSelection.Index = -1;
             this.mediaSelection.IsPlayable = true;
@@ -169,8 +173,8 @@ namespace FFXIVVoicePackCreator {
             // 
             // SCDCreator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(440, 317);
             this.Controls.Add(this.NumberOfSamplesLabel);
             this.Controls.Add(this.numberOfSamplesTextBox);
