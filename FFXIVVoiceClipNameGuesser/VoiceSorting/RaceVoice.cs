@@ -18,7 +18,7 @@ namespace FFXIVVoicePackCreator {
         public static Dictionary<string, List<string>> RacesToVoice { get => racesToVoiceDscription; set => racesToVoiceDscription = value; }
         public static List<RaceVoice> RacialList { get => racialListEmotes; set => racialListEmotes = value; }
         public static List<RaceVoice> RacialListBattle { get => racialListBattle; set => racialListBattle = value; }
-        public static Dictionary<string, List<string>> RacesToVoiceDscription { get => racesToVoiceDscription; set => racesToVoiceDscription = value; }
+        public static Dictionary<string, List<string>> RacesToVoiceDescription { get => racesToVoiceDscription; set => racesToVoiceDscription = value; }
 
         private static List<RaceVoice> racialListEmotes;
         private static Dictionary<string, List<string>> racesToVoiceDscription = new Dictionary<string, List<string>>();
