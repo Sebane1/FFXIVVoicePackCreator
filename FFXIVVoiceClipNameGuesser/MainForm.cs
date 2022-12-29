@@ -15,6 +15,7 @@ using VfxEditor.ScdFormat;
 
 namespace FFXIVVoicePackCreator {
     public partial class MainWindow : Form {
+        private string newModPath;
         private string exportFilePathEmote;
         private string exportFilePathBattle;
         private string jsonFilepath;
@@ -48,6 +49,7 @@ namespace FFXIVVoicePackCreator {
         private bool suppressVoiceSwapBattleVoiceChecked;
         private bool battleVoicesInUse;
         private bool showedTutorial;
+        private int offset;
 
         public bool HasSaved {
             get => hasSaved; set {
@@ -275,10 +277,12 @@ namespace FFXIVVoicePackCreator {
 
         private void ExportGroup(string path, Group group) {
             if (path != null) {
-                using (StreamWriter file = File.CreateText(path)) {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Formatting = Formatting.Indented;
-                    serializer.Serialize(file, group);
+                if (group.Options.Count > 0) {
+                    using (StreamWriter file = File.CreateText(path)) {
+                        JsonSerializer serializer = new JsonSerializer();
+                        serializer.Formatting = Formatting.Indented;
+                        serializer.Serialize(file, group);
+                    }
                 }
             }
         }
@@ -300,7 +304,10 @@ namespace FFXIVVoicePackCreator {
                 MessageBox.Show(@"Please enter a valid mod name", VersionText);
                 return false;
             }
-            string newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
+            newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
+            if (Directory.Exists(newModPath)) {
+                Directory.Delete(newModPath, true);
+            }
             exportFilePathEmote = Path.Combine(newModPath, @"sound\voice\vo_emote");
             exportFilePathBattle = Path.Combine(newModPath, @"sound\voice\vo_battle");
             jsonFilepath = Path.Combine(newModPath, "default_mod.json");
@@ -322,8 +329,6 @@ namespace FFXIVVoicePackCreator {
                     }
                 }
             }
-            groupFilePathEmotes = Path.Combine(newModPath, "group_001_emote voices.json");
-            groupFilePathBattle = Path.Combine(newModPath, "group_002_battle voices.json");
             return true;
         }
 
@@ -501,18 +506,37 @@ namespace FFXIVVoicePackCreator {
                         exportProgressBar.Increment(1);
                         exportProgressBar.Refresh();
                     }
-                    Group group = new Group("Emote Voice To Replace", "Character Voices", 0, "Multi", 0);
+                    List<Group> emoteGroups = new List<Group>();
+                    List<string> emoteGroupPaths = new List<string>();
+                    Group group = new Group("Emote Voice To Replace (Group 1)", "The emote voice you are replacing", 0, "Multi", 0);
+                    emoteGroups.Add(group);
+                    emoteGroupPaths.Add(Path.Combine(newModPath, $"group_001_{group.Name.ToLower()}.json"));
+                    int i = 0;
                     foreach (int value in emoteVoicesToReplace) {
                         Option options = new Option(RaceVoice.RacesToVoiceDescription[value + ""][0], 0);
                         ExportEmoteFiles(value, options);
                         group.Options.Add(options);
+                        if (i < 11) {
+                            i++;
+                        } else {
+                            i = 0;
+                            group = new Group($"Emote Voice To Replace (Group {emoteGroups.Count + 1})", "The emote voice you are replacing", 0, "Multi", 0);
+                            emoteGroups.Add(group);
+                            emoteGroupPaths.Add(Path.Combine(newModPath, $"group_0" + (emoteGroupPaths.Count < 9 ? "0" : "") + $"{emoteGroupPaths.Count + 1}_{group.Name.ToLower()}.json"));
+                        }
                     }
-                    Group group2 = new Group("Battle Voice To Replace", "Character Voices", 0, "Multi", 0);
-                    ExportBattleFiles(group2);
+                    offset = emoteGroupPaths.Count;
+                    List<Group> battleGroups = new List<Group>();
+                    List<string> battleGroupPaths = new List<string>();
+                    ExportBattleFiles(battleGroups, battleGroupPaths);
                     ExportJson();
                     ExportMeta();
-                    ExportGroup(groupFilePathEmotes, group);
-                    ExportGroup(groupFilePathBattle, group2);
+                    for (i = 0; i < emoteGroups.Count; i++) {
+                        ExportGroup(emoteGroupPaths[i], emoteGroups[i]);
+                    }
+                    for (i = 0; i < battleGroupPaths.Count; i++) {
+                        ExportGroup(battleGroupPaths[i], battleGroups[i]);
+                    }
                     BringToFront();
                     MessageBox.Show(@"Export Complete", VersionText);
                     TopMost = false;
@@ -523,11 +547,15 @@ namespace FFXIVVoicePackCreator {
             exportProgressBar.Visible = false;
         }
 
-        private void ExportBattleFiles(Group group) {
+        private void ExportBattleFiles(List<Group> groups, List<string> groupPaths) {
             battleVoicesInUse = false;
             List<string> list = new List<string>();
             List<string> alreadyProcessed = new List<string>();
             int countedNull = 0;
+            Group group = new Group($"Battle Voice To Replace (Group 1)", "The battle voice you are replacing", 0, "Multi", 0);
+            groups.Add(group);
+            groupPaths.Add(Path.Combine(newModPath, $"group_0" + (offset + groupPaths.Count < 9 ? "0" : "") + $"{offset + groupPaths.Count + 1}_{group.Name.ToLower()}.json"));
+            int i = 0;
             if (!voiceSwapBattleVoices.Checked) {
                 bool detectedEmptyField = false;
                 for (int count = 0; count < 16; count++) {
@@ -545,7 +573,6 @@ namespace FFXIVVoicePackCreator {
                     exportProgressBar.Refresh();
                 }
                 // int battleVoiceCount = 0;
-
                 if (countedNull < battleFilePickers.Count) {
                     battleVoicesInUse = true;
                     foreach (string value in battleVoicesToReplace) {
@@ -590,6 +617,14 @@ namespace FFXIVVoicePackCreator {
                             }
                             Option option = new Option(name, 0);
                             option.Files.Add("sound/voice/vo_battle/" + value + @".scd", "sound\\voice\\vo_battle\\" + value + @".scd");
+                            if (i < 31) {
+                                i++;
+                            } else {
+                                i = 0;
+                                group = new Group($"Battle Voice To Replace (Group {groups.Count + 1})", "The battle voice you are replacing", 0, "Multi", 0);
+                                groups.Add(group);
+                                groupPaths.Add(Path.Combine(newModPath, $"group_0" + (offset + groupPaths.Count < 9 ? "0" : "") + $"{offset + groupPaths.Count + 1}_{group.Name.ToLower()}.json"));
+                            }
                             group.Options.Add(option);
                             alreadyProcessed.Add(value);
                         }
@@ -613,6 +648,14 @@ namespace FFXIVVoicePackCreator {
                         }
                         Option option = new Option(name, 0);
                         option.FileSwaps.Add("sound/voice/vo_battle/" + value + @".scd", "sound/voice/vo_battle/" + battleVoiceToSwapWith + ".scd");
+                        if (i < 31) {
+                            i++;
+                        } else {
+                            i = 0;
+                            group = new Group($"Battle Voice To Replace (Group {groups.Count + 1})", "The battle voice you are replacing", 0, "Multi", 0);
+                            groups.Add(group);
+                            groupPaths.Add(Path.Combine(newModPath, $"group_0" + (offset + groupPaths.Count < 9 ? "0" : "") + $"{offset + groupPaths.Count + 1}_{group.Name.ToLower()}.json"));
+                        }
                         group.Options.Add(option);
                         alreadyProcessed.Add(value);
                     }
