@@ -6,7 +6,8 @@ https://github.com/Sebane1/FFXIVVoicePackCreator/releases
 ![](https://i.gyazo.com/d8052440d099cbb4d50d427ec3e58261.png)
 
 Instructions:
-
+- To run the program make sure you've installed .net desktop runtime 7.0:
+https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.1-windows-x64-installer
 - Make sure you're using penumbra to manage your mods
 - Fill out your author information
 - Tell the program which emotes you want to replace with virtually any valid media files. Or tell it which existing voice you want to swap with.
