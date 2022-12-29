@@ -42,8 +42,7 @@ namespace FFXIVVoicePackCreator {
         public readonly string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
         public readonly string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nPenumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection.";
         public readonly string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
-        private readonly string _battleSoundTutorial = "The following are loose guidelines on how to assign things and are not guaranteed to have 100% accuracy. (FFXIV has absolutely 0 consistency from file to file for battle sounds, so this tool brute forces the semantics)\r\n\r\nRaces can have anywhere from 9, 10, 12, or 16 battle sounds that can be filled.\r\n\r\nFirst rule of thumb\r\n16 - 20 are your standard attack noises.\r\n21 - 25 are your hurt noises\r\n26 - 30 are extra noises and may not exist at all depending on race (I just dump my less good attack sounds here, some races like Viera may have some extra hurt sounds here right after the initial hurt noises)\r\n\r\nSecond rule of thumb (If you are an Au Ra, or another race happens to fall into these guidelines)\r\n16 - 20 are your hurt sounds\r\n21 - 25 are your standard attack sounds\r\n26 - 30 is very likely not used to its full extent if at all if using this secondary ruleset but feel free to fill them anyway. ";
-
+        private readonly string _battleSoundTutorial = "Due to how Square Enix authored their voice files, battle sounds for each race range between 10 (Au Ra), 12 (Most Races), or 16 (Hrothgar and Viera) actual sound clips. Because of this you may not hear all the sounds you assign.\r\n\r\nThis tool tries its best to fit what it can depending on the space available. Assign your lines best to worst in each category, or whatever makes sense for your situation.";
         private string penumbraModPath;
         private string battleVoiceToSwapWith;
         private bool suppressVoiceSwapBattleVoiceChecked;
@@ -96,22 +95,22 @@ namespace FFXIVVoicePackCreator {
                 unknown2};
 
             battleFilePickers = new List<FilePicker>() {
-                battle1,
-                battle2,
-                battle3,
-                battle4,
-                battle5,
-                battle6,
-                battle7,
-                battle8,
-                battle9,
-                battle10,
-                battle11,
-                battle12,
-                battle13,
-                battle14,
-                battle15,
-                battle16
+                attack1,
+                attack2,
+                attack3,
+                attack4,
+                attack5,
+                attack6,
+                hurt1,
+                hurt2,
+                hurt3,
+                hurt4,
+                hurt5,
+                hurt6,
+                death1,
+                death2,
+                extra1,
+                extra2
             };
 
             authorInformation = new List<TextBox>() {
@@ -131,7 +130,7 @@ namespace FFXIVVoicePackCreator {
                 if (!string.IsNullOrWhiteSpace(args[1])) {
                     if (File.Exists(args[1]) && args[1].Contains(".ffxivsp")) {
                         savePath = args[1];
-                        OpenProjectV2(savePath);
+                        OpenProject(savePath);
                     }
                 }
             }
@@ -504,7 +503,7 @@ namespace FFXIVVoicePackCreator {
                     }
                     Group group = new Group("Emote Voice To Replace", "Character Voices", 0, "Multi", 0);
                     foreach (int value in emoteVoicesToReplace) {
-                        Option options = new Option(RaceVoice.RacesToVoiceDscription[value + ""][0], 0);
+                        Option options = new Option(RaceVoice.RacesToVoiceDescription[value + ""][0], 0);
                         ExportEmoteFiles(value, options);
                         group.Options.Add(options);
                     }
@@ -552,10 +551,36 @@ namespace FFXIVVoicePackCreator {
                     foreach (string value in battleVoicesToReplace) {
                         string path = Path.Combine(Application.StartupPath, @"res\scd\" + value + ".scd");
                         if (!alreadyProcessed.Contains(value)) {
-                            InjectSCDFiles(path, exportFilePathBattle, value, list);
+                            if (value.Contains("ros") || value.Contains("vie")) {
+                                InjectSCDFiles(path, exportFilePathBattle, value, list);
+                            } else if (value.Contains("aur")) {
+                                List<string> battleSounds = new List<string>() {
+                                    // Hurt
+                                    list[6],list[7],list[8],
+                                    // Death
+                                    list[12],list[13],
+                                    // Attack
+                                    list[0],list[1],list[2],list[3],list[4],list[5],
+                                    // Extra
+                                    list[14], list[15]
+                                };
+                                InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
+                            } else {
+                                List<string> battleSounds = new List<string>() {
+                                    // Attack
+                                    list[0],list[1], list[2], list[3],
+                                    // Hurt
+                                    list[6],list[7],list[8], list[9],
+                                    // Death
+                                    list[12],list[13],
+                                    // Extra
+                                    list[4], list[5], list[14], list[15], list[10], list[11]
+                                };
+                                InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
+                            }
                             string name = "";
                             bool firstValueAdded = false;
-                            foreach (string nameValue in RaceVoice.RacesToVoiceDscription[value]) {
+                            foreach (string nameValue in RaceVoice.RacesToVoiceDescription[value]) {
                                 if (!firstValueAdded) {
                                     name += nameValue;
                                     firstValueAdded = true;
@@ -583,7 +608,7 @@ namespace FFXIVVoicePackCreator {
                     battleVoicesInUse = true;
                     if (!alreadyProcessed.Contains(value)) {
                         string name = "";
-                        foreach (string nameValue in RaceVoice.RacesToVoiceDscription[value]) {
+                        foreach (string nameValue in RaceVoice.RacesToVoiceDescription[value]) {
                             name += nameValue + " ";
                         }
                         Option option = new Option(name, 0);
@@ -702,7 +727,7 @@ namespace FFXIVVoicePackCreator {
             modAuthorTextBox.Text = _defaultAuthor;
             modDescriptionTextBox.Text = _defaultDescription;
             modWebsiteTextBox.Text = _defaultWebsite;
-            modVersionTextBox.Text = "0.0.0";
+            modVersionTextBox.Text = "1.0.0";
             foreach (FilePicker filePicker in emoteFilePickers) {
                 filePicker.FilePath.Text = "";
             }
@@ -734,7 +759,7 @@ namespace FFXIVVoicePackCreator {
                 openFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
                 if (openFileDialog.ShowDialog() == DialogResult.OK) {
                     savePath = openFileDialog.FileName;
-                    OpenProjectV2(savePath);
+                    OpenProject(savePath);
                 }
                 HasSaved = true;
             }
@@ -742,7 +767,7 @@ namespace FFXIVVoicePackCreator {
 
         public void SaveProject(string path) {
             using (StreamWriter writer = new StreamWriter(path)) {
-                writer.WriteLine(2);
+                writer.WriteLine(3);
                 // Write author info
                 writer.WriteLine(authorInformation.Count);
                 foreach (TextBox authorInfo in authorInformation) {
@@ -797,49 +822,21 @@ namespace FFXIVVoicePackCreator {
             }
         }
 
-        public void OpenProjectV2(string path) {
+        public void OpenProject(string path) {
             try {
                 List<int> emoteList = new List<int>();
                 List<string> battleList = new List<string>();
                 using (StreamReader reader = new StreamReader(path)) {
                     int version = int.Parse(reader.ReadLine());
-                    int itemCount = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < itemCount; i++) {
-                        authorInformation[i].Text = reader.ReadLine();
-                    }
-                    itemCount = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < itemCount; i++) {
-                        emoteFilePickers[i].FilePath.Text = reader.ReadLine();
-                    }
-                    itemCount = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < itemCount; i++) {
-                        showedTutorial = true;
-                        if (i < battleFilePickers.Count) {
-                            battleFilePickers[i].FilePath.Text = reader.ReadLine();
-                        } else {
-                            reader.ReadLine();
-                        }
-                    }
-                    itemCount = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < itemCount; i++) {
-                        emoteList.Add(int.Parse(reader.ReadLine()));
-                    }
-                    itemCount = int.Parse(reader.ReadLine());
-                    for (int i = 0; i < itemCount; i++) {
-                        battleList.Add(reader.ReadLine());
-                    }
-                    dumpFilePath = reader.ReadLine();
-                    exportFilePathEmote = reader.ReadLine();
-                    exportFilePathBattle = reader.ReadLine();
-                    jsonFilepath = reader.ReadLine();
-                    metaFilePath = reader.ReadLine();
-                    battleVoiceToSwapWith = reader.ReadLine();
 
-                    if (!string.IsNullOrEmpty(battleVoiceToSwapWith)) {
-                        suppressVoiceSwapBattleVoiceChecked = true;
-                        voiceSwapBattleVoices.Checked = true;
-                    } else {
-                        voiceSwapBattleVoices.Checked = false;
+                    switch (version) {
+                        case 2:
+                            OpenVersion2(reader, emoteList, battleList);
+                            MessageBox.Show("This project was made before battle voice generation was adjusted to better fit exports to multiple races, and more accurate labelling was added. Please take a moment to review that your chosen sounds correspond to the correct labels.", VersionText);
+                            break;
+                        case 3:
+                            OpenVersion2(reader, emoteList, battleList);
+                            break;
                     }
 
                     for (int i = 0; i < emoteList.Count; i++) {
@@ -851,6 +848,48 @@ namespace FFXIVVoicePackCreator {
             }
             HasSaved = true;
         }
+
+        private void OpenVersion2(StreamReader reader, List<int> emoteList, List<string> battleList) {
+            int itemCount = int.Parse(reader.ReadLine());
+            for (int i = 0; i < itemCount; i++) {
+                authorInformation[i].Text = reader.ReadLine();
+            }
+            itemCount = int.Parse(reader.ReadLine());
+            for (int i = 0; i < itemCount; i++) {
+                emoteFilePickers[i].FilePath.Text = reader.ReadLine();
+            }
+            itemCount = int.Parse(reader.ReadLine());
+            for (int i = 0; i < itemCount; i++) {
+                showedTutorial = true;
+                if (i < battleFilePickers.Count) {
+                    battleFilePickers[i].FilePath.Text = reader.ReadLine();
+                } else {
+                    reader.ReadLine();
+                }
+            }
+            itemCount = int.Parse(reader.ReadLine());
+            for (int i = 0; i < itemCount; i++) {
+                emoteList.Add(int.Parse(reader.ReadLine()));
+            }
+            itemCount = int.Parse(reader.ReadLine());
+            for (int i = 0; i < itemCount; i++) {
+                battleList.Add(reader.ReadLine());
+            }
+            dumpFilePath = reader.ReadLine();
+            exportFilePathEmote = reader.ReadLine();
+            exportFilePathBattle = reader.ReadLine();
+            jsonFilepath = reader.ReadLine();
+            metaFilePath = reader.ReadLine();
+            battleVoiceToSwapWith = reader.ReadLine();
+
+            if (!string.IsNullOrEmpty(battleVoiceToSwapWith)) {
+                suppressVoiceSwapBattleVoiceChecked = true;
+                voiceSwapBattleVoices.Checked = true;
+            } else {
+                voiceSwapBattleVoices.Checked = false;
+            }
+        }
+
         public void OpenProjectLegacy(string path) {
             using (StreamReader reader = new StreamReader(path)) {
                 int itemCount = int.Parse(reader.ReadLine());
@@ -1124,6 +1163,10 @@ namespace FFXIVVoicePackCreator {
 
         private void battleSoundGuidelinesToolStripMenuItem_Click(object sender, EventArgs e) {
             MessageBox.Show(_battleSoundTutorial, VersionText);
+        }
+
+        private void attack6_Load(object sender, EventArgs e) {
+
         }
     }
 }

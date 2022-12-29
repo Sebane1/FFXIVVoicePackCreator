@@ -91,22 +91,22 @@ namespace FFXIVVoicePackCreator {
             this.unknown2 = new FFXIVVoicePackCreator.FilePicker();
             this.unknown1 = new FFXIVVoicePackCreator.FilePicker();
             this.battleVoicesPage = new System.Windows.Forms.TabPage();
-            this.battle16 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle15 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle14 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle13 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle12 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle11 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle10 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle9 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle8 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle7 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle6 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle5 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle4 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle3 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle2 = new FFXIVVoicePackCreator.FilePicker();
-            this.battle1 = new FFXIVVoicePackCreator.FilePicker();
+            this.extra2 = new FFXIVVoicePackCreator.FilePicker();
+            this.extra1 = new FFXIVVoicePackCreator.FilePicker();
+            this.death2 = new FFXIVVoicePackCreator.FilePicker();
+            this.death1 = new FFXIVVoicePackCreator.FilePicker();
+            this.hurt6 = new FFXIVVoicePackCreator.FilePicker();
+            this.hurt5 = new FFXIVVoicePackCreator.FilePicker();
+            this.hurt4 = new FFXIVVoicePackCreator.FilePicker();
+            this.hurt3 = new FFXIVVoicePackCreator.FilePicker();
+            this.hurt2 = new FFXIVVoicePackCreator.FilePicker();
+            this.hurt1 = new FFXIVVoicePackCreator.FilePicker();
+            this.attack6 = new FFXIVVoicePackCreator.FilePicker();
+            this.attack5 = new FFXIVVoicePackCreator.FilePicker();
+            this.attack4 = new FFXIVVoicePackCreator.FilePicker();
+            this.attack3 = new FFXIVVoicePackCreator.FilePicker();
+            this.attack2 = new FFXIVVoicePackCreator.FilePicker();
+            this.attack1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
             this.voiceSwapBattleVoices = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
@@ -435,7 +435,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceExportTab.Name = "voiceExportTab";
             this.voiceExportTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceExportTab.Size = new System.Drawing.Size(484, 405);
+            this.voiceExportTab.Size = new System.Drawing.Size(484, 407);
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
@@ -618,10 +618,10 @@ namespace FFXIVVoicePackCreator {
             // 
             // exportProgressBar
             // 
-            this.exportProgressBar.Location = new System.Drawing.Point(4, 596);
+            this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(972, 10);
+            this.exportProgressBar.Size = new System.Drawing.Size(972, 30);
             this.exportProgressBar.TabIndex = 50;
             // 
             // quickSwapButton
@@ -934,303 +934,304 @@ namespace FFXIVVoicePackCreator {
             // 
             // battleVoicesPage
             // 
-            this.battleVoicesPage.Controls.Add(this.battle16);
-            this.battleVoicesPage.Controls.Add(this.battle15);
-            this.battleVoicesPage.Controls.Add(this.battle14);
-            this.battleVoicesPage.Controls.Add(this.battle13);
-            this.battleVoicesPage.Controls.Add(this.battle12);
-            this.battleVoicesPage.Controls.Add(this.battle11);
-            this.battleVoicesPage.Controls.Add(this.battle10);
-            this.battleVoicesPage.Controls.Add(this.battle9);
-            this.battleVoicesPage.Controls.Add(this.battle8);
-            this.battleVoicesPage.Controls.Add(this.battle7);
-            this.battleVoicesPage.Controls.Add(this.battle6);
-            this.battleVoicesPage.Controls.Add(this.battle5);
-            this.battleVoicesPage.Controls.Add(this.battle4);
-            this.battleVoicesPage.Controls.Add(this.battle3);
-            this.battleVoicesPage.Controls.Add(this.battle2);
-            this.battleVoicesPage.Controls.Add(this.battle1);
+            this.battleVoicesPage.Controls.Add(this.extra2);
+            this.battleVoicesPage.Controls.Add(this.extra1);
+            this.battleVoicesPage.Controls.Add(this.death2);
+            this.battleVoicesPage.Controls.Add(this.death1);
+            this.battleVoicesPage.Controls.Add(this.hurt6);
+            this.battleVoicesPage.Controls.Add(this.hurt5);
+            this.battleVoicesPage.Controls.Add(this.hurt4);
+            this.battleVoicesPage.Controls.Add(this.hurt3);
+            this.battleVoicesPage.Controls.Add(this.hurt2);
+            this.battleVoicesPage.Controls.Add(this.hurt1);
+            this.battleVoicesPage.Controls.Add(this.attack6);
+            this.battleVoicesPage.Controls.Add(this.attack5);
+            this.battleVoicesPage.Controls.Add(this.attack4);
+            this.battleVoicesPage.Controls.Add(this.attack3);
+            this.battleVoicesPage.Controls.Add(this.attack2);
+            this.battleVoicesPage.Controls.Add(this.attack1);
             this.battleVoicesPage.Controls.Add(this.multiSCDFile);
             this.battleVoicesPage.Location = new System.Drawing.Point(4, 24);
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
+            this.battleVoicesPage.Size = new System.Drawing.Size(480, 519);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
             // 
-            // battle16
+            // extra2
             // 
-            this.battle16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.extra2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle16.AutoSize = true;
-            this.battle16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle16.Filter = null;
-            this.battle16.Index = 30;
-            this.battle16.IsPlayable = true;
-            this.battle16.IsSaveMode = false;
-            this.battle16.IsSwappable = false;
-            this.battle16.Location = new System.Drawing.Point(4, 484);
-            this.battle16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle16.Name = "battle16";
-            this.battle16.Size = new System.Drawing.Size(604, 36);
-            this.battle16.TabIndex = 17;
+            this.extra2.AutoSize = true;
+            this.extra2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.extra2.Filter = null;
+            this.extra2.Index = 31;
+            this.extra2.IsPlayable = true;
+            this.extra2.IsSaveMode = false;
+            this.extra2.IsSwappable = false;
+            this.extra2.Location = new System.Drawing.Point(4, 484);
+            this.extra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.extra2.Name = "extra2";
+            this.extra2.Size = new System.Drawing.Size(604, 36);
+            this.extra2.TabIndex = 17;
             // 
-            // battle15
+            // extra1
             // 
-            this.battle15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.extra1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle15.AutoSize = true;
-            this.battle15.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle15.Filter = null;
-            this.battle15.Index = 30;
-            this.battle15.IsPlayable = true;
-            this.battle15.IsSaveMode = false;
-            this.battle15.IsSwappable = false;
-            this.battle15.Location = new System.Drawing.Point(4, 452);
-            this.battle15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle15.Name = "battle15";
-            this.battle15.Size = new System.Drawing.Size(604, 36);
-            this.battle15.TabIndex = 16;
+            this.extra1.AutoSize = true;
+            this.extra1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.extra1.Filter = null;
+            this.extra1.Index = 30;
+            this.extra1.IsPlayable = true;
+            this.extra1.IsSaveMode = false;
+            this.extra1.IsSwappable = false;
+            this.extra1.Location = new System.Drawing.Point(4, 452);
+            this.extra1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.extra1.Name = "extra1";
+            this.extra1.Size = new System.Drawing.Size(604, 36);
+            this.extra1.TabIndex = 16;
             // 
-            // battle14
+            // death2
             // 
-            this.battle14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.death2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle14.AutoSize = true;
-            this.battle14.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle14.Filter = null;
-            this.battle14.Index = 29;
-            this.battle14.IsPlayable = true;
-            this.battle14.IsSaveMode = false;
-            this.battle14.IsSwappable = false;
-            this.battle14.Location = new System.Drawing.Point(4, 420);
-            this.battle14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle14.Name = "battle14";
-            this.battle14.Size = new System.Drawing.Size(604, 36);
-            this.battle14.TabIndex = 15;
+            this.death2.AutoSize = true;
+            this.death2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.death2.Filter = null;
+            this.death2.Index = 29;
+            this.death2.IsPlayable = true;
+            this.death2.IsSaveMode = false;
+            this.death2.IsSwappable = false;
+            this.death2.Location = new System.Drawing.Point(4, 420);
+            this.death2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.death2.Name = "death2";
+            this.death2.Size = new System.Drawing.Size(604, 36);
+            this.death2.TabIndex = 15;
             // 
-            // battle13
+            // death1
             // 
-            this.battle13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.death1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle13.AutoSize = true;
-            this.battle13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle13.Filter = null;
-            this.battle13.Index = 28;
-            this.battle13.IsPlayable = true;
-            this.battle13.IsSaveMode = false;
-            this.battle13.IsSwappable = false;
-            this.battle13.Location = new System.Drawing.Point(4, 388);
-            this.battle13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle13.Name = "battle13";
-            this.battle13.Size = new System.Drawing.Size(604, 36);
-            this.battle13.TabIndex = 14;
+            this.death1.AutoSize = true;
+            this.death1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.death1.Filter = null;
+            this.death1.Index = 28;
+            this.death1.IsPlayable = true;
+            this.death1.IsSaveMode = false;
+            this.death1.IsSwappable = false;
+            this.death1.Location = new System.Drawing.Point(4, 388);
+            this.death1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.death1.Name = "death1";
+            this.death1.Size = new System.Drawing.Size(604, 36);
+            this.death1.TabIndex = 14;
             // 
-            // battle12
+            // hurt6
             // 
-            this.battle12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hurt6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle12.AutoSize = true;
-            this.battle12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle12.Filter = null;
-            this.battle12.Index = 27;
-            this.battle12.IsPlayable = true;
-            this.battle12.IsSaveMode = false;
-            this.battle12.IsSwappable = false;
-            this.battle12.Location = new System.Drawing.Point(4, 356);
-            this.battle12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle12.Name = "battle12";
-            this.battle12.Size = new System.Drawing.Size(604, 36);
-            this.battle12.TabIndex = 13;
+            this.hurt6.AutoSize = true;
+            this.hurt6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hurt6.Filter = null;
+            this.hurt6.Index = 27;
+            this.hurt6.IsPlayable = true;
+            this.hurt6.IsSaveMode = false;
+            this.hurt6.IsSwappable = false;
+            this.hurt6.Location = new System.Drawing.Point(4, 356);
+            this.hurt6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt6.Name = "hurt6";
+            this.hurt6.Size = new System.Drawing.Size(604, 36);
+            this.hurt6.TabIndex = 13;
             // 
-            // battle11
+            // hurt5
             // 
-            this.battle11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hurt5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle11.AutoSize = true;
-            this.battle11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle11.Filter = null;
-            this.battle11.Index = 26;
-            this.battle11.IsPlayable = true;
-            this.battle11.IsSaveMode = false;
-            this.battle11.IsSwappable = false;
-            this.battle11.Location = new System.Drawing.Point(4, 324);
-            this.battle11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle11.Name = "battle11";
-            this.battle11.Size = new System.Drawing.Size(604, 36);
-            this.battle11.TabIndex = 12;
+            this.hurt5.AutoSize = true;
+            this.hurt5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hurt5.Filter = null;
+            this.hurt5.Index = 26;
+            this.hurt5.IsPlayable = true;
+            this.hurt5.IsSaveMode = false;
+            this.hurt5.IsSwappable = false;
+            this.hurt5.Location = new System.Drawing.Point(4, 324);
+            this.hurt5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt5.Name = "hurt5";
+            this.hurt5.Size = new System.Drawing.Size(604, 36);
+            this.hurt5.TabIndex = 12;
             // 
-            // battle10
+            // hurt4
             // 
-            this.battle10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hurt4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle10.AutoSize = true;
-            this.battle10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle10.Filter = null;
-            this.battle10.Index = 25;
-            this.battle10.IsPlayable = true;
-            this.battle10.IsSaveMode = false;
-            this.battle10.IsSwappable = false;
-            this.battle10.Location = new System.Drawing.Point(4, 292);
-            this.battle10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle10.Name = "battle10";
-            this.battle10.Size = new System.Drawing.Size(604, 36);
-            this.battle10.TabIndex = 11;
+            this.hurt4.AutoSize = true;
+            this.hurt4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hurt4.Filter = null;
+            this.hurt4.Index = 25;
+            this.hurt4.IsPlayable = true;
+            this.hurt4.IsSaveMode = false;
+            this.hurt4.IsSwappable = false;
+            this.hurt4.Location = new System.Drawing.Point(4, 292);
+            this.hurt4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt4.Name = "hurt4";
+            this.hurt4.Size = new System.Drawing.Size(604, 36);
+            this.hurt4.TabIndex = 11;
             // 
-            // battle9
+            // hurt3
             // 
-            this.battle9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hurt3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle9.AutoSize = true;
-            this.battle9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle9.Filter = null;
-            this.battle9.Index = 24;
-            this.battle9.IsPlayable = true;
-            this.battle9.IsSaveMode = false;
-            this.battle9.IsSwappable = false;
-            this.battle9.Location = new System.Drawing.Point(4, 260);
-            this.battle9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle9.Name = "battle9";
-            this.battle9.Size = new System.Drawing.Size(604, 36);
-            this.battle9.TabIndex = 10;
+            this.hurt3.AutoSize = true;
+            this.hurt3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hurt3.Filter = null;
+            this.hurt3.Index = 24;
+            this.hurt3.IsPlayable = true;
+            this.hurt3.IsSaveMode = false;
+            this.hurt3.IsSwappable = false;
+            this.hurt3.Location = new System.Drawing.Point(4, 260);
+            this.hurt3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt3.Name = "hurt3";
+            this.hurt3.Size = new System.Drawing.Size(604, 36);
+            this.hurt3.TabIndex = 10;
             // 
-            // battle8
+            // hurt2
             // 
-            this.battle8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hurt2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle8.AutoSize = true;
-            this.battle8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle8.Filter = null;
-            this.battle8.Index = 23;
-            this.battle8.IsPlayable = true;
-            this.battle8.IsSaveMode = false;
-            this.battle8.IsSwappable = false;
-            this.battle8.Location = new System.Drawing.Point(4, 228);
-            this.battle8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle8.Name = "battle8";
-            this.battle8.Size = new System.Drawing.Size(604, 36);
-            this.battle8.TabIndex = 9;
+            this.hurt2.AutoSize = true;
+            this.hurt2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hurt2.Filter = null;
+            this.hurt2.Index = 23;
+            this.hurt2.IsPlayable = true;
+            this.hurt2.IsSaveMode = false;
+            this.hurt2.IsSwappable = false;
+            this.hurt2.Location = new System.Drawing.Point(4, 228);
+            this.hurt2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt2.Name = "hurt2";
+            this.hurt2.Size = new System.Drawing.Size(604, 36);
+            this.hurt2.TabIndex = 9;
             // 
-            // battle7
+            // hurt1
             // 
-            this.battle7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.hurt1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle7.AutoSize = true;
-            this.battle7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle7.Filter = null;
-            this.battle7.Index = 22;
-            this.battle7.IsPlayable = true;
-            this.battle7.IsSaveMode = false;
-            this.battle7.IsSwappable = false;
-            this.battle7.Location = new System.Drawing.Point(4, 196);
-            this.battle7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle7.Name = "battle7";
-            this.battle7.Size = new System.Drawing.Size(604, 36);
-            this.battle7.TabIndex = 8;
+            this.hurt1.AutoSize = true;
+            this.hurt1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hurt1.Filter = null;
+            this.hurt1.Index = 22;
+            this.hurt1.IsPlayable = true;
+            this.hurt1.IsSaveMode = false;
+            this.hurt1.IsSwappable = false;
+            this.hurt1.Location = new System.Drawing.Point(4, 196);
+            this.hurt1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt1.Name = "hurt1";
+            this.hurt1.Size = new System.Drawing.Size(604, 36);
+            this.hurt1.TabIndex = 8;
             // 
-            // battle6
+            // attack6
             // 
-            this.battle6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.attack6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle6.AutoSize = true;
-            this.battle6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle6.Filter = null;
-            this.battle6.Index = 21;
-            this.battle6.IsPlayable = true;
-            this.battle6.IsSaveMode = false;
-            this.battle6.IsSwappable = false;
-            this.battle6.Location = new System.Drawing.Point(4, 164);
-            this.battle6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle6.Name = "battle6";
-            this.battle6.Size = new System.Drawing.Size(604, 36);
-            this.battle6.TabIndex = 7;
+            this.attack6.AutoSize = true;
+            this.attack6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attack6.Filter = null;
+            this.attack6.Index = 21;
+            this.attack6.IsPlayable = true;
+            this.attack6.IsSaveMode = false;
+            this.attack6.IsSwappable = false;
+            this.attack6.Location = new System.Drawing.Point(4, 164);
+            this.attack6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack6.Name = "attack6";
+            this.attack6.Size = new System.Drawing.Size(604, 36);
+            this.attack6.TabIndex = 7;
+            this.attack6.Load += new System.EventHandler(this.attack6_Load);
             // 
-            // battle5
+            // attack5
             // 
-            this.battle5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.attack5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle5.AutoSize = true;
-            this.battle5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle5.Filter = null;
-            this.battle5.Index = 20;
-            this.battle5.IsPlayable = true;
-            this.battle5.IsSaveMode = false;
-            this.battle5.IsSwappable = false;
-            this.battle5.Location = new System.Drawing.Point(4, 132);
-            this.battle5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle5.Name = "battle5";
-            this.battle5.Size = new System.Drawing.Size(604, 36);
-            this.battle5.TabIndex = 6;
+            this.attack5.AutoSize = true;
+            this.attack5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attack5.Filter = null;
+            this.attack5.Index = 20;
+            this.attack5.IsPlayable = true;
+            this.attack5.IsSaveMode = false;
+            this.attack5.IsSwappable = false;
+            this.attack5.Location = new System.Drawing.Point(4, 132);
+            this.attack5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack5.Name = "attack5";
+            this.attack5.Size = new System.Drawing.Size(604, 36);
+            this.attack5.TabIndex = 6;
             // 
-            // battle4
+            // attack4
             // 
-            this.battle4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.attack4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle4.AutoSize = true;
-            this.battle4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle4.Filter = null;
-            this.battle4.Index = 19;
-            this.battle4.IsPlayable = true;
-            this.battle4.IsSaveMode = false;
-            this.battle4.IsSwappable = false;
-            this.battle4.Location = new System.Drawing.Point(4, 100);
-            this.battle4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle4.Name = "battle4";
-            this.battle4.Size = new System.Drawing.Size(604, 36);
-            this.battle4.TabIndex = 5;
+            this.attack4.AutoSize = true;
+            this.attack4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attack4.Filter = null;
+            this.attack4.Index = 19;
+            this.attack4.IsPlayable = true;
+            this.attack4.IsSaveMode = false;
+            this.attack4.IsSwappable = false;
+            this.attack4.Location = new System.Drawing.Point(4, 100);
+            this.attack4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack4.Name = "attack4";
+            this.attack4.Size = new System.Drawing.Size(604, 36);
+            this.attack4.TabIndex = 5;
             // 
-            // battle3
+            // attack3
             // 
-            this.battle3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.attack3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle3.AutoSize = true;
-            this.battle3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle3.Filter = null;
-            this.battle3.Index = 18;
-            this.battle3.IsPlayable = true;
-            this.battle3.IsSaveMode = false;
-            this.battle3.IsSwappable = false;
-            this.battle3.Location = new System.Drawing.Point(4, 68);
-            this.battle3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle3.Name = "battle3";
-            this.battle3.Size = new System.Drawing.Size(604, 36);
-            this.battle3.TabIndex = 4;
+            this.attack3.AutoSize = true;
+            this.attack3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attack3.Filter = null;
+            this.attack3.Index = 18;
+            this.attack3.IsPlayable = true;
+            this.attack3.IsSaveMode = false;
+            this.attack3.IsSwappable = false;
+            this.attack3.Location = new System.Drawing.Point(4, 68);
+            this.attack3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack3.Name = "attack3";
+            this.attack3.Size = new System.Drawing.Size(604, 36);
+            this.attack3.TabIndex = 4;
             // 
-            // battle2
+            // attack2
             // 
-            this.battle2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.attack2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle2.AutoSize = true;
-            this.battle2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle2.Filter = null;
-            this.battle2.Index = 17;
-            this.battle2.IsPlayable = true;
-            this.battle2.IsSaveMode = false;
-            this.battle2.IsSwappable = false;
-            this.battle2.Location = new System.Drawing.Point(4, 36);
-            this.battle2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle2.Name = "battle2";
-            this.battle2.Size = new System.Drawing.Size(604, 36);
-            this.battle2.TabIndex = 3;
+            this.attack2.AutoSize = true;
+            this.attack2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attack2.Filter = null;
+            this.attack2.Index = 17;
+            this.attack2.IsPlayable = true;
+            this.attack2.IsSaveMode = false;
+            this.attack2.IsSwappable = false;
+            this.attack2.Location = new System.Drawing.Point(4, 36);
+            this.attack2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack2.Name = "attack2";
+            this.attack2.Size = new System.Drawing.Size(604, 36);
+            this.attack2.TabIndex = 3;
             // 
-            // battle1
+            // attack1
             // 
-            this.battle1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.attack1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.battle1.AutoSize = true;
-            this.battle1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.battle1.Filter = null;
-            this.battle1.Index = 16;
-            this.battle1.IsPlayable = true;
-            this.battle1.IsSaveMode = false;
-            this.battle1.IsSwappable = false;
-            this.battle1.Location = new System.Drawing.Point(4, 4);
-            this.battle1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battle1.Name = "battle1";
-            this.battle1.Size = new System.Drawing.Size(604, 36);
-            this.battle1.TabIndex = 2;
+            this.attack1.AutoSize = true;
+            this.attack1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attack1.Filter = null;
+            this.attack1.Index = 16;
+            this.attack1.IsPlayable = true;
+            this.attack1.IsSaveMode = false;
+            this.attack1.IsSwappable = false;
+            this.attack1.Location = new System.Drawing.Point(4, 4);
+            this.attack1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack1.Name = "attack1";
+            this.attack1.Size = new System.Drawing.Size(604, 36);
+            this.attack1.TabIndex = 2;
             // 
             // multiSCDFile
             // 
@@ -1369,23 +1370,23 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.TabPage emoteVoicesPage;
         private System.Windows.Forms.TabPage battleVoicesPage;
         private System.Windows.Forms.Button multiSCDFile;
-        private FilePicker battle15;
-        private FilePicker battle14;
-        private FilePicker battle13;
-        private FilePicker battle12;
-        private FilePicker battle11;
-        private FilePicker battle10;
-        private FilePicker battle9;
-        private FilePicker battle8;
-        private FilePicker battle7;
-        private FilePicker battle6;
-        private FilePicker battle5;
-        private FilePicker battle4;
-        private FilePicker battle3;
-        private FilePicker battle2;
-        private FilePicker battle1;
+        private FilePicker extra1;
+        private FilePicker death2;
+        private FilePicker death1;
+        private FilePicker hurt6;
+        private FilePicker hurt5;
+        private FilePicker hurt4;
+        private FilePicker hurt3;
+        private FilePicker hurt2;
+        private FilePicker hurt1;
+        private FilePicker attack6;
+        private FilePicker attack5;
+        private FilePicker attack4;
+        private FilePicker attack3;
+        private FilePicker attack2;
+        private FilePicker attack1;
         private FilePicker unknown2;
-        private FilePicker battle16;
+        private FilePicker extra2;
         private System.Windows.Forms.CheckBox voiceSwapBattleVoices;
         private System.Windows.Forms.ToolStripMenuItem bulkSCDAudioExtractorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
