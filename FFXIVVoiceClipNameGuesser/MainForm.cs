@@ -551,7 +551,7 @@ namespace FFXIVVoicePackCreator {
                     foreach (string value in battleVoicesToReplace) {
                         string path = Path.Combine(Application.StartupPath, @"res\scd\" + value + ".scd");
                         if (!alreadyProcessed.Contains(value)) {
-                            if (value.Contains("ros") || value.Contains("vie")) {
+                            if (value.Contains("ros") || value.Contains("vie") || oldExportMode.Checked) {
                                 InjectSCDFiles(path, exportFilePathBattle, value, list);
                             } else if (value.Contains("aur")) {
                                 List<string> battleSounds = new List<string>() {
@@ -714,6 +714,8 @@ namespace FFXIVVoicePackCreator {
         }
         private void NewProject() {
             Text = Application.ProductName + " " + Application.ProductVersion;
+            oldExportMode.Checked = false;
+            oldExportMode.Visible = false;
             savePath = null;
             exportFilePathEmote = null;
             jsonFilepath = null;
@@ -767,7 +769,7 @@ namespace FFXIVVoicePackCreator {
 
         public void SaveProject(string path) {
             using (StreamWriter writer = new StreamWriter(path)) {
-                writer.WriteLine(3);
+                writer.WriteLine(oldExportMode.Checked ? 2 : 3);
                 // Write author info
                 writer.WriteLine(authorInformation.Count);
                 foreach (TextBox authorInfo in authorInformation) {
@@ -832,7 +834,9 @@ namespace FFXIVVoicePackCreator {
                     switch (version) {
                         case 2:
                             OpenVersion2(reader, emoteList, battleList);
-                            MessageBox.Show("This project was made before battle voice generation was adjusted to better fit exports to multiple races, and more accurate labelling was added. Please take a moment to review that your chosen sounds correspond to the correct labels.", VersionText);
+                            MessageBox.Show("This project was made before battle voice generation was adjusted to better fit exports to multiple races, and more accurate labelling was added.\r\n\r\nWe've put the application in " + @"""Old Export Mode""" + " so that your exports remain the same, but if you wish to re-assign them to be more accurate with labelling, disable " + @"""Old Export Mode"". This compatibility feature is only available for older projects and to prevent immediate inconvenience.", VersionText);
+                            oldExportMode.Checked = true;
+                            oldExportMode.Visible = true;
                             break;
                         case 3:
                             OpenVersion2(reader, emoteList, battleList);

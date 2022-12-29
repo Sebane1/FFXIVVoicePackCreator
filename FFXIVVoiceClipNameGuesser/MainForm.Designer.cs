@@ -57,6 +57,7 @@ namespace FFXIVVoicePackCreator {
             this.label11 = new System.Windows.Forms.Label();
             this.tabManager = new System.Windows.Forms.TabControl();
             this.voiceExportTab = new System.Windows.Forms.TabPage();
+            this.oldExportMode = new System.Windows.Forms.CheckBox();
             this.addRaceButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.clearListButton = new System.Windows.Forms.Button();
@@ -421,6 +422,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // voiceExportTab
             // 
+            this.voiceExportTab.Controls.Add(this.oldExportMode);
             this.voiceExportTab.Controls.Add(this.addRaceButton);
             this.voiceExportTab.Controls.Add(this.label13);
             this.voiceExportTab.Controls.Add(this.clearListButton);
@@ -439,6 +441,17 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
+            // 
+            // oldExportMode
+            // 
+            this.oldExportMode.AutoSize = true;
+            this.oldExportMode.Location = new System.Drawing.Point(8, 384);
+            this.oldExportMode.Name = "oldExportMode";
+            this.oldExportMode.Size = new System.Drawing.Size(116, 19);
+            this.oldExportMode.TabIndex = 54;
+            this.oldExportMode.Text = "Old Export Mode";
+            this.oldExportMode.UseVisualStyleBackColor = true;
+            this.oldExportMode.Visible = false;
             // 
             // addRaceButton
             // 
@@ -955,7 +968,7 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(480, 519);
+            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
@@ -1249,9 +1262,9 @@ namespace FFXIVVoicePackCreator {
             this.voiceSwapBattleVoices.AutoSize = true;
             this.voiceSwapBattleVoices.Location = new System.Drawing.Point(175, 32);
             this.voiceSwapBattleVoices.Name = "voiceSwapBattleVoices";
-            this.voiceSwapBattleVoices.Size = new System.Drawing.Size(229, 19);
+            this.voiceSwapBattleVoices.Size = new System.Drawing.Size(198, 19);
             this.voiceSwapBattleVoices.TabIndex = 53;
-            this.voiceSwapBattleVoices.Text = "Voice Swap Battle Voice (Experimental)";
+            this.voiceSwapBattleVoices.Text = "Swap Battle Voice (Experimental)";
             this.voiceSwapBattleVoices.UseVisualStyleBackColor = true;
             this.voiceSwapBattleVoices.CheckedChanged += new System.EventHandler(this.voiceSwapBattleVoices_CheckedChanged);
             // 
@@ -1393,6 +1406,7 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.ToolStripMenuItem configurePenumbraFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem battleSoundGuidelinesToolStripMenuItem;
+        private System.Windows.Forms.CheckBox oldExportMode;
     }
 }
 
