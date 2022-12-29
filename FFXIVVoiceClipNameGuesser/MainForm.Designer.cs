@@ -445,12 +445,14 @@ namespace FFXIVVoicePackCreator {
             // oldExportMode
             // 
             this.oldExportMode.AutoSize = true;
+            this.oldExportMode.BackColor = System.Drawing.Color.IndianRed;
+            this.oldExportMode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.oldExportMode.Location = new System.Drawing.Point(8, 384);
             this.oldExportMode.Name = "oldExportMode";
             this.oldExportMode.Size = new System.Drawing.Size(116, 19);
             this.oldExportMode.TabIndex = 54;
             this.oldExportMode.Text = "Old Export Mode";
-            this.oldExportMode.UseVisualStyleBackColor = true;
+            this.oldExportMode.UseVisualStyleBackColor = false;
             this.oldExportMode.Visible = false;
             // 
             // addRaceButton

@@ -834,13 +834,17 @@ namespace FFXIVVoicePackCreator {
                     switch (version) {
                         case 2:
                             OpenVersion2(reader, emoteList, battleList);
-                            MessageBox.Show("This project was made before battle voice generation was adjusted to better fit exports to multiple races, and more accurate labelling was added.\r\n\r\nWe've put the application in " + @"""Old Export Mode""" + " so that your exports remain the same, but if you wish to re-assign them to be more accurate with labelling, disable " + @"""Old Export Mode"". This compatibility feature is only available for older projects and to prevent immediate inconvenience.", VersionText);
-                            oldExportMode.Checked = true;
-                            oldExportMode.Visible = true;
+                            if (showedTutorial) {
+                                MessageBox.Show("This project was made before battle voice generation was adjusted to better fit exports to multiple races, and more accurate labelling was added.\r\n\r\nWe've put the application in " + @"""Old Export Mode""" + " so that your exports remain the same, but if you wish to re-assign them to be more accurate with labelling, disable " + @"""Old Export Mode"". This compatibility feature is only available for older projects and to prevent immediate inconvenience.", VersionText);
+                                oldExportMode.Checked = true;
+                                oldExportMode.Visible = true;
+                            }
                             break;
                         case 3:
                             OpenVersion2(reader, emoteList, battleList);
                             break;
+                        default:
+                            throw new Exception();
                     }
 
                     for (int i = 0; i < emoteList.Count; i++) {
