@@ -32,17 +32,17 @@ namespace FFXIVVoicePackCreator {
             this.labelName = new System.Windows.Forms.Label();
             this.useGameFileCheckBox = new System.Windows.Forms.CheckBox();
             this.playButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // filePath
             // 
-            this.filePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePath.Location = new System.Drawing.Point(128, 7);
+            this.filePath.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filePath.Location = new System.Drawing.Point(146, 3);
             this.filePath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(629, 23);
+            this.filePath.Size = new System.Drawing.Size(322, 23);
             this.filePath.TabIndex = 0;
             this.filePath.TextChanged += new System.EventHandler(this.filePath_TextChanged);
             this.filePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.filePath_DragDrop);
@@ -52,12 +52,11 @@ namespace FFXIVVoicePackCreator {
             // 
             // openButton
             // 
-            this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.openButton.Location = new System.Drawing.Point(765, 7);
+            this.openButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.openButton.Location = new System.Drawing.Point(476, 3);
             this.openButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(88, 23);
+            this.openButton.Size = new System.Drawing.Size(52, 22);
             this.openButton.TabIndex = 1;
             this.openButton.Text = "Select";
             this.openButton.UseVisualStyleBackColor = true;
@@ -66,57 +65,75 @@ namespace FFXIVVoicePackCreator {
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(4, 10);
+            this.labelName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelName.Location = new System.Drawing.Point(4, 0);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(39, 15);
+            this.labelName.Size = new System.Drawing.Size(103, 28);
             this.labelName.TabIndex = 2;
-            this.labelName.Text = "Name";
+            this.labelName.Text = "surprised";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // useGameFileCheckBox
             // 
-            this.useGameFileCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.useGameFileCheckBox.AutoSize = true;
-            this.useGameFileCheckBox.Location = new System.Drawing.Point(870, 9);
+            this.useGameFileCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.useGameFileCheckBox.Location = new System.Drawing.Point(536, 3);
             this.useGameFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.useGameFileCheckBox.Name = "useGameFileCheckBox";
-            this.useGameFileCheckBox.Size = new System.Drawing.Size(100, 19);
+            this.useGameFileCheckBox.Size = new System.Drawing.Size(108, 22);
             this.useGameFileCheckBox.TabIndex = 3;
             this.useGameFileCheckBox.Text = "Use Game File";
+            this.useGameFileCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.useGameFileCheckBox.UseVisualStyleBackColor = true;
             this.useGameFileCheckBox.CheckedChanged += new System.EventHandler(this.useGameFileCheckBox_CheckedChanged);
             // 
             // playButton
             // 
-            this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.playButton.Location = new System.Drawing.Point(95, 7);
+            this.playButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playButton.Location = new System.Drawing.Point(115, 3);
             this.playButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(25, 23);
+            this.playButton.Size = new System.Drawing.Size(23, 22);
             this.playButton.TabIndex = 4;
             this.playButton.Text = "▶";
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116F));
+            this.tableLayoutPanel1.Controls.Add(this.useGameFileCheckBox, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.playButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.openButton, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.filePath, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(648, 28);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
             // FilePicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.playButton);
-            this.Controls.Add(this.useGameFileCheckBox);
-            this.Controls.Add(this.labelName);
-            this.Controls.Add(this.openButton);
-            this.Controls.Add(this.filePath);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MinimumSize = new System.Drawing.Size(300, 28);
             this.Name = "FilePicker";
-            this.Size = new System.Drawing.Size(994, 36);
+            this.Size = new System.Drawing.Size(648, 28);
             this.Load += new System.EventHandler(this.filePicker_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -127,6 +144,7 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.Label labelName;
         private CheckBox useGameFileCheckBox;
         private Button playButton;
+        private TableLayoutPanel tableLayoutPanel1;
 
         public Label LabelName { get => labelName; set => labelName = value; }
         public TextBox FilePath { get => filePath; set => filePath = value; }
