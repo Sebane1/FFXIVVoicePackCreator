@@ -41,6 +41,7 @@ namespace FFXIVVoicePackCreator {
         private bool ignoreClear;
 
         private void filePicker_Load(object sender, EventArgs e) {
+            AutoScaleDimensions = new SizeF(96, 96);
             labelName.Text = (index == -1 ? Name : ($"({index})  " + Name));
             if (!isSwappable) {
                 useGameFileCheckBox.Visible = false;

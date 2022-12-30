@@ -59,6 +59,7 @@ namespace FFXIVVoicePackCreator {
 
         private void SCDCreator_Load(object sender, EventArgs e) {
             scdTypeComboBox.SelectedIndex = 0;
+            AutoScaleDimensions = new SizeF(96, 96);
         }
         private void InjectSCDFilesOgg(string input, string output, List<string> list, int loopStart, int loopEnd) {
             using (FileStream fileStream = new FileStream(input, FileMode.Open, FileAccess.Read)) {

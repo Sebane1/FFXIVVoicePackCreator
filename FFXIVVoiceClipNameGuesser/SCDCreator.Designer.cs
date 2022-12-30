@@ -58,10 +58,10 @@ namespace FFXIVVoicePackCreator {
             "Sound Effect",
             "Background Music",
             "Orchestrion"});
-            this.scdTypeComboBox.Location = new System.Drawing.Point(143, 107);
+            this.scdTypeComboBox.Location = new System.Drawing.Point(160, 107);
             this.scdTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.scdTypeComboBox.Name = "scdTypeComboBox";
-            this.scdTypeComboBox.Size = new System.Drawing.Size(281, 23);
+            this.scdTypeComboBox.Size = new System.Drawing.Size(264, 23);
             this.scdTypeComboBox.TabIndex = 4;
             this.scdTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.scdTypeComboBox_SelectedIndexChanged);
             // 
@@ -143,8 +143,8 @@ namespace FFXIVVoicePackCreator {
             // 
             // outputSelection
             // 
-            this.outputSelection.AutoSize = true;
-            this.outputSelection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.outputSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.outputSelection.Filter = "scd files (*.scd)|*.scd";
             this.outputSelection.Index = -1;
             this.outputSelection.IsPlayable = false;
@@ -152,14 +152,16 @@ namespace FFXIVVoicePackCreator {
             this.outputSelection.IsSwappable = false;
             this.outputSelection.Location = new System.Drawing.Point(15, 57);
             this.outputSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.outputSelection.MaximumSize = new System.Drawing.Size(994, 36);
+            this.outputSelection.MinimumSize = new System.Drawing.Size(529, 30);
             this.outputSelection.Name = "outputSelection";
-            this.outputSelection.Size = new System.Drawing.Size(554, 36);
+            this.outputSelection.Size = new System.Drawing.Size(529, 31);
             this.outputSelection.TabIndex = 3;
             // 
             // mediaSelection
             // 
-            this.mediaSelection.AutoSize = true;
-            this.mediaSelection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mediaSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
             this.mediaSelection.Index = -1;
             this.mediaSelection.IsPlayable = true;
@@ -167,8 +169,10 @@ namespace FFXIVVoicePackCreator {
             this.mediaSelection.IsSwappable = false;
             this.mediaSelection.Location = new System.Drawing.Point(14, 14);
             this.mediaSelection.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.mediaSelection.MaximumSize = new System.Drawing.Size(994, 36);
+            this.mediaSelection.MinimumSize = new System.Drawing.Size(529, 30);
             this.mediaSelection.Name = "mediaSelection";
-            this.mediaSelection.Size = new System.Drawing.Size(555, 36);
+            this.mediaSelection.Size = new System.Drawing.Size(530, 30);
             this.mediaSelection.TabIndex = 0;
             // 
             // SCDCreator

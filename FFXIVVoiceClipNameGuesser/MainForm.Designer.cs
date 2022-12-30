@@ -410,10 +410,13 @@ namespace FFXIVVoicePackCreator {
             // 
             // tabManager
             // 
+            this.tabManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabManager.Controls.Add(this.voiceExportTab);
             this.tabManager.Controls.Add(this.voiceGuessingTab);
             this.tabManager.Location = new System.Drawing.Point(488, 141);
             this.tabManager.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabManager.MinimumSize = new System.Drawing.Size(492, 435);
             this.tabManager.Name = "tabManager";
             this.tabManager.SelectedIndex = 0;
             this.tabManager.Size = new System.Drawing.Size(492, 435);
@@ -444,10 +447,11 @@ namespace FFXIVVoicePackCreator {
             // 
             // oldExportMode
             // 
+            this.oldExportMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.oldExportMode.AutoSize = true;
             this.oldExportMode.BackColor = System.Drawing.Color.IndianRed;
             this.oldExportMode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.oldExportMode.Location = new System.Drawing.Point(8, 384);
+            this.oldExportMode.Location = new System.Drawing.Point(4, 383);
             this.oldExportMode.Name = "oldExportMode";
             this.oldExportMode.Size = new System.Drawing.Size(116, 19);
             this.oldExportMode.TabIndex = 54;
@@ -457,6 +461,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // addRaceButton
             // 
+            this.addRaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addRaceButton.Location = new System.Drawing.Point(378, 12);
             this.addRaceButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.addRaceButton.Name = "addRaceButton";
@@ -479,10 +484,10 @@ namespace FFXIVVoicePackCreator {
             // clearListButton
             // 
             this.clearListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.clearListButton.Location = new System.Drawing.Point(324, 380);
+            this.clearListButton.Location = new System.Drawing.Point(400, 380);
             this.clearListButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.clearListButton.Name = "clearListButton";
-            this.clearListButton.Size = new System.Drawing.Size(161, 24);
+            this.clearListButton.Size = new System.Drawing.Size(81, 24);
             this.clearListButton.TabIndex = 39;
             this.clearListButton.Text = "Clear List";
             this.clearListButton.UseVisualStyleBackColor = true;
@@ -491,10 +496,10 @@ namespace FFXIVVoicePackCreator {
             // removeFromList
             // 
             this.removeFromList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeFromList.Location = new System.Drawing.Point(164, 380);
+            this.removeFromList.Location = new System.Drawing.Point(288, 380);
             this.removeFromList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.removeFromList.Name = "removeFromList";
-            this.removeFromList.Size = new System.Drawing.Size(161, 24);
+            this.removeFromList.Size = new System.Drawing.Size(108, 24);
             this.removeFromList.TabIndex = 38;
             this.removeFromList.Text = "Remove Selected";
             this.removeFromList.UseVisualStyleBackColor = true;
@@ -502,16 +507,22 @@ namespace FFXIVVoicePackCreator {
             // 
             // voiceReplacementList
             // 
+            this.voiceReplacementList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.voiceReplacementList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.voiceReplacementList.FormattingEnabled = true;
             this.voiceReplacementList.ItemHeight = 15;
-            this.voiceReplacementList.Location = new System.Drawing.Point(0, 60);
+            this.voiceReplacementList.Location = new System.Drawing.Point(4, 60);
             this.voiceReplacementList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.voiceReplacementList.Name = "voiceReplacementList";
-            this.voiceReplacementList.Size = new System.Drawing.Size(484, 319);
+            this.voiceReplacementList.Size = new System.Drawing.Size(476, 317);
             this.voiceReplacementList.TabIndex = 37;
+            this.voiceReplacementList.UseTabStops = false;
             // 
             // addToVoiceListButton
             // 
+            this.addToVoiceListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addToVoiceListButton.Location = new System.Drawing.Point(302, 12);
             this.addToVoiceListButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.addToVoiceListButton.Name = "addToVoiceListButton";
@@ -609,6 +620,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // easyGenerateButton
             // 
+            this.easyGenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.easyGenerateButton.Location = new System.Drawing.Point(488, 576);
             this.easyGenerateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.easyGenerateButton.Name = "easyGenerateButton";
@@ -621,6 +633,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // quickImportButton
             // 
+            this.quickImportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.quickImportButton.Location = new System.Drawing.Point(4, 576);
             this.quickImportButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.quickImportButton.Name = "quickImportButton";
@@ -633,6 +646,8 @@ namespace FFXIVVoicePackCreator {
             // 
             // exportProgressBar
             // 
+            this.exportProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
@@ -641,6 +656,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // quickSwapButton
             // 
+            this.quickSwapButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.quickSwapButton.Location = new System.Drawing.Point(244, 576);
             this.quickSwapButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.quickSwapButton.Name = "quickSwapButton";
@@ -693,23 +709,25 @@ namespace FFXIVVoicePackCreator {
             // 
             // surprised
             // 
-            this.surprised.AutoSize = true;
+            this.surprised.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.surprised.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.surprised.Filter = resources.GetString("surprised.Filter");
             this.surprised.Index = 0;
             this.surprised.IsPlayable = true;
             this.surprised.IsSaveMode = false;
             this.surprised.IsSwappable = true;
-            this.surprised.Location = new System.Drawing.Point(5, 4);
+            this.surprised.Location = new System.Drawing.Point(4, 4);
             this.surprised.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.surprised.MaximumSize = new System.Drawing.Size(468, 30);
+            this.surprised.MinimumSize = new System.Drawing.Size(468, 30);
             this.surprised.Name = "surprised";
-            this.surprised.Size = new System.Drawing.Size(499, 36);
+            this.surprised.Size = new System.Drawing.Size(468, 30);
             this.surprised.TabIndex = 0;
             this.surprised.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // angry
             // 
-            this.angry.AutoSize = true;
+            this.angry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.angry.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.angry.Filter = resources.GetString("angry.Filter");
             this.angry.Index = 1;
@@ -718,14 +736,16 @@ namespace FFXIVVoicePackCreator {
             this.angry.IsSwappable = true;
             this.angry.Location = new System.Drawing.Point(4, 36);
             this.angry.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.angry.MaximumSize = new System.Drawing.Size(468, 30);
+            this.angry.MinimumSize = new System.Drawing.Size(468, 30);
             this.angry.Name = "angry";
-            this.angry.Size = new System.Drawing.Size(500, 36);
+            this.angry.Size = new System.Drawing.Size(468, 30);
             this.angry.TabIndex = 1;
             this.angry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // furious
             // 
-            this.furious.AutoSize = true;
+            this.furious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.furious.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.furious.Filter = resources.GetString("furious.Filter");
             this.furious.Index = 2;
@@ -734,14 +754,16 @@ namespace FFXIVVoicePackCreator {
             this.furious.IsSwappable = true;
             this.furious.Location = new System.Drawing.Point(4, 68);
             this.furious.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.furious.MaximumSize = new System.Drawing.Size(468, 30);
+            this.furious.MinimumSize = new System.Drawing.Size(468, 30);
             this.furious.Name = "furious";
-            this.furious.Size = new System.Drawing.Size(500, 36);
+            this.furious.Size = new System.Drawing.Size(468, 30);
             this.furious.TabIndex = 2;
             this.furious.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // cheer
             // 
-            this.cheer.AutoSize = true;
+            this.cheer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cheer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.cheer.Filter = resources.GetString("cheer.Filter");
             this.cheer.Index = 3;
@@ -750,14 +772,16 @@ namespace FFXIVVoicePackCreator {
             this.cheer.IsSwappable = true;
             this.cheer.Location = new System.Drawing.Point(4, 100);
             this.cheer.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.cheer.MaximumSize = new System.Drawing.Size(468, 30);
+            this.cheer.MinimumSize = new System.Drawing.Size(468, 30);
             this.cheer.Name = "cheer";
-            this.cheer.Size = new System.Drawing.Size(500, 36);
+            this.cheer.Size = new System.Drawing.Size(468, 30);
             this.cheer.TabIndex = 3;
             this.cheer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // doze
             // 
-            this.doze.AutoSize = true;
+            this.doze.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.doze.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.doze.Filter = resources.GetString("doze.Filter");
             this.doze.Index = 4;
@@ -766,14 +790,16 @@ namespace FFXIVVoicePackCreator {
             this.doze.IsSwappable = true;
             this.doze.Location = new System.Drawing.Point(4, 132);
             this.doze.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.doze.MaximumSize = new System.Drawing.Size(468, 30);
+            this.doze.MinimumSize = new System.Drawing.Size(468, 30);
             this.doze.Name = "doze";
-            this.doze.Size = new System.Drawing.Size(500, 36);
+            this.doze.Size = new System.Drawing.Size(468, 30);
             this.doze.TabIndex = 4;
             this.doze.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // fume
             // 
-            this.fume.AutoSize = true;
+            this.fume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fume.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.fume.Filter = resources.GetString("fume.Filter");
             this.fume.Index = 5;
@@ -782,14 +808,16 @@ namespace FFXIVVoicePackCreator {
             this.fume.IsSwappable = true;
             this.fume.Location = new System.Drawing.Point(4, 164);
             this.fume.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.fume.MaximumSize = new System.Drawing.Size(468, 30);
+            this.fume.MinimumSize = new System.Drawing.Size(468, 30);
             this.fume.Name = "fume";
-            this.fume.Size = new System.Drawing.Size(500, 36);
+            this.fume.Size = new System.Drawing.Size(468, 30);
             this.fume.TabIndex = 5;
             this.fume.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // huh
             // 
-            this.huh.AutoSize = true;
+            this.huh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.huh.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.huh.Filter = resources.GetString("huh.Filter");
             this.huh.Index = 6;
@@ -798,14 +826,16 @@ namespace FFXIVVoicePackCreator {
             this.huh.IsSwappable = true;
             this.huh.Location = new System.Drawing.Point(4, 196);
             this.huh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.huh.MaximumSize = new System.Drawing.Size(468, 30);
+            this.huh.MinimumSize = new System.Drawing.Size(468, 30);
             this.huh.Name = "huh";
-            this.huh.Size = new System.Drawing.Size(500, 36);
+            this.huh.Size = new System.Drawing.Size(468, 30);
             this.huh.TabIndex = 6;
             this.huh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // chuckle
             // 
-            this.chuckle.AutoSize = true;
+            this.chuckle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.chuckle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.chuckle.Filter = resources.GetString("chuckle.Filter");
             this.chuckle.Index = 7;
@@ -814,14 +844,16 @@ namespace FFXIVVoicePackCreator {
             this.chuckle.IsSwappable = true;
             this.chuckle.Location = new System.Drawing.Point(4, 228);
             this.chuckle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.chuckle.MaximumSize = new System.Drawing.Size(468, 30);
+            this.chuckle.MinimumSize = new System.Drawing.Size(468, 30);
             this.chuckle.Name = "chuckle";
-            this.chuckle.Size = new System.Drawing.Size(500, 36);
+            this.chuckle.Size = new System.Drawing.Size(468, 30);
             this.chuckle.TabIndex = 7;
             this.chuckle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // laugh
             // 
-            this.laugh.AutoSize = true;
+            this.laugh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.laugh.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.laugh.Filter = resources.GetString("laugh.Filter");
             this.laugh.Index = 8;
@@ -830,14 +862,16 @@ namespace FFXIVVoicePackCreator {
             this.laugh.IsSwappable = true;
             this.laugh.Location = new System.Drawing.Point(4, 260);
             this.laugh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.laugh.MaximumSize = new System.Drawing.Size(468, 30);
+            this.laugh.MinimumSize = new System.Drawing.Size(468, 30);
             this.laugh.Name = "laugh";
-            this.laugh.Size = new System.Drawing.Size(500, 36);
+            this.laugh.Size = new System.Drawing.Size(468, 30);
             this.laugh.TabIndex = 8;
             this.laugh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // no
             // 
-            this.no.AutoSize = true;
+            this.no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.no.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.no.Filter = resources.GetString("no.Filter");
             this.no.Index = 9;
@@ -846,14 +880,16 @@ namespace FFXIVVoicePackCreator {
             this.no.IsSwappable = true;
             this.no.Location = new System.Drawing.Point(4, 292);
             this.no.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.no.MaximumSize = new System.Drawing.Size(468, 30);
+            this.no.MinimumSize = new System.Drawing.Size(468, 30);
             this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(500, 36);
+            this.no.Size = new System.Drawing.Size(468, 30);
             this.no.TabIndex = 9;
             this.no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // stretch
             // 
-            this.stretch.AutoSize = true;
+            this.stretch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.stretch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.stretch.Filter = resources.GetString("stretch.Filter");
             this.stretch.Index = 10;
@@ -862,14 +898,16 @@ namespace FFXIVVoicePackCreator {
             this.stretch.IsSwappable = true;
             this.stretch.Location = new System.Drawing.Point(4, 324);
             this.stretch.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.stretch.MaximumSize = new System.Drawing.Size(468, 30);
+            this.stretch.MinimumSize = new System.Drawing.Size(468, 30);
             this.stretch.Name = "stretch";
-            this.stretch.Size = new System.Drawing.Size(500, 36);
+            this.stretch.Size = new System.Drawing.Size(468, 30);
             this.stretch.TabIndex = 10;
             this.stretch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // upset
             // 
-            this.upset.AutoSize = true;
+            this.upset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.upset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.upset.Filter = resources.GetString("upset.Filter");
             this.upset.Index = 11;
@@ -878,14 +916,16 @@ namespace FFXIVVoicePackCreator {
             this.upset.IsSwappable = true;
             this.upset.Location = new System.Drawing.Point(4, 356);
             this.upset.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.upset.MaximumSize = new System.Drawing.Size(468, 30);
+            this.upset.MinimumSize = new System.Drawing.Size(468, 30);
             this.upset.Name = "upset";
-            this.upset.Size = new System.Drawing.Size(500, 36);
+            this.upset.Size = new System.Drawing.Size(468, 30);
             this.upset.TabIndex = 11;
             this.upset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // yes
             // 
-            this.yes.AutoSize = true;
+            this.yes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.yes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.yes.Filter = resources.GetString("yes.Filter");
             this.yes.Index = 12;
@@ -894,14 +934,16 @@ namespace FFXIVVoicePackCreator {
             this.yes.IsSwappable = true;
             this.yes.Location = new System.Drawing.Point(4, 388);
             this.yes.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.yes.MaximumSize = new System.Drawing.Size(468, 30);
+            this.yes.MinimumSize = new System.Drawing.Size(468, 30);
             this.yes.Name = "yes";
-            this.yes.Size = new System.Drawing.Size(500, 36);
+            this.yes.Size = new System.Drawing.Size(468, 30);
             this.yes.TabIndex = 12;
             this.yes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // happy
             // 
-            this.happy.AutoSize = true;
+            this.happy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.happy.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.happy.Filter = resources.GetString("happy.Filter");
             this.happy.Index = 13;
@@ -910,14 +952,16 @@ namespace FFXIVVoicePackCreator {
             this.happy.IsSwappable = true;
             this.happy.Location = new System.Drawing.Point(4, 420);
             this.happy.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.happy.MaximumSize = new System.Drawing.Size(468, 30);
+            this.happy.MinimumSize = new System.Drawing.Size(468, 30);
             this.happy.Name = "happy";
-            this.happy.Size = new System.Drawing.Size(500, 36);
+            this.happy.Size = new System.Drawing.Size(468, 30);
             this.happy.TabIndex = 13;
             this.happy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // unknown2
             // 
-            this.unknown2.AutoSize = true;
+            this.unknown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.unknown2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.unknown2.Filter = resources.GetString("unknown2.Filter");
             this.unknown2.Index = 15;
@@ -926,14 +970,16 @@ namespace FFXIVVoicePackCreator {
             this.unknown2.IsSwappable = true;
             this.unknown2.Location = new System.Drawing.Point(4, 484);
             this.unknown2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.unknown2.MaximumSize = new System.Drawing.Size(468, 30);
+            this.unknown2.MinimumSize = new System.Drawing.Size(468, 30);
             this.unknown2.Name = "unknown2";
-            this.unknown2.Size = new System.Drawing.Size(500, 36);
+            this.unknown2.Size = new System.Drawing.Size(468, 30);
             this.unknown2.TabIndex = 15;
             this.unknown2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // unknown1
             // 
-            this.unknown1.AutoSize = true;
+            this.unknown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.unknown1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.unknown1.Filter = resources.GetString("unknown1.Filter");
             this.unknown1.Index = 14;
@@ -942,8 +988,10 @@ namespace FFXIVVoicePackCreator {
             this.unknown1.IsSwappable = true;
             this.unknown1.Location = new System.Drawing.Point(4, 452);
             this.unknown1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.unknown1.MaximumSize = new System.Drawing.Size(468, 30);
+            this.unknown1.MinimumSize = new System.Drawing.Size(468, 30);
             this.unknown1.Name = "unknown1";
-            this.unknown1.Size = new System.Drawing.Size(500, 36);
+            this.unknown1.Size = new System.Drawing.Size(468, 30);
             this.unknown1.TabIndex = 14;
             this.unknown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
@@ -977,275 +1025,275 @@ namespace FFXIVVoicePackCreator {
             // 
             // extra2
             // 
-            this.extra2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.extra2.AutoSize = true;
+            this.extra2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.extra2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.extra2.Filter = null;
             this.extra2.Index = 31;
             this.extra2.IsPlayable = true;
             this.extra2.IsSaveMode = false;
             this.extra2.IsSwappable = false;
-            this.extra2.Location = new System.Drawing.Point(4, 484);
+            this.extra2.Location = new System.Drawing.Point(4, 261);
             this.extra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.extra2.MaximumSize = new System.Drawing.Size(588, 30);
+            this.extra2.MinimumSize = new System.Drawing.Size(588, 30);
             this.extra2.Name = "extra2";
-            this.extra2.Size = new System.Drawing.Size(604, 36);
+            this.extra2.Size = new System.Drawing.Size(588, 30);
             this.extra2.TabIndex = 17;
             // 
             // extra1
             // 
-            this.extra1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.extra1.AutoSize = true;
+            this.extra1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.extra1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.extra1.Filter = null;
             this.extra1.Index = 30;
             this.extra1.IsPlayable = true;
             this.extra1.IsSaveMode = false;
             this.extra1.IsSwappable = false;
-            this.extra1.Location = new System.Drawing.Point(4, 452);
+            this.extra1.Location = new System.Drawing.Point(4, 229);
             this.extra1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.extra1.MaximumSize = new System.Drawing.Size(588, 30);
+            this.extra1.MinimumSize = new System.Drawing.Size(588, 30);
             this.extra1.Name = "extra1";
-            this.extra1.Size = new System.Drawing.Size(604, 36);
+            this.extra1.Size = new System.Drawing.Size(588, 30);
             this.extra1.TabIndex = 16;
             // 
             // death2
             // 
-            this.death2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.death2.AutoSize = true;
+            this.death2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.death2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.death2.Filter = null;
             this.death2.Index = 29;
             this.death2.IsPlayable = true;
             this.death2.IsSaveMode = false;
             this.death2.IsSwappable = false;
-            this.death2.Location = new System.Drawing.Point(4, 420);
+            this.death2.Location = new System.Drawing.Point(4, 197);
             this.death2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.death2.MaximumSize = new System.Drawing.Size(588, 30);
+            this.death2.MinimumSize = new System.Drawing.Size(588, 30);
             this.death2.Name = "death2";
-            this.death2.Size = new System.Drawing.Size(604, 36);
+            this.death2.Size = new System.Drawing.Size(588, 30);
             this.death2.TabIndex = 15;
             // 
             // death1
             // 
-            this.death1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.death1.AutoSize = true;
+            this.death1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.death1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.death1.Filter = null;
             this.death1.Index = 28;
             this.death1.IsPlayable = true;
             this.death1.IsSaveMode = false;
             this.death1.IsSwappable = false;
-            this.death1.Location = new System.Drawing.Point(4, 388);
+            this.death1.Location = new System.Drawing.Point(4, 165);
             this.death1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.death1.MaximumSize = new System.Drawing.Size(588, 30);
+            this.death1.MinimumSize = new System.Drawing.Size(588, 30);
             this.death1.Name = "death1";
-            this.death1.Size = new System.Drawing.Size(604, 36);
+            this.death1.Size = new System.Drawing.Size(588, 30);
             this.death1.TabIndex = 14;
             // 
             // hurt6
             // 
-            this.hurt6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt6.AutoSize = true;
+            this.hurt6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hurt6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hurt6.Filter = null;
             this.hurt6.Index = 27;
             this.hurt6.IsPlayable = true;
             this.hurt6.IsSaveMode = false;
             this.hurt6.IsSwappable = false;
-            this.hurt6.Location = new System.Drawing.Point(4, 356);
+            this.hurt6.Location = new System.Drawing.Point(4, 133);
             this.hurt6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt6.MaximumSize = new System.Drawing.Size(588, 30);
+            this.hurt6.MinimumSize = new System.Drawing.Size(588, 30);
             this.hurt6.Name = "hurt6";
-            this.hurt6.Size = new System.Drawing.Size(604, 36);
+            this.hurt6.Size = new System.Drawing.Size(588, 30);
             this.hurt6.TabIndex = 13;
             // 
             // hurt5
             // 
-            this.hurt5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt5.AutoSize = true;
+            this.hurt5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hurt5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hurt5.Filter = null;
             this.hurt5.Index = 26;
             this.hurt5.IsPlayable = true;
             this.hurt5.IsSaveMode = false;
             this.hurt5.IsSwappable = false;
-            this.hurt5.Location = new System.Drawing.Point(4, 324);
+            this.hurt5.Location = new System.Drawing.Point(4, 101);
             this.hurt5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt5.MaximumSize = new System.Drawing.Size(588, 30);
+            this.hurt5.MinimumSize = new System.Drawing.Size(588, 30);
             this.hurt5.Name = "hurt5";
-            this.hurt5.Size = new System.Drawing.Size(604, 36);
+            this.hurt5.Size = new System.Drawing.Size(588, 30);
             this.hurt5.TabIndex = 12;
             // 
             // hurt4
             // 
-            this.hurt4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt4.AutoSize = true;
+            this.hurt4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hurt4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hurt4.Filter = null;
             this.hurt4.Index = 25;
             this.hurt4.IsPlayable = true;
             this.hurt4.IsSaveMode = false;
             this.hurt4.IsSwappable = false;
-            this.hurt4.Location = new System.Drawing.Point(4, 292);
+            this.hurt4.Location = new System.Drawing.Point(4, 69);
             this.hurt4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt4.MaximumSize = new System.Drawing.Size(588, 30);
+            this.hurt4.MinimumSize = new System.Drawing.Size(588, 30);
             this.hurt4.Name = "hurt4";
-            this.hurt4.Size = new System.Drawing.Size(604, 36);
+            this.hurt4.Size = new System.Drawing.Size(588, 30);
             this.hurt4.TabIndex = 11;
             // 
             // hurt3
             // 
-            this.hurt3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt3.AutoSize = true;
+            this.hurt3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hurt3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hurt3.Filter = null;
             this.hurt3.Index = 24;
             this.hurt3.IsPlayable = true;
             this.hurt3.IsSaveMode = false;
             this.hurt3.IsSwappable = false;
-            this.hurt3.Location = new System.Drawing.Point(4, 260);
+            this.hurt3.Location = new System.Drawing.Point(4, 37);
             this.hurt3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt3.MaximumSize = new System.Drawing.Size(588, 30);
+            this.hurt3.MinimumSize = new System.Drawing.Size(588, 30);
             this.hurt3.Name = "hurt3";
-            this.hurt3.Size = new System.Drawing.Size(604, 36);
+            this.hurt3.Size = new System.Drawing.Size(588, 30);
             this.hurt3.TabIndex = 10;
             // 
             // hurt2
             // 
-            this.hurt2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt2.AutoSize = true;
+            this.hurt2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hurt2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hurt2.Filter = null;
             this.hurt2.Index = 23;
             this.hurt2.IsPlayable = true;
             this.hurt2.IsSaveMode = false;
             this.hurt2.IsSwappable = false;
-            this.hurt2.Location = new System.Drawing.Point(4, 228);
+            this.hurt2.Location = new System.Drawing.Point(4, 5);
             this.hurt2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt2.MaximumSize = new System.Drawing.Size(588, 30);
+            this.hurt2.MinimumSize = new System.Drawing.Size(588, 30);
             this.hurt2.Name = "hurt2";
-            this.hurt2.Size = new System.Drawing.Size(604, 36);
+            this.hurt2.Size = new System.Drawing.Size(588, 30);
             this.hurt2.TabIndex = 9;
             // 
             // hurt1
             // 
-            this.hurt1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt1.AutoSize = true;
+            this.hurt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.hurt1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.hurt1.Filter = null;
             this.hurt1.Index = 22;
             this.hurt1.IsPlayable = true;
             this.hurt1.IsSaveMode = false;
             this.hurt1.IsSwappable = false;
-            this.hurt1.Location = new System.Drawing.Point(4, 196);
+            this.hurt1.Location = new System.Drawing.Point(4, -27);
             this.hurt1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.hurt1.MaximumSize = new System.Drawing.Size(588, 30);
+            this.hurt1.MinimumSize = new System.Drawing.Size(588, 30);
             this.hurt1.Name = "hurt1";
-            this.hurt1.Size = new System.Drawing.Size(604, 36);
+            this.hurt1.Size = new System.Drawing.Size(588, 30);
             this.hurt1.TabIndex = 8;
             // 
             // attack6
             // 
-            this.attack6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack6.AutoSize = true;
+            this.attack6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attack6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attack6.Filter = null;
             this.attack6.Index = 21;
             this.attack6.IsPlayable = true;
             this.attack6.IsSaveMode = false;
             this.attack6.IsSwappable = false;
-            this.attack6.Location = new System.Drawing.Point(4, 164);
+            this.attack6.Location = new System.Drawing.Point(4, -59);
             this.attack6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack6.MaximumSize = new System.Drawing.Size(588, 30);
+            this.attack6.MinimumSize = new System.Drawing.Size(588, 30);
             this.attack6.Name = "attack6";
-            this.attack6.Size = new System.Drawing.Size(604, 36);
+            this.attack6.Size = new System.Drawing.Size(588, 30);
             this.attack6.TabIndex = 7;
             this.attack6.Load += new System.EventHandler(this.attack6_Load);
             // 
             // attack5
             // 
-            this.attack5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack5.AutoSize = true;
+            this.attack5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attack5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attack5.Filter = null;
             this.attack5.Index = 20;
             this.attack5.IsPlayable = true;
             this.attack5.IsSaveMode = false;
             this.attack5.IsSwappable = false;
-            this.attack5.Location = new System.Drawing.Point(4, 132);
+            this.attack5.Location = new System.Drawing.Point(4, -91);
             this.attack5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack5.MaximumSize = new System.Drawing.Size(588, 30);
+            this.attack5.MinimumSize = new System.Drawing.Size(588, 30);
             this.attack5.Name = "attack5";
-            this.attack5.Size = new System.Drawing.Size(604, 36);
+            this.attack5.Size = new System.Drawing.Size(588, 30);
             this.attack5.TabIndex = 6;
             // 
             // attack4
             // 
-            this.attack4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack4.AutoSize = true;
+            this.attack4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attack4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attack4.Filter = null;
             this.attack4.Index = 19;
             this.attack4.IsPlayable = true;
             this.attack4.IsSaveMode = false;
             this.attack4.IsSwappable = false;
-            this.attack4.Location = new System.Drawing.Point(4, 100);
+            this.attack4.Location = new System.Drawing.Point(4, -123);
             this.attack4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack4.MaximumSize = new System.Drawing.Size(588, 30);
+            this.attack4.MinimumSize = new System.Drawing.Size(588, 30);
             this.attack4.Name = "attack4";
-            this.attack4.Size = new System.Drawing.Size(604, 36);
+            this.attack4.Size = new System.Drawing.Size(588, 30);
             this.attack4.TabIndex = 5;
             // 
             // attack3
             // 
-            this.attack3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack3.AutoSize = true;
+            this.attack3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attack3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attack3.Filter = null;
             this.attack3.Index = 18;
             this.attack3.IsPlayable = true;
             this.attack3.IsSaveMode = false;
             this.attack3.IsSwappable = false;
-            this.attack3.Location = new System.Drawing.Point(4, 68);
+            this.attack3.Location = new System.Drawing.Point(4, -155);
             this.attack3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack3.MaximumSize = new System.Drawing.Size(588, 30);
+            this.attack3.MinimumSize = new System.Drawing.Size(588, 30);
             this.attack3.Name = "attack3";
-            this.attack3.Size = new System.Drawing.Size(604, 36);
+            this.attack3.Size = new System.Drawing.Size(588, 30);
             this.attack3.TabIndex = 4;
             // 
             // attack2
             // 
-            this.attack2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack2.AutoSize = true;
+            this.attack2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attack2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attack2.Filter = null;
             this.attack2.Index = 17;
             this.attack2.IsPlayable = true;
             this.attack2.IsSaveMode = false;
             this.attack2.IsSwappable = false;
-            this.attack2.Location = new System.Drawing.Point(4, 36);
+            this.attack2.Location = new System.Drawing.Point(4, -187);
             this.attack2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack2.MaximumSize = new System.Drawing.Size(588, 30);
+            this.attack2.MinimumSize = new System.Drawing.Size(588, 30);
             this.attack2.Name = "attack2";
-            this.attack2.Size = new System.Drawing.Size(604, 36);
+            this.attack2.Size = new System.Drawing.Size(588, 30);
             this.attack2.TabIndex = 3;
             // 
             // attack1
             // 
-            this.attack1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack1.AutoSize = true;
+            this.attack1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.attack1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attack1.Filter = null;
             this.attack1.Index = 16;
             this.attack1.IsPlayable = true;
             this.attack1.IsSaveMode = false;
             this.attack1.IsSwappable = false;
-            this.attack1.Location = new System.Drawing.Point(4, 4);
+            this.attack1.Location = new System.Drawing.Point(4, -219);
             this.attack1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.attack1.MaximumSize = new System.Drawing.Size(588, 30);
+            this.attack1.MinimumSize = new System.Drawing.Size(588, 30);
             this.attack1.Name = "attack1";
-            this.attack1.Size = new System.Drawing.Size(604, 36);
+            this.attack1.Size = new System.Drawing.Size(588, 30);
             this.attack1.TabIndex = 2;
             // 
             // multiSCDFile
@@ -1313,9 +1361,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab.PerformLayout();
             this.voiceTabs.ResumeLayout(false);
             this.emoteVoicesPage.ResumeLayout(false);
-            this.emoteVoicesPage.PerformLayout();
             this.battleVoicesPage.ResumeLayout(false);
-            this.battleVoicesPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

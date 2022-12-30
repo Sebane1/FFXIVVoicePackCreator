@@ -70,6 +70,7 @@ namespace FFXIVVoicePackCreator {
 
         private void Form1_Load(object sender, EventArgs e) {
             CleanDirectory();
+            AutoScaleDimensions = new SizeF(96, 96);
             TopMost = true;
             GetPenumbraPath();
             exportProgressBar.Visible = false;
