@@ -17,7 +17,7 @@ https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0
 - Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
 
 How to make custom voice packs:
-https://www.youtube.com/watch?v=lFlXxbnmcMY
+https://www.youtube.com/watch?v=68o9AYOfps4
 
 How to swap your voice with another race/gender:
 https://youtu.be/SyXOW5eJqws
