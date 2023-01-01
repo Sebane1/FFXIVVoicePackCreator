@@ -41,7 +41,7 @@ namespace FFXIVVoicePackCreator {
         public readonly string _defaultModName = "";
         public readonly string _defaultAuthor = "FFXIV Voice Pack Creator";
         public readonly string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
-        public readonly string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nPenumbra does not support battle voices in collections assigned to specific characters.\r\nTo hear battle voices make sure the collection is assigned to Base Collection.";
+        public readonly string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nIt is no longer a requirement to separate battle voices to the Base Collection as of Penumbra v0.6.1.0";
         public readonly string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
         private readonly string _battleSoundTutorial = "Due to how Square Enix authored their voice files, battle sounds for each race range between 10 (Au Ra), 12 (Most Races), or 16 (Hrothgar and Viera) actual sound clips. Because of this you may not hear all the sounds you assign.\r\n\r\nThis tool tries its best to fit what it can depending on the space available. Assign your lines best to worst in each category, or whatever makes sense for your situation.";
         private string penumbraModPath;
@@ -163,16 +163,19 @@ namespace FFXIVVoicePackCreator {
 
         private void PickVoiceDump() {
             bool dontLoad = false;
-            MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", VersionText);
-            FolderBrowserDialog openFileDialog = new FolderBrowserDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                dumpFilePath = openFileDialog.SelectedPath;
-            } else {
-                MessageBox.Show("No dumped voice folder selected", VersionText);
-                dontLoad = true;
+            GetDumpPath();
+            if (string.IsNullOrWhiteSpace(dumpFilePath)) {
+                MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", VersionText);
+                FolderBrowserDialog openFileDialog = new FolderBrowserDialog();
+                if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                    dumpFilePath = openFileDialog.SelectedPath;
+                    WriteDumpPath(dumpFilePath);
+                } else {
+                    MessageBox.Show("No dumped voice folder selected", VersionText);
+                    dontLoad = true;
+                }
             }
-            if (!dontLoad) {
-                HasSaved = false;
+            if (!dontLoad) {;
                 missingFIleList.Items.Clear();
                 if (dumpFiles != null) {
                     dumpFiles.Clear();
@@ -295,6 +298,9 @@ namespace FFXIVVoicePackCreator {
                 penumbraModPath = folderSelect.SelectedPath;
                 WritePenumbraPath(penumbraModPath);
             }
+        }
+        private void ConfigureVoiceDumpFolder() {
+            WritePenumbraPath(dumpFilePath);
         }
 
         private bool GetFilePaths() {
@@ -715,11 +721,7 @@ namespace FFXIVVoicePackCreator {
         private void tabManager_Selecting(object sender, TabControlCancelEventArgs e) {
             if (!alreadyShown) {
                 missingFIleList.Items.Clear();
-                if (MessageBox.Show(@"Do you have voices dumped via FFXIVExplorer or an equivalent tool as .wav files?", Text, MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                    PickVoiceDump();
-                } else {
-                    MessageBox.Show("Voice guessing will be hindered without a dump folder selected.", VersionText);
-                }
+                PickVoiceDump();
                 alreadyShown = true;
             }
         }
@@ -852,6 +854,21 @@ namespace FFXIVVoicePackCreator {
             string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
             using (StreamWriter writer = new StreamWriter(Path.Combine(dataPath, @"PenumbraPath.config"))) {
                 writer.WriteLine(path);
+            }
+        }
+        public void WriteDumpPath(string path) {
+            string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
+            using (StreamWriter writer = new StreamWriter(Path.Combine(dataPath, @"DumpPath.config"))) {
+                writer.WriteLine(path);
+            }
+        }
+        public void GetDumpPath() {
+            string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
+            string path = Path.Combine(dataPath, @"DumpPath.config");
+            if (File.Exists(path)) {
+                using (StreamReader reader = new StreamReader(path)) {
+                    dumpFilePath = reader.ReadLine();
+                }
             }
         }
         public void GetPenumbraPath() {
