@@ -161,9 +161,13 @@ namespace FFXIVVoicePackCreator {
             voiceListComboBox.SelectedIndex = 0;
         }
 
-        private void PickVoiceDump() {
+        private void PickVoiceDump(bool forceNewPath = false) {
             bool dontLoad = false;
-            GetDumpPath();
+            if (!forceNewPath) {
+                GetDumpPath();
+            } else {
+                dumpFilePath = null;
+            }
             if (string.IsNullOrWhiteSpace(dumpFilePath)) {
                 MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", VersionText);
                 FolderBrowserDialog openFileDialog = new FolderBrowserDialog();
@@ -175,7 +179,7 @@ namespace FFXIVVoicePackCreator {
                     dontLoad = true;
                 }
             }
-            if (!dontLoad) {;
+            if (!dontLoad) {
                 missingFIleList.Items.Clear();
                 if (dumpFiles != null) {
                     dumpFiles.Clear();
@@ -224,10 +228,6 @@ namespace FFXIVVoicePackCreator {
                 while (index < dumpFiles.Count) {
                     lostFileList.Items.Add(Path.GetFileName(dumpFiles[index++]));
                     lostFileListPaths.Add(dumpFiles[index++]);
-                }
-                MessageBox.Show("Found " + foundVoices + " voices. Was not able to find " + unfoundVoices + " voices.", VersionText);
-                if (missingFIleList.Items.Count > 0) {
-                    MessageBox.Show(missingFIleList.Items.Count + @" items do not have a known filename. Check ""Missing Names"" list to help with you guesswork", VersionText);
                 }
             }
         }
@@ -1186,11 +1186,11 @@ namespace FFXIVVoicePackCreator {
                                                 int i = 0;
                                                 foreach (ScdAudioEntry sound in file.Audio) {
                                                     if (sound.Format == SscfWaveFormat.MsAdPcm) {
-                                                        SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".wav"), sound);
+                                                        SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + (file.Audio.Count > 1 ? i : 0) + ".wav"), sound);
                                                         i++;
                                                     }
                                                     if (sound.Format == SscfWaveFormat.Vorbis) {
-                                                        SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + i + ".ogg"), sound);
+                                                        SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + (file.Audio.Count > 1 ? i : 0) + ".ogg"), sound);
                                                         i++;
                                                     }
                                                 }
@@ -1209,11 +1209,15 @@ namespace FFXIVVoicePackCreator {
                                 MessageBox.Show(error, VersionText);
                             }
                             MessageBox.Show("Extraction Complete", VersionText);
-                            Process.Start(new System.Diagnostics.ProcessStartInfo() {
-                                FileName = outputFolderDialog.SelectedPath,
-                                UseShellExecute = true,
-                                Verb = "open"
-                            });
+                            try {
+                                Process.Start(new System.Diagnostics.ProcessStartInfo() {
+                                    FileName = outputFolderDialog.SelectedPath,
+                                    UseShellExecute = true,
+                                    Verb = "explore"
+                                });
+                            } catch {
+
+                            }
                             exportProgressBar.Visible = false;
                         }
                     }
