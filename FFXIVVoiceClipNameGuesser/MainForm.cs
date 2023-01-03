@@ -422,7 +422,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void changeVoiceDumpToolStripMenuItem_Click(object sender, EventArgs e) {
-            PickVoiceDump();
+            PickVoiceDump(true);
         }
 
         private void pickExportFolderToolStripMenuItem_Click(object sender, EventArgs e) {
