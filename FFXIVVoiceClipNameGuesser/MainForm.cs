@@ -949,7 +949,7 @@ namespace FFXIVVoicePackCreator {
                 List<string> battleList = new List<string>();
                 using (StreamReader reader = new StreamReader(path)) {
                     int version = int.Parse(reader.ReadLine());
-                    string audioSyncPrompt = "This project was made before we added the ability to automatically syncronize emotes to animations. Its now possible to bulk export to multiple races and have the tool syncronize audio timings to each separate race.\r\n\r\nThis feature is on by default, but has been disabled so that it wont interfere with this projects existing configuration.\r\n\r\nSimply enable " + @"""Synchronize To Animations"" when you decide to use the feature. (Does not affect Voice Swap feature)";
+                    string audioSyncPrompt = "This project was made before we added the ability to automatically synchronize emotes to animations. Its now possible to bulk export to multiple races and have the tool synchronize audio timings to each separate race.\r\n\r\nThis feature is on by default, but has been disabled so that it wont interfere with this projects existing configuration.\r\n\r\nSimply enable " + @"""Synchronize To Animations"" when you decide to use the feature. (Does not affect Voice Swap feature)";
                     switch (version) {
                         case 2:
                             OpenVersionLegacy2(reader, emoteList, battleList);
@@ -1355,7 +1355,7 @@ namespace FFXIVVoicePackCreator {
                 MessageBox.Show(@"Due to ""Old Export Mode"" being active, you will not be able to save the state of the selected feature. We are preserving the ability to open this legacy project, and save this as a legacy project at the expense of newer features being persisted.", VersionText);
             }
             if (autoSyncCheckbox.Checked) {
-                MessageBox.Show("The tool will now automatically syncronize audio to the start times of each races emote animations. Please trim any empty audio that plays before each sound for best results.\r\n\r\nThe doze emote is timed based on when the character wakes up. Any prior snoring or sleeping is currently sacrificed for the convenience to work. (Does not affect Voice Swap feature)", VersionText);
+                MessageBox.Show("The tool will now automatically synchronize audio to the start times of each races emote animations. Please trim any empty audio that plays before each sound for best results.\r\n\r\nThe doze emote is timed based on when the character wakes up. Any prior snoring or sleeping is currently sacrificed for the convenience to work. (Does not affect Voice Swap feature)", VersionText);
             }
         }
     }

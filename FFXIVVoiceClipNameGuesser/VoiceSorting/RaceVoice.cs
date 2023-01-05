@@ -47,7 +47,11 @@ namespace FFXIVVoicePackCreator {
                     for (int i = 0; i < 16; i++) {
                         string value = streamReader.ReadLine();
                         if (!string.IsNullOrWhiteSpace(value)) {
-                            timeCodeDataMasculine.TimeCodes.Add(decimal.Parse(value));
+                            try {
+                                timeCodeDataMasculine.TimeCodes.Add(decimal.Parse(value));
+                            } catch {
+                                timeCodeDataMasculine.TimeCodes.Add(decimal.Parse(value.Replace(".", ",")));
+                            }
                         }
                     }
 
@@ -57,7 +61,11 @@ namespace FFXIVVoicePackCreator {
                     for (int i = 0; i < 16; i++) {
                         string value = streamReader.ReadLine();
                         if (!string.IsNullOrWhiteSpace(value)) {
-                            timeCodeDataFeminine.TimeCodes.Add(decimal.Parse(value));
+                            try {
+                                timeCodeDataFeminine.TimeCodes.Add(decimal.Parse(value));
+                            } catch {
+                                timeCodeDataFeminine.TimeCodes.Add(decimal.Parse(value.Replace(".", ",")));
+                            }
                         }
                     }
                     timeCodeData.Add(timeCodeDataMasculine.Descriptor, timeCodeDataMasculine);
