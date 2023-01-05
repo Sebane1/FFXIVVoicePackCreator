@@ -131,7 +131,7 @@ namespace FFXIVVoicePackCreator {
                         string value = streamReader.ReadLine();
                         raceVoice.Feminine.Add(value);
                         if (!racesToVoiceDescription.ContainsKey(value)) {
-                            racesToVoiceDescription.Add(value, new List<VoiceDescriptor>() { new VoiceDescriptor(raceVoice.RaceName, "Feminine", value, (12 - 1)) });
+                            racesToVoiceDescription.Add(value, new List<VoiceDescriptor>() { new VoiceDescriptor(raceVoice.RaceName, "Feminine", value, (12 - i)) });
                         }
                     }
                     raceVoice.Feminine.Reverse();
