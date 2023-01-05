@@ -454,11 +454,11 @@ namespace FFXIVVoicePackCreator {
             this.autoSyncCheckbox.Checked = true;
             this.autoSyncCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoSyncCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.autoSyncCheckbox.Location = new System.Drawing.Point(122, 383);
+            this.autoSyncCheckbox.Location = new System.Drawing.Point(117, 383);
             this.autoSyncCheckbox.Name = "autoSyncCheckbox";
-            this.autoSyncCheckbox.Size = new System.Drawing.Size(162, 19);
+            this.autoSyncCheckbox.Size = new System.Drawing.Size(169, 19);
             this.autoSyncCheckbox.TabIndex = 55;
-            this.autoSyncCheckbox.Text = "Syncronize To Animations";
+            this.autoSyncCheckbox.Text = "Synchronize To Animations";
             this.autoSyncCheckbox.UseVisualStyleBackColor = false;
             this.autoSyncCheckbox.CheckedChanged += new System.EventHandler(this.autoSyncCheckbox_CheckedChanged);
             // 
@@ -468,7 +468,7 @@ namespace FFXIVVoicePackCreator {
             this.oldExportMode.AutoSize = true;
             this.oldExportMode.BackColor = System.Drawing.Color.IndianRed;
             this.oldExportMode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.oldExportMode.Location = new System.Drawing.Point(4, 383);
+            this.oldExportMode.Location = new System.Drawing.Point(3, 383);
             this.oldExportMode.Name = "oldExportMode";
             this.oldExportMode.Size = new System.Drawing.Size(116, 19);
             this.oldExportMode.TabIndex = 54;
