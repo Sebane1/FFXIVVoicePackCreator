@@ -1355,7 +1355,7 @@ namespace FFXIVVoicePackCreator {
                 MessageBox.Show(@"Due to ""Old Export Mode"" being active, you will not be able to save the state of the selected feature. We are preserving the ability to open this legacy project, and save this as a legacy project at the expense of newer features being persisted.", VersionText);
             }
             if (autoSyncCheckbox.Checked) {
-                MessageBox.Show("The tool will now automatically syncronize audio to the start times of each races emote animations. Please trim any empty audio that plays before each sound for best results.\r\n\r\nThe doze emote is timed based on when the character wakes up. Any prior snoring or sleeping is currently sacrificed for the convenience to work.", VersionText);
+                MessageBox.Show("The tool will now automatically syncronize audio to the start times of each races emote animations. Please trim any empty audio that plays before each sound for best results.\r\n\r\nThe doze emote is timed based on when the character wakes up. Any prior snoring or sleeping is currently sacrificed for the convenience to work. (Does not affect Voice Swap feature)", VersionText);
             }
         }
     }
