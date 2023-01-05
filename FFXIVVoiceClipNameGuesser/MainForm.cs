@@ -27,8 +27,6 @@ namespace FFXIVVoicePackCreator {
         private bool canDoDragDrop;
         private SCDGenerator scdGenerator;
         private string metaFilePath;
-        private string groupFilePathEmotes;
-        private string groupFilePathBattle;
         private List<int> emoteVoicesToReplace = new List<int>();
         private List<string> battleVoicesToReplace = new List<string>();
         private bool alreadyShown;
@@ -44,6 +42,7 @@ namespace FFXIVVoicePackCreator {
         public readonly string _descriptionBattleVoiceDisclaimer = "\r\n\r\nDISCLAIMER:\r\nIt is no longer a requirement to separate battle voices to the Base Collection as of Penumbra v0.6.1.0";
         public readonly string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
         private readonly string _battleSoundTutorial = "Due to how Square Enix authored their voice files, battle sounds for each race range between 10 (Au Ra), 12 (Most Races), or 16 (Hrothgar and Viera) actual sound clips. Because of this you may not hear all the sounds you assign.\r\n\r\nThis tool tries its best to fit what it can depending on the space available. Assign your lines best to worst in each category, or whatever makes sense for your situation.";
+        private string ffmpegTimingCommand = @"ffmpeg -f lavfi -i aevalsrc=0:d=8.375 -i C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\bin\\Release\\net7.0-windows\\res\\inputfile.wav -filter_complex \"[0:0] [1:0] concat=n=2:v=0:a=1\" -f wav -acodec adpcm_ms -block_size 256 -ac 1 C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\bin\\Release\\net7.0-windows\\res\\outputfile.wav"
         private string penumbraModPath;
         private string battleVoiceToSwapWith;
         private bool suppressVoiceSwapBattleVoiceChecked;
@@ -94,8 +93,8 @@ namespace FFXIVVoicePackCreator {
                 upset,
                 yes,
                 happy,
-                unknown1,
-                unknown2};
+                unused1,
+                unused2};
 
             battleFilePickers = new List<FilePicker>() {
                 attack1,
@@ -331,7 +330,6 @@ namespace FFXIVVoicePackCreator {
                             exportFilePathBattle = null;
                             jsonFilepath = null;
                             metaFilePath = null;
-                            groupFilePathEmotes = null;
                             return false;
                     }
                 }
@@ -431,7 +429,9 @@ namespace FFXIVVoicePackCreator {
 
         private void lostFileList_MouseDoubleClick(object sender, MouseEventArgs e) {
             if (!string.IsNullOrEmpty(lostFileListPaths[lostFileList.SelectedIndex])) {
-                Process.Start(lostFileListPaths[lostFileList.SelectedIndex]);
+                ProcessStartInfo info = new ProcessStartInfo(lostFileListPaths[lostFileList.SelectedIndex]);
+                info.UseShellExecute = true;
+                Process.Start(info);
             }
         }
 
