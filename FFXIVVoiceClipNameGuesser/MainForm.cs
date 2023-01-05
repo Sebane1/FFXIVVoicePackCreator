@@ -1294,11 +1294,11 @@ namespace FFXIVVoicePackCreator {
                                                 int i = 0;
                                                 foreach (ScdAudioEntry sound in file.Audio) {
                                                     if (sound.Format == SscfWaveFormat.MsAdPcm) {
-                                                        SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + (file.Audio.Count > 1 ? i : 0) + ".wav"), sound);
+                                                        SaveWaveDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + (file.Audio.Count > 1 ? i : "") + ".wav"), sound);
                                                         i++;
                                                     }
                                                     if (sound.Format == SscfWaveFormat.Vorbis) {
-                                                        SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + (file.Audio.Count > 1 ? i : 0) + ".ogg"), sound);
+                                                        SaveOggDialog(Path.Combine(outputFolderDialog.SelectedPath, Path.GetFileNameWithoutExtension(path) + (file.Audio.Count > 1 ? i : "") + ".ogg"), sound);
                                                         i++;
                                                     }
                                                 }
