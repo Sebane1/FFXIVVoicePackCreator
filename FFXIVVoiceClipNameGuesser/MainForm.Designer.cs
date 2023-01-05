@@ -57,6 +57,7 @@ namespace FFXIVVoicePackCreator {
             this.label11 = new System.Windows.Forms.Label();
             this.tabManager = new System.Windows.Forms.TabControl();
             this.voiceExportTab = new System.Windows.Forms.TabPage();
+            this.autoSyncCheckbox = new System.Windows.Forms.CheckBox();
             this.oldExportMode = new System.Windows.Forms.CheckBox();
             this.addRaceButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -298,7 +299,6 @@ namespace FFXIVVoicePackCreator {
             this.lostFileList.Name = "lostFileList";
             this.lostFileList.Size = new System.Drawing.Size(138, 364);
             this.lostFileList.TabIndex = 33;
-            this.lostFileList.SelectedIndexChanged += new System.EventHandler(this.lostFileList_SelectedIndexChanged);
             this.lostFileList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             this.lostFileList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lostFileList_MouseDoubleClick);
             this.lostFileList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lostNamesList_MouseDown);
@@ -425,6 +425,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // voiceExportTab
             // 
+            this.voiceExportTab.Controls.Add(this.autoSyncCheckbox);
             this.voiceExportTab.Controls.Add(this.oldExportMode);
             this.voiceExportTab.Controls.Add(this.addRaceButton);
             this.voiceExportTab.Controls.Add(this.label13);
@@ -444,6 +445,22 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
+            // 
+            // autoSyncCheckbox
+            // 
+            this.autoSyncCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.autoSyncCheckbox.AutoSize = true;
+            this.autoSyncCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.autoSyncCheckbox.Checked = true;
+            this.autoSyncCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSyncCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.autoSyncCheckbox.Location = new System.Drawing.Point(122, 383);
+            this.autoSyncCheckbox.Name = "autoSyncCheckbox";
+            this.autoSyncCheckbox.Size = new System.Drawing.Size(162, 19);
+            this.autoSyncCheckbox.TabIndex = 55;
+            this.autoSyncCheckbox.Text = "Syncronize To Animations";
+            this.autoSyncCheckbox.UseVisualStyleBackColor = false;
+            this.autoSyncCheckbox.CheckedChanged += new System.EventHandler(this.autoSyncCheckbox_CheckedChanged);
             // 
             // oldExportMode
             // 
@@ -1455,6 +1472,7 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.ToolStripMenuItem battleSoundGuidelinesToolStripMenuItem;
         private System.Windows.Forms.CheckBox oldExportMode;
         private System.Windows.Forms.ToolStripMenuItem changeVoiceDumpToolStripMenuItem;
+        private System.Windows.Forms.CheckBox autoSyncCheckbox;
     }
 }
 
