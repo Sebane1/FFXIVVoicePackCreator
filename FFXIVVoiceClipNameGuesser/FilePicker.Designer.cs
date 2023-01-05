@@ -39,10 +39,10 @@ namespace FFXIVVoicePackCreator {
             // filePath
             // 
             this.filePath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filePath.Location = new System.Drawing.Point(146, 3);
+            this.filePath.Location = new System.Drawing.Point(140, 3);
             this.filePath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(322, 23);
+            this.filePath.Size = new System.Drawing.Size(328, 23);
             this.filePath.TabIndex = 0;
             this.filePath.TextChanged += new System.EventHandler(this.filePath_TextChanged);
             this.filePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.filePath_DragDrop);
@@ -69,7 +69,7 @@ namespace FFXIVVoicePackCreator {
             this.labelName.Location = new System.Drawing.Point(4, 0);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(103, 28);
+            this.labelName.Size = new System.Drawing.Size(95, 28);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "surprised";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -91,10 +91,10 @@ namespace FFXIVVoicePackCreator {
             // playButton
             // 
             this.playButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playButton.Location = new System.Drawing.Point(115, 3);
+            this.playButton.Location = new System.Drawing.Point(107, 3);
             this.playButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(23, 22);
+            this.playButton.Size = new System.Drawing.Size(25, 22);
             this.playButton.TabIndex = 4;
             this.playButton.Text = "▶";
             this.playButton.UseVisualStyleBackColor = true;
@@ -103,8 +103,8 @@ namespace FFXIVVoicePackCreator {
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 116F));
