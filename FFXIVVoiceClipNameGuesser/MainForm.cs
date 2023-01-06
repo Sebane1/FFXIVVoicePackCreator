@@ -595,7 +595,7 @@ namespace FFXIVVoicePackCreator {
                             string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
                             if (i < timeCodeData.TimeCodes.Count) {
                                 decimal timeCode = timeCodeData.TimeCodes[i];
-                                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-f lavfi -i aevalsrc=0:d={timeCode} -i " + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ac 1 " + @"""" + tempPath + @"""");
+                                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i " + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ac 1 " + @"""" + tempPath + @"""");
                                 while (SCDGenerator.IsFileLocked(tempPath)) { };
                                 InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name + "_" + timeCodeData.Descriptor, new List<string>() { tempPath });
                                 File.Delete(tempPath);
