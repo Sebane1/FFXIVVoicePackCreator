@@ -21,35 +21,38 @@ namespace FFXIVVoicePackCreator {
         private string exportFilePathBattle;
         private string jsonFilepath;
         private string dumpFilePath;
+        private string savePath;
+        private string metaFilePath;
+        private string penumbraModPath;
+        private string battleVoiceToSwapWith;
+
+        private Point startPos;
+        private SCDGenerator scdGenerator;
+        private List<int> emoteVoicesToReplace = new List<int>();
         private List<string> dumpFiles;
         private List<string> secondaryKnownFileList;
         private List<string> lostFileListPaths;
-        private Point startPos;
-        private bool canDoDragDrop;
-        private SCDGenerator scdGenerator;
-        private string metaFilePath;
-        private List<int> emoteVoicesToReplace = new List<int>();
         private List<string> battleVoicesToReplace = new List<string>();
-        private bool alreadyShown;
         private List<FilePicker> emoteFilePickers = new List<FilePicker>();
         private List<FilePicker> battleFilePickers = new List<FilePicker>();
+        private List<TimeCodeData> timeCodeDataList;
         private List<TextBox> authorInformation;
-        private string savePath;
+
+        private bool alreadyShown;
         private bool hasSaved = true;
+        private bool canDoDragDrop;
 
         public readonly string _defaultModName = "";
         public readonly string _defaultAuthor = "FFXIV Voice Pack Creator";
         public readonly string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
-        public readonly string _descriptionBattleVoiceDisclaimer = "\\nDISCLAIMER:\\nIt is no longer a requirement to separate battle voices to the Base Collection as of Penumbra v0.6.1.0";
+        public readonly string _descriptionBattleVoiceDisclaimer = "\\n\\nDISCLAIMER:\\nIt is no longer a requirement to separate battle voices to the Base Collection as of Penumbra v0.6.1.0";
         public readonly string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
         private readonly string _battleSoundTutorial = "Due to how Square Enix authored their voice files, battle sounds for each race range between 10 (Au Ra), 12 (Most Races), or 16 (Hrothgar and Viera) actual sound clips. Because of this you may not hear all the sounds you assign.\r\n\r\nThis tool tries its best to fit what it can depending on the space available. Assign your lines best to worst in each category, or whatever makes sense for your situation.";
-        private string penumbraModPath;
-        private string battleVoiceToSwapWith;
+
         private bool suppressVoiceSwapBattleVoiceChecked;
         private bool battleVoicesInUse;
         private bool showedNewFeaturesPrompt;
         private int offset;
-        private List<TimeCodeData> timeCodeDataList;
 
         public bool HasSaved {
             get => hasSaved; set {
@@ -332,7 +335,11 @@ namespace FFXIVVoicePackCreator {
             }
             newModPath = Path.Combine(penumbraModPath, modNameTextBox.Text + @"\");
             if (Directory.Exists(newModPath)) {
-                Directory.Delete(newModPath, true);
+                try {
+                    Directory.Delete(newModPath, true);
+                } catch {
+                    MessageBox.Show(@"Failed to clean directory", VersionText);
+                }
             }
             exportFilePathEmote = Path.Combine(newModPath, @"sound\voice\vo_emote");
             exportFilePathBattle = Path.Combine(newModPath, @"sound\voice\vo_battle");
