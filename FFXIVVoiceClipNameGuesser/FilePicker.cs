@@ -160,7 +160,7 @@ namespace FFXIVVoicePackCreator {
                 }
             }
             MainWindow window = (ParentForm as MainWindow);
-            if(window != null) {
+            if (window != null) {
                 window.HasSaved = false;
             }
         }
@@ -191,7 +191,23 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void playButton_Click(object sender, EventArgs e) {
+            MainWindow window = (ParentForm as MainWindow);
+            if (window != null) {
+                if (!window.AutoSyncCheckbox.Checked) {
+                    window.Hook.SendText(@"/voice", 1);
+                    window.Hook.SendText(@"/" + Name, 1);
+                }
+            }
+            Thread.Sleep(200);
             PlaySound(filePath.Text);
+            if (window != null) {
+                if (!window.AutoSyncCheckbox.Checked) {
+                    window.Hook.SendText(@"/voice", 1);
+                    window.TopMost = true;
+                    window.Focus();
+                    window.TopMost = false;
+                }
+            }
         }
         public void PlaySound(string fileName) {
             if (File.Exists(fileName)) {
