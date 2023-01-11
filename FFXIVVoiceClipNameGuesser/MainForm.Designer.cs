@@ -538,6 +538,7 @@ namespace FFXIVVoicePackCreator {
             this.voiceReplacementList.Size = new System.Drawing.Size(476, 317);
             this.voiceReplacementList.TabIndex = 37;
             this.voiceReplacementList.UseTabStops = false;
+            this.voiceReplacementList.SelectedIndexChanged += new System.EventHandler(this.voiceReplacementList_SelectedIndexChanged);
             // 
             // addToVoiceListButton
             // 
