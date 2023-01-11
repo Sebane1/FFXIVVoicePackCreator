@@ -1,4 +1,5 @@
 ﻿using AutoUpdaterDotNET;
+using FFBardMusicPlayer.FFXIV;
 using FFXIVVoicePackCreator.Json;
 using FFXIVVoicePackCreator.VoiceSorting;
 using NAudio.Wave;
@@ -16,6 +17,8 @@ using VfxEditor.ScdFormat;
 
 namespace FFXIVVoicePackCreator {
     public partial class MainWindow : Form {
+        private FFXIVHook hook = new FFXIVHook();
+
         private string newModPath;
         private string exportFilePathEmote;
         private string exportFilePathBattle;
@@ -66,9 +69,14 @@ namespace FFXIVVoicePackCreator {
         }
 
         public string VersionText { get; private set; }
+        public FFXIVHook Hook { get => hook; set => hook = value; }
 
         public MainWindow() {
             InitializeComponent();
+            var processes = new List<Process>(Process.GetProcessesByName("ffxiv_dx11"));
+            if (processes.Count > 0) {
+                Hook.Hook(processes[0], false);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e) {

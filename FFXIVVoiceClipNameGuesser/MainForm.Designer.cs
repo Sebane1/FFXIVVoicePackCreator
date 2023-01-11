@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace FFXIVVoicePackCreator {
     partial class MainWindow {
         /// <summary>
@@ -1473,6 +1475,8 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.CheckBox oldExportMode;
         private System.Windows.Forms.ToolStripMenuItem changeVoiceDumpToolStripMenuItem;
         private System.Windows.Forms.CheckBox autoSyncCheckbox;
+
+        public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }
 }
 
