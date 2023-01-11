@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio;
+using NAudio.Gui;
 using NAudio.Wave;
 
 namespace FFXIVVoicePackCreator {
@@ -192,21 +194,32 @@ namespace FFXIVVoicePackCreator {
 
         private void playButton_Click(object sender, EventArgs e) {
             MainWindow window = (ParentForm as MainWindow);
-            if (window != null) {
-                if (!window.AutoSyncCheckbox.Checked) {
-                    window.Hook.SendText(@"/voice", 1);
-                    window.Hook.SendText(@"/" + Name, 1);
+            bool muteState = false;
+            if (window != null && index < 16) {
+                muteState = VolumeMixer.GetApplicationMute(window.Hook.Process.Id);
+                {
+                    window.Hook.SendSyncKey(Keys.Enter);
+                    Thread.Sleep(800);
+                    window.Hook.SendString(@"/" + Name);
+                    Thread.Sleep(200);
+                    window.Hook.SendSyncKey(Keys.Enter);
+                    VolumeMixer.SetApplicationMute(window.Hook.Process.Id, true);
+                    if (window.AutoSyncCheckbox.Checked) {
+                        if (window.SelectedVoiceDescriptor != null) {
+                            decimal delay = (decimal)1000.0 * RaceVoice.TimeCodeData[window.SelectedVoiceDescriptor.RaceName + "_" + window.SelectedVoiceDescriptor.VoiceGender].TimeCodes[index];
+                            Thread.Sleep((int)delay);
+                        }
+                    }
+                    Thread.Sleep(200);
                 }
             }
-            Thread.Sleep(200);
             PlaySound(filePath.Text);
-            if (window != null) {
-                if (!window.AutoSyncCheckbox.Checked) {
-                    window.Hook.SendText(@"/voice", 1);
-                    window.TopMost = true;
-                    window.Focus();
-                    window.TopMost = false;
-                }
+            if (window != null && index < 16) {
+                Thread.Sleep(3000);
+                VolumeMixer.SetApplicationMute(window.Hook.Process.Id, muteState);
+                window.TopMost = true;
+                window.Focus();
+                window.TopMost = false;
             }
         }
         public void PlaySound(string fileName) {

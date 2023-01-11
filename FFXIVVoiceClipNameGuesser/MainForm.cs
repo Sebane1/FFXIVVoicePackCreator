@@ -56,6 +56,8 @@ namespace FFXIVVoicePackCreator {
         private bool battleVoicesInUse;
         private bool showedNewFeaturesPrompt;
         private int offset;
+        private List<decimal> currentAudioTimings;
+        private VoiceDescriptor selectedVoiceDescriptor;
 
         public bool HasSaved {
             get => hasSaved; set {
@@ -70,6 +72,7 @@ namespace FFXIVVoicePackCreator {
 
         public string VersionText { get; private set; }
         public FFXIVHook Hook { get => hook; set => hook = value; }
+        public VoiceDescriptor SelectedVoiceDescriptor { get => selectedVoiceDescriptor; set => selectedVoiceDescriptor = value; }
 
         public MainWindow() {
             InitializeComponent();
@@ -1370,6 +1373,15 @@ namespace FFXIVVoicePackCreator {
             }
             if (autoSyncCheckbox.Checked) {
                 MessageBox.Show("The tool will now automatically synchronize audio to the start times of each races emote animations. Please trim any empty audio that plays before each sound for best results.\r\n\r\nThe doze emote is timed based on when the character wakes up. Any prior snoring or sleeping is currently sacrificed for the convenience to work. (Does not affect Voice Swap feature)", VersionText);
+            }
+        }
+
+        private void voiceReplacementList_SelectedIndexChanged(object sender, EventArgs e) {
+            if (voiceReplacementList.Items.Count > 0) {
+                if (voiceReplacementList.SelectedIndex > -1) {
+                    string value = emoteVoicesToReplace[voiceReplacementList.SelectedIndex].ToString();
+                    selectedVoiceDescriptor = RaceVoice.RacesToVoiceDescription[value][0];
+                }
             }
         }
     }

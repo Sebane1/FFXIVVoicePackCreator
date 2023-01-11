@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FFBardMusicPlayer.FFXIV.FFXIVHook;
 
 namespace FFBardMusicPlayer.FFXIV {
     public class FFXIVHook {
@@ -57,13 +58,14 @@ namespace FFBardMusicPlayer.FFXIV {
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern uint MapVirtualKey(uint uCode, uint uMapType);
 
-        private struct Input {
+        public struct Input {
             public int Type;
             public InputUnion Un;
         }
 
+
         [StructLayout(LayoutKind.Explicit)]
-        private struct InputUnion {
+        public struct InputUnion {
             [FieldOffset(0)] public Mouseinput mi;
             [FieldOffset(0)] public Keybdinput ki;
             [FieldOffset(0)] public readonly Hardwareinput hi;
@@ -174,7 +176,6 @@ namespace FFBardMusicPlayer.FFXIV {
             if (insideTextBox) {
                 FocusWindow();
                 Thread.Sleep(sleep);
-                Console.WriteLine(text);
                 SendString(text);
                 Thread.Sleep(30 * text.Length);
                 insideTextBox = false;
@@ -372,36 +373,34 @@ namespace FFBardMusicPlayer.FFXIV {
             if (GetForegroundWindow() != mainWindowHandle) {
                 SetForegroundWindow(mainWindowHandle);
             }
-
-            var keyList = new List<Input>();
+            List<Input> keyList = new List<Input>();
             foreach (short c in input) {
                 if (c > 10) {
-                    var keyDown = new Input {
+                    Input keyDown = new Input {
                         Type = 1,
                         Un = new InputUnion {
                             ki = new Keybdinput {
                                 wVk = 0,
                                 wScan = (ushort)c,
-                                dwFlags = 0x0004
+                                dwFlags = 0x0004,
                             }
                         }
                     };
                     keyList.Add(keyDown);
 
-                    var keyUp = new Input {
+                    Input keyUp = new Input {
                         Type = 1,
                         Un = new InputUnion {
                             ki = new Keybdinput {
                                 wVk = 0,
                                 wScan = (ushort)c,
-                                dwFlags = 0x0004 | 0x0002
+                                dwFlags = 0x0004 | 0x0002,
                             }
                         }
                     };
                     keyList.Add(keyUp);
                 }
             }
-
             SendInput((uint)keyList.Count, keyList.ToArray(), Marshal.SizeOf(typeof(Input)));
         }
 
