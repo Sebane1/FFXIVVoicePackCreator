@@ -72,10 +72,10 @@ namespace FFXIVVoicePackCreator {
             using (var player = new WaveChannel32(WaveFormatConversionStream.CreatePcmStream(data))) {
                 output.Init(player);
                 output.Play();
-                //while (output.PlaybackState == PlaybackState.Playing) {
-                //    Thread.Sleep(200);
-                //    Application.DoEvents();
-                //}
+                while (output.PlaybackState == PlaybackState.Playing) {
+                    Thread.Sleep(200);
+                    Application.DoEvents();
+                }
             }
         }
         public void PlaySoundOgg(WaveStream data) {

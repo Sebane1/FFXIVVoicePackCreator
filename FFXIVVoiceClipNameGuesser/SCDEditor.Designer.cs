@@ -38,7 +38,7 @@
             this.originalSCD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.originalSCD.Filter = "SCD File|*.scd;";
-            this.originalSCD.Index = 0;
+            this.originalSCD.Index = -1;
             this.originalSCD.IsPlayable = false;
             this.originalSCD.IsSaveMode = false;
             this.originalSCD.IsSwappable = false;
@@ -55,7 +55,7 @@
             this.outputSCD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.outputSCD.Filter = "SCD File|*.scd;";
-            this.outputSCD.Index = 0;
+            this.outputSCD.Index = -1;
             this.outputSCD.IsPlayable = false;
             this.outputSCD.IsSaveMode = true;
             this.outputSCD.IsSwappable = false;
@@ -150,7 +150,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SCDEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SCDEditor";
+            this.Text = "SCD Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SCDEditor_FormClosing);
             this.Load += new System.EventHandler(this.SCDEditor_Load);
             this.ResumeLayout(false);
