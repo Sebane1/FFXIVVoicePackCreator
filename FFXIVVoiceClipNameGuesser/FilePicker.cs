@@ -57,7 +57,7 @@ namespace FFXIVVoicePackCreator {
                 playButton.Visible = false;
             }
             window = (ParentForm as MainWindow);
-            if (window != null) {
+            if (window != null && window.FoundInstance) {
                 muteState = VolumeMixer.GetApplicationMute(window.Hook.Process.Id);
             }
         }
