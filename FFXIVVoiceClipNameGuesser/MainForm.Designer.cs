@@ -40,11 +40,13 @@ namespace FFXIVVoicePackCreator {
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCDWavMergerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bulkSCDAudioExtractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sCDEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurePenumbraFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.battleSoundGuidelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshFFXIVInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.lostFileList = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -173,7 +175,8 @@ namespace FFXIVVoicePackCreator {
             this.fileToolStripMenuItem,
             this.toolsToolStripMenuItem,
             this.configToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.refreshFFXIVInstanceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -225,6 +228,7 @@ namespace FFXIVVoicePackCreator {
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sCDWavMergerToolStripMenuItem,
+            this.sCDEditorToolStripMenuItem,
             this.bulkSCDAudioExtractorToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -243,6 +247,13 @@ namespace FFXIVVoicePackCreator {
             this.bulkSCDAudioExtractorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.bulkSCDAudioExtractorToolStripMenuItem.Text = "Bulk SCD Audio Extractor";
             this.bulkSCDAudioExtractorToolStripMenuItem.Click += new System.EventHandler(this.bulkSCDAudioExtractorToolStripMenuItem_Click);
+            // 
+            // sCDEditorToolStripMenuItem
+            // 
+            this.sCDEditorToolStripMenuItem.Name = "sCDEditorToolStripMenuItem";
+            this.sCDEditorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.sCDEditorToolStripMenuItem.Text = "SCD Editor";
+            this.sCDEditorToolStripMenuItem.Click += new System.EventHandler(this.sCDEditorToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 
@@ -281,6 +292,13 @@ namespace FFXIVVoicePackCreator {
             this.battleSoundGuidelinesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.battleSoundGuidelinesToolStripMenuItem.Text = "Battle Sound Guidelines";
             this.battleSoundGuidelinesToolStripMenuItem.Click += new System.EventHandler(this.battleSoundGuidelinesToolStripMenuItem_Click);
+            // 
+            // refreshFFXIVInstanceToolStripMenuItem
+            // 
+            this.refreshFFXIVInstanceToolStripMenuItem.Name = "refreshFFXIVInstanceToolStripMenuItem";
+            this.refreshFFXIVInstanceToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
+            this.refreshFFXIVInstanceToolStripMenuItem.Text = "Refresh FFXIV Instance";
+            this.refreshFFXIVInstanceToolStripMenuItem.Click += new System.EventHandler(this.refreshFFXIVInstanceToolStripMenuItem_Click);
             // 
             // label6
             // 
@@ -1361,6 +1379,7 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabManager);
             this.Controls.Add(this.voiceTabs);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -1476,6 +1495,8 @@ namespace FFXIVVoicePackCreator {
         private System.Windows.Forms.CheckBox oldExportMode;
         private System.Windows.Forms.ToolStripMenuItem changeVoiceDumpToolStripMenuItem;
         private System.Windows.Forms.CheckBox autoSyncCheckbox;
+        private ToolStripMenuItem sCDEditorToolStripMenuItem;
+        private ToolStripMenuItem refreshFFXIVInstanceToolStripMenuItem;
 
         public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }

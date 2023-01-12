@@ -58,6 +58,7 @@ namespace FFXIVVoicePackCreator {
         private int offset;
         private List<decimal> currentAudioTimings;
         private VoiceDescriptor selectedVoiceDescriptor;
+        private bool foundInstance;
 
         public bool HasSaved {
             get => hasSaved; set {
@@ -73,11 +74,14 @@ namespace FFXIVVoicePackCreator {
         public string VersionText { get; private set; }
         public FFXIVHook Hook { get => hook; set => hook = value; }
         public VoiceDescriptor SelectedVoiceDescriptor { get => selectedVoiceDescriptor; set => selectedVoiceDescriptor = value; }
+        public bool FoundInstance { get => foundInstance; set => foundInstance = value; }
 
         public MainWindow() {
             InitializeComponent();
             var processes = new List<Process>(Process.GetProcessesByName("ffxiv_dx11"));
+            foundInstance = false;
             if (processes.Count > 0) {
+                foundInstance = true;
                 Hook.Hook(processes[0], false);
             }
         }
@@ -1382,6 +1386,26 @@ namespace FFXIVVoicePackCreator {
                     string value = emoteVoicesToReplace[voiceReplacementList.SelectedIndex].ToString();
                     selectedVoiceDescriptor = RaceVoice.RacesToVoiceDescription[value][0];
                 }
+            }
+        }
+
+        private void sCDEditorToolStripMenuItem_Click(object sender, EventArgs e) {
+            SCDEditor sCDEditor = new SCDEditor();
+            sCDEditor.Form = this;
+            sCDEditor.ShowDialog();
+        }
+
+        private void refreshFFXIVInstanceToolStripMenuItem_Click(object sender, EventArgs e) {
+            var processes = new List<Process>(Process.GetProcessesByName("ffxiv_dx11"));
+            foundInstance = false;
+            if (processes.Count > 0) {
+                Hook.Hook(processes[0], false);
+                foundInstance = true;
+            }
+            if (foundInstance) {
+                MessageBox.Show("Client has been refreshed.", VersionText);
+            } else {
+                MessageBox.Show("No client found.", VersionText);
             }
         }
     }

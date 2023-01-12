@@ -36,3 +36,4 @@ C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\net7.0-windows\NAudio.Wasapi.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\net7.0-windows\NAudio.WinForms.dll
 C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\bin\Release\net7.0-windows\NAudio.WinMM.dll
+C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\obj\Release\net7.0-windows\FFXIVVoicePackCreator.SCDEditor.resources

@@ -24,7 +24,7 @@ namespace FFXIVVoicePackCreator {
         bool isSaveMode = false;
         bool isSwappable = true;
         bool isPlayable = true;
-
+        public event EventHandler OnFileSelected;
         [Category("Select Type"), Description("Changes what type of selection is made")]
         public bool IsSaveMode { get => isSaveMode; set => isSaveMode = value; }
 
@@ -41,6 +41,8 @@ namespace FFXIVVoicePackCreator {
         private Point startPos;
         private bool canDoDragDrop;
         private bool ignoreClear;
+        private bool muteState;
+        private MainWindow window;
 
         private void filePicker_Load(object sender, EventArgs e) {
             AutoScaleDimensions = new SizeF(96, 96);
@@ -53,6 +55,10 @@ namespace FFXIVVoicePackCreator {
                 playButton.Visible = true;
             } else {
                 playButton.Visible = false;
+            }
+            window = (ParentForm as MainWindow);
+            if (window != null) {
+                muteState = VolumeMixer.GetApplicationMute(window.Hook.Process.Id);
             }
         }
         private void filePicker_MouseDown(object sender, MouseEventArgs e) {
@@ -92,6 +98,9 @@ namespace FFXIVVoicePackCreator {
                     if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                         filePath.Text = saveFileDialog.FileName;
                     }
+                }
+                if (OnFileSelected != null) {
+                    OnFileSelected.Invoke(this, EventArgs.Empty);
                 }
             } else {
                 VoiceSelection voiceSelection = new VoiceSelection();
@@ -161,7 +170,6 @@ namespace FFXIVVoicePackCreator {
                     playButton.Visible = false;
                 }
             }
-            MainWindow window = (ParentForm as MainWindow);
             if (window != null) {
                 window.HasSaved = false;
             }
@@ -193,10 +201,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void playButton_Click(object sender, EventArgs e) {
-            MainWindow window = (ParentForm as MainWindow);
-            bool muteState = false;
-            if (window != null && index < 16) {
-                muteState = VolumeMixer.GetApplicationMute(window.Hook.Process.Id);
+            if (window != null && index < 16 && window.FoundInstance) {
                 {
                     window.Hook.SendSyncKey(Keys.Enter);
                     Thread.Sleep(800);
@@ -214,7 +219,7 @@ namespace FFXIVVoicePackCreator {
                 }
             }
             PlaySound(filePath.Text);
-            if (window != null && index < 16) {
+            if (window != null && index < 16 && window.FoundInstance) {
                 Thread.Sleep(3000);
                 VolumeMixer.SetApplicationMute(window.Hook.Process.Id, muteState);
                 window.TopMost = true;

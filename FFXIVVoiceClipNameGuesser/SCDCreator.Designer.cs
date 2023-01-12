@@ -164,7 +164,7 @@ namespace FFXIVVoicePackCreator {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mediaSelection.Filter = resources.GetString("mediaSelection.Filter");
             this.mediaSelection.Index = -1;
-            this.mediaSelection.IsPlayable = true;
+            this.mediaSelection.IsPlayable = false;
             this.mediaSelection.IsSaveMode = false;
             this.mediaSelection.IsSwappable = false;
             this.mediaSelection.Location = new System.Drawing.Point(14, 14);
