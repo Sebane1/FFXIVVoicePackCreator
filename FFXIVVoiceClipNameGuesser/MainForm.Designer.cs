@@ -39,8 +39,8 @@ namespace FFXIVVoicePackCreator {
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCDWavMergerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bulkSCDAudioExtractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCDEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bulkSCDAudioExtractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurePenumbraFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -241,19 +241,19 @@ namespace FFXIVVoicePackCreator {
             this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone SCD";
             this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDCreatorToolStripMenuItem_Click);
             // 
-            // bulkSCDAudioExtractorToolStripMenuItem
-            // 
-            this.bulkSCDAudioExtractorToolStripMenuItem.Name = "bulkSCDAudioExtractorToolStripMenuItem";
-            this.bulkSCDAudioExtractorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.bulkSCDAudioExtractorToolStripMenuItem.Text = "Bulk SCD Audio Extractor";
-            this.bulkSCDAudioExtractorToolStripMenuItem.Click += new System.EventHandler(this.bulkSCDAudioExtractorToolStripMenuItem_Click);
-            // 
             // sCDEditorToolStripMenuItem
             // 
             this.sCDEditorToolStripMenuItem.Name = "sCDEditorToolStripMenuItem";
             this.sCDEditorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.sCDEditorToolStripMenuItem.Text = "SCD Editor";
             this.sCDEditorToolStripMenuItem.Click += new System.EventHandler(this.sCDEditorToolStripMenuItem_Click);
+            // 
+            // bulkSCDAudioExtractorToolStripMenuItem
+            // 
+            this.bulkSCDAudioExtractorToolStripMenuItem.Name = "bulkSCDAudioExtractorToolStripMenuItem";
+            this.bulkSCDAudioExtractorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.bulkSCDAudioExtractorToolStripMenuItem.Text = "Bulk SCD Audio Extractor";
+            this.bulkSCDAudioExtractorToolStripMenuItem.Click += new System.EventHandler(this.bulkSCDAudioExtractorToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 
@@ -1056,7 +1056,7 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
+            this.battleVoicesPage.Size = new System.Drawing.Size(480, 519);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
@@ -1070,7 +1070,7 @@ namespace FFXIVVoicePackCreator {
             this.extra2.IsPlayable = true;
             this.extra2.IsSaveMode = false;
             this.extra2.IsSwappable = false;
-            this.extra2.Location = new System.Drawing.Point(4, 261);
+            this.extra2.Location = new System.Drawing.Point(4, 484);
             this.extra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.extra2.MaximumSize = new System.Drawing.Size(588, 30);
             this.extra2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1087,7 +1087,7 @@ namespace FFXIVVoicePackCreator {
             this.extra1.IsPlayable = true;
             this.extra1.IsSaveMode = false;
             this.extra1.IsSwappable = false;
-            this.extra1.Location = new System.Drawing.Point(4, 229);
+            this.extra1.Location = new System.Drawing.Point(4, 452);
             this.extra1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.extra1.MaximumSize = new System.Drawing.Size(588, 30);
             this.extra1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1104,7 +1104,7 @@ namespace FFXIVVoicePackCreator {
             this.death2.IsPlayable = true;
             this.death2.IsSaveMode = false;
             this.death2.IsSwappable = false;
-            this.death2.Location = new System.Drawing.Point(4, 197);
+            this.death2.Location = new System.Drawing.Point(4, 420);
             this.death2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.death2.MaximumSize = new System.Drawing.Size(588, 30);
             this.death2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1121,7 +1121,7 @@ namespace FFXIVVoicePackCreator {
             this.death1.IsPlayable = true;
             this.death1.IsSaveMode = false;
             this.death1.IsSwappable = false;
-            this.death1.Location = new System.Drawing.Point(4, 165);
+            this.death1.Location = new System.Drawing.Point(4, 388);
             this.death1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.death1.MaximumSize = new System.Drawing.Size(588, 30);
             this.death1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1138,7 +1138,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt6.IsPlayable = true;
             this.hurt6.IsSaveMode = false;
             this.hurt6.IsSwappable = false;
-            this.hurt6.Location = new System.Drawing.Point(4, 133);
+            this.hurt6.Location = new System.Drawing.Point(4, 356);
             this.hurt6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt6.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt6.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1155,7 +1155,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt5.IsPlayable = true;
             this.hurt5.IsSaveMode = false;
             this.hurt5.IsSwappable = false;
-            this.hurt5.Location = new System.Drawing.Point(4, 101);
+            this.hurt5.Location = new System.Drawing.Point(4, 324);
             this.hurt5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt5.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt5.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1172,7 +1172,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt4.IsPlayable = true;
             this.hurt4.IsSaveMode = false;
             this.hurt4.IsSwappable = false;
-            this.hurt4.Location = new System.Drawing.Point(4, 69);
+            this.hurt4.Location = new System.Drawing.Point(4, 292);
             this.hurt4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt4.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt4.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1189,7 +1189,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt3.IsPlayable = true;
             this.hurt3.IsSaveMode = false;
             this.hurt3.IsSwappable = false;
-            this.hurt3.Location = new System.Drawing.Point(4, 37);
+            this.hurt3.Location = new System.Drawing.Point(4, 260);
             this.hurt3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt3.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt3.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1206,7 +1206,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt2.IsPlayable = true;
             this.hurt2.IsSaveMode = false;
             this.hurt2.IsSwappable = false;
-            this.hurt2.Location = new System.Drawing.Point(4, 5);
+            this.hurt2.Location = new System.Drawing.Point(4, 228);
             this.hurt2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt2.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1223,7 +1223,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt1.IsPlayable = true;
             this.hurt1.IsSaveMode = false;
             this.hurt1.IsSwappable = false;
-            this.hurt1.Location = new System.Drawing.Point(4, -27);
+            this.hurt1.Location = new System.Drawing.Point(4, 196);
             this.hurt1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt1.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1240,7 +1240,7 @@ namespace FFXIVVoicePackCreator {
             this.attack6.IsPlayable = true;
             this.attack6.IsSaveMode = false;
             this.attack6.IsSwappable = false;
-            this.attack6.Location = new System.Drawing.Point(4, -59);
+            this.attack6.Location = new System.Drawing.Point(4, 164);
             this.attack6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack6.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack6.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1258,7 +1258,7 @@ namespace FFXIVVoicePackCreator {
             this.attack5.IsPlayable = true;
             this.attack5.IsSaveMode = false;
             this.attack5.IsSwappable = false;
-            this.attack5.Location = new System.Drawing.Point(4, -91);
+            this.attack5.Location = new System.Drawing.Point(4, 132);
             this.attack5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack5.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack5.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1275,7 +1275,7 @@ namespace FFXIVVoicePackCreator {
             this.attack4.IsPlayable = true;
             this.attack4.IsSaveMode = false;
             this.attack4.IsSwappable = false;
-            this.attack4.Location = new System.Drawing.Point(4, -123);
+            this.attack4.Location = new System.Drawing.Point(4, 100);
             this.attack4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack4.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack4.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1292,7 +1292,7 @@ namespace FFXIVVoicePackCreator {
             this.attack3.IsPlayable = true;
             this.attack3.IsSaveMode = false;
             this.attack3.IsSwappable = false;
-            this.attack3.Location = new System.Drawing.Point(4, -155);
+            this.attack3.Location = new System.Drawing.Point(4, 68);
             this.attack3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack3.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack3.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1309,7 +1309,7 @@ namespace FFXIVVoicePackCreator {
             this.attack2.IsPlayable = true;
             this.attack2.IsSaveMode = false;
             this.attack2.IsSwappable = false;
-            this.attack2.Location = new System.Drawing.Point(4, -187);
+            this.attack2.Location = new System.Drawing.Point(4, 36);
             this.attack2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack2.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1326,7 +1326,7 @@ namespace FFXIVVoicePackCreator {
             this.attack1.IsPlayable = true;
             this.attack1.IsSaveMode = false;
             this.attack1.IsSwappable = false;
-            this.attack1.Location = new System.Drawing.Point(4, -219);
+            this.attack1.Location = new System.Drawing.Point(4, 4);
             this.attack1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack1.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack1.MinimumSize = new System.Drawing.Size(588, 30);
