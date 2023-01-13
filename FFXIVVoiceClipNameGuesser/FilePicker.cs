@@ -43,6 +43,8 @@ namespace FFXIVVoicePackCreator {
         private bool ignoreClear;
         private bool muteState;
         private MainWindow window;
+        private WaveOutEvent output;
+        private int maxTime = 4000;
 
         private void filePicker_Load(object sender, EventArgs e) {
             AutoScaleDimensions = new SizeF(96, 96);
@@ -201,6 +203,11 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void playButton_Click(object sender, EventArgs e) {
+            if (index == 4) {
+                maxTime = 10000;
+            } else if (index < 16) {
+                maxTime = 3000;
+            }
             if (window != null && index < 16 && window.FoundInstance) {
                 {
                     window.Hook.SendSyncKey(Keys.Enter);
@@ -209,18 +216,22 @@ namespace FFXIVVoicePackCreator {
                     Thread.Sleep(200);
                     window.Hook.SendSyncKey(Keys.Enter);
                     VolumeMixer.SetApplicationMute(window.Hook.Process.Id, true);
-                    if (window.AutoSyncCheckbox.Checked) {
-                        if (window.SelectedVoiceDescriptor != null) {
-                            decimal delay = (decimal)1000.0 * RaceVoice.TimeCodeData[window.SelectedVoiceDescriptor.RaceName + "_" + window.SelectedVoiceDescriptor.VoiceGender].TimeCodes[index];
-                            Thread.Sleep((int)delay);
-                        }
-                    }
                     Thread.Sleep(200);
+                }
+            }
+            if (window.AutoSyncCheckbox.Checked) {
+                if (window.SelectedVoiceDescriptor != null) {
+                    decimal delay = (decimal)1000.0 * RaceVoice.TimeCodeData[window.SelectedVoiceDescriptor.RaceName + "_" + window.SelectedVoiceDescriptor.VoiceGender].TimeCodes[index];
+                    Thread.Sleep((int)delay);
+                    if (index == 4) {
+                        maxTime = 10000 - (int)delay;
+                    } else {
+                        maxTime = 3000 - (int)delay;
+                    }
                 }
             }
             PlaySound(filePath.Text);
             if (window != null && index < 16 && window.FoundInstance) {
-                Thread.Sleep(3000);
                 VolumeMixer.SetApplicationMute(window.Hook.Process.Id, muteState);
                 window.TopMost = true;
                 window.Focus();
@@ -229,13 +240,25 @@ namespace FFXIVVoicePackCreator {
         }
         public void PlaySound(string fileName) {
             if (File.Exists(fileName)) {
-                var output = new WaveOutEvent();
+                if (output != null) {
+                    output.Stop();
+                }
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                output = new WaveOutEvent();
                 using (var player = new AudioFileReader(fileName)) {
                     output.Init(player);
                     output.Play();
                     while (output.PlaybackState == PlaybackState.Playing) {
                         Thread.Sleep(200);
                         Application.DoEvents();
+                        if (stopwatch.ElapsedMilliseconds > maxTime) {
+                            output.Stop();
+                            break;
+                        }
+                        if (window != null && window.FoundInstance) {
+                            Thread.Sleep(maxTime - (int)stopwatch.ElapsedMilliseconds);
+                        }
                     }
                 }
             }
