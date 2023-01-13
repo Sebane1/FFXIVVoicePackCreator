@@ -79,6 +79,10 @@ namespace FFXIVVoicePackCreator {
 
         public MainWindow() {
             InitializeComponent();
+            RefreshFFXIVInstance();
+        }
+
+        private void RefreshFFXIVInstance() {
             var processes = new List<Process>(Process.GetProcessesByName("ffxiv_dx11"));
             foundInstance = false;
             if (processes.Count > 0) {
@@ -810,7 +814,7 @@ namespace FFXIVVoicePackCreator {
         }
         private bool CleanSlate() {
             if (!HasSaved) {
-                DialogResult dialogResult = MessageBox.Show("Save changes?", Text, MessageBoxButtons.YesNoCancel);
+                DialogResult dialogResult = MessageBox.Show("Save changes?", VersionText, MessageBoxButtons.YesNoCancel);
                 switch (dialogResult) {
                     case DialogResult.Yes:
                         if (savePath == null) {
@@ -1397,16 +1401,48 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void refreshFFXIVInstanceToolStripMenuItem_Click(object sender, EventArgs e) {
-            var processes = new List<Process>(Process.GetProcessesByName("ffxiv_dx11"));
-            foundInstance = false;
-            if (processes.Count > 0) {
-                Hook.Hook(processes[0], false);
-                foundInstance = true;
-            }
+            RefreshFFXIVInstance();
             if (foundInstance) {
                 MessageBox.Show("Client has been refreshed.", VersionText);
             } else {
                 MessageBox.Show("No client found.", VersionText);
+            }
+        }
+
+        private void ffxivRefreshTimer_Tick(object sender, EventArgs e) {
+            RefreshFFXIVInstance();
+        }
+
+        private void testEmotesButton_Click(object sender, EventArgs e) {
+            if (MessageBox.Show("This will test every valid emote voice file, based on the highlighted voice in the voice replacement list." + 
+                (foundInstance ? " Please ensure your in game chat box is not selected." : "") + " Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                voiceTabs.SelectedIndex = 0;
+                foreach (FilePicker filePicker in emoteFilePickers) {
+                    if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text) && !filePicker.UseGameFileCheckBox.Checked) {
+                        TopMost = false;
+                        filePicker.Play(true);
+                    }
+                }
+                TopMost = true;
+                Focus();
+                TopMost = false;
+                MessageBox.Show("Test Complete!", VersionText);
+            }
+        }
+
+        private void testBattleSoundButton_Click(object sender, EventArgs e) {
+            if (!voiceSwapBattleVoices.Checked) {
+                if (MessageBox.Show("This will test every valid battle voice file. Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                    voiceTabs.SelectedIndex = 1;
+                    foreach (FilePicker filePicker in battleFilePickers) {
+                        if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text)) {
+                            filePicker.Play();
+                        }
+                    }
+                }
+                MessageBox.Show("Test Complete!", VersionText);
+            } else {
+                MessageBox.Show("Cannot preview a voice swap. Battle voice will not be tested.", VersionText);
             }
         }
     }

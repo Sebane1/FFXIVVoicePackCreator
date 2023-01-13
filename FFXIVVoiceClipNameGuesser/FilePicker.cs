@@ -140,12 +140,12 @@ namespace FFXIVVoicePackCreator {
                 FilePath.Text = "";
                 switch (useGameFileCheckBox.Checked) {
                     case true:
-                        MessageBox.Show("This path will now point to internal game files", Text);
+                        MessageBox.Show("This path will now point to internal game files", window != null ? window.VersionText : ParentForm.Text);
                         filePath.ReadOnly = true;
                         playButton.Visible = false;
                         break;
                     case false:
-                        MessageBox.Show("This path will now point to external sound files", Text);
+                        MessageBox.Show("This path will now point to external sound files", window != null ? window.VersionText : ParentForm.Text);
                         filePath.ReadOnly = false;
                         if (isPlayable) {
                             playButton.Visible = true;
@@ -189,7 +189,7 @@ namespace FFXIVVoicePackCreator {
             if (CheckExtentions(file)) {
                 filePath.Text = file;
             } else {
-                MessageBox.Show("This is not a media file this tool recognizes.", ParentForm.Text);
+                MessageBox.Show("This is not a media file this tool recognizes.", window != null ? window.VersionText : ParentForm.Text);
             }
         }
         private bool CheckExtentions(string file) {
@@ -203,12 +203,18 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void playButton_Click(object sender, EventArgs e) {
+            Play();
+        }
+        public void Play(bool ignoreTopMost = false) {
+            Color color = BackColor;
             if (index == 4) {
                 maxTime = 10000;
-            } else if (index < 16) {
+            } else if (index < 14) {
                 maxTime = 3000;
             }
-            if (window != null && index < 16 && window.FoundInstance) {
+            BackColor = Color.LightBlue;
+            Refresh();
+            if (window != null && index < 14 && window.FoundInstance) {
                 {
                     window.Hook.SendSyncKey(Keys.Enter);
                     Thread.Sleep(800);
@@ -219,7 +225,7 @@ namespace FFXIVVoicePackCreator {
                     Thread.Sleep(200);
                 }
             }
-            if (window.AutoSyncCheckbox.Checked) {
+            if (window.AutoSyncCheckbox.Checked && index < 14) {
                 if (window.SelectedVoiceDescriptor != null) {
                     decimal delay = (decimal)1000.0 * RaceVoice.TimeCodeData[window.SelectedVoiceDescriptor.RaceName + "_" + window.SelectedVoiceDescriptor.VoiceGender].TimeCodes[index];
                     Thread.Sleep((int)delay);
@@ -227,16 +233,23 @@ namespace FFXIVVoicePackCreator {
                         maxTime = 10000 - (int)delay;
                     } else {
                         maxTime = 3000 - (int)delay;
+                        if (maxTime < 1000) {
+                            maxTime = 1000;
+                        }
                     }
                 }
             }
             PlaySound(filePath.Text);
-            if (window != null && index < 16 && window.FoundInstance) {
+            if (window != null && index < 14 && window.FoundInstance) {
                 VolumeMixer.SetApplicationMute(window.Hook.Process.Id, muteState);
-                window.TopMost = true;
-                window.Focus();
-                window.TopMost = false;
+                if (!ignoreTopMost) {
+                    window.TopMost = true;
+                    window.Focus();
+                    window.TopMost = false;
+                }
             }
+            BackColor = color;
+            Refresh();
         }
         public void PlaySound(string fileName) {
             if (File.Exists(fileName)) {
@@ -256,7 +269,7 @@ namespace FFXIVVoicePackCreator {
                             output.Stop();
                             break;
                         }
-                        if (window != null && window.FoundInstance) {
+                        if (window != null && window.FoundInstance && index < 14) {
                             Thread.Sleep(maxTime - (int)stopwatch.ElapsedMilliseconds);
                         }
                     }
