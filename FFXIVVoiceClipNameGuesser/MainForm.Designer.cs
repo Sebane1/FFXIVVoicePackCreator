@@ -676,7 +676,7 @@ namespace FFXIVVoicePackCreator {
             this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(504, 30);
+            this.exportProgressBar.Size = new System.Drawing.Size(972, 30);
             this.exportProgressBar.TabIndex = 50;
             // 
             // easyGenerateButton
