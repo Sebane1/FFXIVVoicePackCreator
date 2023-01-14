@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio;
 using NAudio.Gui;
+using NAudio.Vorbis;
 using NAudio.Wave;
 
 namespace FFXIVVoicePackCreator {
@@ -60,7 +61,7 @@ namespace FFXIVVoicePackCreator {
             }
             window = (ParentForm as MainWindow);
             if (window != null && window.FoundInstance) {
-                muteState = VolumeMixer.GetApplicationMute(window.Hook.Process.Id);
+                muteState = false;
             }
         }
         private void filePicker_MouseDown(object sender, MouseEventArgs e) {
@@ -259,20 +260,36 @@ namespace FFXIVVoicePackCreator {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 output = new WaveOutEvent();
-                using (var player = new AudioFileReader(fileName)) {
-                    output.Init(player);
-                    output.Play();
-                    while (output.PlaybackState == PlaybackState.Playing) {
-                        Thread.Sleep(200);
-                        Application.DoEvents();
-                        if (stopwatch.ElapsedMilliseconds > maxTime) {
-                            output.Stop();
-                            break;
-                        }
-                        if (window != null && window.FoundInstance && index < 14) {
-                            Thread.Sleep(maxTime - (int)stopwatch.ElapsedMilliseconds);
+                if (fileName.EndsWith(".ogg")) {
+                    using (var player = new VorbisWaveReader(fileName)) {
+                        output.Init(player);
+                        output.Play();
+                        while (output.PlaybackState == PlaybackState.Playing) {
+                            Thread.Sleep(200);
+                           // Application.DoEvents();
+                            if (stopwatch.ElapsedMilliseconds > maxTime) {
+                                output.Stop();
+                                break;
+                            }
                         }
                     }
+                } else {
+                    using (var player = new AudioFileReader(fileName)) {
+                        output.Init(player);
+                        output.Play();
+                        while (output.PlaybackState == PlaybackState.Playing) {
+                            Thread.Sleep(200);
+                            //Application.DoEvents();
+                            if (stopwatch.ElapsedMilliseconds > maxTime) {
+                                output.Stop();
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (window != null && window.FoundInstance && index < 14) {
+                    int time = (maxTime - (int)stopwatch.ElapsedMilliseconds);
+                    Thread.Sleep(Math.Abs(time));
                 }
             }
         }

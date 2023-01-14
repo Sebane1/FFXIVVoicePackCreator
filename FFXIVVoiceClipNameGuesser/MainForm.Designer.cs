@@ -47,6 +47,7 @@ namespace FFXIVVoicePackCreator {
             this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.battleSoundGuidelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.troublshootingFAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshFFXIVInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.lostFileList = new System.Windows.Forms.ListBox();
@@ -62,7 +63,6 @@ namespace FFXIVVoicePackCreator {
             this.label11 = new System.Windows.Forms.Label();
             this.tabManager = new System.Windows.Forms.TabControl();
             this.voiceExportTab = new System.Windows.Forms.TabPage();
-            this.exportProgressBar = new System.Windows.Forms.ProgressBar();
             this.autoSyncCheckbox = new System.Windows.Forms.CheckBox();
             this.oldExportMode = new System.Windows.Forms.CheckBox();
             this.addRaceButton = new System.Windows.Forms.Button();
@@ -76,6 +76,7 @@ namespace FFXIVVoicePackCreator {
             this.raceListComboBox = new System.Windows.Forms.ComboBox();
             this.sexListComboBox = new System.Windows.Forms.ComboBox();
             this.voiceGuessingTab = new System.Windows.Forms.TabPage();
+            this.exportProgressBar = new System.Windows.Forms.ProgressBar();
             this.easyGenerateButton = new System.Windows.Forms.Button();
             this.quickImportButton = new System.Windows.Forms.Button();
             this.quickSwapButton = new System.Windows.Forms.Button();
@@ -285,7 +286,8 @@ namespace FFXIVVoicePackCreator {
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.battleSoundGuidelinesToolStripMenuItem});
+            this.battleSoundGuidelinesToolStripMenuItem,
+            this.troublshootingFAQToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -296,6 +298,13 @@ namespace FFXIVVoicePackCreator {
             this.battleSoundGuidelinesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.battleSoundGuidelinesToolStripMenuItem.Text = "Battle Sound Guidelines";
             this.battleSoundGuidelinesToolStripMenuItem.Click += new System.EventHandler(this.battleSoundGuidelinesToolStripMenuItem_Click);
+            // 
+            // troublshootingFAQToolStripMenuItem
+            // 
+            this.troublshootingFAQToolStripMenuItem.Name = "troublshootingFAQToolStripMenuItem";
+            this.troublshootingFAQToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.troublshootingFAQToolStripMenuItem.Text = "Troublshooting FAQ";
+            this.troublshootingFAQToolStripMenuItem.Click += new System.EventHandler(this.troublshootingFAQToolStripMenuItem_Click);
             // 
             // refreshFFXIVInstanceToolStripMenuItem
             // 
@@ -469,16 +478,6 @@ namespace FFXIVVoicePackCreator {
             this.voiceExportTab.TabIndex = 0;
             this.voiceExportTab.Text = "Voice Replacer";
             this.voiceExportTab.UseVisualStyleBackColor = true;
-            // 
-            // exportProgressBar
-            // 
-            this.exportProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
-            this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(972, 30);
-            this.exportProgressBar.TabIndex = 50;
             // 
             // autoSyncCheckbox
             // 
@@ -669,6 +668,16 @@ namespace FFXIVVoicePackCreator {
             this.voiceGuessingTab.TabIndex = 1;
             this.voiceGuessingTab.Text = "Voice Guesser";
             this.voiceGuessingTab.UseVisualStyleBackColor = true;
+            // 
+            // exportProgressBar
+            // 
+            this.exportProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
+            this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.exportProgressBar.Name = "exportProgressBar";
+            this.exportProgressBar.Size = new System.Drawing.Size(504, 30);
+            this.exportProgressBar.TabIndex = 50;
             // 
             // easyGenerateButton
             // 
@@ -1536,6 +1545,7 @@ namespace FFXIVVoicePackCreator {
         private Timer ffxivRefreshTimer;
         private Button testEmotesButton;
         private Button testBattleSoundButton;
+        private ToolStripMenuItem troublshootingFAQToolStripMenuItem;
 
         public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }

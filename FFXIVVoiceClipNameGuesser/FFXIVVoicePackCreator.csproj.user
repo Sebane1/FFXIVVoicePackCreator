@@ -16,6 +16,9 @@
     <Compile Update="SCDEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Troubleshooting.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="VoiceSelection.cs">
       <SubType>Form</SubType>
     </Compile>
