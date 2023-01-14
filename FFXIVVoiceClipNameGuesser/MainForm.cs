@@ -4,6 +4,7 @@ using FFXIVVoicePackCreator.Json;
 using FFXIVVoicePackCreator.VoiceSorting;
 using NAudio.Wave;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,6 +89,7 @@ namespace FFXIVVoicePackCreator {
             if (processes.Count > 0) {
                 foundInstance = true;
                 Hook.Hook(processes[0], false);
+                VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
             }
         }
 
@@ -333,7 +335,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void ConfigurePenumbraModFolder() {
-            MessageBox.Show(@"Please configure where your penumbra mods folder is, we will remember it for all future exports. This should be where you have penumbra set to use mods.", VersionText);
+            MessageBox.Show("Please configure where your penumbra mods folder is, we will remember it for all future exports. This should be where you have penumbra set to use mods.\r\n\r\nNote:\r\nAVOID MANUALLY CREATING ANY NEW FOLDERS IN YOUR PENUMBRA FOLDER, ONLY SELECT THE BASE FOLDER!", VersionText);
             FolderBrowserDialog folderSelect = new FolderBrowserDialog();
             if (folderSelect.ShowDialog() == DialogResult.OK) {
                 penumbraModPath = folderSelect.SelectedPath;
@@ -1414,19 +1416,26 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void testEmotesButton_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("This will test every valid emote voice file, based on the highlighted voice in the voice replacement list." + 
+            if (MessageBox.Show("This will test every valid emote voice file, based on the voice you select" +
                 (foundInstance ? " Please ensure your in game chat box is not selected." : "") + " Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 voiceTabs.SelectedIndex = 0;
-                foreach (FilePicker filePicker in emoteFilePickers) {
-                    if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text) && !filePicker.UseGameFileCheckBox.Checked) {
-                        TopMost = false;
-                        filePicker.Play(true);
+                VoiceSelection voiceSelection = new VoiceSelection();
+                if (voiceSelection.ShowDialog() == DialogResult.OK) {
+                    selectedVoiceDescriptor = RaceVoice.RacesToVoiceDescription[voiceSelection.SelectedVoiceEmote + ""][0];
+                    foreach (FilePicker filePicker in emoteFilePickers) {
+                        if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text) && !filePicker.UseGameFileCheckBox.Checked) {
+                            TopMost = false;
+                            filePicker.Play(true);
+                        }
                     }
+                    TopMost = true;
+                    Focus();
+                    TopMost = false;
+                    VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
+                    MessageBox.Show("Test Complete!", VersionText);
+                } else {
+                    MessageBox.Show("No voice select, test aborted!", VersionText);
                 }
-                TopMost = true;
-                Focus();
-                TopMost = false;
-                MessageBox.Show("Test Complete!", VersionText);
             }
         }
 
@@ -1444,6 +1453,11 @@ namespace FFXIVVoicePackCreator {
             } else {
                 MessageBox.Show("Cannot preview a voice swap. Battle voice will not be tested.", VersionText);
             }
+        }
+
+        private void troublshootingFAQToolStripMenuItem_Click(object sender, EventArgs e) {
+            Troubleshooting troubleshooting = new Troubleshooting();
+            troubleshooting.ShowDialog();
         }
     }
 }
