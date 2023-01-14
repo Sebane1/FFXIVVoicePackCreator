@@ -215,6 +215,7 @@ namespace FFXIVVoicePackCreator {
             }
             BackColor = Color.LightBlue;
             Refresh();
+            Application.DoEvents();
             if (window != null && index < 14 && window.FoundInstance) {
                 {
                     window.Hook.SendSyncKey(Keys.Enter);
@@ -251,6 +252,7 @@ namespace FFXIVVoicePackCreator {
             }
             BackColor = color;
             Refresh();
+            Application.DoEvents();
         }
         public void PlaySound(string fileName) {
             if (File.Exists(fileName)) {
@@ -265,8 +267,7 @@ namespace FFXIVVoicePackCreator {
                         output.Init(player);
                         output.Play();
                         while (output.PlaybackState == PlaybackState.Playing) {
-                            Thread.Sleep(200);
-                           // Application.DoEvents();
+                            Thread.Sleep(200);;
                             if (stopwatch.ElapsedMilliseconds > maxTime) {
                                 output.Stop();
                                 break;
