@@ -47,7 +47,7 @@ namespace FFXIVVoicePackCreator {
             this.changeVoiceDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.battleSoundGuidelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.troublshootingFAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.troubleshootingFAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshFFXIVInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.lostFileList = new System.Windows.Forms.ListBox();
@@ -287,7 +287,7 @@ namespace FFXIVVoicePackCreator {
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.battleSoundGuidelinesToolStripMenuItem,
-            this.troublshootingFAQToolStripMenuItem});
+            this.troubleshootingFAQToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -299,12 +299,12 @@ namespace FFXIVVoicePackCreator {
             this.battleSoundGuidelinesToolStripMenuItem.Text = "Battle Sound Guidelines";
             this.battleSoundGuidelinesToolStripMenuItem.Click += new System.EventHandler(this.battleSoundGuidelinesToolStripMenuItem_Click);
             // 
-            // troublshootingFAQToolStripMenuItem
+            // troubleshootingFAQToolStripMenuItem
             // 
-            this.troublshootingFAQToolStripMenuItem.Name = "troublshootingFAQToolStripMenuItem";
-            this.troublshootingFAQToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.troublshootingFAQToolStripMenuItem.Text = "Troublshooting FAQ";
-            this.troublshootingFAQToolStripMenuItem.Click += new System.EventHandler(this.troublshootingFAQToolStripMenuItem_Click);
+            this.troubleshootingFAQToolStripMenuItem.Name = "troubleshootingFAQToolStripMenuItem";
+            this.troubleshootingFAQToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.troubleshootingFAQToolStripMenuItem.Text = "Troubleshooting FAQ";
+            this.troubleshootingFAQToolStripMenuItem.Click += new System.EventHandler(this.troublshootingFAQToolStripMenuItem_Click);
             // 
             // refreshFFXIVInstanceToolStripMenuItem
             // 
@@ -1545,7 +1545,7 @@ namespace FFXIVVoicePackCreator {
         private Timer ffxivRefreshTimer;
         private Button testEmotesButton;
         private Button testBattleSoundButton;
-        private ToolStripMenuItem troublshootingFAQToolStripMenuItem;
+        private ToolStripMenuItem troubleshootingFAQToolStripMenuItem;
 
         public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }
