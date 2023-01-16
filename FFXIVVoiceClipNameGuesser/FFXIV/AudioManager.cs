@@ -60,38 +60,42 @@ internal class VolumeMixer {
 
     private static ISimpleAudioVolume GetVolumeObject(int pid) {
         // get the speakers (1st render + multimedia) device
-        var deviceEnumerator = (IMmDeviceEnumerator)new MMDeviceEnumerator();
-        deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.ERender, ERole.EMultimedia, out var speakers);
+        try{
+            var deviceEnumerator = (IMmDeviceEnumerator)new MMDeviceEnumerator();
+            deviceEnumerator.GetDefaultAudioEndpoint(EDataFlow.ERender, ERole.EMultimedia, out var speakers);
 
-        // activate the session manager. we need the enumerator
-        var iidIAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
-        speakers.Activate(ref iidIAudioSessionManager2, 0, IntPtr.Zero, out var o);
-        var mgr = (IAudioSessionManager2)o;
+            // activate the session manager. we need the enumerator
+            var iidIAudioSessionManager2 = typeof(IAudioSessionManager2).GUID;
+            speakers.Activate(ref iidIAudioSessionManager2, 0, IntPtr.Zero, out var o);
+            var mgr = (IAudioSessionManager2)o;
 
-        // enumerate sessions for on this device
-        mgr.GetSessionEnumerator(out var sessionEnumerator);
-        sessionEnumerator.GetCount(out var count);
+            // enumerate sessions for on this device
+            mgr.GetSessionEnumerator(out var sessionEnumerator);
+            sessionEnumerator.GetCount(out var count);
 
-        // search for an audio session with the required name
-        // NOTE: we could also use the process id instead of the app name (with IAudioSessionControl2)
-        ISimpleAudioVolume volumeControl = null;
-        for (var i = 0; i < count; i++) {
-            sessionEnumerator.GetSession(i, out var ctl);
-            ctl.GetProcessId(out var cpid);
+            // search for an audio session with the required name
+            // NOTE: we could also use the process id instead of the app name (with IAudioSessionControl2)
+            ISimpleAudioVolume volumeControl = null;
+            for (var i = 0; i < count; i++) {
+                sessionEnumerator.GetSession(i, out var ctl);
+                ctl.GetProcessId(out var cpid);
 
-            if (cpid == pid) {
-                volumeControl = ctl as ISimpleAudioVolume;
-                break;
+                if (cpid == pid) {
+                    volumeControl = ctl as ISimpleAudioVolume;
+                    break;
+                }
+
+                Marshal.ReleaseComObject(ctl);
             }
 
-            Marshal.ReleaseComObject(ctl);
+            Marshal.ReleaseComObject(sessionEnumerator);
+            Marshal.ReleaseComObject(mgr);
+            Marshal.ReleaseComObject(speakers);
+            Marshal.ReleaseComObject(deviceEnumerator);
+            return volumeControl;
+        } catch {
+            return null;
         }
-
-        Marshal.ReleaseComObject(sessionEnumerator);
-        Marshal.ReleaseComObject(mgr);
-        Marshal.ReleaseComObject(speakers);
-        Marshal.ReleaseComObject(deviceEnumerator);
-        return volumeControl;
     }
 }
 

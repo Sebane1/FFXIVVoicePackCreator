@@ -672,9 +672,29 @@ namespace FFXIVVoicePackCreator {
                     foreach (string value in battleVoicesToReplace) {
                         string path = Path.Combine(Application.StartupPath, @"res\scd\" + value + ".scd");
                         if (!alreadyProcessed.Contains(value)) {
+                            // If we're hortgar or Viera
                             if (value.Contains("ros") || value.Contains("vie") || oldExportMode.Checked) {
-                                InjectSCDFiles(path, exportFilePathBattle, value, list);
+
+                                // This file is dumb and is not like the others
+                                if (value.Contains("vo_battle_pc_ros_ma_ja") && !oldExportMode.Checked) {
+                                    // Special sorting for only one hrothgar file, because this file is dumb.
+                                    List<string> battleSounds = new List<string>() {
+                                    // Attack
+                                    list[0],list[1], list[2], list[3],list[4], list[5],
+                                    // Hurt
+                                    list[6],list[7],list[8], list[9],list[10], list[11],
+                                    // Death
+                                    list[12],list[15],
+                                    // Extra
+                                    list[13], list[14]
+                                };
+
+                                    InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
+                                } else {
+                                    InjectSCDFiles(path, exportFilePathBattle, value, list);
+                                }
                             } else if (value.Contains("aur")) {
+                                // Au Ra sorting
                                 List<string> battleSounds = new List<string>() {
                                     // Hurt
                                     list[6],list[7],list[8],
@@ -687,6 +707,7 @@ namespace FFXIVVoicePackCreator {
                                 };
                                 InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                             } else {
+                                // Sorting for everyone else
                                 List<string> battleSounds = new List<string>() {
                                     // Attack
                                     list[0],list[1], list[2], list[3],
