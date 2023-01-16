@@ -610,6 +610,7 @@ namespace FFXIVVoicePackCreator {
                     }
                     exportProgressBar.Increment(1);
                     exportProgressBar.Refresh();
+                    Application.DoEvents();
                 }
             } else {
                 foreach (TimeCodeData timeCodeData in timeCodeDataList) {
@@ -634,6 +635,7 @@ namespace FFXIVVoicePackCreator {
                         i++;
                         exportProgressBar.Increment(1);
                         exportProgressBar.Refresh();
+                        Application.DoEvents();
                     }
                 }
             }
