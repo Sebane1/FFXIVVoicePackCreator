@@ -46,8 +46,10 @@ namespace FFXIVVoicePackCreator {
         private MainWindow window;
         private WaveOutEvent output;
         private int maxTime = 4000;
+        private Color color;
 
         private void filePicker_Load(object sender, EventArgs e) {
+            color = BackColor;
             AutoScaleDimensions = new SizeF(96, 96);
             labelName.Text = (index == -1 ? Name : ($"({index})  " + Name));
             if (!isSwappable) {
@@ -207,7 +209,9 @@ namespace FFXIVVoicePackCreator {
             Play();
         }
         public void Play(bool ignoreTopMost = false) {
-            Color color = BackColor;
+            if (window.FoundInstance && window.AutoSyncCheckbox.Checked && index < 14 && window.SelectedVoiceDescriptor == null) {
+                MessageBox.Show("You havent highlighted a racial voice in the voice replacement list to simulate automated timings with. The audio preview will play without them until you highlight a race in the voice replacement list.", window.VersionText);
+            }
             if (index == 4) {
                 maxTime = 10000;
             } else if (index < 14) {
@@ -267,7 +271,7 @@ namespace FFXIVVoicePackCreator {
                         output.Init(player);
                         output.Play();
                         while (output.PlaybackState == PlaybackState.Playing) {
-                            Thread.Sleep(200);;
+                            Thread.Sleep(200); ;
                             if (stopwatch.ElapsedMilliseconds > maxTime) {
                                 output.Stop();
                                 break;
