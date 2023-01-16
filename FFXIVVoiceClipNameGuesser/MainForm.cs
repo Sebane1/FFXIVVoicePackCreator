@@ -684,11 +684,10 @@ namespace FFXIVVoicePackCreator {
                                     // Hurt
                                     list[6],list[7],list[8], list[9],list[10], list[11],
                                     // Death
-                                    list[12],list[15],
+                                    list[12],list[14],
                                     // Extra
-                                    list[13], list[14]
+                                    list[15], list[13]
                                 };
-
                                     InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                                 } else {
                                     InjectSCDFiles(path, exportFilePathBattle, value, list);
