@@ -77,10 +77,12 @@ namespace FFXIVVoicePackCreator {
         public FFXIVHook Hook { get => hook; set => hook = value; }
         public VoiceDescriptor SelectedVoiceDescriptor { get => selectedVoiceDescriptor; set => selectedVoiceDescriptor = value; }
         public bool FoundInstance { get => foundInstance; set => foundInstance = value; }
+        public bool IsRunningTest { get; internal set; }
 
         public MainWindow() {
             InitializeComponent();
             RefreshFFXIVInstance();
+            VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
         }
 
         private void RefreshFFXIVInstance() {
@@ -89,7 +91,6 @@ namespace FFXIVVoicePackCreator {
             if (processes.Count > 0) {
                 foundInstance = true;
                 Hook.Hook(processes[0], false);
-                VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
             }
         }
 
@@ -1444,6 +1445,7 @@ namespace FFXIVVoicePackCreator {
                 VoiceSelection voiceSelection = new VoiceSelection();
                 if (voiceSelection.ShowDialog() == DialogResult.OK) {
                     selectedVoiceDescriptor = RaceVoice.RacesToVoiceDescription[voiceSelection.SelectedVoiceEmote + ""][0];
+                    IsRunningTest = true;
                     foreach (FilePicker filePicker in emoteFilePickers) {
                         if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text) && !filePicker.UseGameFileCheckBox.Checked) {
                             TopMost = false;
@@ -1453,6 +1455,7 @@ namespace FFXIVVoicePackCreator {
                     TopMost = true;
                     Focus();
                     TopMost = false;
+                    IsRunningTest = false;
                     VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
                     MessageBox.Show("Test Complete!", VersionText);
                 } else {

@@ -247,7 +247,9 @@ namespace FFXIVVoicePackCreator {
             }
             PlaySound(filePath.Text);
             if (window != null && index < 14 && window.FoundInstance) {
-                VolumeMixer.SetApplicationMute(window.Hook.Process.Id, muteState);
+                if (!window.IsRunningTest) {
+                    VolumeMixer.SetApplicationMute(window.Hook.Process.Id, muteState);
+                }
                 if (!ignoreTopMost) {
                     window.TopMost = true;
                     window.Focus();
