@@ -874,6 +874,8 @@ namespace FFXIVVoicePackCreator {
             Text = Application.ProductName + " " + Application.ProductVersion;
             oldExportMode.Checked = false;
             oldExportMode.Visible = false;
+            testingLabel.Text = "No Selection";
+            selectedVoiceDescriptor = null;
             savePath = null;
             exportFilePathEmote = null;
             jsonFilepath = null;
