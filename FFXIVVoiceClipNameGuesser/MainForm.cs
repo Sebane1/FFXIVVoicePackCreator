@@ -48,10 +48,10 @@ namespace FFXIVVoicePackCreator {
         private bool canDoDragDrop;
 
         public readonly string _defaultModName = "";
-        public readonly string _defaultAuthor = "FFXIV Voice Pack Creator";
+        public string _defaultAuthor = "FFXIV Voice Pack Creator";
         public readonly string _defaultDescription = "Exported by FFXIV Voice Pack Creator";
         public readonly string _descriptionBattleVoiceDisclaimer = "\\n\\nDISCLAIMER:\\nIt is no longer a requirement to separate battle voices to the Base Collection as of Penumbra v0.6.1.0";
-        public readonly string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
+        public string _defaultWebsite = "https://github.com/Sebane1/FFXIVVoicePackCreator";
         private readonly string _battleSoundTutorial = "Due to how Square Enix authored their voice files, battle sounds for each race range between 10 (Au Ra), 12 (Most Races), or 16 (Hrothgar and Viera) actual sound clips. Because of this you may not hear all the sounds you assign.\r\n\r\nThis tool tries its best to fit what it can depending on the space available. Assign your lines best to worst in each category, or whatever makes sense for your situation.";
 
         private bool suppressVoiceSwapBattleVoiceChecked;
@@ -80,9 +80,13 @@ namespace FFXIVVoicePackCreator {
         public bool IsRunningTest { get; internal set; }
 
         public MainWindow() {
+            GetAuthorWebsite();
+            GetAuthorName();
             InitializeComponent();
             RefreshFFXIVInstance();
             VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
+            modWebsiteTextBox.Text = _defaultWebsite;
+            modAuthorTextBox.Text = _defaultAuthor;
         }
 
         private void RefreshFFXIVInstance() {
@@ -508,7 +512,7 @@ namespace FFXIVVoicePackCreator {
                             MessageBox.Show("This voice has already been added for replacement.", VersionText);
                         }
                     } else {
-
+                        MessageBox.Show("No such voice exists.", VersionText);
                     }
                     break;
             }
@@ -993,6 +997,45 @@ namespace FFXIVVoicePackCreator {
                 }
             }
         }
+        public void GetAuthorWebsite() {
+            string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
+            string lastDataPath = Path.Combine(dataPath, @"0.0.1.5\");
+            if (Directory.Exists(lastDataPath)) {
+                dataPath = lastDataPath;
+            }
+            string path = Path.Combine(dataPath, @"AuthorWebsite.config");
+            if (File.Exists(path)) {
+                using (StreamReader reader = new StreamReader(path)) {
+                    _defaultWebsite = reader.ReadLine();
+                }
+            }
+        }
+        public void GetAuthorName() {
+            string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
+            string lastDataPath = Path.Combine(dataPath, @"0.0.1.5\");
+            if (Directory.Exists(lastDataPath)) {
+                dataPath = lastDataPath;
+            }
+            string path = Path.Combine(dataPath, @"AuthorName.config");
+            if (File.Exists(path)) {
+                using (StreamReader reader = new StreamReader(path)) {
+                    _defaultAuthor = reader.ReadLine();
+                }
+            }
+        }
+
+        public void WriteAuthorWebsite(string path) {
+            string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
+            using (StreamWriter writer = new StreamWriter(Path.Combine(dataPath, @"AuthorWebsite.config"))) {
+                writer.WriteLine(path);
+            }
+        }
+        public void WriteAuthorName(string path) {
+            string dataPath = Application.UserAppDataPath.Replace(Application.ProductVersion, null);
+            using (StreamWriter writer = new StreamWriter(Path.Combine(dataPath, @"AuthorName.config"))) {
+                writer.WriteLine(path);
+            }
+        }
 
         public void OpenProject(string path) {
             try {
@@ -1218,6 +1261,7 @@ namespace FFXIVVoicePackCreator {
 
         private void addRaceButton_Click(object sender, EventArgs e) {
             bool voiceAlreadyInList = false;
+            bool voiceIgnored = false;
             int voiceCount = 0;
             for (int i = 0; i < 12; i++) {
                 switch (sexListComboBox.SelectedIndex) {
@@ -1243,14 +1287,18 @@ namespace FFXIVVoicePackCreator {
                                 voiceAlreadyInList = true;
                             }
                         } else {
-                            MessageBox.Show("Theres is no voice to replace.", VersionText);
+                            voiceIgnored = true;
                             voiceCount++;
                         }
                         break;
                 }
             }
-            if (voiceAlreadyInList) {
-                MessageBox.Show($"{voiceCount} voices were already added to the list. Anything not already added has been added.", VersionText);
+            if (voiceIgnored) {
+                MessageBox.Show("One or more voices did not have relevant data to add", VersionText);
+            } else {
+                if (voiceAlreadyInList) {
+                    MessageBox.Show($"Some voices were already in the list, and were left alone.", VersionText);
+                }
             }
         }
 
@@ -1406,7 +1454,14 @@ namespace FFXIVVoicePackCreator {
                 MessageBox.Show(@"Due to ""Old Export Mode"" being active, you will not be able to save the state of the selected feature. We are preserving the ability to open this legacy project, and save this as a legacy project at the expense of newer features being persisted.", VersionText);
             }
             if (autoSyncCheckbox.Checked) {
+                if(selectedVoiceDescriptor != null) {
+                    testingLabel.Text = "Testing " + selectedVoiceDescriptor.RaceName + " " + selectedVoiceDescriptor.VoiceGender;
+                } else {
+                    testingLabel.Text = "No Selection";
+                }
                 MessageBox.Show("The tool will now automatically synchronize audio to the start times of each races emote animations. Please trim any empty audio that plays before each sound for best results.\r\n\r\nThe doze emote is timed based on when the character wakes up. Any prior snoring or sleeping is currently sacrificed for the convenience to work. (Does not affect Voice Swap feature)", VersionText);
+            } else {
+                testingLabel.Text = "Manual Sync";
             }
         }
 
@@ -1415,7 +1470,14 @@ namespace FFXIVVoicePackCreator {
                 if (voiceReplacementList.SelectedIndex > -1) {
                     string value = emoteVoicesToReplace[voiceReplacementList.SelectedIndex].ToString();
                     selectedVoiceDescriptor = RaceVoice.RacesToVoiceDescription[value][0];
+                    if (autoSyncCheckbox.Checked) {
+                        testingLabel.Text = "Testing " + selectedVoiceDescriptor.RaceName + " " + selectedVoiceDescriptor.VoiceGender;
+                    } else {
+                        testingLabel.Text = "Manual Sync";
+                    }
                 }
+            } else {
+                testingLabel.Text = "No Selection";
             }
         }
 
@@ -1445,6 +1507,11 @@ namespace FFXIVVoicePackCreator {
                 VoiceSelection voiceSelection = new VoiceSelection();
                 if (voiceSelection.ShowDialog() == DialogResult.OK) {
                     selectedVoiceDescriptor = RaceVoice.RacesToVoiceDescription[voiceSelection.SelectedVoiceEmote + ""][0];
+                    if (autoSyncCheckbox.Checked) {
+                        testingLabel.Text = "Testing " + selectedVoiceDescriptor.RaceName + " " + selectedVoiceDescriptor.VoiceGender;
+                    } else {
+                        testingLabel.Text = "Manual Sync";
+                    }
                     IsRunningTest = true;
                     foreach (FilePicker filePicker in emoteFilePickers) {
                         if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text) && !filePicker.UseGameFileCheckBox.Checked) {
@@ -1483,6 +1550,42 @@ namespace FFXIVVoicePackCreator {
         private void troublshootingFAQToolStripMenuItem_Click(object sender, EventArgs e) {
             Troubleshooting troubleshooting = new Troubleshooting();
             troubleshooting.ShowDialog();
+        }
+
+        private void discordButton_Click(object sender, EventArgs e) {
+            try {
+                Process.Start(new System.Diagnostics.ProcessStartInfo() {
+                    FileName = "https://discord.gg/rtGXwMn7pX",
+                    UseShellExecute = true,
+                    Verb = "OPEN"
+                });
+            } catch {
+
+            }
+        }
+
+        private void donateButton_Click(object sender, EventArgs e) {
+            try {
+                Process.Start(new System.Diagnostics.ProcessStartInfo() {
+                    FileName = "https://ko-fi.com/sebastina",
+                    UseShellExecute = true,
+                    Verb = "OPEN"
+                });
+            } catch {
+
+            }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void modAuthorTextBox_Leave(object sender, EventArgs e) {
+            WriteAuthorName(modAuthorTextBox.Text);
+        }
+
+        private void modWebsiteTextBox_Leave(object sender, EventArgs e) {
+            WriteAuthorWebsite(modWebsiteTextBox.Text);
         }
     }
 }
