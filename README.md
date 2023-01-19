@@ -5,7 +5,7 @@ A voice pack creation tool, voice swapper, MS-ADPCM, and OGG SCD generator.
 Download:
 https://github.com/Sebane1/FFXIVVoicePackCreator/releases
 
-![](https://i.gyazo.com/e71a89bf19a450722432a0a7c099e244.png)
+![](https://i.gyazo.com/122e9283732122efdcbcdeca04eb47a6.png)
 
 Instructions:
 - To run the program make sure you've installed .net desktop runtime 7.0:
