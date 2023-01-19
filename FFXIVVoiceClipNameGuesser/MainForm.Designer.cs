@@ -82,6 +82,7 @@ namespace FFXIVVoicePackCreator {
             this.quickSwapButton = new System.Windows.Forms.Button();
             this.voiceTabs = new System.Windows.Forms.TabControl();
             this.emoteVoicesPage = new System.Windows.Forms.TabPage();
+            this.testingLabel = new System.Windows.Forms.Label();
             this.surprised = new FFXIVVoicePackCreator.FilePicker();
             this.angry = new FFXIVVoicePackCreator.FilePicker();
             this.furious = new FFXIVVoicePackCreator.FilePicker();
@@ -96,8 +97,6 @@ namespace FFXIVVoicePackCreator {
             this.upset = new FFXIVVoicePackCreator.FilePicker();
             this.yes = new FFXIVVoicePackCreator.FilePicker();
             this.happy = new FFXIVVoicePackCreator.FilePicker();
-            this.unused2 = new FFXIVVoicePackCreator.FilePicker();
-            this.unused1 = new FFXIVVoicePackCreator.FilePicker();
             this.battleVoicesPage = new System.Windows.Forms.TabPage();
             this.extra2 = new FFXIVVoicePackCreator.FilePicker();
             this.extra1 = new FFXIVVoicePackCreator.FilePicker();
@@ -116,10 +115,14 @@ namespace FFXIVVoicePackCreator {
             this.attack2 = new FFXIVVoicePackCreator.FilePicker();
             this.attack1 = new FFXIVVoicePackCreator.FilePicker();
             this.multiSCDFile = new System.Windows.Forms.Button();
+            this.unused2 = new FFXIVVoicePackCreator.FilePicker();
+            this.unused1 = new FFXIVVoicePackCreator.FilePicker();
             this.voiceSwapBattleVoices = new System.Windows.Forms.CheckBox();
             this.ffxivRefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.testEmotesButton = new System.Windows.Forms.Button();
             this.testBattleSoundButton = new System.Windows.Forms.Button();
+            this.donateButton = new System.Windows.Forms.Button();
+            this.discordButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -291,6 +294,7 @@ namespace FFXIVVoicePackCreator {
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // battleSoundGuidelinesToolStripMenuItem
             // 
@@ -366,7 +370,10 @@ namespace FFXIVVoicePackCreator {
             this.modAuthorTextBox.TabIndex = 40;
             this.modAuthorTextBox.Text = "FFXIV Voice Pack Creator";
             this.modAuthorTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
+            this.modAuthorTextBox.Enter += new System.EventHandler(this.modAuthorTextBox_Leave);
             this.modAuthorTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            this.modAuthorTextBox.Leave += new System.EventHandler(this.modAuthorTextBox_Leave);
+            this.modAuthorTextBox.MouseLeave += new System.EventHandler(this.modAuthorTextBox_Leave);
             // 
             // label8
             // 
@@ -408,7 +415,10 @@ namespace FFXIVVoicePackCreator {
             this.modWebsiteTextBox.TabIndex = 44;
             this.modWebsiteTextBox.Text = "https://github.com/Sebane1/FFXIVVoicePackCreator";
             this.modWebsiteTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
+            this.modWebsiteTextBox.Enter += new System.EventHandler(this.modWebsiteTextBox_Leave);
             this.modWebsiteTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            this.modWebsiteTextBox.Leave += new System.EventHandler(this.modWebsiteTextBox_Leave);
+            this.modWebsiteTextBox.MouseLeave += new System.EventHandler(this.modWebsiteTextBox_Leave);
             // 
             // label10
             // 
@@ -733,6 +743,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // emoteVoicesPage
             // 
+            this.emoteVoicesPage.Controls.Add(this.testingLabel);
             this.emoteVoicesPage.Controls.Add(this.surprised);
             this.emoteVoicesPage.Controls.Add(this.angry);
             this.emoteVoicesPage.Controls.Add(this.furious);
@@ -747,8 +758,6 @@ namespace FFXIVVoicePackCreator {
             this.emoteVoicesPage.Controls.Add(this.upset);
             this.emoteVoicesPage.Controls.Add(this.yes);
             this.emoteVoicesPage.Controls.Add(this.happy);
-            this.emoteVoicesPage.Controls.Add(this.unused2);
-            this.emoteVoicesPage.Controls.Add(this.unused1);
             this.emoteVoicesPage.Location = new System.Drawing.Point(4, 24);
             this.emoteVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.emoteVoicesPage.Name = "emoteVoicesPage";
@@ -757,6 +766,18 @@ namespace FFXIVVoicePackCreator {
             this.emoteVoicesPage.TabIndex = 0;
             this.emoteVoicesPage.Text = "Emote Voices";
             this.emoteVoicesPage.UseVisualStyleBackColor = true;
+            // 
+            // testingLabel
+            // 
+            this.testingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.testingLabel.BackColor = System.Drawing.Color.Silver;
+            this.testingLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.testingLabel.Location = new System.Drawing.Point(0, 452);
+            this.testingLabel.Name = "testingLabel";
+            this.testingLabel.Size = new System.Drawing.Size(480, 64);
+            this.testingLabel.TabIndex = 59;
+            this.testingLabel.Text = "No Selection";
+            this.testingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // surprised
             // 
@@ -1009,42 +1030,6 @@ namespace FFXIVVoicePackCreator {
             this.happy.Size = new System.Drawing.Size(468, 30);
             this.happy.TabIndex = 13;
             this.happy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // unused2
-            // 
-            this.unused2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.unused2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.unused2.Filter = resources.GetString("unused2.Filter");
-            this.unused2.Index = 15;
-            this.unused2.IsPlayable = true;
-            this.unused2.IsSaveMode = false;
-            this.unused2.IsSwappable = true;
-            this.unused2.Location = new System.Drawing.Point(4, 484);
-            this.unused2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.unused2.MaximumSize = new System.Drawing.Size(468, 30);
-            this.unused2.MinimumSize = new System.Drawing.Size(468, 30);
-            this.unused2.Name = "unused2";
-            this.unused2.Size = new System.Drawing.Size(468, 30);
-            this.unused2.TabIndex = 15;
-            this.unused2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            // 
-            // unused1
-            // 
-            this.unused1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.unused1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.unused1.Filter = resources.GetString("unused1.Filter");
-            this.unused1.Index = 14;
-            this.unused1.IsPlayable = true;
-            this.unused1.IsSaveMode = false;
-            this.unused1.IsSwappable = true;
-            this.unused1.Location = new System.Drawing.Point(4, 452);
-            this.unused1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.unused1.MaximumSize = new System.Drawing.Size(468, 30);
-            this.unused1.MinimumSize = new System.Drawing.Size(468, 30);
-            this.unused1.Name = "unused1";
-            this.unused1.Size = new System.Drawing.Size(468, 30);
-            this.unused1.TabIndex = 14;
-            this.unused1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             // 
             // battleVoicesPage
             // 
@@ -1358,6 +1343,46 @@ namespace FFXIVVoicePackCreator {
             this.multiSCDFile.UseVisualStyleBackColor = true;
             this.multiSCDFile.Click += new System.EventHandler(this.multiSCDFile_Click);
             // 
+            // unused2
+            // 
+            this.unused2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.unused2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.unused2.BackColor = System.Drawing.Color.Gainsboro;
+            this.unused2.Filter = resources.GetString("unused2.Filter");
+            this.unused2.Index = 15;
+            this.unused2.IsPlayable = true;
+            this.unused2.IsSaveMode = false;
+            this.unused2.IsSwappable = true;
+            this.unused2.Location = new System.Drawing.Point(504, 24);
+            this.unused2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.unused2.MaximumSize = new System.Drawing.Size(468, 30);
+            this.unused2.MinimumSize = new System.Drawing.Size(468, 30);
+            this.unused2.Name = "unused2";
+            this.unused2.Size = new System.Drawing.Size(468, 30);
+            this.unused2.TabIndex = 15;
+            this.unused2.Visible = false;
+            this.unused2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
+            // unused1
+            // 
+            this.unused1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.unused1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.unused1.BackColor = System.Drawing.Color.Gainsboro;
+            this.unused1.Filter = resources.GetString("unused1.Filter");
+            this.unused1.Index = 14;
+            this.unused1.IsPlayable = true;
+            this.unused1.IsSaveMode = false;
+            this.unused1.IsSwappable = true;
+            this.unused1.Location = new System.Drawing.Point(504, 24);
+            this.unused1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.unused1.MaximumSize = new System.Drawing.Size(468, 30);
+            this.unused1.MinimumSize = new System.Drawing.Size(468, 30);
+            this.unused1.Name = "unused1";
+            this.unused1.Size = new System.Drawing.Size(468, 30);
+            this.unused1.TabIndex = 14;
+            this.unused1.Visible = false;
+            this.unused1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            // 
             // voiceSwapBattleVoices
             // 
             this.voiceSwapBattleVoices.AutoSize = true;
@@ -1399,11 +1424,39 @@ namespace FFXIVVoicePackCreator {
             this.testBattleSoundButton.UseVisualStyleBackColor = true;
             this.testBattleSoundButton.Click += new System.EventHandler(this.testBattleSoundButton_Click);
             // 
+            // donateButton
+            // 
+            this.donateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.donateButton.BackColor = System.Drawing.Color.IndianRed;
+            this.donateButton.ForeColor = System.Drawing.Color.White;
+            this.donateButton.Location = new System.Drawing.Point(904, 0);
+            this.donateButton.Name = "donateButton";
+            this.donateButton.Size = new System.Drawing.Size(75, 23);
+            this.donateButton.TabIndex = 56;
+            this.donateButton.Text = "Donate";
+            this.donateButton.UseVisualStyleBackColor = false;
+            this.donateButton.Click += new System.EventHandler(this.donateButton_Click);
+            // 
+            // discordButton
+            // 
+            this.discordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.discordButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.discordButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.discordButton.Location = new System.Drawing.Point(828, 0);
+            this.discordButton.Name = "discordButton";
+            this.discordButton.Size = new System.Drawing.Size(75, 23);
+            this.discordButton.TabIndex = 57;
+            this.discordButton.Text = "Discord";
+            this.discordButton.UseVisualStyleBackColor = false;
+            this.discordButton.Click += new System.EventHandler(this.discordButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(980, 609);
+            this.Controls.Add(this.discordButton);
+            this.Controls.Add(this.donateButton);
             this.Controls.Add(this.exportProgressBar);
             this.Controls.Add(this.testBattleSoundButton);
             this.Controls.Add(this.voiceSwapBattleVoices);
@@ -1418,7 +1471,9 @@ namespace FFXIVVoicePackCreator {
             this.Controls.Add(this.label9);
             this.Controls.Add(this.modAuthorTextBox);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.unused2);
             this.Controls.Add(this.modNameTextBox);
+            this.Controls.Add(this.unused1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabManager);
@@ -1546,6 +1601,9 @@ namespace FFXIVVoicePackCreator {
         private Button testEmotesButton;
         private Button testBattleSoundButton;
         private ToolStripMenuItem troubleshootingFAQToolStripMenuItem;
+        private Button donateButton;
+        private Button discordButton;
+        private Label testingLabel;
 
         public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }
