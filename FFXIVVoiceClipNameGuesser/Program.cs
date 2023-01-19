@@ -23,7 +23,7 @@ namespace FFXIVVoicePackCreator {
         static void Main() {
             var handle = GetConsoleWindow();
             // Hide
-            ShowWindow(handle, SW_HIDE);
+            //ShowWindow(handle, SW_HIDE);
             bool launchForm = true;
             AutoUpdater.DownloadPath = Application.StartupPath;
             AutoUpdater.Synchronous = true;
