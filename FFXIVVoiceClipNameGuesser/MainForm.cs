@@ -84,7 +84,9 @@ namespace FFXIVVoicePackCreator {
             GetAuthorName();
             InitializeComponent();
             RefreshFFXIVInstance();
-            VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
+            if (hook.Process != null) {
+                VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
+            }
             modWebsiteTextBox.Text = _defaultWebsite;
             modAuthorTextBox.Text = _defaultAuthor;
         }
@@ -643,7 +645,7 @@ namespace FFXIVVoicePackCreator {
                                 decimal timeCode = timeCodeData.TimeCodes[i];
                                 Process process = new Process();
                                 process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
-                                process.StartInfo.Arguments = $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i " 
+                                process.StartInfo.Arguments = $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i "
                                     + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ac 1 " + @"""" + tempPath + @"""";
                                 process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                                 process.StartInfo.RedirectStandardError = true;
@@ -687,7 +689,7 @@ namespace FFXIVVoicePackCreator {
                         string tempPath = Path.Combine(Path.GetDirectoryName(battleFilePickers[count].FilePath.Text), Guid.NewGuid() + ".wav");
                         Process process = new Process();
                         process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
-                        process.StartInfo.Arguments = $"-i {@"""" + battleFilePickers[count].FilePath.Text 
+                        process.StartInfo.Arguments = $"-i {@"""" + battleFilePickers[count].FilePath.Text
                             + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}";
                         process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         process.StartInfo.RedirectStandardError = true;
