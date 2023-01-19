@@ -606,7 +606,19 @@ namespace FFXIVVoicePackCreator {
                         }
                         string inputPath = value.FilePath.Text;
                         string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
-                        Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
+                        Process process = new Process();
+                        process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
+                        process.StartInfo.Arguments = $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}";
+                        process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        process.StartInfo.RedirectStandardError = true;
+                        process.StartInfo.RedirectStandardInput = true;
+                        process.StartInfo.RedirectStandardOutput = true;
+                        process.StartInfo.UseShellExecute = false;
+                        process.OutputDataReceived += delegate { };
+                        process.ErrorDataReceived += delegate { };
+                        process.Start();
+                        process.BeginOutputReadLine();
+                        process.WaitForExit();
                         while (SCDGenerator.IsFileLocked(tempPath)) { };
                         InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name, new List<string>() { tempPath });
                         File.Delete(tempPath);
@@ -629,7 +641,20 @@ namespace FFXIVVoicePackCreator {
                             string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
                             if (i < timeCodeData.TimeCodes.Count) {
                                 decimal timeCode = timeCodeData.TimeCodes[i];
-                                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i " + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ac 1 " + @"""" + tempPath + @"""");
+                                Process process = new Process();
+                                process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
+                                process.StartInfo.Arguments = $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i " 
+                                    + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ac 1 " + @"""" + tempPath + @"""";
+                                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                                process.StartInfo.RedirectStandardError = true;
+                                process.StartInfo.RedirectStandardInput = true;
+                                process.StartInfo.RedirectStandardOutput = true;
+                                process.StartInfo.UseShellExecute = false;
+                                process.OutputDataReceived += delegate { };
+                                process.ErrorDataReceived += delegate { };
+                                process.Start();
+                                process.BeginOutputReadLine();
+                                process.WaitForExit();
                                 while (SCDGenerator.IsFileLocked(tempPath)) { };
                                 InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name + "_" + timeCodeData.Descriptor, new List<string>() { tempPath });
                                 File.Delete(tempPath);
@@ -660,7 +685,20 @@ namespace FFXIVVoicePackCreator {
                 for (int count = 0; count < 16; count++) {
                     if (!string.IsNullOrEmpty(battleFilePickers[count].FilePath.Text)) {
                         string tempPath = Path.Combine(Path.GetDirectoryName(battleFilePickers[count].FilePath.Text), Guid.NewGuid() + ".wav");
-                        Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + battleFilePickers[count].FilePath.Text + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
+                        Process process = new Process();
+                        process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
+                        process.StartInfo.Arguments = $"-i {@"""" + battleFilePickers[count].FilePath.Text 
+                            + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}";
+                        process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        process.StartInfo.RedirectStandardError = true;
+                        process.StartInfo.RedirectStandardInput = true;
+                        process.StartInfo.RedirectStandardOutput = true;
+                        process.StartInfo.UseShellExecute = false;
+                        process.OutputDataReceived += delegate { };
+                        process.ErrorDataReceived += delegate { };
+                        process.Start();
+                        process.BeginOutputReadLine();
+                        process.WaitForExit();
                         while (SCDGenerator.IsFileLocked(tempPath)) { };
                         list.Add(tempPath);
                     } else {
@@ -1456,7 +1494,7 @@ namespace FFXIVVoicePackCreator {
                 MessageBox.Show(@"Due to ""Old Export Mode"" being active, you will not be able to save the state of the selected feature. We are preserving the ability to open this legacy project, and save this as a legacy project at the expense of newer features being persisted.", VersionText);
             }
             if (autoSyncCheckbox.Checked) {
-                if(selectedVoiceDescriptor != null) {
+                if (selectedVoiceDescriptor != null) {
                     testingLabel.Text = "Testing " + selectedVoiceDescriptor.RaceName + " " + selectedVoiceDescriptor.VoiceGender;
                 } else {
                     testingLabel.Text = "No Selection";

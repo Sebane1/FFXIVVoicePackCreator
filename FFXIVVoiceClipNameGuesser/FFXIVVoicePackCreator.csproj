@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>False</UseWPF>
@@ -27,6 +27,11 @@
     <Compile Update="FilePicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="FFXIVVPC.ico" />
@@ -41,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SoundData\VFXEditorSound\AvfxFormat\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="C:\Users\stel9\source\repos\FFXIVVoiceClipNameGuesser\FFXIVVoiceClipNameGuesser\Properties\AssemblyInfoExporter.exe&#xD;&#xA;rd /s /q &quot;de&quot;, &quot;en&quot;, &quot;es&quot;, &quot;fr&quot;, &quot;it&quot;, &quot;ja&quot;, &quot;ko&quot;, &quot;ru&quot;, &quot;zh-Hans&quot;, &quot;zh-Hant&quot;" />
