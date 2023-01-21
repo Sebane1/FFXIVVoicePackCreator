@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Shell;
 using System.Xml.Linq;
@@ -578,9 +579,15 @@ namespace FFXIVVoicePackCreator {
                     for (i = 0; i < battleGroupPaths.Count; i++) {
                         ExportGroup(battleGroupPaths[i], battleGroups[i]);
                     }
+                    Hook.SendSyncKey(Keys.Enter);
+                    Thread.Sleep(800);
+                    Hook.SendString(@"/penumbra reload");
+                    Thread.Sleep(200);
+                    Hook.SendSyncKey(Keys.Enter);
+                    TopMost = true;
                     BringToFront();
-                    MessageBox.Show(@"Export Complete", VersionText);
                     TopMost = false;
+                    MessageBox.Show(@"Export Complete", VersionText);
                 }
             } else {
                 MessageBox.Show(@"Export Cancelled", VersionText);
@@ -949,6 +956,7 @@ namespace FFXIVVoicePackCreator {
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "FFXIV Sound Project|*.ffxivsp;";
+            saveFileDialog.AddExtension = true;
             if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                 savePath = saveFileDialog.FileName;
                 SaveProject(savePath);

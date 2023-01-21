@@ -948,9 +948,7 @@
     "net7.0-windows7.0": [
       "Autoupdater.NET.Official >= 1.7.6",
       "NAudio >= 2.1.0",
-      "NAudio.Core >= 2.1.0",
       "NAudio.Vorbis >= 1.5.0",
-      "NAudio.Wasapi >= 2.1.0",
       "Newtonsoft.Json >= 13.0.2"
     ]
   },
@@ -1008,17 +1006,9 @@
             "target": "Package",
             "version": "[2.1.0, )"
           },
-          "NAudio.Core": {
-            "target": "Package",
-            "version": "[2.1.0, )"
-          },
           "NAudio.Vorbis": {
             "target": "Package",
             "version": "[1.5.0, )"
-          },
-          "NAudio.Wasapi": {
-            "target": "Package",
-            "version": "[2.1.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

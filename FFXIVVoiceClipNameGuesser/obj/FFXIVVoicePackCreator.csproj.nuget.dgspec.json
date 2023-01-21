@@ -53,17 +53,9 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
-            "NAudio.Core": {
-              "target": "Package",
-              "version": "[2.1.0, )"
-            },
             "NAudio.Vorbis": {
               "target": "Package",
               "version": "[1.5.0, )"
-            },
-            "NAudio.Wasapi": {
-              "target": "Package",
-              "version": "[2.1.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
