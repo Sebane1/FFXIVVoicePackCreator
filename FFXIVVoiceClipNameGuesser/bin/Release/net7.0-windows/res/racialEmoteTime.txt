@@ -37,7 +37,7 @@ Feminine
 Highlander
 Masculine
 0.10
-0.87
+1.50
 0.77
 0.24
 4.68
@@ -47,9 +47,9 @@ Masculine
 0.40
 0.07
 0.29
-0.12
+1.00
 0.17
-0.21
+0.87
 0.20
 0.25
 Feminine
