@@ -618,16 +618,14 @@ namespace FFXIVVoicePackCreator {
                         Process process = new Process();
                         process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
                         process.StartInfo.Arguments = $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}";
-                        process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        process.StartInfo.RedirectStandardError = true;
-                        process.StartInfo.RedirectStandardInput = true;
-                        process.StartInfo.RedirectStandardOutput = true;
-                        process.StartInfo.UseShellExecute = false;
-                        process.OutputDataReceived += delegate { };
-                        process.ErrorDataReceived += delegate { };
+                        //process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        //process.StartInfo.RedirectStandardError = true;
+                        //process.StartInfo.RedirectStandardInput = true;
+                        //process.StartInfo.RedirectStandardOutput = true;
+                        //process.StartInfo.UseShellExecute = false;
+                        //process.OutputDataReceived += delegate { };
+                        //process.ErrorDataReceived += delegate { };
                         process.Start();
-                        process.BeginOutputReadLine();
-                        process.WaitForExit();
                         while (SCDGenerator.IsFileLocked(tempPath)) { };
                         InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name, new List<string>() { tempPath });
                         File.Delete(tempPath);
@@ -654,16 +652,14 @@ namespace FFXIVVoicePackCreator {
                                 process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
                                 process.StartInfo.Arguments = $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i "
                                     + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ac 1 " + @"""" + tempPath + @"""";
-                                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                                process.StartInfo.RedirectStandardError = true;
-                                process.StartInfo.RedirectStandardInput = true;
-                                process.StartInfo.RedirectStandardOutput = true;
-                                process.StartInfo.UseShellExecute = false;
-                                process.OutputDataReceived += delegate { };
-                                process.ErrorDataReceived += delegate { };
+                                //process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                                //process.StartInfo.RedirectStandardError = true;
+                                //process.StartInfo.RedirectStandardInput = true;
+                                //process.StartInfo.RedirectStandardOutput = true;
+                                //process.StartInfo.UseShellExecute = false;
+                                //process.OutputDataReceived += delegate { };
+                                //process.ErrorDataReceived += delegate { };
                                 process.Start();
-                                process.BeginOutputReadLine();
-                                process.WaitForExit();
                                 while (SCDGenerator.IsFileLocked(tempPath)) { };
                                 InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name + "_" + timeCodeData.Descriptor, new List<string>() { tempPath });
                                 File.Delete(tempPath);
@@ -706,8 +702,6 @@ namespace FFXIVVoicePackCreator {
                         process.OutputDataReceived += delegate { };
                         process.ErrorDataReceived += delegate { };
                         process.Start();
-                        process.BeginOutputReadLine();
-                        process.WaitForExit();
                         while (SCDGenerator.IsFileLocked(tempPath)) { };
                         list.Add(tempPath);
                     } else {
