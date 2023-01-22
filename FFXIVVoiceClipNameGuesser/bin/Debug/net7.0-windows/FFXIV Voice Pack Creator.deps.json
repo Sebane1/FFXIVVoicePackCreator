@@ -10,9 +10,7 @@
         "dependencies": {
           "Autoupdater.NET.Official": "1.7.6",
           "NAudio": "2.1.0",
-          "NAudio.Core": "2.1.0",
           "NAudio.Vorbis": "1.5.0",
-          "NAudio.Wasapi": "2.1.0",
           "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
