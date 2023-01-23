@@ -10,7 +10,7 @@ namespace FFXIVVoicePackCreator {
             if (File.Exists(inputPath)) {
                 SCDGenerator generator = new SCDGenerator();
                 string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
-                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ac 1 {@"""" + tempPath + @""""}");
+                Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 {@"""" + tempPath + @""""}");
                 while (IsFileLocked(tempPath)) { };
                 using (FileStream header = new FileStream(Path.Combine(Application.StartupPath, @"res\MSADPCM.bin"), FileMode.Open, FileAccess.Read)) {
                     using (FileStream inputStream = new FileStream(tempPath, FileMode.Open, FileAccess.Read)) {
