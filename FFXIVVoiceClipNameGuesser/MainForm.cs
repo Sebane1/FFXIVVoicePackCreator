@@ -644,7 +644,7 @@ namespace FFXIVVoicePackCreator {
                                 Process process = new Process();
                                 process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
                                 process.StartInfo.Arguments = $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i "
-                                    + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 " + @"""" + tempPath + @"""";;
+                                    + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 " + @"""" + tempPath + @""""; ;
                                 process.Start();
                                 while (SCDGenerator.IsFileLocked(tempPath)) { };
                                 InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name + "_" + timeCodeData.Descriptor, new List<string>() { tempPath });
@@ -1531,7 +1531,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void testEmotesButton_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("This will test every valid emote voice file, based on the voice you select" +
+            if (MessageBox.Show("This will test every valid emote voice file, based on the voice you select. Will not work for voice swaps as FFXIV contains all those sounds." +
                 (foundInstance ? " Please ensure your in game chat box is not selected." : "") + " Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 voiceTabs.SelectedIndex = 0;
                 VoiceSelection voiceSelection = new VoiceSelection();
@@ -1543,10 +1543,13 @@ namespace FFXIVVoicePackCreator {
                         testingLabel.Text = "Manual Sync";
                     }
                     IsRunningTest = true;
+                    bool voiceSwapDetected = false;
                     foreach (FilePicker filePicker in emoteFilePickers) {
                         if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text) && !filePicker.UseGameFileCheckBox.Checked) {
                             TopMost = false;
                             filePicker.Play(true);
+                        } else if (filePicker.UseGameFileCheckBox.Checked) {
+                            voiceSwapDetected = true;
                         }
                     }
                     TopMost = true;
@@ -1554,6 +1557,9 @@ namespace FFXIVVoicePackCreator {
                     TopMost = false;
                     IsRunningTest = false;
                     VolumeMixer.SetApplicationMute(Hook.Process.Id, false);
+                    if (voiceSwapDetected) {
+                        MessageBox.Show("One or more audio assignements were skipped as they are either empty or voice swaps.", VersionText);
+                    }
                     MessageBox.Show("Test Complete!", VersionText);
                 } else {
                     MessageBox.Show("No voice select, test aborted!", VersionText);
@@ -1563,7 +1569,7 @@ namespace FFXIVVoicePackCreator {
 
         private void testBattleSoundButton_Click(object sender, EventArgs e) {
             if (!voiceSwapBattleVoices.Checked) {
-                if (MessageBox.Show("This will test every valid battle voice file. Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                if (MessageBox.Show("This will test every valid battle voice file. Will not work for voice swaps as FFXIV contains all those sounds. Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
                     voiceTabs.SelectedIndex = 1;
                     foreach (FilePicker filePicker in battleFilePickers) {
                         if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text)) {

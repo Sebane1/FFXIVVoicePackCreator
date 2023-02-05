@@ -1,6 +1,7 @@
 ﻿using FFXIVVoicePackCreator.VoiceSorting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -48,7 +49,7 @@ namespace FFXIVVoicePackCreator {
                         string value = streamReader.ReadLine();
                         if (!string.IsNullOrWhiteSpace(value)) {
                             try {
-                                timeCodeDataMasculine.TimeCodes.Add(decimal.Parse(value));
+                                timeCodeDataMasculine.TimeCodes.Add(decimal.Parse(value, CultureInfo.InvariantCulture));
                             } catch {
                                 timeCodeDataMasculine.TimeCodes.Add(decimal.Parse(value.Replace(".", ",")));
                             }
