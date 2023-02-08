@@ -26,6 +26,7 @@ namespace FFXIVVoicePackCreator {
         public Form Form { get => form; set => form = value; }
         ScdFile scdFile;
         private WasapiOut output;
+        private WaveOutEvent outputWave;
 
         public SCDEditor() {
             InitializeComponent();
@@ -53,13 +54,27 @@ namespace FFXIVVoicePackCreator {
 
         public void PlaySound(string fileName) {
             if (File.Exists(fileName)) {
-                var output = new WaveOutEvent();
-                using (var player = new AudioFileReader(fileName)) {
-                    output.Init(player);
-                    output.Play();
-                    while (output.PlaybackState == PlaybackState.Playing) {
-                        Thread.Sleep(200);
-                        Application.DoEvents();
+                if (outputWave != null) {
+                    outputWave.Stop();
+                }
+                outputWave = new WaveOutEvent();
+                if (fileName.EndsWith(".ogg")) {
+                    using (var player = new VorbisWaveReader(fileName)) {
+                        outputWave.Init(player);
+                        outputWave.Play();
+                        while (outputWave.PlaybackState == PlaybackState.Playing) {
+                            Thread.Sleep(200);
+                            Application.DoEvents();
+                        }
+                    }
+                } else {
+                    using (var player = new AudioFileReader(fileName)) {
+                        outputWave.Init(player);
+                        outputWave.Play();
+                        while (outputWave.PlaybackState == PlaybackState.Playing) {
+                            Thread.Sleep(200);
+                            Application.DoEvents();
+                        }
                     }
                 }
             }
@@ -85,10 +100,10 @@ namespace FFXIVVoicePackCreator {
             output = new WasapiOut();
             output.Init(data);
             output.Play();
-            //while (output.PlaybackState == PlaybackState.Playing) {
-            //    Thread.Sleep(200);
-            //    Application.DoEvents();
-            //}
+            while (output.PlaybackState == PlaybackState.Playing) {
+                Thread.Sleep(200);
+                Application.DoEvents();
+            }
         }
         private void audioDataList_DoubleClick(object sender, EventArgs e) {
             AudioReplacementItem replacementItem = audioDataList.SelectedItem as AudioReplacementItem;
@@ -116,6 +131,9 @@ namespace FFXIVVoicePackCreator {
         private void stopPlaybackButton_Click(object sender, EventArgs e) {
             if (output != null) {
                 output.Stop();
+            }
+            if(outputWave != null) {
+                outputWave.Stop();
             }
         }
 
