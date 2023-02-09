@@ -175,7 +175,7 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void generateButton_Click(object sender, EventArgs e) {
-            if (!string.IsNullOrWhiteSpace(outputSCD.FilePath.Text) && File.Exists(outputSCD.FilePath.Text)) {
+            if (!string.IsNullOrWhiteSpace(outputSCD.FilePath.Text)) {
                 foreach (AudioReplacementItem entry in audioDataList.Items) {
                     if (!string.IsNullOrEmpty(entry.ReplacementFile)) {
                         form.TopMost = true;
@@ -205,6 +205,7 @@ namespace FFXIVVoicePackCreator {
                         scdFile.Write(writer);
                     }
                 }
+                MessageBox.Show("SCD Exported!", Text);
             } else {
                 MessageBox.Show("Please Select An Output", Text);
             }
