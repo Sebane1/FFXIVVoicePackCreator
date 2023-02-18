@@ -958,7 +958,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.3.7",
+    "version": "1.0.3.8",
     "restore": {
       "projectUniqueName": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
       "projectName": "FFXIV Voice Pack Creator",
@@ -1034,7 +1034,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
