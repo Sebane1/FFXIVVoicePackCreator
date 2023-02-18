@@ -1,4 +1,5 @@
-﻿using AutoUpdaterDotNET;
+﻿using Anamnesis.Penumbra;
+using AutoUpdaterDotNET;
 using FFBardMusicPlayer.FFXIV;
 using FFXIVVoicePackCreator.Json;
 using FFXIVVoicePackCreator.VoiceSorting;
@@ -579,11 +580,7 @@ namespace FFXIVVoicePackCreator {
                     for (i = 0; i < battleGroupPaths.Count; i++) {
                         ExportGroup(battleGroupPaths[i], battleGroups[i]);
                     }
-                    Hook.SendSyncKey(Keys.Enter);
-                    Thread.Sleep(800);
-                    Hook.SendString(@"/penumbra reload");
-                    Thread.Sleep(200);
-                    Hook.SendSyncKey(Keys.Enter);
+                    PenumbraHttpApi.Reload(newModPath, modNameTextBox.Text, hook);
                     TopMost = true;
                     BringToFront();
                     TopMost = false;
@@ -735,6 +732,19 @@ namespace FFXIVVoicePackCreator {
                                     list[0],list[1],list[2],list[3],list[4],list[5],
                                     // Extra
                                     list[14], list[15]
+                                };
+                                InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
+                            } else if (value.Contains("vo_battle_pc_lal_ma_ja")) {
+                                // Special sorting for lalafel voice 1, because it wants to stand out from its race as well.
+                                List<string> battleSounds = new List<string>() {
+                                    // Attack
+                                    list[0],list[1], list[2],
+                                    // Hurt
+                                    list[6],list[7],list[8], list[9],
+                                    // Death
+                                    list[12],list[13],
+                                    // Extra
+                                    list[3], list[4], list[5], list[14], list[15], list[10], list[11]
                                 };
                                 InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                             } else {
