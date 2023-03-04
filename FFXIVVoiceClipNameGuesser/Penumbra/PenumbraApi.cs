@@ -71,7 +71,7 @@ internal static class PenumbraApi
 				hook.SendSyncKey(Keys.Enter);
 			}
 			if (!calledWarningOnce) {
-				MessageBox.Show(@"Select ""Enable HTTP API"" inside of penumbra under ""Settings -> Advanced"" for better automatic refresh.");
+				MessageBox.Show(@"Select ""Enable HTTP API"" inside of penumbra under ""Settings -> Advanced"" for automated reload/redraw");
 				calledWarningOnce = true;
 			}
             return null;
