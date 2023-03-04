@@ -722,7 +722,7 @@ namespace FFXIVVoicePackCreator {
                             } else if (value.Contains("aur")) {
                                 List<string> battleSounds = null;
                                 // This Au Ra voice in particular is breaks the rules of the rest of its race and has 12 sounds.
-                                if (value.Contains("vo_battle_pc_aur_fa_fr.scd")) {
+                                if (value.Contains("vo_battle_pc_aur_fa_fr")) {
                                     // Au Ra sorting
                                     battleSounds = new List<string>() {
                                     // Hurt
