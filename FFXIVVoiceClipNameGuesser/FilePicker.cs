@@ -146,6 +146,10 @@ namespace FFXIVVoicePackCreator {
                         MessageBox.Show("This path will now point to internal game files", window != null ? window.VersionText : ParentForm.Text);
                         filePath.ReadOnly = true;
                         playButton.Visible = false;
+                        VoiceSelection voiceSelection = new VoiceSelection();
+                        if (voiceSelection.ShowDialog() == DialogResult.OK) {
+                            SetToGameFile(voiceSelection.SelectedVoiceEmote);
+                        }
                         break;
                     case false:
                         MessageBox.Show("This path will now point to external sound files", window != null ? window.VersionText : ParentForm.Text);

@@ -929,6 +929,7 @@ namespace FFXIVVoicePackCreator {
             modVersionTextBox.Text = "1.0.0";
             foreach (FilePicker filePicker in emoteFilePickers) {
                 filePicker.FilePath.Text = "";
+                filePicker.UseGameFileCheckBox.Checked = false;
             }
             foreach (FilePicker filePicker in battleFilePickers) {
                 filePicker.FilePath.Text = "";
@@ -1632,6 +1633,10 @@ namespace FFXIVVoicePackCreator {
 
         private void modWebsiteTextBox_Leave(object sender, EventArgs e) {
             WriteAuthorWebsite(modWebsiteTextBox.Text);
+        }
+
+        private void modDescriptionTextBox_Leave(object sender, EventArgs e) {
+            modDescriptionTextBox.Text = modDescriptionTextBox.Text.Replace(@"""", null);
         }
     }
 }
