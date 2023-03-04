@@ -703,10 +703,8 @@ namespace FFXIVVoicePackCreator {
                         if (!alreadyProcessed.Contains(value)) {
                             // If we're hortgar or Viera
                             if (value.Contains("ros") || value.Contains("vie") || oldExportMode.Checked) {
-
-                                // This file is dumb and is not like the others
+                                // Special sorting for only one hrothgar file, because this file is dumb.
                                 if (value.Contains("vo_battle_pc_ros_ma_ja") && !oldExportMode.Checked) {
-                                    // Special sorting for only one hrothgar file, because this file is dumb.
                                     List<string> battleSounds = new List<string>() {
                                     // Attack
                                     list[0],list[1], list[2], list[3],list[4], list[5],
@@ -722,8 +720,23 @@ namespace FFXIVVoicePackCreator {
                                     InjectSCDFiles(path, exportFilePathBattle, value, list);
                                 }
                             } else if (value.Contains("aur")) {
-                                // Au Ra sorting
-                                List<string> battleSounds = new List<string>() {
+                                List<string> battleSounds = null;
+                                // This Au Ra voice in particular is breaks the rules of the rest of its race and has 12 sounds.
+                                if (value.Contains("vo_battle_pc_aur_fa_fr.scd")) {
+                                    // Au Ra sorting
+                                    battleSounds = new List<string>() {
+                                    // Hurt
+                                    list[6],list[7],list[8], list[9], list[10],
+                                    // Death
+                                    list[12],list[13],
+                                    // Attack
+                                    list[0],list[1],list[2],list[3],list[4],list[5],
+                                    // Extra
+                                    list[14], list[15]
+                                    };
+                                } else {
+                                    // Au Ra sorting
+                                    battleSounds = new List<string>() {
                                     // Hurt
                                     list[6],list[7],list[8],
                                     // Death
@@ -733,6 +746,7 @@ namespace FFXIVVoicePackCreator {
                                     // Extra
                                     list[14], list[15]
                                 };
+                                }
                                 InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                             } else if (value.Contains("vo_battle_pc_lal_ma_ja")) {
                                 // Special sorting for lalafel voice 1, because it wants to stand out from its race as well.
