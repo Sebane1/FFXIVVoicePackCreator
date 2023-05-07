@@ -666,7 +666,9 @@ namespace FFXIVVoicePackCreator {
             int countedNull = 0;
             Group group = new Group($"Battle Voice To Replace (Group 1)", "The battle voice you are replacing", 0, "Multi", 0);
             groups.Add(group);
-            groupPaths.Add(Path.Combine(newModPath, $"group_0" + (offset + groupPaths.Count < 9 ? "0" : "") + $"{offset + groupPaths.Count + 1}_{group.Name.ToLower()}.json"));
+            groupPaths.Add(Path.Combine(newModPath, $"group_0" +
+                (offset + groupPaths.Count < 9 ? "0" : "") +
+                $"{offset + groupPaths.Count + 1}_{group.Name.ToLower()}.json"));
             int i = 0;
             if (!voiceSwapBattleVoices.Checked) {
                 bool detectedEmptyField = false;
@@ -721,16 +723,51 @@ namespace FFXIVVoicePackCreator {
                                 }
                             } else if (value.Contains("aur")) {
                                 List<string> battleSounds = null;
-                                // This Au Ra voice in particular is breaks the rules of the rest of its race and has 12 sounds.
+                                // Female Au Ra has a lot of vocal exceptions to how its voices are sorted.
                                 if (value.Contains("vo_battle_pc_aur_fa_fr")) {
                                     // Au Ra sorting
                                     battleSounds = new List<string>() {
                                     // Hurt
-                                    list[6],list[13],list[8], list[9], list[10],
+                                    list[6],list[7],list[8], list[9], list[10],
                                     // Death
-                                    list[12],list[7],
+                                    list[12],list[13],
                                     // Attack
                                     list[0],list[1],list[2],list[3],list[4],list[5],
+                                    // Extra
+                                    list[14], list[15]
+                                    };
+                                }
+                                // Female Au Ra is a mess
+                                else if (value.Contains("vo_battle_pc_aur_fa_ja") ||
+                                    value.Contains("vo_battle_pc_aur_fb_ja") ||
+                                    value.Contains("vo_battle_pc_aur_fc_ja") ||
+                                    value.Contains("vo_battle_pc_aur_fc_de")) {
+                                    // Au Ra sorting
+                                    battleSounds = new List<string>() {
+                                    // Hurt
+                                    list[6],list[7],list[8], list[9],
+                                    // Death
+                                    list[12],list[13],
+                                    // Attack
+                                    list[0],list[1],list[2],list[3],list[4],list[5],
+                                    // Extra
+                                    list[14], list[15]
+                                    };
+                                }
+                                // This Au Ra voice is special and unique
+                                if (value.Contains("vo_battle_pc_aur_fc_de")) {
+                                    // Au Ra sorting
+                                    battleSounds = new List<string>() {
+                                    // Hurt
+                                    list[6],list[7],list[8],
+                                    // Death
+                                    list[12],list[13],
+                                    // Attack
+                                    list[0],list[1],list[2],list[3],list[4],                                    
+                                    // Hurt
+                                    list[9],
+                                    // Attack
+                                    list[5],
                                     // Extra
                                     list[14], list[15]
                                     };
@@ -745,7 +782,7 @@ namespace FFXIVVoicePackCreator {
                                     list[0],list[1],list[2],list[3],list[4],list[5],
                                     // Extra
                                     list[14], list[15]
-                                };
+                                    };
                                 }
                                 InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                             } else if (value.Contains("vo_battle_pc_lal_ma_ja")) {
