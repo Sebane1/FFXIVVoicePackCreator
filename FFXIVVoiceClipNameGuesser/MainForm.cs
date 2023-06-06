@@ -798,6 +798,21 @@ namespace FFXIVVoicePackCreator {
                                     list[3], list[4], list[5], list[14], list[15], list[10], list[11]
                                 };
                                 InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
+                            } else if (value.Contains("vo_battle_pc_ele_fa_ja")) {
+                                // Special sorting for female Elezen Voice 1 and female Lalalfel Voice 3, because they also want to be inconsistent.
+                                List<string> battleSounds = new List<string>() {
+                                    // Attack
+                                    list[0],
+                                    // Hurt
+                                    list[6],list[7],list[8], list[9],
+                                    // Death
+                                    list[12],list[13],
+                                    // Attack
+                                    list[1], list[2],
+                                    // Extra
+                                    list[3], list[4], list[5], list[14], list[15], list[10], list[11]
+                                };
+                                InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                             } else {
                                 // Sorting for everyone else
                                 List<string> battleSounds = new List<string>() {
