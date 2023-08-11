@@ -123,6 +123,7 @@ namespace FFXIVVoicePackCreator {
             this.testBattleSoundButton = new System.Windows.Forms.Button();
             this.donateButton = new System.Windows.Forms.Button();
             this.discordButton = new System.Windows.Forms.Button();
+            this.generateRoleplayingVoice = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabManager.SuspendLayout();
             this.voiceExportTab.SuspendLayout();
@@ -687,18 +688,18 @@ namespace FFXIVVoicePackCreator {
             this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
             this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(972, 30);
+            this.exportProgressBar.Size = new System.Drawing.Size(484, 30);
             this.exportProgressBar.TabIndex = 50;
             // 
             // easyGenerateButton
             // 
             this.easyGenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.easyGenerateButton.Location = new System.Drawing.Point(780, 576);
+            this.easyGenerateButton.Location = new System.Drawing.Point(640, 576);
             this.easyGenerateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.easyGenerateButton.Name = "easyGenerateButton";
-            this.easyGenerateButton.Size = new System.Drawing.Size(196, 30);
+            this.easyGenerateButton.Size = new System.Drawing.Size(152, 30);
             this.easyGenerateButton.TabIndex = 34;
-            this.easyGenerateButton.Text = "Generate";
+            this.easyGenerateButton.Text = "Generate Penumbra";
             this.easyGenerateButton.UseVisualStyleBackColor = true;
             this.easyGenerateButton.Click += new System.EventHandler(this.easyGenerateButton_Click);
             this.easyGenerateButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
@@ -1055,7 +1056,7 @@ namespace FFXIVVoicePackCreator {
             this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.battleVoicesPage.Name = "battleVoicesPage";
             this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
+            this.battleVoicesPage.Size = new System.Drawing.Size(480, 519);
             this.battleVoicesPage.TabIndex = 1;
             this.battleVoicesPage.Text = "Battle Voices";
             this.battleVoicesPage.UseVisualStyleBackColor = true;
@@ -1069,7 +1070,7 @@ namespace FFXIVVoicePackCreator {
             this.extra2.IsPlayable = true;
             this.extra2.IsSaveMode = false;
             this.extra2.IsSwappable = false;
-            this.extra2.Location = new System.Drawing.Point(4, 261);
+            this.extra2.Location = new System.Drawing.Point(4, 484);
             this.extra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.extra2.MaximumSize = new System.Drawing.Size(588, 30);
             this.extra2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1086,7 +1087,7 @@ namespace FFXIVVoicePackCreator {
             this.extra1.IsPlayable = true;
             this.extra1.IsSaveMode = false;
             this.extra1.IsSwappable = false;
-            this.extra1.Location = new System.Drawing.Point(4, 229);
+            this.extra1.Location = new System.Drawing.Point(4, 452);
             this.extra1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.extra1.MaximumSize = new System.Drawing.Size(588, 30);
             this.extra1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1103,7 +1104,7 @@ namespace FFXIVVoicePackCreator {
             this.death2.IsPlayable = true;
             this.death2.IsSaveMode = false;
             this.death2.IsSwappable = false;
-            this.death2.Location = new System.Drawing.Point(4, 197);
+            this.death2.Location = new System.Drawing.Point(4, 420);
             this.death2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.death2.MaximumSize = new System.Drawing.Size(588, 30);
             this.death2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1120,7 +1121,7 @@ namespace FFXIVVoicePackCreator {
             this.death1.IsPlayable = true;
             this.death1.IsSaveMode = false;
             this.death1.IsSwappable = false;
-            this.death1.Location = new System.Drawing.Point(4, 165);
+            this.death1.Location = new System.Drawing.Point(4, 388);
             this.death1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.death1.MaximumSize = new System.Drawing.Size(588, 30);
             this.death1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1137,7 +1138,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt6.IsPlayable = true;
             this.hurt6.IsSaveMode = false;
             this.hurt6.IsSwappable = false;
-            this.hurt6.Location = new System.Drawing.Point(4, 133);
+            this.hurt6.Location = new System.Drawing.Point(4, 356);
             this.hurt6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt6.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt6.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1154,7 +1155,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt5.IsPlayable = true;
             this.hurt5.IsSaveMode = false;
             this.hurt5.IsSwappable = false;
-            this.hurt5.Location = new System.Drawing.Point(4, 101);
+            this.hurt5.Location = new System.Drawing.Point(4, 324);
             this.hurt5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt5.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt5.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1171,7 +1172,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt4.IsPlayable = true;
             this.hurt4.IsSaveMode = false;
             this.hurt4.IsSwappable = false;
-            this.hurt4.Location = new System.Drawing.Point(4, 69);
+            this.hurt4.Location = new System.Drawing.Point(4, 292);
             this.hurt4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt4.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt4.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1188,7 +1189,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt3.IsPlayable = true;
             this.hurt3.IsSaveMode = false;
             this.hurt3.IsSwappable = false;
-            this.hurt3.Location = new System.Drawing.Point(4, 37);
+            this.hurt3.Location = new System.Drawing.Point(4, 260);
             this.hurt3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt3.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt3.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1205,7 +1206,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt2.IsPlayable = true;
             this.hurt2.IsSaveMode = false;
             this.hurt2.IsSwappable = false;
-            this.hurt2.Location = new System.Drawing.Point(4, 5);
+            this.hurt2.Location = new System.Drawing.Point(4, 228);
             this.hurt2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt2.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1222,7 +1223,7 @@ namespace FFXIVVoicePackCreator {
             this.hurt1.IsPlayable = true;
             this.hurt1.IsSaveMode = false;
             this.hurt1.IsSwappable = false;
-            this.hurt1.Location = new System.Drawing.Point(4, -27);
+            this.hurt1.Location = new System.Drawing.Point(4, 196);
             this.hurt1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hurt1.MaximumSize = new System.Drawing.Size(588, 30);
             this.hurt1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1239,7 +1240,7 @@ namespace FFXIVVoicePackCreator {
             this.attack6.IsPlayable = true;
             this.attack6.IsSaveMode = false;
             this.attack6.IsSwappable = false;
-            this.attack6.Location = new System.Drawing.Point(4, -59);
+            this.attack6.Location = new System.Drawing.Point(4, 164);
             this.attack6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack6.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack6.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1257,7 +1258,7 @@ namespace FFXIVVoicePackCreator {
             this.attack5.IsPlayable = true;
             this.attack5.IsSaveMode = false;
             this.attack5.IsSwappable = false;
-            this.attack5.Location = new System.Drawing.Point(4, -91);
+            this.attack5.Location = new System.Drawing.Point(4, 132);
             this.attack5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack5.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack5.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1274,7 +1275,7 @@ namespace FFXIVVoicePackCreator {
             this.attack4.IsPlayable = true;
             this.attack4.IsSaveMode = false;
             this.attack4.IsSwappable = false;
-            this.attack4.Location = new System.Drawing.Point(4, -123);
+            this.attack4.Location = new System.Drawing.Point(4, 100);
             this.attack4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack4.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack4.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1291,7 +1292,7 @@ namespace FFXIVVoicePackCreator {
             this.attack3.IsPlayable = true;
             this.attack3.IsSaveMode = false;
             this.attack3.IsSwappable = false;
-            this.attack3.Location = new System.Drawing.Point(4, -155);
+            this.attack3.Location = new System.Drawing.Point(4, 68);
             this.attack3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack3.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack3.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1308,7 +1309,7 @@ namespace FFXIVVoicePackCreator {
             this.attack2.IsPlayable = true;
             this.attack2.IsSaveMode = false;
             this.attack2.IsSwappable = false;
-            this.attack2.Location = new System.Drawing.Point(4, -187);
+            this.attack2.Location = new System.Drawing.Point(4, 36);
             this.attack2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack2.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack2.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1325,7 +1326,7 @@ namespace FFXIVVoicePackCreator {
             this.attack1.IsPlayable = true;
             this.attack1.IsSaveMode = false;
             this.attack1.IsSwappable = false;
-            this.attack1.Location = new System.Drawing.Point(4, -219);
+            this.attack1.Location = new System.Drawing.Point(4, 4);
             this.attack1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.attack1.MaximumSize = new System.Drawing.Size(588, 30);
             this.attack1.MinimumSize = new System.Drawing.Size(588, 30);
@@ -1407,7 +1408,7 @@ namespace FFXIVVoicePackCreator {
             this.testEmotesButton.Location = new System.Drawing.Point(492, 576);
             this.testEmotesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.testEmotesButton.Name = "testEmotesButton";
-            this.testEmotesButton.Size = new System.Drawing.Size(144, 30);
+            this.testEmotesButton.Size = new System.Drawing.Size(80, 30);
             this.testEmotesButton.TabIndex = 54;
             this.testEmotesButton.Text = "Test Emotes";
             this.testEmotesButton.UseVisualStyleBackColor = true;
@@ -1416,10 +1417,10 @@ namespace FFXIVVoicePackCreator {
             // testBattleSoundButton
             // 
             this.testBattleSoundButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.testBattleSoundButton.Location = new System.Drawing.Point(636, 576);
+            this.testBattleSoundButton.Location = new System.Drawing.Point(572, 576);
             this.testBattleSoundButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.testBattleSoundButton.Name = "testBattleSoundButton";
-            this.testBattleSoundButton.Size = new System.Drawing.Size(144, 30);
+            this.testBattleSoundButton.Size = new System.Drawing.Size(68, 30);
             this.testBattleSoundButton.TabIndex = 55;
             this.testBattleSoundButton.Text = "Test Battle";
             this.testBattleSoundButton.UseVisualStyleBackColor = true;
@@ -1451,11 +1452,24 @@ namespace FFXIVVoicePackCreator {
             this.discordButton.UseVisualStyleBackColor = false;
             this.discordButton.Click += new System.EventHandler(this.discordButton_Click);
             // 
+            // generateRoleplayingVoice
+            // 
+            this.generateRoleplayingVoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.generateRoleplayingVoice.Location = new System.Drawing.Point(796, 576);
+            this.generateRoleplayingVoice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.generateRoleplayingVoice.Name = "generateRoleplayingVoice";
+            this.generateRoleplayingVoice.Size = new System.Drawing.Size(180, 30);
+            this.generateRoleplayingVoice.TabIndex = 58;
+            this.generateRoleplayingVoice.Text = "Generate Roleplaying Voice";
+            this.generateRoleplayingVoice.UseVisualStyleBackColor = true;
+            this.generateRoleplayingVoice.Click += new System.EventHandler(this.generateRoleplayingVoice_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(980, 609);
+            this.Controls.Add(this.generateRoleplayingVoice);
             this.Controls.Add(this.discordButton);
             this.Controls.Add(this.donateButton);
             this.Controls.Add(this.exportProgressBar);
@@ -1605,6 +1619,7 @@ namespace FFXIVVoicePackCreator {
         private Button donateButton;
         private Button discordButton;
         private Label testingLabel;
+        private Button generateRoleplayingVoice;
 
         public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }

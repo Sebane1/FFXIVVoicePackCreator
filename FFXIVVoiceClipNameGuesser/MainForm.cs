@@ -63,6 +63,7 @@ namespace FFXIVVoicePackCreator {
         private List<decimal> currentAudioTimings;
         private VoiceDescriptor selectedVoiceDescriptor;
         private bool foundInstance;
+        private bool _roleplayingVoiceExport;
 
         public bool HasSaved {
             get => hasSaved; set {
@@ -590,6 +591,7 @@ namespace FFXIVVoicePackCreator {
                 MessageBox.Show(@"Export Cancelled", VersionText);
             }
             exportProgressBar.Visible = false;
+            _roleplayingVoiceExport = false;
         }
 
         private void GetTimeCodeData() {
@@ -602,7 +604,48 @@ namespace FFXIVVoicePackCreator {
                 }
             }
         }
-
+        private void RoleplayingVoiceExport(string rpvExportPath) {
+            foreach (FilePicker value in emoteFilePickers) {
+                if (File.Exists(value.FilePath.Text)) {
+                    if (!Directory.Exists(exportFilePathEmote)) {
+                        Directory.CreateDirectory(exportFilePathEmote);
+                    }
+                    string inputPath = value.FilePath.Text;
+                    string tempPath = Path.Combine(rpvExportPath, value.Name + ".mp3");
+                    Process process = new Process();
+                    process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
+                    process.StartInfo.Arguments = $"-i {@"""" + inputPath
+                    + @""""} -acodec mp3 -ac 1 {@"""" + tempPath + @""""}";
+                    process.Start();
+                    while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }; ;
+                } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
+                    MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
+                }
+                exportProgressBar.Increment(1);
+                exportProgressBar.Refresh();
+                Application.DoEvents();
+            }
+            foreach (FilePicker value in battleFilePickers) {
+                if (File.Exists(value.FilePath.Text)) {
+                    if (!Directory.Exists(exportFilePathEmote)) {
+                        Directory.CreateDirectory(exportFilePathEmote);
+                    }
+                    string inputPath = value.FilePath.Text;
+                    string tempPath = Path.Combine(rpvExportPath, value.Name + ".mp3");
+                    Process process = new Process();
+                    process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
+                    process.StartInfo.Arguments = $"-i {@"""" + inputPath
+                    + @""""} -acodec mp3 -ac 1 {@"""" + tempPath + @""""}";
+                    process.Start();
+                    while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }; ;
+                } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
+                    MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
+                }
+                exportProgressBar.Increment(1);
+                exportProgressBar.Refresh();
+                Application.DoEvents();
+            }
+        }
         private void ExportSoundData() {
             if (!autoSyncCheckbox.Checked) {
                 foreach (FilePicker value in emoteFilePickers) {
@@ -614,9 +657,10 @@ namespace FFXIVVoicePackCreator {
                         string tempPath = Path.Combine(Path.GetDirectoryName(inputPath), Guid.NewGuid() + ".wav");
                         Process process = new Process();
                         process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
-                        process.StartInfo.Arguments = $"-i {@"""" + inputPath + @""""} -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 {@"""" + tempPath + @""""}";
+                        process.StartInfo.Arguments = $"-i {@"""" + inputPath
+                        + @""""} -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 {@"""" + tempPath + @""""}";
                         process.Start();
-                        while (SCDGenerator.IsFileLocked(tempPath)) { };
+                        while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); };
                         InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name, new List<string>() { tempPath });
                         File.Delete(tempPath);
                     } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
@@ -1646,7 +1690,8 @@ namespace FFXIVVoicePackCreator {
 
         private void testBattleSoundButton_Click(object sender, EventArgs e) {
             if (!voiceSwapBattleVoices.Checked) {
-                if (MessageBox.Show("This will test every valid battle voice file. Will not work for voice swaps as FFXIV contains all those sounds. Continue?", VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                if (MessageBox.Show("This will test every valid battle voice file. Will not work for voice swaps as FFXIV contains all those sounds. Continue?",
+                    VersionText, MessageBoxButtons.YesNo) == DialogResult.Yes) {
                     voiceTabs.SelectedIndex = 1;
                     foreach (FilePicker filePicker in battleFilePickers) {
                         if (!string.IsNullOrWhiteSpace(filePicker.FilePath.Text)) {
@@ -1703,6 +1748,13 @@ namespace FFXIVVoicePackCreator {
 
         private void modDescriptionTextBox_Leave(object sender, EventArgs e) {
             modDescriptionTextBox.Text = modDescriptionTextBox.Text.Replace(@"""", null);
+        }
+
+        private void generateRoleplayingVoice_Click(object sender, EventArgs e) {
+            FolderBrowserDialog dialogue = new FolderBrowserDialog();
+            if (dialogue.ShowDialog() == DialogResult.OK) {
+                RoleplayingVoiceExport(dialogue.SelectedPath);
+            }
         }
     }
 }
