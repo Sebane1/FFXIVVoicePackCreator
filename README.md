@@ -1,6 +1,6 @@
 Official download and repository. Do not download from other sources unless you can verify the code on github.
 
-A voice pack creation tool, voice swapper, MS-ADPCM, and OGG SCD generator.
+The definitive voice pack creation tool compatible with FFXIV via Roleplaying Voice and Dalamud.
 
 Download:
 https://github.com/Sebane1/FFXIVVoicePackCreator/releases
