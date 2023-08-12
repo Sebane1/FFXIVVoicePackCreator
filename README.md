@@ -11,18 +11,9 @@ Instructions:
 - To run the program make sure you've installed .net desktop runtime 7.0:
 https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.1-windows-x64-installer
 - Make sure you're using penumbra to manage your mods
-- Fill out your author information
-- Tell the program which emotes you want to replace with virtually any valid media files. Or tell it which existing voice you want to swap with.
-- Tell the program which character voices you want to affect.
-- Hit generate.
-- In game, hit rediscover in penumbra and enable your new voice pack mod.
-- Hit "Export Mod" in penumbra to generate a .pmp file to share with others.
-
-How to make custom voice packs:
-https://www.youtube.com/watch?v=68o9AYOfps4
-
-How to swap your voice with another race/gender:
-https://youtu.be/SyXOW5eJqws
+- Tell the program which action you want to add custom sounds to.
+- Hit export.
+- The files will be automatically added as a new entry in Roleplaying Voice.
 
 Need support, or just wanna talk sound? Visit our discord! https://discord.gg/rtGXwMn7pX 
 
