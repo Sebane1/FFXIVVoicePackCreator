@@ -198,76 +198,6 @@ namespace FFXIVVoicePackCreator {
             voiceListComboBox.SelectedIndex = 0;
         }
 
-        private void PickVoiceDump(bool forceNewPath = false) {
-            bool dontLoad = false;
-            if (!forceNewPath) {
-                GetDumpPath();
-            } else {
-                dumpFilePath = null;
-            }
-            if (string.IsNullOrWhiteSpace(dumpFilePath)) {
-                MessageBox.Show(@"Please select the folder with your dumped voice files. Should be under ""vo_emote"".", VersionText);
-                FolderBrowserDialog openFileDialog = new FolderBrowserDialog();
-                if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                    dumpFilePath = openFileDialog.SelectedPath;
-                    WriteDumpPath(dumpFilePath);
-                } else {
-                    MessageBox.Show("No dumped voice folder selected", VersionText);
-                    dontLoad = true;
-                }
-            }
-            if (!dontLoad) {
-                missingFIleList.Items.Clear();
-                if (dumpFiles != null) {
-                    dumpFiles.Clear();
-                }
-                dumpFiles = new List<string>();
-                dumpFiles.AddRange(Directory.GetFiles(dumpFilePath));
-                if (secondaryKnownFileList != null) {
-                    secondaryKnownFileList.Clear();
-                }
-                secondaryKnownFileList = new List<string>();
-                int startValue = 7301000;
-                int index = 0;
-                int attempts = (dumpFiles.Count / 16);
-                bool firstUnfound = false;
-                int foundVoices = 0;
-                int unfoundVoices = 0;
-                for (int counter = 0; counter <= attempts; counter++) {
-                    bool itemsNotFound = false;
-                    for (int emoteCount = 0; emoteCount <= 15; emoteCount++) {
-                        string fileName = (startValue + emoteCount) + "";
-                        string name = ListContainsName(dumpFiles, fileName);
-                        if (string.IsNullOrEmpty(name)) {
-                            missingFIleList.Items.Add((firstUnfound ? "" : "  ") + fileName + $" ({(Emotion)emoteCount})");
-                            itemsNotFound = true;
-                            firstUnfound = false;
-                        } else {
-                            firstUnfound = true;
-                            index++;
-                            foundNamesList.Items.Add(Path.GetFileName(name) + $" ({(Emotion)emoteCount})");
-                            secondaryKnownFileList.Add(name);
-                        }
-                    }
-                    if (itemsNotFound) {
-                        missingFIleList.Items.Add("----------------");
-                        //startNumberGuess.Items.Add(startValue);
-                        unfoundVoices++;
-                    } else {
-                        foundNamesList.Items.Add("----------------");
-                        //startNumber.Items.Add(startValue);
-                        foundVoices++;
-                        secondaryKnownFileList.Add("");
-                    }
-                    startValue += 1000;
-                }
-                lostFileListPaths = new List<string>();
-                while (index < dumpFiles.Count) {
-                    lostFileList.Items.Add(Path.GetFileName(dumpFiles[index++]));
-                    lostFileListPaths.Add(dumpFiles[index++]);
-                }
-            }
-        }
 
         private void ExportEmoteFiles(int startValue, Option options) {
             int i = 0;
@@ -428,48 +358,12 @@ namespace FFXIVVoicePackCreator {
             canDoDragDrop = true;
         }
 
-        private void foundNamesList_MouseMove(object sender, MouseEventArgs e) {
-            if ((e.X != startPos.X || startPos.Y != e.Y) && canDoDragDrop) {
-                List<string> fileList = new List<string>();
-                foreach (int item in foundNamesList.SelectedIndices) {
-                    if (!string.IsNullOrEmpty(secondaryKnownFileList[item])) {
-                        fileList.Add(secondaryKnownFileList[item]);
-                    }
-                }
-                if (fileList.Count > 0) {
-                    DataObject fileDragData = new DataObject(DataFormats.FileDrop, fileList.ToArray());
-                    DoDragDrop(fileDragData, DragDropEffects.Copy);
-                }
-                canDoDragDrop = false;
-            }
-        }
         private void lostNamesList_MouseDown(object sender, MouseEventArgs e) {
             startPos = e.Location;
             canDoDragDrop = true;
         }
 
         private void lostNamesList_MouseMove(object sender, MouseEventArgs e) {
-            if ((e.X != startPos.X || startPos.Y != e.Y) && canDoDragDrop) {
-                List<string> fileList = new List<string>();
-                foreach (int item in lostFileList.SelectedIndices) {
-                    if (!string.IsNullOrEmpty(lostFileListPaths[item])) {
-                        fileList.Add(lostFileListPaths[item]);
-                    }
-                }
-                if (fileList.Count > 0) {
-                    DataObject fileDragData = new DataObject(DataFormats.FileDrop, fileList.ToArray());
-                    DoDragDrop(fileDragData, DragDropEffects.Copy);
-                }
-                canDoDragDrop = false;
-            }
-        }
-        private void foundNamesList_MouseDoubleClick(object sender, MouseEventArgs e) {
-            string path = secondaryKnownFileList[foundNamesList.SelectedIndex];
-            if (!string.IsNullOrEmpty(path)) {
-                ProcessStartInfo info = new ProcessStartInfo(path);
-                info.UseShellExecute = true;
-                Process.Start(info);
-            }
         }
 
         private void sCDCreatorToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -478,20 +372,9 @@ namespace FFXIVVoicePackCreator {
             sCDCreator.ShowDialog();
         }
 
-        private void changeVoiceDumpToolStripMenuItem_Click(object sender, EventArgs e) {
-            PickVoiceDump(true);
-        }
 
         private void pickExportFolderToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurePenumbraModFolder();
-        }
-
-        private void lostFileList_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if (!string.IsNullOrEmpty(lostFileListPaths[lostFileList.SelectedIndex])) {
-                ProcessStartInfo info = new ProcessStartInfo(lostFileListPaths[lostFileList.SelectedIndex]);
-                info.UseShellExecute = true;
-                Process.Start(info);
-            }
         }
 
         private void addToVoiceListButton_Click(object sender, EventArgs e) {
@@ -979,8 +862,6 @@ namespace FFXIVVoicePackCreator {
 
         private void tabManager_Selecting(object sender, TabControlCancelEventArgs e) {
             if (!alreadyShown) {
-                missingFIleList.Items.Clear();
-                PickVoiceDump();
                 alreadyShown = true;
             }
         }
@@ -1204,7 +1085,6 @@ namespace FFXIVVoicePackCreator {
                                 autoSyncCheckbox.Checked = false;
                                 oldExportMode.Checked = true;
                                 oldExportMode.Visible = true;
-
                             }
                             break;
                         case 3:

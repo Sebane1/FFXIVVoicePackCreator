@@ -13,6 +13,7 @@ namespace FFXIVVoicePackCreator {
         public VoiceSelection() {
             InitializeComponent();
             RefreshRacialChoices();
+            AutoScaleDimensions = new SizeF(96, 96);
         }
         int selectedVoiceEmote = 0;
         string selectedVoiceBattle = "";

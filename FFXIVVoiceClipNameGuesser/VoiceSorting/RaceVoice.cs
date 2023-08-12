@@ -137,7 +137,9 @@ namespace FFXIVVoicePackCreator {
                     }
                     raceVoice.Feminine.Reverse();
                     racialListEmotes.Add(raceVoice);
-                    racialLookup.Add(raceVoice.RaceName, raceVoice);
+                    try {
+                        racialLookup.Add(raceVoice.RaceName, raceVoice);
+                    } catch { }
                 }
             }
         }
