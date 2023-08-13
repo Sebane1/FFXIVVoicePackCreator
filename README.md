@@ -10,7 +10,7 @@ https://github.com/Sebane1/FFXIVVoicePackCreator/releases
 Instructions:
 - To run the program make sure you've installed .net desktop runtime 7.0:
 https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0.1-windows-x64-installer
-- Make sure you're using penumbra to manage your mods
+- Requires the Roleplaying Voice plugin: https://github.com/Sebane1/RoleplayingVoiceDalamud
 - Tell the program which action you want to add custom sounds to.
 - Hit export.
 - The files will be automatically added as a new entry in Roleplaying Voice.
