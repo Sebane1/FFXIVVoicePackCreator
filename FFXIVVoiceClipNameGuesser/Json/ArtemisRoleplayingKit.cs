@@ -1,5 +1,5 @@
 ﻿namespace FFXIVVoicePackCreator.Json {
-    public class RoleplayingVoiceConfig {
+    public class ArtemisRoleplayingKit {
         public string CacheFolder { get; set; }
     }
 }

@@ -138,8 +138,8 @@
             // getRoleplayingVoiceToolStripMenuItem
             // 
             this.getRoleplayingVoiceToolStripMenuItem.Name = "getRoleplayingVoiceToolStripMenuItem";
-            this.getRoleplayingVoiceToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.getRoleplayingVoiceToolStripMenuItem.Text = "Roleplaying Voice";
+            this.getRoleplayingVoiceToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.getRoleplayingVoiceToolStripMenuItem.Text = "Get Artemis";
             this.getRoleplayingVoiceToolStripMenuItem.Click += new System.EventHandler(this.getRoleplayingVoiceToolStripMenuItem_Click);
             // 
             // nameTextBox
@@ -241,7 +241,7 @@
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(408, 23);
             this.exportButton.TabIndex = 11;
-            this.exportButton.Text = "Export";
+            this.exportButton.Text = "Export ";
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
@@ -362,7 +362,7 @@
             this.MaximizeBox = false;
             this.Name = "RoleplayingVoicePackCreator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Roleplaying Voice Pack Creator";
+            this.Text = "Artemis Sound Pack Creator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoleplayingVoicePackCreator_FormClosing);
             this.Load += new System.EventHandler(this.RoleplayingVoicePackCreator_Load);
             this.menuStrip1.ResumeLayout(false);

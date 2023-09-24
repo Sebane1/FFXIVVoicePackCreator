@@ -73,14 +73,22 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void InstallationCheck() {
-            string roleplayingVoiceConfig = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-         + @"\XIVLauncher\pluginConfigs\RoleplayingVoiceDalamud.json";
-            if (File.Exists(roleplayingVoiceConfig)) {
-                RoleplayingVoiceConfig file = JsonConvert.DeserializeObject<RoleplayingVoiceConfig>(
-                    File.OpenText(roleplayingVoiceConfig).ReadToEnd());
+            string artemisRoleplayingKit = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+         + @"\XIVLauncher\pluginConfigs\ArtemisRoleplayingKit.json";
+            if (File.Exists(artemisRoleplayingKit)) {
+                ArtemisRoleplayingKit file = JsonConvert.DeserializeObject<ArtemisRoleplayingKit>(
+                    File.OpenText(artemisRoleplayingKit).ReadToEnd());
                 cacheFolder = file.CacheFolder;
             } else {
-                MessageBox.Show("Unable to find the Roleplaying Voice dalamud plugin. The plugin is mandatory for expanded sound options due to Penumbra limitations.\r\n\r\nAlternatively, you can open the legacy voice pack creator window.", "FFXIV Voice Pack Creator");
+                artemisRoleplayingKit = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+              + @"\XIVLauncher\pluginConfigs\RoleplayingVoiceDalamud.json";
+                if (File.Exists(artemisRoleplayingKit)) {
+                    ArtemisRoleplayingKit file = JsonConvert.DeserializeObject<ArtemisRoleplayingKit>(
+                        File.OpenText(artemisRoleplayingKit).ReadToEnd());
+                    cacheFolder = file.CacheFolder;
+                } else {
+                    MessageBox.Show("Unable to find the Artemis Roleplaying Kit config. The plugin is mandatory for expanded sound options due to Penumbra limitations. Ensure you've enabled Voice Pack support in the plugin.\r\n\r\nAlternatively, you can open the legacy voice pack creator window.", "FFXIV Voice Pack Creator");
+                }
             }
         }
 
@@ -104,14 +112,18 @@ namespace FFXIVVoicePackCreator {
         }
         private void AddSoundButton_Click(object sender, EventArgs e) {
             if (categoryList.Items.Count > 0) {
-                OpenFileDialog openFileDialog = new OpenFileDialog {
-                    Filter = "All Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.RMI;*.MKV;*.flac;*.ogg;"
-                };
-                if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                    _categories[(string)categoryList.SelectedItem].Add(openFileDialog.FileName);
+                if (categoryList.SelectedIndex > -1) {
+                    OpenFileDialog openFileDialog = new OpenFileDialog {
+                        Filter = "All Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.RMI;*.MKV;*.flac;*.ogg;"
+                    };
+                    if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                        _categories[(string)categoryList.SelectedItem].Add(openFileDialog.FileName);
+                    }
+                    RefreshLists();
+                    HasSaved = false;
+                } else {
+                    MessageBox.Show("Select a sound category before trying to add sound!", "FFXIV Voice Pack Creator");
                 }
-                RefreshLists();
-                HasSaved = false;
             } else {
                 MessageBox.Show("Add a sound category before trying to add sound!", "FFXIV Voice Pack Creator");
             }
@@ -235,6 +247,9 @@ namespace FFXIVVoicePackCreator {
                     string voicePackFolder = cacheFolder + @"\VoicePack\";
                     string exportPath = voicePackFolder + nameTextBox.Text;
                     exportButton.Enabled = false;
+                    foreach (Process process in Process.GetProcessesByName("ffmpeg")) {
+                        process.Kill();
+                    }
                     foreach (string key in _categories.Keys) {
                         int number = 0;
                         foreach (string value in _categories[key]) {
@@ -243,20 +258,20 @@ namespace FFXIVVoicePackCreator {
                                     Directory.CreateDirectory(exportPath);
                                 }
                                 string inputPath = value;
-                                string tempPath = Path.Combine(exportPath, key + number++ + ".mp3");
+                                string tempPath = Path.Combine(exportPath, StripNonCharacters(key) + number++ + ".mp3");
                                 Process process = new Process();
                                 process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
                                 process.StartInfo.Arguments = $"-i {@"""" + inputPath
                                 + @""""} -acodec mp3 -ac 1 {@"""" + tempPath + @""""}";
                                 process.Start();
-                                while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }; ;
                             }
                             Application.DoEvents();
                         }
                     }
                     exportButton.Enabled = true;
+                    MessageBox.Show("Export is complete, check the Artemis Roleplaying Kit plugin.", "FFXIV Voice Pack Creator");
                 } else {
-                    MessageBox.Show("No files were exported. No Roleplaying Voice cache was found.", "FFXIV Voice Pack Creator");
+                    MessageBox.Show("No files were exported. No Artemis Roleplaying Kit cache was found.", "FFXIV Voice Pack Creator");
                 }
             } else {
                 MessageBox.Show("Please enter a name!", "FFXIV Voice Pack Creator");
@@ -343,11 +358,11 @@ namespace FFXIVVoicePackCreator {
                             categoryList.Items.Clear();
                             if (openFileDialog.ShowDialog() == DialogResult.OK) {
                                 currentSavePath = openFileDialog.FileName;
-                                if (currentSavePath.EndsWith("*rpvpp")) {
+                                if (currentSavePath.EndsWith(".rpvpp")) {
                                     Open(currentSavePath);
                                 } else {
                                     OpenOldProject(currentSavePath);
-                                    currentSavePath = currentSavePath.Replace("ffxivsp", ".rpvpp");
+                                    currentSavePath = currentSavePath.Replace(".ffxivsp", ".rpvpp");
                                 }
                             }
                         }
@@ -358,11 +373,11 @@ namespace FFXIVVoicePackCreator {
                         categoryList.Items.Clear();
                         if (openFileDialog.ShowDialog() == DialogResult.OK) {
                             currentSavePath = openFileDialog.FileName;
-                            if (currentSavePath.EndsWith("*rpvpp")) {
+                            if (currentSavePath.EndsWith(".rpvpp")) {
                                 Open(currentSavePath);
                             } else {
                                 OpenOldProject(currentSavePath);
-                                currentSavePath = currentSavePath.Replace("ffxivsp", ".rpvpp");
+                                currentSavePath = currentSavePath.Replace(".ffxivsp", ".rpvpp");
                             }
                         }
                         break;
@@ -377,7 +392,7 @@ namespace FFXIVVoicePackCreator {
                 categoryList.Items.Clear();
                 if (openFileDialog.ShowDialog() == DialogResult.OK) {
                     currentSavePath = openFileDialog.FileName;
-                    if (currentSavePath.EndsWith("*rpvpp")) {
+                    if (currentSavePath.EndsWith(".rpvpp")) {
                         Open(currentSavePath);
                     } else {
                         OpenOldProject(currentSavePath);
