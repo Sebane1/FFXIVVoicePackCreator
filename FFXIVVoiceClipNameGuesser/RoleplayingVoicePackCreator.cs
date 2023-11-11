@@ -45,6 +45,9 @@ namespace FFXIVVoicePackCreator {
         }
 
         private void RoleplayingVoicePackCreator_Load(object sender, EventArgs e) {
+            foreach (Process process in Process.GetProcessesByName("ffmpeg")) {
+                process.Kill();
+            }
             AutoScaleDimensions = new SizeF(96, 96);
             Text = Application.ProductName + " " + Application.ProductVersion + (!string.IsNullOrWhiteSpace(currentSavePath) ? $" ({currentSavePath})" : "");
             InstallationCheck();
@@ -413,12 +416,14 @@ namespace FFXIVVoicePackCreator {
             _categories.Clear();
             soundList.Items.Clear();
             categoryList.Items.Clear();
-            RoleplayingVoicePackProject project =
-                    JsonConvert.DeserializeObject<RoleplayingVoicePackProject>(File.OpenText(path).ReadToEnd());
-            _categories = project.Categories;
-            nameTextBox.Text = project.Name;
-            RefreshCategories();
-            RefreshLists();
+            using (StreamReader reader = File.OpenText(path)) {
+                RoleplayingVoicePackProject project =
+                        JsonConvert.DeserializeObject<RoleplayingVoicePackProject>(reader.ReadToEnd());
+                _categories = project.Categories;
+                nameTextBox.Text = project.Name;
+                RefreshCategories();
+                RefreshLists();
+            }
         }
 
         private void RoleplayingVoicePackCreator_FormClosing(object sender, FormClosingEventArgs e) {
@@ -441,6 +446,9 @@ namespace FFXIVVoicePackCreator {
                         e.Cancel = true;
                         break;
                 }
+            }
+            foreach (Process process in Process.GetProcessesByName("ffmpeg")) {
+                process.Kill();
             }
         }
         private void discordButton_Click(object sender, EventArgs e) {
@@ -661,6 +669,10 @@ namespace FFXIVVoicePackCreator {
             Regex rgx = new Regex("[^a-zA-Z]");
             str = rgx.Replace(str, "");
             return str;
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }
