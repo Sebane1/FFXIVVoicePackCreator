@@ -1,4 +1,6 @@
-﻿using FFXIVVoicePackCreator.Json;
+﻿using Anamnesis.Penumbra;
+using FFXIVVoicePackCreator.Json;
+using LooseTextureCompilerCore.Json;
 using Lumina;
 using Lumina.Excel.GeneratedSheets;
 using NAudio.Vorbis;
@@ -28,6 +30,7 @@ namespace FFXIVVoicePackCreator {
         private string currentSavePath;
         private MainWindow legacyWindow;
         private WaveOutEvent output;
+        private string penumbraModPath;
 
         public bool HasSaved {
             get => hasSaved; set {
@@ -77,20 +80,36 @@ namespace FFXIVVoicePackCreator {
 
         private void InstallationCheck() {
             string artemisRoleplayingKit = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-         + @"\XIVLauncher\pluginConfigs\ArtemisRoleplayingKit.json";
+            + @"\XIVLauncher\pluginConfigs\ArtemisRoleplayingKit.json";
             if (File.Exists(artemisRoleplayingKit)) {
                 ArtemisRoleplayingKit file = JsonConvert.DeserializeObject<ArtemisRoleplayingKit>(
                     File.OpenText(artemisRoleplayingKit).ReadToEnd());
                 cacheFolder = file.CacheFolder;
             } else {
                 artemisRoleplayingKit = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-              + @"\XIVLauncher\pluginConfigs\RoleplayingVoiceDalamud.json";
+                + @"\XIVLauncher\pluginConfigs\RoleplayingVoiceDalamud.json";
                 if (File.Exists(artemisRoleplayingKit)) {
                     ArtemisRoleplayingKit file = JsonConvert.DeserializeObject<ArtemisRoleplayingKit>(
                         File.OpenText(artemisRoleplayingKit).ReadToEnd());
                     cacheFolder = file.CacheFolder;
                 } else {
-                    MessageBox.Show("Unable to find the Artemis Roleplaying Kit config. The plugin is mandatory for expanded sound options due to Penumbra limitations. Ensure you've enabled Voice Pack support in the plugin.\r\n\r\nAlternatively, you can open the legacy voice pack creator window.", "FFXIV Voice Pack Creator");
+                    artemisRoleplayingKit = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+                    + @"\XIVLauncherCN\pluginConfigs\ArtemisRoleplayingKit.json";
+                    if (File.Exists(artemisRoleplayingKit)) {
+                        ArtemisRoleplayingKit file = JsonConvert.DeserializeObject<ArtemisRoleplayingKit>(
+                            File.OpenText(artemisRoleplayingKit).ReadToEnd());
+                        cacheFolder = file.CacheFolder;
+                    } else {
+                        artemisRoleplayingKit = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+                        + @"\XIVLauncherCN\pluginConfigs\RoleplayingVoiceDalamud.json";
+                        if (File.Exists(artemisRoleplayingKit)) {
+                            ArtemisRoleplayingKit file = JsonConvert.DeserializeObject<ArtemisRoleplayingKit>(
+                                File.OpenText(artemisRoleplayingKit).ReadToEnd());
+                            cacheFolder = file.CacheFolder;
+                        } else {
+                            MessageBox.Show("Unable to find the Artemis Roleplaying Kit config. The plugin is mandatory for expanded sound options due to Penumbra limitations. Ensure you've enabled Voice Pack support in the plugin.\r\n\r\nAlternatively, you can open the legacy voice pack creator window.", "FFXIV Voice Pack Creator");
+                        }
+                    }
                 }
             }
         }
@@ -249,7 +268,7 @@ namespace FFXIVVoicePackCreator {
                 if (!string.IsNullOrEmpty(cacheFolder)) {
                     string voicePackFolder = cacheFolder + @"\VoicePack\";
                     string exportPath = voicePackFolder + nameTextBox.Text;
-                    exportButton.Enabled = false;
+                    exportToArtemisButton.Enabled = exportToPenumbraButton.Enabled = false;
                     foreach (Process process in Process.GetProcessesByName("ffmpeg")) {
                         process.Kill();
                     }
@@ -271,7 +290,7 @@ namespace FFXIVVoicePackCreator {
                             Application.DoEvents();
                         }
                     }
-                    exportButton.Enabled = true;
+                    exportToArtemisButton.Enabled = exportToPenumbraButton.Enabled = true;
                     MessageBox.Show("Export is complete, check the Artemis Roleplaying Kit plugin.", "FFXIV Voice Pack Creator");
                 } else {
                     MessageBox.Show("No files were exported. No Artemis Roleplaying Kit cache was found.", "FFXIV Voice Pack Creator");
@@ -673,6 +692,112 @@ namespace FFXIVVoicePackCreator {
 
         private void nameTextBox_TextChanged(object sender, EventArgs e) {
 
+        }
+        public void GetPenumbraPath() {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "XIVLauncher\\pluginConfigs\\Penumbra.json");
+            if (File.Exists(path)) {
+                using (StreamReader reader = new StreamReader(path)) {
+                    PenumbraModPath modPath = JsonConvert.DeserializeObject<PenumbraModPath>(reader.ReadToEnd());
+                    if (modPath != null) {
+                        penumbraModPath = modPath.ModDirectory;
+                    }
+                }
+            } else {
+                path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "XIVLauncherCN\\pluginConfigs\\Penumbra.json");
+                if (File.Exists(path)) {
+                    using (StreamReader reader = new StreamReader(path)) {
+                        PenumbraModPath modPath = JsonConvert.DeserializeObject<PenumbraModPath>(reader.ReadToEnd());
+                        if (modPath != null) {
+                            penumbraModPath = modPath.ModDirectory;
+                        }
+                    }
+                }
+            }
+        }
+        private void ExportJson(string value) {
+            string jsonText = @"{
+  ""Name"": """",
+  ""Priority"": 0,
+  ""Files"": { },
+  ""FileSwaps"": { },
+  ""Manipulations"": []
+}";
+            string path = Path.Combine(value, "default_mod.json");
+            if (value != null) {
+                if (!File.Exists(path)) {
+                    using (StreamWriter writer = new StreamWriter(path)) {
+                        writer.WriteLine(jsonText);
+                    }
+                }
+            }
+        }
+
+        private void ExportMeta(string value, string name, string author, string description, string version) {
+            string metaText = @"{
+  ""FileVersion"": 3,
+  ""Name"": """ + (!string.IsNullOrEmpty(name) ? name : "none") + @""",
+  ""Author"": """ + (!string.IsNullOrEmpty(author) ? author : "Voice Pack Creator") + @""",
+  ""Description"": """ + (!string.IsNullOrEmpty(description) ? description : "_defaultDescription") + @""",
+  ""Version"": """ + version + @""",
+  ""Website"": """ + "https://discord.gg/rtGXwMn7pX" + @""",
+  ""ModTags"": []
+}";
+            string path = Path.Combine(value, "meta.json");
+            if (value != null) {
+                if (!File.Exists(path)) {
+                    using (StreamWriter writer = new StreamWriter(path)) {
+                        writer.WriteLine(metaText);
+                    }
+                }
+            }
+        }
+        private void exportToPenumbraButton_click(object sender, EventArgs e) {
+            GetPenumbraPath();
+            if (!string.IsNullOrEmpty(nameTextBox.Text)) {
+                if (string.IsNullOrEmpty(cacheFolder)) {
+                    InstallationCheck();
+                }
+                if (!string.IsNullOrEmpty(penumbraModPath)) {
+                    string voicePackFolder = penumbraModPath;
+                    string modPath = Path.Combine(voicePackFolder, nameTextBox.Text);
+                    string exportPath = Path.Combine(voicePackFolder, nameTextBox.Text + @"\arksp");
+                    Directory.CreateDirectory(modPath);
+                    Directory.CreateDirectory(exportPath);
+                    exportToArtemisButton.Enabled = exportToPenumbraButton.Enabled = false;
+                    foreach (Process process in Process.GetProcessesByName("ffmpeg")) {
+                        process.Kill();
+                    }
+                    foreach (string key in _categories.Keys) {
+                        int number = 0;
+                        foreach (string value in _categories[key]) {
+                            if (File.Exists(value)) {
+                                if (!Directory.Exists(exportPath)) {
+                                    Directory.CreateDirectory(exportPath);
+                                }
+                                string inputPath = value;
+                                string tempPath = Path.Combine(exportPath, StripNonCharacters(key) + number++ + ".mp3");
+                                Process process = new Process();
+                                process.StartInfo.FileName = Path.Combine(Application.StartupPath, @"res\ffmpeg.exe");
+                                process.StartInfo.Arguments = $"-i {@"""" + inputPath
+                                + @""""} -acodec mp3 -ac 1 {@"""" + tempPath + @""""}";
+                                process.Start();
+                            }
+                            Application.DoEvents();
+                        }
+                    }
+                    ExportJson(modPath);
+                    ExportMeta(modPath, nameTextBox.Text, "Voice Pack Creator", "This sound pack requires the Artemis Roleplaying Kit plugin to function", "0.0.0");
+                    exportToArtemisButton.Enabled = exportToPenumbraButton.Enabled = true;
+                    PenumbraHttpApi.Reload(modPath, nameTextBox.Text);
+                    MessageBox.Show("Export is complete, check the Penumbra mod list to enable the mod. Artemis Roleplaying Kit is still needed to hear the sound pack.", "FFXIV Voice Pack Creator");
+                } else {
+                    MessageBox.Show("No files were exported. No Penumbra configuration was found.", "FFXIV Voice Pack Creator");
+                }
+            } else {
+                MessageBox.Show("Please enter a name!", "FFXIV Voice Pack Creator");
+            }
         }
     }
 }

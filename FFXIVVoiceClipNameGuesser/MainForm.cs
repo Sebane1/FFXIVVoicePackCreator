@@ -464,7 +464,7 @@ namespace FFXIVVoicePackCreator {
                     for (i = 0; i < battleGroupPaths.Count; i++) {
                         ExportGroup(battleGroupPaths[i], battleGroups[i]);
                     }
-                    PenumbraHttpApi.Reload(newModPath, modNameTextBox.Text, hook);
+                    PenumbraHttpApi.Reload(newModPath, modNameTextBox.Text);
                     TopMost = true;
                     BringToFront();
                     TopMost = false;

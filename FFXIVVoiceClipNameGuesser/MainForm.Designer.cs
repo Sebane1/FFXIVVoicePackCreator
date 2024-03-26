@@ -26,1379 +26,1332 @@ namespace FFXIVVoicePackCreator {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sCDWavMergerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sCDEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bulkSCDAudioExtractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configurePenumbraFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.battleSoundGuidelinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.troubleshootingFAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshFFXIVInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label7 = new System.Windows.Forms.Label();
-            this.modNameTextBox = new System.Windows.Forms.TextBox();
-            this.modAuthorTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.modDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.modWebsiteTextBox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.modVersionTextBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tabManager = new System.Windows.Forms.TabControl();
-            this.voiceExportTab = new System.Windows.Forms.TabPage();
-            this.autoSyncCheckbox = new System.Windows.Forms.CheckBox();
-            this.oldExportMode = new System.Windows.Forms.CheckBox();
-            this.addRaceButton = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.clearListButton = new System.Windows.Forms.Button();
-            this.removeFromList = new System.Windows.Forms.Button();
-            this.voiceReplacementList = new System.Windows.Forms.ListBox();
-            this.addToVoiceListButton = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.voiceListComboBox = new System.Windows.Forms.ComboBox();
-            this.raceListComboBox = new System.Windows.Forms.ComboBox();
-            this.sexListComboBox = new System.Windows.Forms.ComboBox();
-            this.exportProgressBar = new System.Windows.Forms.ProgressBar();
-            this.easyGenerateButton = new System.Windows.Forms.Button();
-            this.quickImportButton = new System.Windows.Forms.Button();
-            this.quickSwapButton = new System.Windows.Forms.Button();
-            this.voiceTabs = new System.Windows.Forms.TabControl();
-            this.emoteVoicesPage = new System.Windows.Forms.TabPage();
-            this.testingLabel = new System.Windows.Forms.Label();
-            this.surprised = new FFXIVVoicePackCreator.FilePicker();
-            this.angry = new FFXIVVoicePackCreator.FilePicker();
-            this.furious = new FFXIVVoicePackCreator.FilePicker();
-            this.cheer = new FFXIVVoicePackCreator.FilePicker();
-            this.doze = new FFXIVVoicePackCreator.FilePicker();
-            this.fume = new FFXIVVoicePackCreator.FilePicker();
-            this.huh = new FFXIVVoicePackCreator.FilePicker();
-            this.chuckle = new FFXIVVoicePackCreator.FilePicker();
-            this.laugh = new FFXIVVoicePackCreator.FilePicker();
-            this.no = new FFXIVVoicePackCreator.FilePicker();
-            this.stretch = new FFXIVVoicePackCreator.FilePicker();
-            this.upset = new FFXIVVoicePackCreator.FilePicker();
-            this.yes = new FFXIVVoicePackCreator.FilePicker();
-            this.happy = new FFXIVVoicePackCreator.FilePicker();
-            this.battleVoicesPage = new System.Windows.Forms.TabPage();
-            this.extra2 = new FFXIVVoicePackCreator.FilePicker();
-            this.extra1 = new FFXIVVoicePackCreator.FilePicker();
-            this.death2 = new FFXIVVoicePackCreator.FilePicker();
-            this.death1 = new FFXIVVoicePackCreator.FilePicker();
-            this.hurt6 = new FFXIVVoicePackCreator.FilePicker();
-            this.hurt5 = new FFXIVVoicePackCreator.FilePicker();
-            this.hurt4 = new FFXIVVoicePackCreator.FilePicker();
-            this.hurt3 = new FFXIVVoicePackCreator.FilePicker();
-            this.hurt2 = new FFXIVVoicePackCreator.FilePicker();
-            this.hurt1 = new FFXIVVoicePackCreator.FilePicker();
-            this.attack6 = new FFXIVVoicePackCreator.FilePicker();
-            this.attack5 = new FFXIVVoicePackCreator.FilePicker();
-            this.attack4 = new FFXIVVoicePackCreator.FilePicker();
-            this.attack3 = new FFXIVVoicePackCreator.FilePicker();
-            this.attack2 = new FFXIVVoicePackCreator.FilePicker();
-            this.attack1 = new FFXIVVoicePackCreator.FilePicker();
-            this.multiSCDFile = new System.Windows.Forms.Button();
-            this.unused2 = new FFXIVVoicePackCreator.FilePicker();
-            this.unused1 = new FFXIVVoicePackCreator.FilePicker();
-            this.voiceSwapBattleVoices = new System.Windows.Forms.CheckBox();
-            this.ffxivRefreshTimer = new System.Windows.Forms.Timer(this.components);
-            this.testEmotesButton = new System.Windows.Forms.Button();
-            this.testBattleSoundButton = new System.Windows.Forms.Button();
-            this.donateButton = new System.Windows.Forms.Button();
-            this.discordButton = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
-            this.tabManager.SuspendLayout();
-            this.voiceExportTab.SuspendLayout();
-            this.voiceTabs.SuspendLayout();
-            this.emoteVoicesPage.SuspendLayout();
-            this.battleVoicesPage.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            saveAsToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
+            toolsToolStripMenuItem = new ToolStripMenuItem();
+            sCDWavMergerToolStripMenuItem = new ToolStripMenuItem();
+            sCDEditorToolStripMenuItem = new ToolStripMenuItem();
+            bulkSCDAudioExtractorToolStripMenuItem = new ToolStripMenuItem();
+            configToolStripMenuItem = new ToolStripMenuItem();
+            configurePenumbraFolderToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            battleSoundGuidelinesToolStripMenuItem = new ToolStripMenuItem();
+            troubleshootingFAQToolStripMenuItem = new ToolStripMenuItem();
+            refreshFFXIVInstanceToolStripMenuItem = new ToolStripMenuItem();
+            label7 = new Label();
+            modNameTextBox = new TextBox();
+            modAuthorTextBox = new TextBox();
+            label8 = new Label();
+            modDescriptionTextBox = new TextBox();
+            label9 = new Label();
+            modWebsiteTextBox = new TextBox();
+            label10 = new Label();
+            modVersionTextBox = new TextBox();
+            label11 = new Label();
+            tabManager = new TabControl();
+            voiceExportTab = new TabPage();
+            autoSyncCheckbox = new CheckBox();
+            oldExportMode = new CheckBox();
+            addRaceButton = new Button();
+            label13 = new Label();
+            clearListButton = new Button();
+            removeFromList = new Button();
+            voiceReplacementList = new ListBox();
+            addToVoiceListButton = new Button();
+            label12 = new Label();
+            voiceListComboBox = new ComboBox();
+            raceListComboBox = new ComboBox();
+            sexListComboBox = new ComboBox();
+            exportProgressBar = new ProgressBar();
+            easyGenerateButton = new Button();
+            quickImportButton = new Button();
+            quickSwapButton = new Button();
+            voiceTabs = new TabControl();
+            emoteVoicesPage = new TabPage();
+            testingLabel = new Label();
+            surprised = new FilePicker();
+            angry = new FilePicker();
+            furious = new FilePicker();
+            cheer = new FilePicker();
+            doze = new FilePicker();
+            fume = new FilePicker();
+            huh = new FilePicker();
+            chuckle = new FilePicker();
+            laugh = new FilePicker();
+            no = new FilePicker();
+            stretch = new FilePicker();
+            upset = new FilePicker();
+            yes = new FilePicker();
+            happy = new FilePicker();
+            battleVoicesPage = new TabPage();
+            extra2 = new FilePicker();
+            extra1 = new FilePicker();
+            death2 = new FilePicker();
+            death1 = new FilePicker();
+            hurt6 = new FilePicker();
+            hurt5 = new FilePicker();
+            hurt4 = new FilePicker();
+            hurt3 = new FilePicker();
+            hurt2 = new FilePicker();
+            hurt1 = new FilePicker();
+            attack6 = new FilePicker();
+            attack5 = new FilePicker();
+            attack4 = new FilePicker();
+            attack3 = new FilePicker();
+            attack2 = new FilePicker();
+            attack1 = new FilePicker();
+            multiSCDFile = new Button();
+            unused2 = new FilePicker();
+            unused1 = new FilePicker();
+            voiceSwapBattleVoices = new CheckBox();
+            ffxivRefreshTimer = new Timer(components);
+            testEmotesButton = new Button();
+            testBattleSoundButton = new Button();
+            donateButton = new Button();
+            discordButton = new Button();
+            menuStrip1.SuspendLayout();
+            tabManager.SuspendLayout();
+            voiceExportTab.SuspendLayout();
+            voiceTabs.SuspendLayout();
+            emoteVoicesPage.SuspendLayout();
+            battleVoicesPage.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem,
-            this.configToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.refreshFFXIVInstanceToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(980, 24);
-            this.menuStrip1.TabIndex = 32;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, toolsToolStripMenuItem, configToolStripMenuItem, helpToolStripMenuItem, refreshFFXIVInstanceToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(7, 2, 0, 2);
+            menuStrip1.Size = new System.Drawing.Size(980, 24);
+            menuStrip1.TabIndex = 32;
+            menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.openToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, openToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            newToolStripMenuItem.Text = "New";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // saveAsToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            saveAsToolStripMenuItem.Text = "Save As";
+            saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            openToolStripMenuItem.Text = "Open";
+            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // toolsToolStripMenuItem
             // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sCDWavMergerToolStripMenuItem,
-            this.sCDEditorToolStripMenuItem,
-            this.bulkSCDAudioExtractorToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sCDWavMergerToolStripMenuItem, sCDEditorToolStripMenuItem, bulkSCDAudioExtractorToolStripMenuItem });
+            toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            toolsToolStripMenuItem.Text = "Tools";
             // 
             // sCDWavMergerToolStripMenuItem
             // 
-            this.sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
-            this.sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.sCDWavMergerToolStripMenuItem.Text = "Create Standalone SCD";
-            this.sCDWavMergerToolStripMenuItem.Click += new System.EventHandler(this.sCDCreatorToolStripMenuItem_Click);
+            sCDWavMergerToolStripMenuItem.Name = "sCDWavMergerToolStripMenuItem";
+            sCDWavMergerToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            sCDWavMergerToolStripMenuItem.Text = "Create Standalone SCD";
+            sCDWavMergerToolStripMenuItem.Click += sCDCreatorToolStripMenuItem_Click;
             // 
             // sCDEditorToolStripMenuItem
             // 
-            this.sCDEditorToolStripMenuItem.Name = "sCDEditorToolStripMenuItem";
-            this.sCDEditorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.sCDEditorToolStripMenuItem.Text = "SCD Editor";
-            this.sCDEditorToolStripMenuItem.Click += new System.EventHandler(this.sCDEditorToolStripMenuItem_Click);
+            sCDEditorToolStripMenuItem.Name = "sCDEditorToolStripMenuItem";
+            sCDEditorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            sCDEditorToolStripMenuItem.Text = "SCD Editor";
+            sCDEditorToolStripMenuItem.Click += sCDEditorToolStripMenuItem_Click;
             // 
             // bulkSCDAudioExtractorToolStripMenuItem
             // 
-            this.bulkSCDAudioExtractorToolStripMenuItem.Name = "bulkSCDAudioExtractorToolStripMenuItem";
-            this.bulkSCDAudioExtractorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.bulkSCDAudioExtractorToolStripMenuItem.Text = "Bulk SCD Audio Extractor";
-            this.bulkSCDAudioExtractorToolStripMenuItem.Click += new System.EventHandler(this.bulkSCDAudioExtractorToolStripMenuItem_Click);
+            bulkSCDAudioExtractorToolStripMenuItem.Name = "bulkSCDAudioExtractorToolStripMenuItem";
+            bulkSCDAudioExtractorToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            bulkSCDAudioExtractorToolStripMenuItem.Text = "Bulk SCD Audio Extractor";
+            bulkSCDAudioExtractorToolStripMenuItem.Click += bulkSCDAudioExtractorToolStripMenuItem_Click;
             // 
             // configToolStripMenuItem
             // 
-            this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configurePenumbraFolderToolStripMenuItem});
-            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.configToolStripMenuItem.Text = "Config";
+            configToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { configurePenumbraFolderToolStripMenuItem });
+            configToolStripMenuItem.Name = "configToolStripMenuItem";
+            configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            configToolStripMenuItem.Text = "Config";
             // 
             // configurePenumbraFolderToolStripMenuItem
             // 
-            this.configurePenumbraFolderToolStripMenuItem.Name = "configurePenumbraFolderToolStripMenuItem";
-            this.configurePenumbraFolderToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.configurePenumbraFolderToolStripMenuItem.Text = "Configure Penumbra Folder";
-            this.configurePenumbraFolderToolStripMenuItem.Click += new System.EventHandler(this.pickExportFolderToolStripMenuItem_Click);
+            configurePenumbraFolderToolStripMenuItem.Name = "configurePenumbraFolderToolStripMenuItem";
+            configurePenumbraFolderToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            configurePenumbraFolderToolStripMenuItem.Text = "Configure Penumbra Folder";
+            configurePenumbraFolderToolStripMenuItem.Click += pickExportFolderToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.battleSoundGuidelinesToolStripMenuItem,
-            this.troubleshootingFAQToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { battleSoundGuidelinesToolStripMenuItem, troubleshootingFAQToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
+            helpToolStripMenuItem.Click += helpToolStripMenuItem_Click;
             // 
             // battleSoundGuidelinesToolStripMenuItem
             // 
-            this.battleSoundGuidelinesToolStripMenuItem.Name = "battleSoundGuidelinesToolStripMenuItem";
-            this.battleSoundGuidelinesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.battleSoundGuidelinesToolStripMenuItem.Text = "Battle Sound Guidelines";
-            this.battleSoundGuidelinesToolStripMenuItem.Click += new System.EventHandler(this.battleSoundGuidelinesToolStripMenuItem_Click);
+            battleSoundGuidelinesToolStripMenuItem.Name = "battleSoundGuidelinesToolStripMenuItem";
+            battleSoundGuidelinesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            battleSoundGuidelinesToolStripMenuItem.Text = "Battle Sound Guidelines";
+            battleSoundGuidelinesToolStripMenuItem.Click += battleSoundGuidelinesToolStripMenuItem_Click;
             // 
             // troubleshootingFAQToolStripMenuItem
             // 
-            this.troubleshootingFAQToolStripMenuItem.Name = "troubleshootingFAQToolStripMenuItem";
-            this.troubleshootingFAQToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.troubleshootingFAQToolStripMenuItem.Text = "Troubleshooting FAQ";
-            this.troubleshootingFAQToolStripMenuItem.Click += new System.EventHandler(this.troublshootingFAQToolStripMenuItem_Click);
+            troubleshootingFAQToolStripMenuItem.Name = "troubleshootingFAQToolStripMenuItem";
+            troubleshootingFAQToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            troubleshootingFAQToolStripMenuItem.Text = "Troubleshooting FAQ";
+            troubleshootingFAQToolStripMenuItem.Click += troublshootingFAQToolStripMenuItem_Click;
             // 
             // refreshFFXIVInstanceToolStripMenuItem
             // 
-            this.refreshFFXIVInstanceToolStripMenuItem.Name = "refreshFFXIVInstanceToolStripMenuItem";
-            this.refreshFFXIVInstanceToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
-            this.refreshFFXIVInstanceToolStripMenuItem.Text = "Refresh FFXIV Instance";
-            this.refreshFFXIVInstanceToolStripMenuItem.Click += new System.EventHandler(this.refreshFFXIVInstanceToolStripMenuItem_Click);
+            refreshFFXIVInstanceToolStripMenuItem.Name = "refreshFFXIVInstanceToolStripMenuItem";
+            refreshFFXIVInstanceToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
+            refreshFFXIVInstanceToolStripMenuItem.Text = "Refresh FFXIV Instance";
+            refreshFFXIVInstanceToolStripMenuItem.Click += refreshFFXIVInstanceToolStripMenuItem_Click;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(492, 56);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 15);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Name";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(492, 56);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(39, 15);
+            label7.TabIndex = 35;
+            label7.Text = "Name";
             // 
             // modNameTextBox
             // 
-            this.modNameTextBox.Location = new System.Drawing.Point(570, 52);
-            this.modNameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.modNameTextBox.Name = "modNameTextBox";
-            this.modNameTextBox.Size = new System.Drawing.Size(140, 23);
-            this.modNameTextBox.TabIndex = 38;
-            this.modNameTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
-            this.modNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            modNameTextBox.Location = new System.Drawing.Point(570, 52);
+            modNameTextBox.Margin = new Padding(4, 3, 4, 3);
+            modNameTextBox.Name = "modNameTextBox";
+            modNameTextBox.Size = new System.Drawing.Size(140, 23);
+            modNameTextBox.TabIndex = 38;
+            modNameTextBox.TextChanged += modNameTextbox_TextChanged;
+            modNameTextBox.KeyDown += MainWindow_KeyDown;
             // 
             // modAuthorTextBox
             // 
-            this.modAuthorTextBox.Location = new System.Drawing.Point(570, 82);
-            this.modAuthorTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.modAuthorTextBox.Name = "modAuthorTextBox";
-            this.modAuthorTextBox.Size = new System.Drawing.Size(140, 23);
-            this.modAuthorTextBox.TabIndex = 40;
-            this.modAuthorTextBox.Text = "FFXIV Voice Pack Creator";
-            this.modAuthorTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
-            this.modAuthorTextBox.Enter += new System.EventHandler(this.modAuthorTextBox_Leave);
-            this.modAuthorTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            this.modAuthorTextBox.Leave += new System.EventHandler(this.modAuthorTextBox_Leave);
-            this.modAuthorTextBox.MouseLeave += new System.EventHandler(this.modAuthorTextBox_Leave);
+            modAuthorTextBox.Location = new System.Drawing.Point(570, 82);
+            modAuthorTextBox.Margin = new Padding(4, 3, 4, 3);
+            modAuthorTextBox.Name = "modAuthorTextBox";
+            modAuthorTextBox.Size = new System.Drawing.Size(140, 23);
+            modAuthorTextBox.TabIndex = 40;
+            modAuthorTextBox.Text = "FFXIV Voice Pack Creator";
+            modAuthorTextBox.TextChanged += modNameTextbox_TextChanged;
+            modAuthorTextBox.Enter += modAuthorTextBox_Leave;
+            modAuthorTextBox.KeyDown += MainWindow_KeyDown;
+            modAuthorTextBox.Leave += modAuthorTextBox_Leave;
+            modAuthorTextBox.MouseLeave += modAuthorTextBox_Leave;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(492, 86);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 15);
-            this.label8.TabIndex = 39;
-            this.label8.Text = "Author";
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(492, 86);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(44, 15);
+            label8.TabIndex = 39;
+            label8.Text = "Author";
             // 
             // modDescriptionTextBox
             // 
-            this.modDescriptionTextBox.Location = new System.Drawing.Point(570, 112);
-            this.modDescriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.modDescriptionTextBox.Name = "modDescriptionTextBox";
-            this.modDescriptionTextBox.Size = new System.Drawing.Size(397, 23);
-            this.modDescriptionTextBox.TabIndex = 42;
-            this.modDescriptionTextBox.Text = "Exported by FFXIV Voice Pack Creator";
-            this.modDescriptionTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
-            this.modDescriptionTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            this.modDescriptionTextBox.Leave += new System.EventHandler(this.modDescriptionTextBox_Leave);
+            modDescriptionTextBox.Location = new System.Drawing.Point(570, 112);
+            modDescriptionTextBox.Margin = new Padding(4, 3, 4, 3);
+            modDescriptionTextBox.Name = "modDescriptionTextBox";
+            modDescriptionTextBox.Size = new System.Drawing.Size(397, 23);
+            modDescriptionTextBox.TabIndex = 42;
+            modDescriptionTextBox.Text = "Exported by FFXIV Voice Pack Creator";
+            modDescriptionTextBox.TextChanged += modNameTextbox_TextChanged;
+            modDescriptionTextBox.KeyDown += MainWindow_KeyDown;
+            modDescriptionTextBox.Leave += modDescriptionTextBox_Leave;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(492, 115);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 15);
-            this.label9.TabIndex = 41;
-            this.label9.Text = "Description";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(492, 115);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(67, 15);
+            label9.TabIndex = 41;
+            label9.Text = "Description";
             // 
             // modWebsiteTextBox
             // 
-            this.modWebsiteTextBox.Location = new System.Drawing.Point(789, 53);
-            this.modWebsiteTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.modWebsiteTextBox.Name = "modWebsiteTextBox";
-            this.modWebsiteTextBox.Size = new System.Drawing.Size(178, 23);
-            this.modWebsiteTextBox.TabIndex = 44;
-            this.modWebsiteTextBox.Text = "https://github.com/Sebane1/FFXIVVoicePackCreator";
-            this.modWebsiteTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
-            this.modWebsiteTextBox.Enter += new System.EventHandler(this.modWebsiteTextBox_Leave);
-            this.modWebsiteTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            this.modWebsiteTextBox.Leave += new System.EventHandler(this.modWebsiteTextBox_Leave);
-            this.modWebsiteTextBox.MouseLeave += new System.EventHandler(this.modWebsiteTextBox_Leave);
+            modWebsiteTextBox.Location = new System.Drawing.Point(789, 53);
+            modWebsiteTextBox.Margin = new Padding(4, 3, 4, 3);
+            modWebsiteTextBox.Name = "modWebsiteTextBox";
+            modWebsiteTextBox.Size = new System.Drawing.Size(178, 23);
+            modWebsiteTextBox.TabIndex = 44;
+            modWebsiteTextBox.Text = "https://github.com/Sebane1/FFXIVVoicePackCreator";
+            modWebsiteTextBox.TextChanged += modNameTextbox_TextChanged;
+            modWebsiteTextBox.Enter += modWebsiteTextBox_Leave;
+            modWebsiteTextBox.KeyDown += MainWindow_KeyDown;
+            modWebsiteTextBox.Leave += modWebsiteTextBox_Leave;
+            modWebsiteTextBox.MouseLeave += modWebsiteTextBox_Leave;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(713, 56);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 15);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Website";
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(713, 56);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(49, 15);
+            label10.TabIndex = 43;
+            label10.Text = "Website";
             // 
             // modVersionTextBox
             // 
-            this.modVersionTextBox.Location = new System.Drawing.Point(789, 83);
-            this.modVersionTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.modVersionTextBox.Name = "modVersionTextBox";
-            this.modVersionTextBox.Size = new System.Drawing.Size(178, 23);
-            this.modVersionTextBox.TabIndex = 46;
-            this.modVersionTextBox.Text = "1.0.0";
-            this.modVersionTextBox.TextChanged += new System.EventHandler(this.modNameTextbox_TextChanged);
-            this.modVersionTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            modVersionTextBox.Location = new System.Drawing.Point(789, 83);
+            modVersionTextBox.Margin = new Padding(4, 3, 4, 3);
+            modVersionTextBox.Name = "modVersionTextBox";
+            modVersionTextBox.Size = new System.Drawing.Size(178, 23);
+            modVersionTextBox.TabIndex = 46;
+            modVersionTextBox.Text = "1.0.0";
+            modVersionTextBox.TextChanged += modNameTextbox_TextChanged;
+            modVersionTextBox.KeyDown += MainWindow_KeyDown;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(713, 86);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 15);
-            this.label11.TabIndex = 45;
-            this.label11.Text = "Version";
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(713, 86);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(45, 15);
+            label11.TabIndex = 45;
+            label11.Text = "Version";
             // 
             // tabManager
             // 
-            this.tabManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabManager.Controls.Add(this.voiceExportTab);
-            this.tabManager.Location = new System.Drawing.Point(488, 141);
-            this.tabManager.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabManager.MinimumSize = new System.Drawing.Size(492, 435);
-            this.tabManager.Name = "tabManager";
-            this.tabManager.SelectedIndex = 0;
-            this.tabManager.Size = new System.Drawing.Size(492, 435);
-            this.tabManager.TabIndex = 47;
-            this.tabManager.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabManager_Selecting);
+            tabManager.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            tabManager.Controls.Add(voiceExportTab);
+            tabManager.Location = new System.Drawing.Point(488, 141);
+            tabManager.Margin = new Padding(4, 3, 4, 3);
+            tabManager.MinimumSize = new System.Drawing.Size(492, 435);
+            tabManager.Name = "tabManager";
+            tabManager.SelectedIndex = 0;
+            tabManager.Size = new System.Drawing.Size(492, 435);
+            tabManager.TabIndex = 47;
+            tabManager.Selecting += tabManager_Selecting;
             // 
             // voiceExportTab
             // 
-            this.voiceExportTab.Controls.Add(this.autoSyncCheckbox);
-            this.voiceExportTab.Controls.Add(this.oldExportMode);
-            this.voiceExportTab.Controls.Add(this.addRaceButton);
-            this.voiceExportTab.Controls.Add(this.label13);
-            this.voiceExportTab.Controls.Add(this.clearListButton);
-            this.voiceExportTab.Controls.Add(this.removeFromList);
-            this.voiceExportTab.Controls.Add(this.voiceReplacementList);
-            this.voiceExportTab.Controls.Add(this.addToVoiceListButton);
-            this.voiceExportTab.Controls.Add(this.label12);
-            this.voiceExportTab.Controls.Add(this.voiceListComboBox);
-            this.voiceExportTab.Controls.Add(this.raceListComboBox);
-            this.voiceExportTab.Controls.Add(this.sexListComboBox);
-            this.voiceExportTab.Location = new System.Drawing.Point(4, 24);
-            this.voiceExportTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceExportTab.Name = "voiceExportTab";
-            this.voiceExportTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceExportTab.Size = new System.Drawing.Size(484, 407);
-            this.voiceExportTab.TabIndex = 0;
-            this.voiceExportTab.Text = "Voice Replacer";
-            this.voiceExportTab.UseVisualStyleBackColor = true;
+            voiceExportTab.Controls.Add(autoSyncCheckbox);
+            voiceExportTab.Controls.Add(oldExportMode);
+            voiceExportTab.Controls.Add(addRaceButton);
+            voiceExportTab.Controls.Add(label13);
+            voiceExportTab.Controls.Add(clearListButton);
+            voiceExportTab.Controls.Add(removeFromList);
+            voiceExportTab.Controls.Add(voiceReplacementList);
+            voiceExportTab.Controls.Add(addToVoiceListButton);
+            voiceExportTab.Controls.Add(label12);
+            voiceExportTab.Controls.Add(voiceListComboBox);
+            voiceExportTab.Controls.Add(raceListComboBox);
+            voiceExportTab.Controls.Add(sexListComboBox);
+            voiceExportTab.Location = new System.Drawing.Point(4, 24);
+            voiceExportTab.Margin = new Padding(4, 3, 4, 3);
+            voiceExportTab.Name = "voiceExportTab";
+            voiceExportTab.Padding = new Padding(4, 3, 4, 3);
+            voiceExportTab.Size = new System.Drawing.Size(484, 407);
+            voiceExportTab.TabIndex = 0;
+            voiceExportTab.Text = "Voice Replacer";
+            voiceExportTab.UseVisualStyleBackColor = true;
             // 
             // autoSyncCheckbox
             // 
-            this.autoSyncCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.autoSyncCheckbox.AutoSize = true;
-            this.autoSyncCheckbox.BackColor = System.Drawing.Color.Transparent;
-            this.autoSyncCheckbox.Checked = true;
-            this.autoSyncCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autoSyncCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.autoSyncCheckbox.Location = new System.Drawing.Point(117, 383);
-            this.autoSyncCheckbox.Name = "autoSyncCheckbox";
-            this.autoSyncCheckbox.Size = new System.Drawing.Size(169, 19);
-            this.autoSyncCheckbox.TabIndex = 55;
-            this.autoSyncCheckbox.Text = "Synchronize To Animations";
-            this.autoSyncCheckbox.UseVisualStyleBackColor = false;
-            this.autoSyncCheckbox.CheckedChanged += new System.EventHandler(this.autoSyncCheckbox_CheckedChanged);
+            autoSyncCheckbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            autoSyncCheckbox.AutoSize = true;
+            autoSyncCheckbox.BackColor = System.Drawing.Color.Transparent;
+            autoSyncCheckbox.Checked = true;
+            autoSyncCheckbox.CheckState = CheckState.Checked;
+            autoSyncCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            autoSyncCheckbox.Location = new System.Drawing.Point(117, 383);
+            autoSyncCheckbox.Name = "autoSyncCheckbox";
+            autoSyncCheckbox.Size = new System.Drawing.Size(169, 19);
+            autoSyncCheckbox.TabIndex = 55;
+            autoSyncCheckbox.Text = "Synchronize To Animations";
+            autoSyncCheckbox.UseVisualStyleBackColor = false;
+            autoSyncCheckbox.CheckedChanged += autoSyncCheckbox_CheckedChanged;
             // 
             // oldExportMode
             // 
-            this.oldExportMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.oldExportMode.AutoSize = true;
-            this.oldExportMode.BackColor = System.Drawing.Color.IndianRed;
-            this.oldExportMode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.oldExportMode.Location = new System.Drawing.Point(3, 383);
-            this.oldExportMode.Name = "oldExportMode";
-            this.oldExportMode.Size = new System.Drawing.Size(116, 19);
-            this.oldExportMode.TabIndex = 54;
-            this.oldExportMode.Text = "Old Export Mode";
-            this.oldExportMode.UseVisualStyleBackColor = false;
-            this.oldExportMode.Visible = false;
+            oldExportMode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            oldExportMode.AutoSize = true;
+            oldExportMode.BackColor = System.Drawing.Color.IndianRed;
+            oldExportMode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            oldExportMode.Location = new System.Drawing.Point(3, 383);
+            oldExportMode.Name = "oldExportMode";
+            oldExportMode.Size = new System.Drawing.Size(116, 19);
+            oldExportMode.TabIndex = 54;
+            oldExportMode.Text = "Old Export Mode";
+            oldExportMode.UseVisualStyleBackColor = false;
+            oldExportMode.Visible = false;
             // 
             // addRaceButton
             // 
-            this.addRaceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addRaceButton.Location = new System.Drawing.Point(378, 12);
-            this.addRaceButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.addRaceButton.Name = "addRaceButton";
-            this.addRaceButton.Size = new System.Drawing.Size(91, 25);
-            this.addRaceButton.TabIndex = 41;
-            this.addRaceButton.Text = "Add All Voices";
-            this.addRaceButton.UseVisualStyleBackColor = true;
-            this.addRaceButton.Click += new System.EventHandler(this.addRaceButton_Click);
+            addRaceButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            addRaceButton.Location = new System.Drawing.Point(378, 12);
+            addRaceButton.Margin = new Padding(4, 3, 4, 3);
+            addRaceButton.Name = "addRaceButton";
+            addRaceButton.Size = new System.Drawing.Size(91, 25);
+            addRaceButton.TabIndex = 41;
+            addRaceButton.Text = "Add All Voices";
+            addRaceButton.UseVisualStyleBackColor = true;
+            addRaceButton.Click += addRaceButton_Click;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 42);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 15);
-            this.label13.TabIndex = 40;
-            this.label13.Text = "Voice Replacement List";
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(7, 42);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(128, 15);
+            label13.TabIndex = 40;
+            label13.Text = "Voice Replacement List";
             // 
             // clearListButton
             // 
-            this.clearListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.clearListButton.Location = new System.Drawing.Point(400, 380);
-            this.clearListButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.clearListButton.Name = "clearListButton";
-            this.clearListButton.Size = new System.Drawing.Size(81, 24);
-            this.clearListButton.TabIndex = 39;
-            this.clearListButton.Text = "Clear List";
-            this.clearListButton.UseVisualStyleBackColor = true;
-            this.clearListButton.Click += new System.EventHandler(this.clearListButton_Click);
+            clearListButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            clearListButton.Location = new System.Drawing.Point(400, 380);
+            clearListButton.Margin = new Padding(4, 3, 4, 3);
+            clearListButton.Name = "clearListButton";
+            clearListButton.Size = new System.Drawing.Size(81, 24);
+            clearListButton.TabIndex = 39;
+            clearListButton.Text = "Clear List";
+            clearListButton.UseVisualStyleBackColor = true;
+            clearListButton.Click += clearListButton_Click;
             // 
             // removeFromList
             // 
-            this.removeFromList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.removeFromList.Location = new System.Drawing.Point(288, 380);
-            this.removeFromList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.removeFromList.Name = "removeFromList";
-            this.removeFromList.Size = new System.Drawing.Size(108, 24);
-            this.removeFromList.TabIndex = 38;
-            this.removeFromList.Text = "Remove Selected";
-            this.removeFromList.UseVisualStyleBackColor = true;
-            this.removeFromList.Click += new System.EventHandler(this.removeFromList_Click);
+            removeFromList.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            removeFromList.Location = new System.Drawing.Point(288, 380);
+            removeFromList.Margin = new Padding(4, 3, 4, 3);
+            removeFromList.Name = "removeFromList";
+            removeFromList.Size = new System.Drawing.Size(108, 24);
+            removeFromList.TabIndex = 38;
+            removeFromList.Text = "Remove Selected";
+            removeFromList.UseVisualStyleBackColor = true;
+            removeFromList.Click += removeFromList_Click;
             // 
             // voiceReplacementList
             // 
-            this.voiceReplacementList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.voiceReplacementList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.voiceReplacementList.FormattingEnabled = true;
-            this.voiceReplacementList.ItemHeight = 15;
-            this.voiceReplacementList.Location = new System.Drawing.Point(4, 60);
-            this.voiceReplacementList.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceReplacementList.Name = "voiceReplacementList";
-            this.voiceReplacementList.Size = new System.Drawing.Size(476, 317);
-            this.voiceReplacementList.TabIndex = 37;
-            this.voiceReplacementList.UseTabStops = false;
-            this.voiceReplacementList.SelectedIndexChanged += new System.EventHandler(this.voiceReplacementList_SelectedIndexChanged);
+            voiceReplacementList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            voiceReplacementList.BorderStyle = BorderStyle.FixedSingle;
+            voiceReplacementList.FormattingEnabled = true;
+            voiceReplacementList.ItemHeight = 15;
+            voiceReplacementList.Location = new System.Drawing.Point(4, 60);
+            voiceReplacementList.Margin = new Padding(4, 3, 4, 3);
+            voiceReplacementList.Name = "voiceReplacementList";
+            voiceReplacementList.Size = new System.Drawing.Size(476, 317);
+            voiceReplacementList.TabIndex = 37;
+            voiceReplacementList.UseTabStops = false;
+            voiceReplacementList.SelectedIndexChanged += voiceReplacementList_SelectedIndexChanged;
             // 
             // addToVoiceListButton
             // 
-            this.addToVoiceListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addToVoiceListButton.Location = new System.Drawing.Point(302, 12);
-            this.addToVoiceListButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.addToVoiceListButton.Name = "addToVoiceListButton";
-            this.addToVoiceListButton.Size = new System.Drawing.Size(68, 25);
-            this.addToVoiceListButton.TabIndex = 36;
-            this.addToVoiceListButton.Text = "Add Voice";
-            this.addToVoiceListButton.UseVisualStyleBackColor = true;
-            this.addToVoiceListButton.Click += new System.EventHandler(this.addToVoiceListButton_Click);
+            addToVoiceListButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            addToVoiceListButton.Location = new System.Drawing.Point(302, 12);
+            addToVoiceListButton.Margin = new Padding(4, 3, 4, 3);
+            addToVoiceListButton.Name = "addToVoiceListButton";
+            addToVoiceListButton.Size = new System.Drawing.Size(68, 25);
+            addToVoiceListButton.TabIndex = 36;
+            addToVoiceListButton.Text = "Add Voice";
+            addToVoiceListButton.UseVisualStyleBackColor = true;
+            addToVoiceListButton.Click += addToVoiceListButton_Click;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 17);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 15);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "Voice";
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(7, 17);
+            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(35, 15);
+            label12.TabIndex = 35;
+            label12.Text = "Voice";
             // 
             // voiceListComboBox
             // 
-            this.voiceListComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "Voice 1",
-            "Voice 2",
-            "Voice 3",
-            "Voice 4",
-            "Voice 5",
-            "Voice 6",
-            "Voice 7",
-            "Voice 8",
-            "Voice 9",
-            "Voice 10",
-            "Voice 11",
-            "Voice 12"});
-            this.voiceListComboBox.FormattingEnabled = true;
-            this.voiceListComboBox.Items.AddRange(new object[] {
-            "Voice 1",
-            "Voice 2",
-            "Voice 3",
-            "Voice 4",
-            "Voice 5",
-            "Voice 6",
-            "Voice 7",
-            "Voice 8",
-            "Voice 9",
-            "Voice 10",
-            "Voice 11",
-            "Voice 12"});
-            this.voiceListComboBox.Location = new System.Drawing.Point(227, 14);
-            this.voiceListComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceListComboBox.Name = "voiceListComboBox";
-            this.voiceListComboBox.Size = new System.Drawing.Size(67, 23);
-            this.voiceListComboBox.TabIndex = 33;
-            this.voiceListComboBox.Text = "Voice 1";
+            voiceListComboBox.AutoCompleteCustomSource.AddRange(new string[] { "Voice 1", "Voice 2", "Voice 3", "Voice 4", "Voice 5", "Voice 6", "Voice 7", "Voice 8", "Voice 9", "Voice 10", "Voice 11", "Voice 12" });
+            voiceListComboBox.FormattingEnabled = true;
+            voiceListComboBox.Items.AddRange(new object[] { "Voice 1", "Voice 2", "Voice 3", "Voice 4", "Voice 5", "Voice 6", "Voice 7", "Voice 8", "Voice 9", "Voice 10", "Voice 11", "Voice 12" });
+            voiceListComboBox.Location = new System.Drawing.Point(227, 14);
+            voiceListComboBox.Margin = new Padding(4, 3, 4, 3);
+            voiceListComboBox.Name = "voiceListComboBox";
+            voiceListComboBox.Size = new System.Drawing.Size(67, 23);
+            voiceListComboBox.TabIndex = 33;
+            voiceListComboBox.Text = "Voice 1";
             // 
             // raceListComboBox
             // 
-            this.raceListComboBox.FormattingEnabled = true;
-            this.raceListComboBox.Location = new System.Drawing.Point(139, 14);
-            this.raceListComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.raceListComboBox.Name = "raceListComboBox";
-            this.raceListComboBox.Size = new System.Drawing.Size(80, 23);
-            this.raceListComboBox.TabIndex = 32;
-            this.raceListComboBox.Text = "Midlander";
+            raceListComboBox.FormattingEnabled = true;
+            raceListComboBox.Location = new System.Drawing.Point(139, 14);
+            raceListComboBox.Margin = new Padding(4, 3, 4, 3);
+            raceListComboBox.Name = "raceListComboBox";
+            raceListComboBox.Size = new System.Drawing.Size(80, 23);
+            raceListComboBox.TabIndex = 32;
+            raceListComboBox.Text = "Midlander";
             // 
             // sexListComboBox
             // 
-            this.sexListComboBox.FormattingEnabled = true;
-            this.sexListComboBox.Items.AddRange(new object[] {
-            "Masculine",
-            "Feminine"});
-            this.sexListComboBox.Location = new System.Drawing.Point(50, 14);
-            this.sexListComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.sexListComboBox.Name = "sexListComboBox";
-            this.sexListComboBox.Size = new System.Drawing.Size(81, 23);
-            this.sexListComboBox.TabIndex = 31;
-            this.sexListComboBox.Text = "Masculine";
+            sexListComboBox.FormattingEnabled = true;
+            sexListComboBox.Items.AddRange(new object[] { "Masculine", "Feminine" });
+            sexListComboBox.Location = new System.Drawing.Point(50, 14);
+            sexListComboBox.Margin = new Padding(4, 3, 4, 3);
+            sexListComboBox.Name = "sexListComboBox";
+            sexListComboBox.Size = new System.Drawing.Size(81, 23);
+            sexListComboBox.TabIndex = 31;
+            sexListComboBox.Text = "Masculine";
             // 
             // exportProgressBar
             // 
-            this.exportProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.exportProgressBar.Location = new System.Drawing.Point(4, 576);
-            this.exportProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.exportProgressBar.Name = "exportProgressBar";
-            this.exportProgressBar.Size = new System.Drawing.Size(972, 30);
-            this.exportProgressBar.TabIndex = 50;
+            exportProgressBar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            exportProgressBar.Location = new System.Drawing.Point(4, 576);
+            exportProgressBar.Margin = new Padding(4, 3, 4, 3);
+            exportProgressBar.Name = "exportProgressBar";
+            exportProgressBar.Size = new System.Drawing.Size(972, 30);
+            exportProgressBar.TabIndex = 50;
             // 
             // easyGenerateButton
             // 
-            this.easyGenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.easyGenerateButton.Location = new System.Drawing.Point(780, 576);
-            this.easyGenerateButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.easyGenerateButton.Name = "easyGenerateButton";
-            this.easyGenerateButton.Size = new System.Drawing.Size(196, 30);
-            this.easyGenerateButton.TabIndex = 34;
-            this.easyGenerateButton.Text = "Generate";
-            this.easyGenerateButton.UseVisualStyleBackColor = true;
-            this.easyGenerateButton.Click += new System.EventHandler(this.easyGenerateButton_Click);
-            this.easyGenerateButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            easyGenerateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            easyGenerateButton.Location = new System.Drawing.Point(780, 576);
+            easyGenerateButton.Margin = new Padding(4, 3, 4, 3);
+            easyGenerateButton.Name = "easyGenerateButton";
+            easyGenerateButton.Size = new System.Drawing.Size(196, 30);
+            easyGenerateButton.TabIndex = 34;
+            easyGenerateButton.Text = "Generate";
+            easyGenerateButton.UseVisualStyleBackColor = true;
+            easyGenerateButton.Click += easyGenerateButton_Click;
+            easyGenerateButton.KeyDown += MainWindow_KeyDown;
             // 
             // quickImportButton
             // 
-            this.quickImportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.quickImportButton.Location = new System.Drawing.Point(4, 576);
-            this.quickImportButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.quickImportButton.Name = "quickImportButton";
-            this.quickImportButton.Size = new System.Drawing.Size(236, 30);
-            this.quickImportButton.TabIndex = 49;
-            this.quickImportButton.Text = "Quick Import";
-            this.quickImportButton.UseVisualStyleBackColor = true;
-            this.quickImportButton.Click += new System.EventHandler(this.quickImportButton_Click);
-            this.quickImportButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            quickImportButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            quickImportButton.Location = new System.Drawing.Point(4, 576);
+            quickImportButton.Margin = new Padding(4, 3, 4, 3);
+            quickImportButton.Name = "quickImportButton";
+            quickImportButton.Size = new System.Drawing.Size(236, 30);
+            quickImportButton.TabIndex = 49;
+            quickImportButton.Text = "Quick Import";
+            quickImportButton.UseVisualStyleBackColor = true;
+            quickImportButton.Click += quickImportButton_Click;
+            quickImportButton.KeyDown += MainWindow_KeyDown;
             // 
             // quickSwapButton
             // 
-            this.quickSwapButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.quickSwapButton.Location = new System.Drawing.Point(240, 576);
-            this.quickSwapButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.quickSwapButton.Name = "quickSwapButton";
-            this.quickSwapButton.Size = new System.Drawing.Size(248, 30);
-            this.quickSwapButton.TabIndex = 51;
-            this.quickSwapButton.Text = "Quick Swap";
-            this.quickSwapButton.UseVisualStyleBackColor = true;
-            this.quickSwapButton.Click += new System.EventHandler(this.quickSwapButton_Click);
+            quickSwapButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            quickSwapButton.Location = new System.Drawing.Point(240, 576);
+            quickSwapButton.Margin = new Padding(4, 3, 4, 3);
+            quickSwapButton.Name = "quickSwapButton";
+            quickSwapButton.Size = new System.Drawing.Size(248, 30);
+            quickSwapButton.TabIndex = 51;
+            quickSwapButton.Text = "Quick Swap";
+            quickSwapButton.UseVisualStyleBackColor = true;
+            quickSwapButton.Click += quickSwapButton_Click;
             // 
             // voiceTabs
             // 
-            this.voiceTabs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.voiceTabs.Controls.Add(this.emoteVoicesPage);
-            this.voiceTabs.Controls.Add(this.battleVoicesPage);
-            this.voiceTabs.Location = new System.Drawing.Point(4, 29);
-            this.voiceTabs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.voiceTabs.Name = "voiceTabs";
-            this.voiceTabs.SelectedIndex = 0;
-            this.voiceTabs.Size = new System.Drawing.Size(488, 547);
-            this.voiceTabs.TabIndex = 52;
-            this.voiceTabs.SelectedIndexChanged += new System.EventHandler(this.voiceTabs_SelectedIndexChanged);
+            voiceTabs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            voiceTabs.Controls.Add(emoteVoicesPage);
+            voiceTabs.Controls.Add(battleVoicesPage);
+            voiceTabs.Location = new System.Drawing.Point(4, 29);
+            voiceTabs.Margin = new Padding(4, 3, 4, 3);
+            voiceTabs.Name = "voiceTabs";
+            voiceTabs.SelectedIndex = 0;
+            voiceTabs.Size = new System.Drawing.Size(488, 547);
+            voiceTabs.TabIndex = 52;
+            voiceTabs.SelectedIndexChanged += voiceTabs_SelectedIndexChanged;
             // 
             // emoteVoicesPage
             // 
-            this.emoteVoicesPage.Controls.Add(this.testingLabel);
-            this.emoteVoicesPage.Controls.Add(this.surprised);
-            this.emoteVoicesPage.Controls.Add(this.angry);
-            this.emoteVoicesPage.Controls.Add(this.furious);
-            this.emoteVoicesPage.Controls.Add(this.cheer);
-            this.emoteVoicesPage.Controls.Add(this.doze);
-            this.emoteVoicesPage.Controls.Add(this.fume);
-            this.emoteVoicesPage.Controls.Add(this.huh);
-            this.emoteVoicesPage.Controls.Add(this.chuckle);
-            this.emoteVoicesPage.Controls.Add(this.laugh);
-            this.emoteVoicesPage.Controls.Add(this.no);
-            this.emoteVoicesPage.Controls.Add(this.stretch);
-            this.emoteVoicesPage.Controls.Add(this.upset);
-            this.emoteVoicesPage.Controls.Add(this.yes);
-            this.emoteVoicesPage.Controls.Add(this.happy);
-            this.emoteVoicesPage.Location = new System.Drawing.Point(4, 24);
-            this.emoteVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.emoteVoicesPage.Name = "emoteVoicesPage";
-            this.emoteVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.emoteVoicesPage.Size = new System.Drawing.Size(480, 519);
-            this.emoteVoicesPage.TabIndex = 0;
-            this.emoteVoicesPage.Text = "Emote Voices";
-            this.emoteVoicesPage.UseVisualStyleBackColor = true;
+            emoteVoicesPage.Controls.Add(testingLabel);
+            emoteVoicesPage.Controls.Add(surprised);
+            emoteVoicesPage.Controls.Add(angry);
+            emoteVoicesPage.Controls.Add(furious);
+            emoteVoicesPage.Controls.Add(cheer);
+            emoteVoicesPage.Controls.Add(doze);
+            emoteVoicesPage.Controls.Add(fume);
+            emoteVoicesPage.Controls.Add(huh);
+            emoteVoicesPage.Controls.Add(chuckle);
+            emoteVoicesPage.Controls.Add(laugh);
+            emoteVoicesPage.Controls.Add(no);
+            emoteVoicesPage.Controls.Add(stretch);
+            emoteVoicesPage.Controls.Add(upset);
+            emoteVoicesPage.Controls.Add(yes);
+            emoteVoicesPage.Controls.Add(happy);
+            emoteVoicesPage.Location = new System.Drawing.Point(4, 24);
+            emoteVoicesPage.Margin = new Padding(4, 3, 4, 3);
+            emoteVoicesPage.Name = "emoteVoicesPage";
+            emoteVoicesPage.Padding = new Padding(4, 3, 4, 3);
+            emoteVoicesPage.Size = new System.Drawing.Size(480, 519);
+            emoteVoicesPage.TabIndex = 0;
+            emoteVoicesPage.Text = "Emote Voices";
+            emoteVoicesPage.UseVisualStyleBackColor = true;
             // 
             // testingLabel
             // 
-            this.testingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.testingLabel.BackColor = System.Drawing.Color.Silver;
-            this.testingLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.testingLabel.Location = new System.Drawing.Point(0, 452);
-            this.testingLabel.Name = "testingLabel";
-            this.testingLabel.Size = new System.Drawing.Size(480, 64);
-            this.testingLabel.TabIndex = 59;
-            this.testingLabel.Text = "No Selection";
-            this.testingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            testingLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            testingLabel.BackColor = System.Drawing.Color.Silver;
+            testingLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            testingLabel.Location = new System.Drawing.Point(0, 452);
+            testingLabel.Name = "testingLabel";
+            testingLabel.Size = new System.Drawing.Size(480, 64);
+            testingLabel.TabIndex = 59;
+            testingLabel.Text = "No Selection";
+            testingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // surprised
             // 
-            this.surprised.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.surprised.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.surprised.Filter = resources.GetString("surprised.Filter");
-            this.surprised.Index = 0;
-            this.surprised.IsPlayable = true;
-            this.surprised.IsSaveMode = false;
-            this.surprised.IsSwappable = true;
-            this.surprised.Location = new System.Drawing.Point(4, 4);
-            this.surprised.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.surprised.MaximumSize = new System.Drawing.Size(468, 30);
-            this.surprised.MinimumSize = new System.Drawing.Size(468, 30);
-            this.surprised.Name = "surprised";
-            this.surprised.Size = new System.Drawing.Size(468, 30);
-            this.surprised.TabIndex = 0;
-            this.surprised.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            surprised.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            surprised.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            surprised.Filter = resources.GetString("surprised.Filter");
+            surprised.Index = 0;
+            surprised.IsPlayable = true;
+            surprised.IsSaveMode = false;
+            surprised.IsSwappable = true;
+            surprised.Location = new System.Drawing.Point(4, 4);
+            surprised.Margin = new Padding(5, 3, 5, 3);
+            surprised.MaximumSize = new System.Drawing.Size(468, 30);
+            surprised.MinimumSize = new System.Drawing.Size(468, 30);
+            surprised.Name = "surprised";
+            surprised.Size = new System.Drawing.Size(468, 30);
+            surprised.TabIndex = 0;
+            surprised.KeyDown += MainWindow_KeyDown;
             // 
             // angry
             // 
-            this.angry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.angry.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.angry.Filter = resources.GetString("angry.Filter");
-            this.angry.Index = 1;
-            this.angry.IsPlayable = true;
-            this.angry.IsSaveMode = false;
-            this.angry.IsSwappable = true;
-            this.angry.Location = new System.Drawing.Point(4, 36);
-            this.angry.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.angry.MaximumSize = new System.Drawing.Size(468, 30);
-            this.angry.MinimumSize = new System.Drawing.Size(468, 30);
-            this.angry.Name = "angry";
-            this.angry.Size = new System.Drawing.Size(468, 30);
-            this.angry.TabIndex = 1;
-            this.angry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            angry.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            angry.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            angry.Filter = resources.GetString("angry.Filter");
+            angry.Index = 1;
+            angry.IsPlayable = true;
+            angry.IsSaveMode = false;
+            angry.IsSwappable = true;
+            angry.Location = new System.Drawing.Point(4, 36);
+            angry.Margin = new Padding(5, 3, 5, 3);
+            angry.MaximumSize = new System.Drawing.Size(468, 30);
+            angry.MinimumSize = new System.Drawing.Size(468, 30);
+            angry.Name = "angry";
+            angry.Size = new System.Drawing.Size(468, 30);
+            angry.TabIndex = 1;
+            angry.KeyDown += MainWindow_KeyDown;
             // 
             // furious
             // 
-            this.furious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.furious.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.furious.Filter = resources.GetString("furious.Filter");
-            this.furious.Index = 2;
-            this.furious.IsPlayable = true;
-            this.furious.IsSaveMode = false;
-            this.furious.IsSwappable = true;
-            this.furious.Location = new System.Drawing.Point(4, 68);
-            this.furious.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.furious.MaximumSize = new System.Drawing.Size(468, 30);
-            this.furious.MinimumSize = new System.Drawing.Size(468, 30);
-            this.furious.Name = "furious";
-            this.furious.Size = new System.Drawing.Size(468, 30);
-            this.furious.TabIndex = 2;
-            this.furious.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            furious.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            furious.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            furious.Filter = resources.GetString("furious.Filter");
+            furious.Index = 2;
+            furious.IsPlayable = true;
+            furious.IsSaveMode = false;
+            furious.IsSwappable = true;
+            furious.Location = new System.Drawing.Point(4, 68);
+            furious.Margin = new Padding(5, 3, 5, 3);
+            furious.MaximumSize = new System.Drawing.Size(468, 30);
+            furious.MinimumSize = new System.Drawing.Size(468, 30);
+            furious.Name = "furious";
+            furious.Size = new System.Drawing.Size(468, 30);
+            furious.TabIndex = 2;
+            furious.KeyDown += MainWindow_KeyDown;
             // 
             // cheer
             // 
-            this.cheer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cheer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.cheer.Filter = resources.GetString("cheer.Filter");
-            this.cheer.Index = 3;
-            this.cheer.IsPlayable = true;
-            this.cheer.IsSaveMode = false;
-            this.cheer.IsSwappable = true;
-            this.cheer.Location = new System.Drawing.Point(4, 100);
-            this.cheer.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.cheer.MaximumSize = new System.Drawing.Size(468, 30);
-            this.cheer.MinimumSize = new System.Drawing.Size(468, 30);
-            this.cheer.Name = "cheer";
-            this.cheer.Size = new System.Drawing.Size(468, 30);
-            this.cheer.TabIndex = 3;
-            this.cheer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            cheer.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            cheer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            cheer.Filter = resources.GetString("cheer.Filter");
+            cheer.Index = 3;
+            cheer.IsPlayable = true;
+            cheer.IsSaveMode = false;
+            cheer.IsSwappable = true;
+            cheer.Location = new System.Drawing.Point(4, 100);
+            cheer.Margin = new Padding(5, 3, 5, 3);
+            cheer.MaximumSize = new System.Drawing.Size(468, 30);
+            cheer.MinimumSize = new System.Drawing.Size(468, 30);
+            cheer.Name = "cheer";
+            cheer.Size = new System.Drawing.Size(468, 30);
+            cheer.TabIndex = 3;
+            cheer.KeyDown += MainWindow_KeyDown;
             // 
             // doze
             // 
-            this.doze.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.doze.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.doze.Filter = resources.GetString("doze.Filter");
-            this.doze.Index = 4;
-            this.doze.IsPlayable = true;
-            this.doze.IsSaveMode = false;
-            this.doze.IsSwappable = true;
-            this.doze.Location = new System.Drawing.Point(4, 132);
-            this.doze.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.doze.MaximumSize = new System.Drawing.Size(468, 30);
-            this.doze.MinimumSize = new System.Drawing.Size(468, 30);
-            this.doze.Name = "doze";
-            this.doze.Size = new System.Drawing.Size(468, 30);
-            this.doze.TabIndex = 4;
-            this.doze.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            doze.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            doze.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            doze.Filter = resources.GetString("doze.Filter");
+            doze.Index = 4;
+            doze.IsPlayable = true;
+            doze.IsSaveMode = false;
+            doze.IsSwappable = true;
+            doze.Location = new System.Drawing.Point(4, 132);
+            doze.Margin = new Padding(5, 3, 5, 3);
+            doze.MaximumSize = new System.Drawing.Size(468, 30);
+            doze.MinimumSize = new System.Drawing.Size(468, 30);
+            doze.Name = "doze";
+            doze.Size = new System.Drawing.Size(468, 30);
+            doze.TabIndex = 4;
+            doze.KeyDown += MainWindow_KeyDown;
             // 
             // fume
             // 
-            this.fume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.fume.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.fume.Filter = resources.GetString("fume.Filter");
-            this.fume.Index = 5;
-            this.fume.IsPlayable = true;
-            this.fume.IsSaveMode = false;
-            this.fume.IsSwappable = true;
-            this.fume.Location = new System.Drawing.Point(4, 164);
-            this.fume.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.fume.MaximumSize = new System.Drawing.Size(468, 30);
-            this.fume.MinimumSize = new System.Drawing.Size(468, 30);
-            this.fume.Name = "fume";
-            this.fume.Size = new System.Drawing.Size(468, 30);
-            this.fume.TabIndex = 5;
-            this.fume.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            fume.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            fume.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            fume.Filter = resources.GetString("fume.Filter");
+            fume.Index = 5;
+            fume.IsPlayable = true;
+            fume.IsSaveMode = false;
+            fume.IsSwappable = true;
+            fume.Location = new System.Drawing.Point(4, 164);
+            fume.Margin = new Padding(5, 3, 5, 3);
+            fume.MaximumSize = new System.Drawing.Size(468, 30);
+            fume.MinimumSize = new System.Drawing.Size(468, 30);
+            fume.Name = "fume";
+            fume.Size = new System.Drawing.Size(468, 30);
+            fume.TabIndex = 5;
+            fume.KeyDown += MainWindow_KeyDown;
             // 
             // huh
             // 
-            this.huh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.huh.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.huh.Filter = resources.GetString("huh.Filter");
-            this.huh.Index = 6;
-            this.huh.IsPlayable = true;
-            this.huh.IsSaveMode = false;
-            this.huh.IsSwappable = true;
-            this.huh.Location = new System.Drawing.Point(4, 196);
-            this.huh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.huh.MaximumSize = new System.Drawing.Size(468, 30);
-            this.huh.MinimumSize = new System.Drawing.Size(468, 30);
-            this.huh.Name = "huh";
-            this.huh.Size = new System.Drawing.Size(468, 30);
-            this.huh.TabIndex = 6;
-            this.huh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            huh.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            huh.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            huh.Filter = resources.GetString("huh.Filter");
+            huh.Index = 6;
+            huh.IsPlayable = true;
+            huh.IsSaveMode = false;
+            huh.IsSwappable = true;
+            huh.Location = new System.Drawing.Point(4, 196);
+            huh.Margin = new Padding(5, 3, 5, 3);
+            huh.MaximumSize = new System.Drawing.Size(468, 30);
+            huh.MinimumSize = new System.Drawing.Size(468, 30);
+            huh.Name = "huh";
+            huh.Size = new System.Drawing.Size(468, 30);
+            huh.TabIndex = 6;
+            huh.KeyDown += MainWindow_KeyDown;
             // 
             // chuckle
             // 
-            this.chuckle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chuckle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.chuckle.Filter = resources.GetString("chuckle.Filter");
-            this.chuckle.Index = 7;
-            this.chuckle.IsPlayable = true;
-            this.chuckle.IsSaveMode = false;
-            this.chuckle.IsSwappable = true;
-            this.chuckle.Location = new System.Drawing.Point(4, 228);
-            this.chuckle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.chuckle.MaximumSize = new System.Drawing.Size(468, 30);
-            this.chuckle.MinimumSize = new System.Drawing.Size(468, 30);
-            this.chuckle.Name = "chuckle";
-            this.chuckle.Size = new System.Drawing.Size(468, 30);
-            this.chuckle.TabIndex = 7;
-            this.chuckle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            chuckle.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            chuckle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            chuckle.Filter = resources.GetString("chuckle.Filter");
+            chuckle.Index = 7;
+            chuckle.IsPlayable = true;
+            chuckle.IsSaveMode = false;
+            chuckle.IsSwappable = true;
+            chuckle.Location = new System.Drawing.Point(4, 228);
+            chuckle.Margin = new Padding(5, 3, 5, 3);
+            chuckle.MaximumSize = new System.Drawing.Size(468, 30);
+            chuckle.MinimumSize = new System.Drawing.Size(468, 30);
+            chuckle.Name = "chuckle";
+            chuckle.Size = new System.Drawing.Size(468, 30);
+            chuckle.TabIndex = 7;
+            chuckle.KeyDown += MainWindow_KeyDown;
             // 
             // laugh
             // 
-            this.laugh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.laugh.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.laugh.Filter = resources.GetString("laugh.Filter");
-            this.laugh.Index = 8;
-            this.laugh.IsPlayable = true;
-            this.laugh.IsSaveMode = false;
-            this.laugh.IsSwappable = true;
-            this.laugh.Location = new System.Drawing.Point(4, 260);
-            this.laugh.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.laugh.MaximumSize = new System.Drawing.Size(468, 30);
-            this.laugh.MinimumSize = new System.Drawing.Size(468, 30);
-            this.laugh.Name = "laugh";
-            this.laugh.Size = new System.Drawing.Size(468, 30);
-            this.laugh.TabIndex = 8;
-            this.laugh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            laugh.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            laugh.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            laugh.Filter = resources.GetString("laugh.Filter");
+            laugh.Index = 8;
+            laugh.IsPlayable = true;
+            laugh.IsSaveMode = false;
+            laugh.IsSwappable = true;
+            laugh.Location = new System.Drawing.Point(4, 260);
+            laugh.Margin = new Padding(5, 3, 5, 3);
+            laugh.MaximumSize = new System.Drawing.Size(468, 30);
+            laugh.MinimumSize = new System.Drawing.Size(468, 30);
+            laugh.Name = "laugh";
+            laugh.Size = new System.Drawing.Size(468, 30);
+            laugh.TabIndex = 8;
+            laugh.KeyDown += MainWindow_KeyDown;
             // 
             // no
             // 
-            this.no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.no.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.no.Filter = resources.GetString("no.Filter");
-            this.no.Index = 9;
-            this.no.IsPlayable = true;
-            this.no.IsSaveMode = false;
-            this.no.IsSwappable = true;
-            this.no.Location = new System.Drawing.Point(4, 292);
-            this.no.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.no.MaximumSize = new System.Drawing.Size(468, 30);
-            this.no.MinimumSize = new System.Drawing.Size(468, 30);
-            this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(468, 30);
-            this.no.TabIndex = 9;
-            this.no.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            no.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            no.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            no.Filter = resources.GetString("no.Filter");
+            no.Index = 9;
+            no.IsPlayable = true;
+            no.IsSaveMode = false;
+            no.IsSwappable = true;
+            no.Location = new System.Drawing.Point(4, 292);
+            no.Margin = new Padding(5, 3, 5, 3);
+            no.MaximumSize = new System.Drawing.Size(468, 30);
+            no.MinimumSize = new System.Drawing.Size(468, 30);
+            no.Name = "no";
+            no.Size = new System.Drawing.Size(468, 30);
+            no.TabIndex = 9;
+            no.KeyDown += MainWindow_KeyDown;
             // 
             // stretch
             // 
-            this.stretch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.stretch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.stretch.Filter = resources.GetString("stretch.Filter");
-            this.stretch.Index = 10;
-            this.stretch.IsPlayable = true;
-            this.stretch.IsSaveMode = false;
-            this.stretch.IsSwappable = true;
-            this.stretch.Location = new System.Drawing.Point(4, 324);
-            this.stretch.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.stretch.MaximumSize = new System.Drawing.Size(468, 30);
-            this.stretch.MinimumSize = new System.Drawing.Size(468, 30);
-            this.stretch.Name = "stretch";
-            this.stretch.Size = new System.Drawing.Size(468, 30);
-            this.stretch.TabIndex = 10;
-            this.stretch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            stretch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            stretch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            stretch.Filter = resources.GetString("stretch.Filter");
+            stretch.Index = 10;
+            stretch.IsPlayable = true;
+            stretch.IsSaveMode = false;
+            stretch.IsSwappable = true;
+            stretch.Location = new System.Drawing.Point(4, 324);
+            stretch.Margin = new Padding(5, 3, 5, 3);
+            stretch.MaximumSize = new System.Drawing.Size(468, 30);
+            stretch.MinimumSize = new System.Drawing.Size(468, 30);
+            stretch.Name = "stretch";
+            stretch.Size = new System.Drawing.Size(468, 30);
+            stretch.TabIndex = 10;
+            stretch.KeyDown += MainWindow_KeyDown;
             // 
             // upset
             // 
-            this.upset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.upset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.upset.Filter = resources.GetString("upset.Filter");
-            this.upset.Index = 11;
-            this.upset.IsPlayable = true;
-            this.upset.IsSaveMode = false;
-            this.upset.IsSwappable = true;
-            this.upset.Location = new System.Drawing.Point(4, 356);
-            this.upset.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.upset.MaximumSize = new System.Drawing.Size(468, 30);
-            this.upset.MinimumSize = new System.Drawing.Size(468, 30);
-            this.upset.Name = "upset";
-            this.upset.Size = new System.Drawing.Size(468, 30);
-            this.upset.TabIndex = 11;
-            this.upset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            upset.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            upset.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            upset.Filter = resources.GetString("upset.Filter");
+            upset.Index = 11;
+            upset.IsPlayable = true;
+            upset.IsSaveMode = false;
+            upset.IsSwappable = true;
+            upset.Location = new System.Drawing.Point(4, 356);
+            upset.Margin = new Padding(5, 3, 5, 3);
+            upset.MaximumSize = new System.Drawing.Size(468, 30);
+            upset.MinimumSize = new System.Drawing.Size(468, 30);
+            upset.Name = "upset";
+            upset.Size = new System.Drawing.Size(468, 30);
+            upset.TabIndex = 11;
+            upset.KeyDown += MainWindow_KeyDown;
             // 
             // yes
             // 
-            this.yes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.yes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.yes.Filter = resources.GetString("yes.Filter");
-            this.yes.Index = 12;
-            this.yes.IsPlayable = true;
-            this.yes.IsSaveMode = false;
-            this.yes.IsSwappable = true;
-            this.yes.Location = new System.Drawing.Point(4, 388);
-            this.yes.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.yes.MaximumSize = new System.Drawing.Size(468, 30);
-            this.yes.MinimumSize = new System.Drawing.Size(468, 30);
-            this.yes.Name = "yes";
-            this.yes.Size = new System.Drawing.Size(468, 30);
-            this.yes.TabIndex = 12;
-            this.yes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            yes.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            yes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            yes.Filter = resources.GetString("yes.Filter");
+            yes.Index = 12;
+            yes.IsPlayable = true;
+            yes.IsSaveMode = false;
+            yes.IsSwappable = true;
+            yes.Location = new System.Drawing.Point(4, 388);
+            yes.Margin = new Padding(5, 3, 5, 3);
+            yes.MaximumSize = new System.Drawing.Size(468, 30);
+            yes.MinimumSize = new System.Drawing.Size(468, 30);
+            yes.Name = "yes";
+            yes.Size = new System.Drawing.Size(468, 30);
+            yes.TabIndex = 12;
+            yes.KeyDown += MainWindow_KeyDown;
             // 
             // happy
             // 
-            this.happy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.happy.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.happy.Filter = resources.GetString("happy.Filter");
-            this.happy.Index = 13;
-            this.happy.IsPlayable = true;
-            this.happy.IsSaveMode = false;
-            this.happy.IsSwappable = true;
-            this.happy.Location = new System.Drawing.Point(4, 420);
-            this.happy.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.happy.MaximumSize = new System.Drawing.Size(468, 30);
-            this.happy.MinimumSize = new System.Drawing.Size(468, 30);
-            this.happy.Name = "happy";
-            this.happy.Size = new System.Drawing.Size(468, 30);
-            this.happy.TabIndex = 13;
-            this.happy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            happy.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            happy.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            happy.Filter = resources.GetString("happy.Filter");
+            happy.Index = 13;
+            happy.IsPlayable = true;
+            happy.IsSaveMode = false;
+            happy.IsSwappable = true;
+            happy.Location = new System.Drawing.Point(4, 420);
+            happy.Margin = new Padding(5, 3, 5, 3);
+            happy.MaximumSize = new System.Drawing.Size(468, 30);
+            happy.MinimumSize = new System.Drawing.Size(468, 30);
+            happy.Name = "happy";
+            happy.Size = new System.Drawing.Size(468, 30);
+            happy.TabIndex = 13;
+            happy.KeyDown += MainWindow_KeyDown;
             // 
             // battleVoicesPage
             // 
-            this.battleVoicesPage.Controls.Add(this.extra2);
-            this.battleVoicesPage.Controls.Add(this.extra1);
-            this.battleVoicesPage.Controls.Add(this.death2);
-            this.battleVoicesPage.Controls.Add(this.death1);
-            this.battleVoicesPage.Controls.Add(this.hurt6);
-            this.battleVoicesPage.Controls.Add(this.hurt5);
-            this.battleVoicesPage.Controls.Add(this.hurt4);
-            this.battleVoicesPage.Controls.Add(this.hurt3);
-            this.battleVoicesPage.Controls.Add(this.hurt2);
-            this.battleVoicesPage.Controls.Add(this.hurt1);
-            this.battleVoicesPage.Controls.Add(this.attack6);
-            this.battleVoicesPage.Controls.Add(this.attack5);
-            this.battleVoicesPage.Controls.Add(this.attack4);
-            this.battleVoicesPage.Controls.Add(this.attack3);
-            this.battleVoicesPage.Controls.Add(this.attack2);
-            this.battleVoicesPage.Controls.Add(this.attack1);
-            this.battleVoicesPage.Controls.Add(this.multiSCDFile);
-            this.battleVoicesPage.Location = new System.Drawing.Point(4, 24);
-            this.battleVoicesPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Name = "battleVoicesPage";
-            this.battleVoicesPage.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.battleVoicesPage.Size = new System.Drawing.Size(192, 72);
-            this.battleVoicesPage.TabIndex = 1;
-            this.battleVoicesPage.Text = "Battle Voices";
-            this.battleVoicesPage.UseVisualStyleBackColor = true;
+            battleVoicesPage.Controls.Add(extra2);
+            battleVoicesPage.Controls.Add(extra1);
+            battleVoicesPage.Controls.Add(death2);
+            battleVoicesPage.Controls.Add(death1);
+            battleVoicesPage.Controls.Add(hurt6);
+            battleVoicesPage.Controls.Add(hurt5);
+            battleVoicesPage.Controls.Add(hurt4);
+            battleVoicesPage.Controls.Add(hurt3);
+            battleVoicesPage.Controls.Add(hurt2);
+            battleVoicesPage.Controls.Add(hurt1);
+            battleVoicesPage.Controls.Add(attack6);
+            battleVoicesPage.Controls.Add(attack5);
+            battleVoicesPage.Controls.Add(attack4);
+            battleVoicesPage.Controls.Add(attack3);
+            battleVoicesPage.Controls.Add(attack2);
+            battleVoicesPage.Controls.Add(attack1);
+            battleVoicesPage.Controls.Add(multiSCDFile);
+            battleVoicesPage.Location = new System.Drawing.Point(4, 24);
+            battleVoicesPage.Margin = new Padding(4, 3, 4, 3);
+            battleVoicesPage.Name = "battleVoicesPage";
+            battleVoicesPage.Padding = new Padding(4, 3, 4, 3);
+            battleVoicesPage.Size = new System.Drawing.Size(192, 72);
+            battleVoicesPage.TabIndex = 1;
+            battleVoicesPage.Text = "Battle Voices";
+            battleVoicesPage.UseVisualStyleBackColor = true;
             // 
             // extra2
             // 
-            this.extra2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.extra2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.extra2.Filter = null;
-            this.extra2.Index = 31;
-            this.extra2.IsPlayable = true;
-            this.extra2.IsSaveMode = false;
-            this.extra2.IsSwappable = false;
-            this.extra2.Location = new System.Drawing.Point(4, 261);
-            this.extra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.extra2.MaximumSize = new System.Drawing.Size(588, 30);
-            this.extra2.MinimumSize = new System.Drawing.Size(588, 30);
-            this.extra2.Name = "extra2";
-            this.extra2.Size = new System.Drawing.Size(588, 30);
-            this.extra2.TabIndex = 17;
+            extra2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            extra2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            extra2.Filter = null;
+            extra2.Index = 31;
+            extra2.IsPlayable = true;
+            extra2.IsSaveMode = false;
+            extra2.IsSwappable = false;
+            extra2.Location = new System.Drawing.Point(4, 261);
+            extra2.Margin = new Padding(4, 3, 4, 3);
+            extra2.MaximumSize = new System.Drawing.Size(588, 30);
+            extra2.MinimumSize = new System.Drawing.Size(588, 30);
+            extra2.Name = "extra2";
+            extra2.Size = new System.Drawing.Size(588, 30);
+            extra2.TabIndex = 17;
             // 
             // extra1
             // 
-            this.extra1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.extra1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.extra1.Filter = null;
-            this.extra1.Index = 30;
-            this.extra1.IsPlayable = true;
-            this.extra1.IsSaveMode = false;
-            this.extra1.IsSwappable = false;
-            this.extra1.Location = new System.Drawing.Point(4, 229);
-            this.extra1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.extra1.MaximumSize = new System.Drawing.Size(588, 30);
-            this.extra1.MinimumSize = new System.Drawing.Size(588, 30);
-            this.extra1.Name = "extra1";
-            this.extra1.Size = new System.Drawing.Size(588, 30);
-            this.extra1.TabIndex = 16;
+            extra1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            extra1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            extra1.Filter = null;
+            extra1.Index = 30;
+            extra1.IsPlayable = true;
+            extra1.IsSaveMode = false;
+            extra1.IsSwappable = false;
+            extra1.Location = new System.Drawing.Point(4, 229);
+            extra1.Margin = new Padding(4, 3, 4, 3);
+            extra1.MaximumSize = new System.Drawing.Size(588, 30);
+            extra1.MinimumSize = new System.Drawing.Size(588, 30);
+            extra1.Name = "extra1";
+            extra1.Size = new System.Drawing.Size(588, 30);
+            extra1.TabIndex = 16;
             // 
             // death2
             // 
-            this.death2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.death2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.death2.Filter = null;
-            this.death2.Index = 29;
-            this.death2.IsPlayable = true;
-            this.death2.IsSaveMode = false;
-            this.death2.IsSwappable = false;
-            this.death2.Location = new System.Drawing.Point(4, 197);
-            this.death2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.death2.MaximumSize = new System.Drawing.Size(588, 30);
-            this.death2.MinimumSize = new System.Drawing.Size(588, 30);
-            this.death2.Name = "death2";
-            this.death2.Size = new System.Drawing.Size(588, 30);
-            this.death2.TabIndex = 15;
+            death2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            death2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            death2.Filter = null;
+            death2.Index = 29;
+            death2.IsPlayable = true;
+            death2.IsSaveMode = false;
+            death2.IsSwappable = false;
+            death2.Location = new System.Drawing.Point(4, 197);
+            death2.Margin = new Padding(4, 3, 4, 3);
+            death2.MaximumSize = new System.Drawing.Size(588, 30);
+            death2.MinimumSize = new System.Drawing.Size(588, 30);
+            death2.Name = "death2";
+            death2.Size = new System.Drawing.Size(588, 30);
+            death2.TabIndex = 15;
             // 
             // death1
             // 
-            this.death1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.death1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.death1.Filter = null;
-            this.death1.Index = 28;
-            this.death1.IsPlayable = true;
-            this.death1.IsSaveMode = false;
-            this.death1.IsSwappable = false;
-            this.death1.Location = new System.Drawing.Point(4, 165);
-            this.death1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.death1.MaximumSize = new System.Drawing.Size(588, 30);
-            this.death1.MinimumSize = new System.Drawing.Size(588, 30);
-            this.death1.Name = "death1";
-            this.death1.Size = new System.Drawing.Size(588, 30);
-            this.death1.TabIndex = 14;
+            death1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            death1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            death1.Filter = null;
+            death1.Index = 28;
+            death1.IsPlayable = true;
+            death1.IsSaveMode = false;
+            death1.IsSwappable = false;
+            death1.Location = new System.Drawing.Point(4, 165);
+            death1.Margin = new Padding(4, 3, 4, 3);
+            death1.MaximumSize = new System.Drawing.Size(588, 30);
+            death1.MinimumSize = new System.Drawing.Size(588, 30);
+            death1.Name = "death1";
+            death1.Size = new System.Drawing.Size(588, 30);
+            death1.TabIndex = 14;
             // 
             // hurt6
             // 
-            this.hurt6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hurt6.Filter = null;
-            this.hurt6.Index = 27;
-            this.hurt6.IsPlayable = true;
-            this.hurt6.IsSaveMode = false;
-            this.hurt6.IsSwappable = false;
-            this.hurt6.Location = new System.Drawing.Point(4, 133);
-            this.hurt6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hurt6.MaximumSize = new System.Drawing.Size(588, 30);
-            this.hurt6.MinimumSize = new System.Drawing.Size(588, 30);
-            this.hurt6.Name = "hurt6";
-            this.hurt6.Size = new System.Drawing.Size(588, 30);
-            this.hurt6.TabIndex = 13;
+            hurt6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            hurt6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            hurt6.Filter = null;
+            hurt6.Index = 27;
+            hurt6.IsPlayable = true;
+            hurt6.IsSaveMode = false;
+            hurt6.IsSwappable = false;
+            hurt6.Location = new System.Drawing.Point(4, 133);
+            hurt6.Margin = new Padding(4, 3, 4, 3);
+            hurt6.MaximumSize = new System.Drawing.Size(588, 30);
+            hurt6.MinimumSize = new System.Drawing.Size(588, 30);
+            hurt6.Name = "hurt6";
+            hurt6.Size = new System.Drawing.Size(588, 30);
+            hurt6.TabIndex = 13;
             // 
             // hurt5
             // 
-            this.hurt5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hurt5.Filter = null;
-            this.hurt5.Index = 26;
-            this.hurt5.IsPlayable = true;
-            this.hurt5.IsSaveMode = false;
-            this.hurt5.IsSwappable = false;
-            this.hurt5.Location = new System.Drawing.Point(4, 101);
-            this.hurt5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hurt5.MaximumSize = new System.Drawing.Size(588, 30);
-            this.hurt5.MinimumSize = new System.Drawing.Size(588, 30);
-            this.hurt5.Name = "hurt5";
-            this.hurt5.Size = new System.Drawing.Size(588, 30);
-            this.hurt5.TabIndex = 12;
+            hurt5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            hurt5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            hurt5.Filter = null;
+            hurt5.Index = 26;
+            hurt5.IsPlayable = true;
+            hurt5.IsSaveMode = false;
+            hurt5.IsSwappable = false;
+            hurt5.Location = new System.Drawing.Point(4, 101);
+            hurt5.Margin = new Padding(4, 3, 4, 3);
+            hurt5.MaximumSize = new System.Drawing.Size(588, 30);
+            hurt5.MinimumSize = new System.Drawing.Size(588, 30);
+            hurt5.Name = "hurt5";
+            hurt5.Size = new System.Drawing.Size(588, 30);
+            hurt5.TabIndex = 12;
             // 
             // hurt4
             // 
-            this.hurt4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hurt4.Filter = null;
-            this.hurt4.Index = 25;
-            this.hurt4.IsPlayable = true;
-            this.hurt4.IsSaveMode = false;
-            this.hurt4.IsSwappable = false;
-            this.hurt4.Location = new System.Drawing.Point(4, 69);
-            this.hurt4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hurt4.MaximumSize = new System.Drawing.Size(588, 30);
-            this.hurt4.MinimumSize = new System.Drawing.Size(588, 30);
-            this.hurt4.Name = "hurt4";
-            this.hurt4.Size = new System.Drawing.Size(588, 30);
-            this.hurt4.TabIndex = 11;
+            hurt4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            hurt4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            hurt4.Filter = null;
+            hurt4.Index = 25;
+            hurt4.IsPlayable = true;
+            hurt4.IsSaveMode = false;
+            hurt4.IsSwappable = false;
+            hurt4.Location = new System.Drawing.Point(4, 69);
+            hurt4.Margin = new Padding(4, 3, 4, 3);
+            hurt4.MaximumSize = new System.Drawing.Size(588, 30);
+            hurt4.MinimumSize = new System.Drawing.Size(588, 30);
+            hurt4.Name = "hurt4";
+            hurt4.Size = new System.Drawing.Size(588, 30);
+            hurt4.TabIndex = 11;
             // 
             // hurt3
             // 
-            this.hurt3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hurt3.Filter = null;
-            this.hurt3.Index = 24;
-            this.hurt3.IsPlayable = true;
-            this.hurt3.IsSaveMode = false;
-            this.hurt3.IsSwappable = false;
-            this.hurt3.Location = new System.Drawing.Point(4, 37);
-            this.hurt3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hurt3.MaximumSize = new System.Drawing.Size(588, 30);
-            this.hurt3.MinimumSize = new System.Drawing.Size(588, 30);
-            this.hurt3.Name = "hurt3";
-            this.hurt3.Size = new System.Drawing.Size(588, 30);
-            this.hurt3.TabIndex = 10;
+            hurt3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            hurt3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            hurt3.Filter = null;
+            hurt3.Index = 24;
+            hurt3.IsPlayable = true;
+            hurt3.IsSaveMode = false;
+            hurt3.IsSwappable = false;
+            hurt3.Location = new System.Drawing.Point(4, 37);
+            hurt3.Margin = new Padding(4, 3, 4, 3);
+            hurt3.MaximumSize = new System.Drawing.Size(588, 30);
+            hurt3.MinimumSize = new System.Drawing.Size(588, 30);
+            hurt3.Name = "hurt3";
+            hurt3.Size = new System.Drawing.Size(588, 30);
+            hurt3.TabIndex = 10;
             // 
             // hurt2
             // 
-            this.hurt2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hurt2.Filter = null;
-            this.hurt2.Index = 23;
-            this.hurt2.IsPlayable = true;
-            this.hurt2.IsSaveMode = false;
-            this.hurt2.IsSwappable = false;
-            this.hurt2.Location = new System.Drawing.Point(4, 5);
-            this.hurt2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hurt2.MaximumSize = new System.Drawing.Size(588, 30);
-            this.hurt2.MinimumSize = new System.Drawing.Size(588, 30);
-            this.hurt2.Name = "hurt2";
-            this.hurt2.Size = new System.Drawing.Size(588, 30);
-            this.hurt2.TabIndex = 9;
+            hurt2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            hurt2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            hurt2.Filter = null;
+            hurt2.Index = 23;
+            hurt2.IsPlayable = true;
+            hurt2.IsSaveMode = false;
+            hurt2.IsSwappable = false;
+            hurt2.Location = new System.Drawing.Point(4, 5);
+            hurt2.Margin = new Padding(4, 3, 4, 3);
+            hurt2.MaximumSize = new System.Drawing.Size(588, 30);
+            hurt2.MinimumSize = new System.Drawing.Size(588, 30);
+            hurt2.Name = "hurt2";
+            hurt2.Size = new System.Drawing.Size(588, 30);
+            hurt2.TabIndex = 9;
             // 
             // hurt1
             // 
-            this.hurt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.hurt1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hurt1.Filter = null;
-            this.hurt1.Index = 22;
-            this.hurt1.IsPlayable = true;
-            this.hurt1.IsSaveMode = false;
-            this.hurt1.IsSwappable = false;
-            this.hurt1.Location = new System.Drawing.Point(4, -27);
-            this.hurt1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hurt1.MaximumSize = new System.Drawing.Size(588, 30);
-            this.hurt1.MinimumSize = new System.Drawing.Size(588, 30);
-            this.hurt1.Name = "hurt1";
-            this.hurt1.Size = new System.Drawing.Size(588, 30);
-            this.hurt1.TabIndex = 8;
+            hurt1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            hurt1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            hurt1.Filter = null;
+            hurt1.Index = 22;
+            hurt1.IsPlayable = true;
+            hurt1.IsSaveMode = false;
+            hurt1.IsSwappable = false;
+            hurt1.Location = new System.Drawing.Point(4, -27);
+            hurt1.Margin = new Padding(4, 3, 4, 3);
+            hurt1.MaximumSize = new System.Drawing.Size(588, 30);
+            hurt1.MinimumSize = new System.Drawing.Size(588, 30);
+            hurt1.Name = "hurt1";
+            hurt1.Size = new System.Drawing.Size(588, 30);
+            hurt1.TabIndex = 8;
             // 
             // attack6
             // 
-            this.attack6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.attack6.Filter = null;
-            this.attack6.Index = 21;
-            this.attack6.IsPlayable = true;
-            this.attack6.IsSaveMode = false;
-            this.attack6.IsSwappable = false;
-            this.attack6.Location = new System.Drawing.Point(4, -59);
-            this.attack6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.attack6.MaximumSize = new System.Drawing.Size(588, 30);
-            this.attack6.MinimumSize = new System.Drawing.Size(588, 30);
-            this.attack6.Name = "attack6";
-            this.attack6.Size = new System.Drawing.Size(588, 30);
-            this.attack6.TabIndex = 7;
-            this.attack6.Load += new System.EventHandler(this.attack6_Load);
+            attack6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            attack6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            attack6.Filter = null;
+            attack6.Index = 21;
+            attack6.IsPlayable = true;
+            attack6.IsSaveMode = false;
+            attack6.IsSwappable = false;
+            attack6.Location = new System.Drawing.Point(4, -59);
+            attack6.Margin = new Padding(4, 3, 4, 3);
+            attack6.MaximumSize = new System.Drawing.Size(588, 30);
+            attack6.MinimumSize = new System.Drawing.Size(588, 30);
+            attack6.Name = "attack6";
+            attack6.Size = new System.Drawing.Size(588, 30);
+            attack6.TabIndex = 7;
+            attack6.Load += attack6_Load;
             // 
             // attack5
             // 
-            this.attack5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.attack5.Filter = null;
-            this.attack5.Index = 20;
-            this.attack5.IsPlayable = true;
-            this.attack5.IsSaveMode = false;
-            this.attack5.IsSwappable = false;
-            this.attack5.Location = new System.Drawing.Point(4, -91);
-            this.attack5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.attack5.MaximumSize = new System.Drawing.Size(588, 30);
-            this.attack5.MinimumSize = new System.Drawing.Size(588, 30);
-            this.attack5.Name = "attack5";
-            this.attack5.Size = new System.Drawing.Size(588, 30);
-            this.attack5.TabIndex = 6;
+            attack5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            attack5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            attack5.Filter = null;
+            attack5.Index = 20;
+            attack5.IsPlayable = true;
+            attack5.IsSaveMode = false;
+            attack5.IsSwappable = false;
+            attack5.Location = new System.Drawing.Point(4, -91);
+            attack5.Margin = new Padding(4, 3, 4, 3);
+            attack5.MaximumSize = new System.Drawing.Size(588, 30);
+            attack5.MinimumSize = new System.Drawing.Size(588, 30);
+            attack5.Name = "attack5";
+            attack5.Size = new System.Drawing.Size(588, 30);
+            attack5.TabIndex = 6;
             // 
             // attack4
             // 
-            this.attack4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.attack4.Filter = null;
-            this.attack4.Index = 19;
-            this.attack4.IsPlayable = true;
-            this.attack4.IsSaveMode = false;
-            this.attack4.IsSwappable = false;
-            this.attack4.Location = new System.Drawing.Point(4, -123);
-            this.attack4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.attack4.MaximumSize = new System.Drawing.Size(588, 30);
-            this.attack4.MinimumSize = new System.Drawing.Size(588, 30);
-            this.attack4.Name = "attack4";
-            this.attack4.Size = new System.Drawing.Size(588, 30);
-            this.attack4.TabIndex = 5;
+            attack4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            attack4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            attack4.Filter = null;
+            attack4.Index = 19;
+            attack4.IsPlayable = true;
+            attack4.IsSaveMode = false;
+            attack4.IsSwappable = false;
+            attack4.Location = new System.Drawing.Point(4, -123);
+            attack4.Margin = new Padding(4, 3, 4, 3);
+            attack4.MaximumSize = new System.Drawing.Size(588, 30);
+            attack4.MinimumSize = new System.Drawing.Size(588, 30);
+            attack4.Name = "attack4";
+            attack4.Size = new System.Drawing.Size(588, 30);
+            attack4.TabIndex = 5;
             // 
             // attack3
             // 
-            this.attack3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.attack3.Filter = null;
-            this.attack3.Index = 18;
-            this.attack3.IsPlayable = true;
-            this.attack3.IsSaveMode = false;
-            this.attack3.IsSwappable = false;
-            this.attack3.Location = new System.Drawing.Point(4, -155);
-            this.attack3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.attack3.MaximumSize = new System.Drawing.Size(588, 30);
-            this.attack3.MinimumSize = new System.Drawing.Size(588, 30);
-            this.attack3.Name = "attack3";
-            this.attack3.Size = new System.Drawing.Size(588, 30);
-            this.attack3.TabIndex = 4;
+            attack3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            attack3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            attack3.Filter = null;
+            attack3.Index = 18;
+            attack3.IsPlayable = true;
+            attack3.IsSaveMode = false;
+            attack3.IsSwappable = false;
+            attack3.Location = new System.Drawing.Point(4, -155);
+            attack3.Margin = new Padding(4, 3, 4, 3);
+            attack3.MaximumSize = new System.Drawing.Size(588, 30);
+            attack3.MinimumSize = new System.Drawing.Size(588, 30);
+            attack3.Name = "attack3";
+            attack3.Size = new System.Drawing.Size(588, 30);
+            attack3.TabIndex = 4;
             // 
             // attack2
             // 
-            this.attack2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.attack2.Filter = null;
-            this.attack2.Index = 17;
-            this.attack2.IsPlayable = true;
-            this.attack2.IsSaveMode = false;
-            this.attack2.IsSwappable = false;
-            this.attack2.Location = new System.Drawing.Point(4, -187);
-            this.attack2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.attack2.MaximumSize = new System.Drawing.Size(588, 30);
-            this.attack2.MinimumSize = new System.Drawing.Size(588, 30);
-            this.attack2.Name = "attack2";
-            this.attack2.Size = new System.Drawing.Size(588, 30);
-            this.attack2.TabIndex = 3;
+            attack2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            attack2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            attack2.Filter = null;
+            attack2.Index = 17;
+            attack2.IsPlayable = true;
+            attack2.IsSaveMode = false;
+            attack2.IsSwappable = false;
+            attack2.Location = new System.Drawing.Point(4, -187);
+            attack2.Margin = new Padding(4, 3, 4, 3);
+            attack2.MaximumSize = new System.Drawing.Size(588, 30);
+            attack2.MinimumSize = new System.Drawing.Size(588, 30);
+            attack2.Name = "attack2";
+            attack2.Size = new System.Drawing.Size(588, 30);
+            attack2.TabIndex = 3;
             // 
             // attack1
             // 
-            this.attack1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.attack1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.attack1.Filter = null;
-            this.attack1.Index = 16;
-            this.attack1.IsPlayable = true;
-            this.attack1.IsSaveMode = false;
-            this.attack1.IsSwappable = false;
-            this.attack1.Location = new System.Drawing.Point(4, -219);
-            this.attack1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.attack1.MaximumSize = new System.Drawing.Size(588, 30);
-            this.attack1.MinimumSize = new System.Drawing.Size(588, 30);
-            this.attack1.Name = "attack1";
-            this.attack1.Size = new System.Drawing.Size(588, 30);
-            this.attack1.TabIndex = 2;
+            attack1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            attack1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            attack1.Filter = null;
+            attack1.Index = 16;
+            attack1.IsPlayable = true;
+            attack1.IsSaveMode = false;
+            attack1.IsSwappable = false;
+            attack1.Location = new System.Drawing.Point(4, -219);
+            attack1.Margin = new Padding(4, 3, 4, 3);
+            attack1.MaximumSize = new System.Drawing.Size(588, 30);
+            attack1.MinimumSize = new System.Drawing.Size(588, 30);
+            attack1.Name = "attack1";
+            attack1.Size = new System.Drawing.Size(588, 30);
+            attack1.TabIndex = 2;
             // 
             // multiSCDFile
             // 
-            this.multiSCDFile.Location = new System.Drawing.Point(398, 690);
-            this.multiSCDFile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.multiSCDFile.Name = "multiSCDFile";
-            this.multiSCDFile.Size = new System.Drawing.Size(175, 27);
-            this.multiSCDFile.TabIndex = 1;
-            this.multiSCDFile.Text = "Open";
-            this.multiSCDFile.UseVisualStyleBackColor = true;
-            this.multiSCDFile.Click += new System.EventHandler(this.multiSCDFile_Click);
+            multiSCDFile.Location = new System.Drawing.Point(398, 690);
+            multiSCDFile.Margin = new Padding(4, 3, 4, 3);
+            multiSCDFile.Name = "multiSCDFile";
+            multiSCDFile.Size = new System.Drawing.Size(175, 27);
+            multiSCDFile.TabIndex = 1;
+            multiSCDFile.Text = "Open";
+            multiSCDFile.UseVisualStyleBackColor = true;
+            multiSCDFile.Click += multiSCDFile_Click;
             // 
             // unused2
             // 
-            this.unused2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.unused2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.unused2.BackColor = System.Drawing.Color.Gainsboro;
-            this.unused2.Filter = resources.GetString("unused2.Filter");
-            this.unused2.Index = 15;
-            this.unused2.IsPlayable = true;
-            this.unused2.IsSaveMode = false;
-            this.unused2.IsSwappable = true;
-            this.unused2.Location = new System.Drawing.Point(504, 24);
-            this.unused2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.unused2.MaximumSize = new System.Drawing.Size(468, 30);
-            this.unused2.MinimumSize = new System.Drawing.Size(468, 30);
-            this.unused2.Name = "unused2";
-            this.unused2.Size = new System.Drawing.Size(468, 30);
-            this.unused2.TabIndex = 15;
-            this.unused2.Visible = false;
-            this.unused2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            unused2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            unused2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            unused2.BackColor = System.Drawing.Color.Gainsboro;
+            unused2.Filter = resources.GetString("unused2.Filter");
+            unused2.Index = 15;
+            unused2.IsPlayable = true;
+            unused2.IsSaveMode = false;
+            unused2.IsSwappable = true;
+            unused2.Location = new System.Drawing.Point(504, 24);
+            unused2.Margin = new Padding(5, 3, 5, 3);
+            unused2.MaximumSize = new System.Drawing.Size(468, 30);
+            unused2.MinimumSize = new System.Drawing.Size(468, 30);
+            unused2.Name = "unused2";
+            unused2.Size = new System.Drawing.Size(468, 30);
+            unused2.TabIndex = 15;
+            unused2.Visible = false;
+            unused2.KeyDown += MainWindow_KeyDown;
             // 
             // unused1
             // 
-            this.unused1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.unused1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.unused1.BackColor = System.Drawing.Color.Gainsboro;
-            this.unused1.Filter = resources.GetString("unused1.Filter");
-            this.unused1.Index = 14;
-            this.unused1.IsPlayable = true;
-            this.unused1.IsSaveMode = false;
-            this.unused1.IsSwappable = true;
-            this.unused1.Location = new System.Drawing.Point(504, 24);
-            this.unused1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.unused1.MaximumSize = new System.Drawing.Size(468, 30);
-            this.unused1.MinimumSize = new System.Drawing.Size(468, 30);
-            this.unused1.Name = "unused1";
-            this.unused1.Size = new System.Drawing.Size(468, 30);
-            this.unused1.TabIndex = 14;
-            this.unused1.Visible = false;
-            this.unused1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
+            unused1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            unused1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            unused1.BackColor = System.Drawing.Color.Gainsboro;
+            unused1.Filter = resources.GetString("unused1.Filter");
+            unused1.Index = 14;
+            unused1.IsPlayable = true;
+            unused1.IsSaveMode = false;
+            unused1.IsSwappable = true;
+            unused1.Location = new System.Drawing.Point(504, 24);
+            unused1.Margin = new Padding(5, 3, 5, 3);
+            unused1.MaximumSize = new System.Drawing.Size(468, 30);
+            unused1.MinimumSize = new System.Drawing.Size(468, 30);
+            unused1.Name = "unused1";
+            unused1.Size = new System.Drawing.Size(468, 30);
+            unused1.TabIndex = 14;
+            unused1.Visible = false;
+            unused1.KeyDown += MainWindow_KeyDown;
             // 
             // voiceSwapBattleVoices
             // 
-            this.voiceSwapBattleVoices.AutoSize = true;
-            this.voiceSwapBattleVoices.Location = new System.Drawing.Point(175, 32);
-            this.voiceSwapBattleVoices.Name = "voiceSwapBattleVoices";
-            this.voiceSwapBattleVoices.Size = new System.Drawing.Size(198, 19);
-            this.voiceSwapBattleVoices.TabIndex = 53;
-            this.voiceSwapBattleVoices.Text = "Swap Battle Voice (Experimental)";
-            this.voiceSwapBattleVoices.UseVisualStyleBackColor = true;
-            this.voiceSwapBattleVoices.CheckedChanged += new System.EventHandler(this.voiceSwapBattleVoices_CheckedChanged);
+            voiceSwapBattleVoices.AutoSize = true;
+            voiceSwapBattleVoices.Location = new System.Drawing.Point(175, 32);
+            voiceSwapBattleVoices.Name = "voiceSwapBattleVoices";
+            voiceSwapBattleVoices.Size = new System.Drawing.Size(198, 19);
+            voiceSwapBattleVoices.TabIndex = 53;
+            voiceSwapBattleVoices.Text = "Swap Battle Voice (Experimental)";
+            voiceSwapBattleVoices.UseVisualStyleBackColor = true;
+            voiceSwapBattleVoices.CheckedChanged += voiceSwapBattleVoices_CheckedChanged;
             // 
             // ffxivRefreshTimer
             // 
-            this.ffxivRefreshTimer.Enabled = true;
-            this.ffxivRefreshTimer.Interval = 5000;
-            this.ffxivRefreshTimer.Tick += new System.EventHandler(this.ffxivRefreshTimer_Tick);
+            ffxivRefreshTimer.Enabled = true;
+            ffxivRefreshTimer.Interval = 5000;
+            ffxivRefreshTimer.Tick += ffxivRefreshTimer_Tick;
             // 
             // testEmotesButton
             // 
-            this.testEmotesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.testEmotesButton.Location = new System.Drawing.Point(492, 576);
-            this.testEmotesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.testEmotesButton.Name = "testEmotesButton";
-            this.testEmotesButton.Size = new System.Drawing.Size(140, 30);
-            this.testEmotesButton.TabIndex = 54;
-            this.testEmotesButton.Text = "Test Emotes";
-            this.testEmotesButton.UseVisualStyleBackColor = true;
-            this.testEmotesButton.Click += new System.EventHandler(this.testEmotesButton_Click);
+            testEmotesButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            testEmotesButton.Location = new System.Drawing.Point(492, 576);
+            testEmotesButton.Margin = new Padding(4, 3, 4, 3);
+            testEmotesButton.Name = "testEmotesButton";
+            testEmotesButton.Size = new System.Drawing.Size(140, 30);
+            testEmotesButton.TabIndex = 54;
+            testEmotesButton.Text = "Test Emotes";
+            testEmotesButton.UseVisualStyleBackColor = true;
+            testEmotesButton.Click += testEmotesButton_Click;
             // 
             // testBattleSoundButton
             // 
-            this.testBattleSoundButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.testBattleSoundButton.Location = new System.Drawing.Point(632, 576);
-            this.testBattleSoundButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.testBattleSoundButton.Name = "testBattleSoundButton";
-            this.testBattleSoundButton.Size = new System.Drawing.Size(148, 30);
-            this.testBattleSoundButton.TabIndex = 55;
-            this.testBattleSoundButton.Text = "Test Battle";
-            this.testBattleSoundButton.UseVisualStyleBackColor = true;
-            this.testBattleSoundButton.Click += new System.EventHandler(this.testBattleSoundButton_Click);
+            testBattleSoundButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            testBattleSoundButton.Location = new System.Drawing.Point(632, 576);
+            testBattleSoundButton.Margin = new Padding(4, 3, 4, 3);
+            testBattleSoundButton.Name = "testBattleSoundButton";
+            testBattleSoundButton.Size = new System.Drawing.Size(148, 30);
+            testBattleSoundButton.TabIndex = 55;
+            testBattleSoundButton.Text = "Test Battle";
+            testBattleSoundButton.UseVisualStyleBackColor = true;
+            testBattleSoundButton.Click += testBattleSoundButton_Click;
             // 
             // donateButton
             // 
-            this.donateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.donateButton.BackColor = System.Drawing.Color.IndianRed;
-            this.donateButton.ForeColor = System.Drawing.Color.White;
-            this.donateButton.Location = new System.Drawing.Point(904, 0);
-            this.donateButton.Name = "donateButton";
-            this.donateButton.Size = new System.Drawing.Size(75, 23);
-            this.donateButton.TabIndex = 56;
-            this.donateButton.Text = "Donate";
-            this.donateButton.UseVisualStyleBackColor = false;
-            this.donateButton.Click += new System.EventHandler(this.donateButton_Click);
+            donateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            donateButton.BackColor = System.Drawing.Color.IndianRed;
+            donateButton.ForeColor = System.Drawing.Color.White;
+            donateButton.Location = new System.Drawing.Point(904, 0);
+            donateButton.Name = "donateButton";
+            donateButton.Size = new System.Drawing.Size(75, 23);
+            donateButton.TabIndex = 56;
+            donateButton.Text = "Donate";
+            donateButton.UseVisualStyleBackColor = false;
+            donateButton.Click += donateButton_Click;
             // 
             // discordButton
             // 
-            this.discordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.discordButton.BackColor = System.Drawing.Color.RoyalBlue;
-            this.discordButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.discordButton.Location = new System.Drawing.Point(828, 0);
-            this.discordButton.Name = "discordButton";
-            this.discordButton.Size = new System.Drawing.Size(75, 23);
-            this.discordButton.TabIndex = 57;
-            this.discordButton.Text = "Discord";
-            this.discordButton.UseVisualStyleBackColor = false;
-            this.discordButton.Click += new System.EventHandler(this.discordButton_Click);
+            discordButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            discordButton.BackColor = System.Drawing.Color.RoyalBlue;
+            discordButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            discordButton.Location = new System.Drawing.Point(828, 0);
+            discordButton.Name = "discordButton";
+            discordButton.Size = new System.Drawing.Size(75, 23);
+            discordButton.TabIndex = 57;
+            discordButton.Text = "Discord";
+            discordButton.UseVisualStyleBackColor = false;
+            discordButton.Click += discordButton_Click;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(980, 609);
-            this.Controls.Add(this.discordButton);
-            this.Controls.Add(this.donateButton);
-            this.Controls.Add(this.exportProgressBar);
-            this.Controls.Add(this.testBattleSoundButton);
-            this.Controls.Add(this.voiceSwapBattleVoices);
-            this.Controls.Add(this.quickSwapButton);
-            this.Controls.Add(this.modVersionTextBox);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.modWebsiteTextBox);
-            this.Controls.Add(this.quickImportButton);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.modDescriptionTextBox);
-            this.Controls.Add(this.easyGenerateButton);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.modAuthorTextBox);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.unused2);
-            this.Controls.Add(this.modNameTextBox);
-            this.Controls.Add(this.unused1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.tabManager);
-            this.Controls.Add(this.voiceTabs);
-            this.Controls.Add(this.testEmotesButton);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximizeBox = false;
-            this.Name = "MainWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FFXIV Voice Pack Creator";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.tabManager.ResumeLayout(false);
-            this.voiceExportTab.ResumeLayout(false);
-            this.voiceExportTab.PerformLayout();
-            this.voiceTabs.ResumeLayout(false);
-            this.emoteVoicesPage.ResumeLayout(false);
-            this.battleVoicesPage.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            ClientSize = new System.Drawing.Size(980, 609);
+            Controls.Add(discordButton);
+            Controls.Add(donateButton);
+            Controls.Add(exportProgressBar);
+            Controls.Add(testBattleSoundButton);
+            Controls.Add(voiceSwapBattleVoices);
+            Controls.Add(quickSwapButton);
+            Controls.Add(modVersionTextBox);
+            Controls.Add(label11);
+            Controls.Add(modWebsiteTextBox);
+            Controls.Add(quickImportButton);
+            Controls.Add(label10);
+            Controls.Add(modDescriptionTextBox);
+            Controls.Add(easyGenerateButton);
+            Controls.Add(label9);
+            Controls.Add(modAuthorTextBox);
+            Controls.Add(label8);
+            Controls.Add(unused2);
+            Controls.Add(modNameTextBox);
+            Controls.Add(unused1);
+            Controls.Add(label7);
+            Controls.Add(menuStrip1);
+            Controls.Add(tabManager);
+            Controls.Add(voiceTabs);
+            Controls.Add(testEmotesButton);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
+            Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            Name = "MainWindow";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FFXIV Voice Pack Creator";
+            FormClosing += MainWindow_FormClosing;
+            Load += Form1_Load;
+            KeyDown += MainWindow_KeyDown;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            tabManager.ResumeLayout(false);
+            voiceExportTab.ResumeLayout(false);
+            voiceExportTab.PerformLayout();
+            voiceTabs.ResumeLayout(false);
+            emoteVoicesPage.ResumeLayout(false);
+            battleVoicesPage.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
 
