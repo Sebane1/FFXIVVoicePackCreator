@@ -1,11 +1,10 @@
 Official download and repository. Do not download from other sources unless you can verify the code on github.
 
 The definitive voice pack creation tool compatible with FFXIV via Roleplaying Voice and Dalamud.
+![mod_63187_3d8702f3-2e30-4df6-83ff-7d96d3260c2e](https://github.com/Sebane1/FFXIVVoicePackCreator/assets/7157688/d1a79457-6e36-4988-87a0-ed0391730ac4)
 
 Download:
 https://github.com/Sebane1/FFXIVVoicePackCreator/releases
-
-![mod_63187_3d8702f3-2e30-4df6-83ff-7d96d3260c2e](https://github.com/Sebane1/FFXIVVoicePackCreator/assets/7157688/d1a79457-6e36-4988-87a0-ed0391730ac4)
 
 Instructions:
 - To run the program make sure you've installed .net desktop runtime 7.0:
