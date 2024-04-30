@@ -12,7 +12,7 @@ https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-7.0
 - Requires the Artemis Roleplaying Kit plugin: https://github.com/Sebane1/RoleplayingVoiceDalamud
 - Tell the program which action you want to add custom sounds to.
 - Hit export.
-- The files will be automatically added as a new entry in Roleplaying Voice.
+- The files will be automatically added as a new entry in Artemis Roleplaying Kit.
 
 Need support, or just wanna talk sound? Visit our discord! https://discord.gg/rtGXwMn7pX 
 
