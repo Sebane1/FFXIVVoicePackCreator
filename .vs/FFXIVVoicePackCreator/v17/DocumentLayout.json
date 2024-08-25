@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\ffxivvoicepackcreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\ffxivvoicepackcreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\ffxivvoicepackcreator.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\roleplayingvoicepackcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\roleplayingvoicepackcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\roleplayingvoicepackcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\roleplayingvoicepackcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\penumbra\\penumbraapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\penumbra\\penumbraapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\roleplayingvoicepackcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\roleplayingvoicepackcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\penumbra\\penumbrahttpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\penumbra\\penumbrahttpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\penumbra\\penumbrahttpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\penumbra\\penumbraapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\penumbra\\penumbraapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -38,7 +38,7 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\stel9\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\ffxivvoiceclipnameguesser\\penumbra\\reloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|c:\\users\\stel9\\source\\repos\\ffxivvoiceclipnameguesser\\ffxivvoiceclipnameguesser\\penumbra\\reloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D307C1E-D0B8-4ED9-9170-EB0D606F4FEA}|FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj|solutionrelative:ffxivvoiceclipnameguesser\\penumbra\\reloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -49,11 +49,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "FFXIVVoicePackCreator",
+              "DocumentMoniker": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
+              "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
+              "ToolTip": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
+              "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-25T03:17:39.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RoleplayingVoicePackCreator.cs [Design]",
               "DocumentMoniker": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\RoleplayingVoicePackCreator.cs",
               "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\RoleplayingVoicePackCreator.cs",
@@ -71,14 +87,14 @@
               "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\RoleplayingVoicePackCreator.cs",
               "ToolTip": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\RoleplayingVoicePackCreator.cs",
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\RoleplayingVoicePackCreator.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAtwEEAAAAYAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowDgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-06T17:17:36.295Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "PenumbraApi.cs",
               "DocumentMoniker": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\Penumbra\\PenumbraApi.cs",
               "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\Penumbra\\PenumbraApi.cs",
@@ -86,7 +102,8 @@
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\Penumbra\\PenumbraApi.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAqwDEAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T17:30:04.644Z"
+              "WhenOpened": "2024-03-06T17:30:04.644Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -98,18 +115,7 @@
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\Penumbra\\PenumbraHttpApi.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBQAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T17:30:00.738Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FFXIVVoicePackCreator",
-              "DocumentMoniker": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
-              "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
-              "ToolTip": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
-              "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\FFXIVVoicePackCreator.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-03-06T17:21:05.686Z",
+              "WhenOpened": "2024-03-06T17:30:00.738Z",
               "EditorCaption": ""
             },
             {
@@ -120,7 +126,7 @@
               "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\Properties\\AssemblyInfo.cs",
               "ToolTip": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\Properties\\AssemblyInfo.cs",
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-06T17:51:32.178Z",
               "EditorCaption": ""
@@ -134,19 +140,21 @@
               "ToolTip": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\MainForm.cs [Design]",
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T17:27:45.481Z"
+              "WhenOpened": "2024-03-06T17:27:45.481Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\MainForm.cs",
               "RelativeDocumentMoniker": "FFXIVVoiceClipNameGuesser\\MainForm.cs",
               "ToolTip": "C:\\Users\\stel9\\source\\repos\\FFXIVVoiceClipNameGuesser\\FFXIVVoiceClipNameGuesser\\MainForm.cs",
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\MainForm.cs",
-              "ViewState": "AQIAAL4BAAAAAAAAAAAYwNIBAAAoAAAA",
+              "ViewState": "AQIAAPgBAAAAAAAAAAAswBcCAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T17:27:59.782Z"
+              "WhenOpened": "2024-03-06T17:27:59.782Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -158,7 +166,8 @@
               "RelativeToolTip": "FFXIVVoiceClipNameGuesser\\Penumbra\\ReloadData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T17:29:56.786Z"
+              "WhenOpened": "2024-03-06T17:29:56.786Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -166,11 +175,12 @@
               "Title": "SafeFileHandle.Windows.cs",
               "DocumentMoniker": "C:\\Users\\stel9\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs",
-              "ToolTip": "C:\\Users\\stel9\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs [Read Only]",
+              "ToolTip": "C:\\Users\\stel9\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\6c3ff47bac14cd12fba853d8ee23e13688e4e0ce354c2c00a176b71abaf1f542\\src\\libraries\\System.Private.CoreLib\\src\\Microsoft\\Win32\\SafeHandles\\SafeFileHandle.Windows.cs",
               "ViewState": "AQIAACsAAAAAAAAAAAAkwEQAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T18:33:53.203Z"
+              "WhenOpened": "2024-03-06T18:33:53.203Z",
+              "EditorCaption": ""
             }
           ]
         }
