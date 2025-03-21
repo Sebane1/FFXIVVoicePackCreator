@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VfxEditor.ScdFormat;
 
@@ -39,12 +34,16 @@ namespace FFXIVVoicePackCreator {
                         break;
                     case 2:
                         if (File.Exists(mediaSelection.FilePath.Text)) {
-                            string tempPath = Path.Combine(Path.GetDirectoryName(mediaSelection.FilePath.Text), Guid.NewGuid() + ".ogg");
+                            bool isAlreadyAnOgg = mediaSelection.FilePath.Text.ToLower().EndsWith(".ogg");
+
+                            string tempPath = isAlreadyAnOgg ? mediaSelection.FilePath.Text : Path.Combine(Path.GetDirectoryName(mediaSelection.FilePath.Text), Guid.NewGuid() + ".ogg");
                             Process.Start(Path.Combine(Application.StartupPath, @"res\ffmpeg.exe"), $"-i {@"""" + mediaSelection.FilePath.Text + @""""} -c:a libvorbis -ar: 44100 -ac 1 {@"""" + tempPath + @""""}");
                             while (SCDGenerator.IsFileLocked(tempPath)) { };
                             InjectSCDFilesOgg(Path.Combine(Application.StartupPath, @"res\scd\orchestrion.scd"), outputSelection.FilePath.Text,
                             new List<string>() { tempPath }, int.Parse(loopStartTextBox.Text), int.Parse(loopEndTextBox.Text));
-                            File.Delete(tempPath);
+                            if (!isAlreadyAnOgg) {
+                                File.Delete(tempPath);
+                            }
                         }
                         break;
                 }

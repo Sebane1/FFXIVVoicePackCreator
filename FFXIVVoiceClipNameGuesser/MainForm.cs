@@ -630,7 +630,7 @@ namespace FFXIVVoicePackCreator {
                     foreach (string value in battleVoicesToReplace) {
                         string path = Path.Combine(Application.StartupPath, @"res\scd\" + value + ".scd");
                         if (!alreadyProcessed.Contains(value)) {
-                            // If we're hortgar or Viera
+                            // If we're hrothgar or Viera
                             if (value.Contains("ros") || value.Contains("vie") || oldExportMode.Checked) {
                                 // Special sorting for only one hrothgar file, because this file is dumb.
                                 if (value.Contains("vo_battle_pc_ros_ma_ja") && !oldExportMode.Checked) {
@@ -643,6 +643,18 @@ namespace FFXIVVoicePackCreator {
                                     list[12],list[14],
                                     // Extra
                                     list[15], list[13]
+                                };
+                                    InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
+                                }
+                                // Female viera voice 9 joins the list of voices I dont like. 
+                                else if (value.Contains("vo_battle_pc_vie_fc_de") && !oldExportMode.Checked) {
+                                    List<string> battleSounds = new List<string>() {
+                                    // Attack
+                                    list[0],list[1], list[2], list[3],list[4], list[5], list[6], list[14], list[15],
+                                    // Hurt
+                                    list[7],list[8], list[9],list[10], list[11],
+                                    // Death
+                                    list[12],list[13]
                                 };
                                     InjectSCDFiles(path, exportFilePathBattle, value, battleSounds);
                                 } else {
@@ -681,7 +693,7 @@ namespace FFXIVVoicePackCreator {
                                     list[14], list[15]
                                     };
                                 }
-                                // This Au Ra voice is special and unique
+                                // This Au Ra voice is special and unique too!
                                 if (value.Contains("vo_battle_pc_aur_fc_de")) {
                                     // Au Ra sorting
                                     battleSounds = new List<string>() {
