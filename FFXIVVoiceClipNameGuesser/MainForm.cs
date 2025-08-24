@@ -500,7 +500,8 @@ namespace FFXIVVoicePackCreator {
                     process.StartInfo.Arguments = $"-i {@"""" + inputPath
                     + @""""} -acodec mp3 -ac 1 {@"""" + tempPath + @""""}";
                     process.Start();
-                    while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }; ;
+                    while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }
+                    ; ;
                 } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
                     MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
                 }
@@ -520,7 +521,8 @@ namespace FFXIVVoicePackCreator {
                     process.StartInfo.Arguments = $"-i {@"""" + inputPath
                     + @""""} -acodec mp3 -ac 1 {@"""" + tempPath + @""""}";
                     process.Start();
-                    while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }; ;
+                    while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }
+                    ; ;
                 } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
                     MessageBox.Show(@"Please check that file path in """ + value.Name + @""" is valid! Skipping.");
                 }
@@ -543,7 +545,8 @@ namespace FFXIVVoicePackCreator {
                         process.StartInfo.Arguments = $"-i {@"""" + inputPath
                         + @""""} -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 {@"""" + tempPath + @""""}";
                         process.Start();
-                        while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); };
+                        while (SCDGenerator.IsFileLocked(tempPath)) { Thread.Sleep(50); }
+                        ;
                         InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name, new List<string>() { tempPath });
                         File.Delete(tempPath);
                     } else if (!string.IsNullOrWhiteSpace(value.FilePath.Text) && !value.UseGameFileCheckBox.Checked) {
@@ -570,7 +573,8 @@ namespace FFXIVVoicePackCreator {
                                 process.StartInfo.Arguments = $"-f lavfi -i aevalsrc=0:d={timeCode.ToString().Replace(",", ".")} -i "
                                     + @"""" + inputPath + @"""" + @" -filter_complex ""[0:0] [1:0] concat=n=2:v=0:a=1"" -f wav -acodec adpcm_ms -block_size 256 -ar: 44100 -ac 1 " + @"""" + tempPath + @""""; ;
                                 process.Start();
-                                while (SCDGenerator.IsFileLocked(tempPath)) { };
+                                while (SCDGenerator.IsFileLocked(tempPath)) { }
+                                ;
                                 InjectSCDFiles(Path.Combine(Application.StartupPath, @"res\scd\emote.scd"), exportFilePathEmote, value.Name + "_" + timeCodeData.Descriptor, new List<string>() { tempPath });
                                 File.Delete(tempPath);
                             }
@@ -614,7 +618,8 @@ namespace FFXIVVoicePackCreator {
                         process.OutputDataReceived += delegate { };
                         process.ErrorDataReceived += delegate { };
                         process.Start();
-                        while (SCDGenerator.IsFileLocked(tempPath)) { };
+                        while (SCDGenerator.IsFileLocked(tempPath)) { }
+                        ;
                         list.Add(tempPath);
                     } else {
                         list.Add(null);
@@ -1647,6 +1652,11 @@ namespace FFXIVVoicePackCreator {
             if (dialogue.ShowDialog() == DialogResult.OK) {
                 RoleplayingVoiceExport(dialogue.SelectedPath);
             }
+        }
+
+        private void bulkAudioToSCDToolStripMenuItem_Click(object sender, EventArgs e) {
+            BulkSCDCreator bulkSCDCreator = new BulkSCDCreator();
+            bulkSCDCreator.Show();
         }
     }
 }

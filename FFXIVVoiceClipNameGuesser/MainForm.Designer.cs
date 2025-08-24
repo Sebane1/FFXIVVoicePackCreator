@@ -115,6 +115,7 @@ namespace FFXIVVoicePackCreator {
             testBattleSoundButton = new Button();
             donateButton = new Button();
             discordButton = new Button();
+            bulkAudioToSCDToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tabManager.SuspendLayout();
             voiceExportTab.SuspendLayout();
@@ -171,7 +172,7 @@ namespace FFXIVVoicePackCreator {
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sCDWavMergerToolStripMenuItem, sCDEditorToolStripMenuItem, bulkSCDAudioExtractorToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sCDWavMergerToolStripMenuItem, sCDEditorToolStripMenuItem, bulkSCDAudioExtractorToolStripMenuItem, bulkAudioToSCDToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             toolsToolStripMenuItem.Text = "Tools";
@@ -1301,6 +1302,13 @@ namespace FFXIVVoicePackCreator {
             discordButton.UseVisualStyleBackColor = false;
             discordButton.Click += discordButton_Click;
             // 
+            // bulkAudioToSCDToolStripMenuItem
+            // 
+            bulkAudioToSCDToolStripMenuItem.Name = "bulkAudioToSCDToolStripMenuItem";
+            bulkAudioToSCDToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            bulkAudioToSCDToolStripMenuItem.Text = "Bulk Audio To SCD";
+            bulkAudioToSCDToolStripMenuItem.Click += bulkAudioToSCDToolStripMenuItem_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1444,6 +1452,7 @@ namespace FFXIVVoicePackCreator {
         private Button donateButton;
         private Button discordButton;
         private Label testingLabel;
+        private ToolStripMenuItem bulkAudioToSCDToolStripMenuItem;
 
         public CheckBox AutoSyncCheckbox { get => autoSyncCheckbox; set => autoSyncCheckbox = value; }
     }
